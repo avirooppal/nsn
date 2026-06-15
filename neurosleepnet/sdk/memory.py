@@ -31,3 +31,9 @@ class Memory:
             trust_score=record.trust_score
         )
         return record.id
+
+    def get(self, memory_id: str):
+        record_dict = self.storage.get(memory_id)
+        if record_dict:
+            return MemoryRecord.from_dict(record_dict)
+        return None
