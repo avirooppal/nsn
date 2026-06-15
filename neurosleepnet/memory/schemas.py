@@ -14,6 +14,7 @@ class MemoryRecord:
     created_at: str = None
     metadata: Dict[str, Any] = field(default_factory=dict)
     importance: float = 0.0
+    trust_score: float = 0.5
 
     def __post_init__(self):
         if self.id is None:
