@@ -33,8 +33,22 @@ class SQLiteAdapter(StorageAdapter):
         conn.commit()
         conn.close()
 
-    def get(self, *args, **kwargs):
-        pass
+    def get(self, memory_id: str):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT id, content, created_at FROM memories WHERE id = ?
+        ''', (memory_id,))
+        row = cursor.fetchone()
+        conn.close()
+        
+        if row:
+            return {
+                "id": row[0],
+                "content": row[1],
+                "created_at": row[2]
+            }
+        return None
 
     def delete(self, *args, **kwargs):
         pass
