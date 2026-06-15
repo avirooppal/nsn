@@ -59,5 +59,20 @@ class SQLiteAdapter(StorageAdapter):
         conn.commit()
         conn.close()
 
-    def list(self, *args, **kwargs):
-        pass
+    def list(self):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT id, content, created_at FROM memories
+        ''')
+        rows = cursor.fetchall()
+        conn.close()
+        
+        records = []
+        for row in rows:
+            records.append({
+                "id": row[0],
+                "content": row[1],
+                "created_at": row[2]
+            })
+        return records
