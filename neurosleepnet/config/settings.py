@@ -7,6 +7,7 @@ class Settings:
     """
     def __init__(self):
         self._load_defaults()
+        self._load_env()
 
     def _load_defaults(self):
         current_dir = os.path.dirname(__file__)
@@ -18,4 +19,10 @@ class Settings:
         self.backend = config.get("backend", "sqlite")
         self.vector_store = config.get("vector_store", "local")
         self.cache = config.get("cache", "memory")
+
+    def _load_env(self):
+        self.backend = os.getenv("NSN_BACKEND", self.backend)
+        self.vector_store = os.getenv("NSN_VECTOR_STORE", self.vector_store)
+        self.cache = os.getenv("NSN_CACHE", self.cache)
+
 
