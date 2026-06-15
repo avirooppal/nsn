@@ -13,6 +13,7 @@ class MemoryRecord:
     id: str = None
     created_at: str = None
     metadata: Dict[str, Any] = field(default_factory=dict)
+    importance: float = 0.0
 
     def __post_init__(self):
         if self.id is None:
