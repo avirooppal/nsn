@@ -50,8 +50,14 @@ class SQLiteAdapter(StorageAdapter):
             }
         return None
 
-    def delete(self, *args, **kwargs):
-        pass
+    def delete(self, memory_id: str):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute('''
+            DELETE FROM memories WHERE id = ?
+        ''', (memory_id,))
+        conn.commit()
+        conn.close()
 
     def list(self, *args, **kwargs):
         pass
