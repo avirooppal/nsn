@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: neurosleepnet
+Version: 0.1.0
+Summary: Cognitive Memory Operating System for SLMs & AI Agents
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+
+# NeuroSleepNet
+
+Cognitive Memory Operating System for Small Language Models (SLMs) and AI Agents.
