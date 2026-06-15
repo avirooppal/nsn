@@ -1,0 +1,3 @@
+backend: sqlite
+vector_store: local
+cache: memory
