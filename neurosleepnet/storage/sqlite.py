@@ -10,8 +10,17 @@ class SQLiteAdapter(StorageAdapter):
         self._initialize_db()
 
     def _initialize_db(self):
-        # Create database file
+        # Create database file and tables
         conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS memories (
+                id TEXT PRIMARY KEY,
+                content TEXT NOT NULL,
+                created_at TEXT NOT NULL
+            )
+        ''')
+        conn.commit()
         conn.close()
 
     def store(self, *args, **kwargs):
