@@ -1,7 +1,8 @@
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, field
 import json
 from datetime import datetime
 import uuid
+from typing import Dict, Any
 
 @dataclass
 class MemoryRecord:
@@ -11,6 +12,7 @@ class MemoryRecord:
     content: str
     id: str = None
     created_at: str = None
+    metadata: Dict[str, Any] = field(default_factory=dict)
 
     def __post_init__(self):
         if self.id is None:

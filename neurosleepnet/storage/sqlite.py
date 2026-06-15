@@ -1,4 +1,5 @@
 import sqlite3
+import json
 from .base import StorageAdapter
 
 class SQLiteAdapter(StorageAdapter):
@@ -17,19 +18,24 @@ class SQLiteAdapter(StorageAdapter):
             CREATE TABLE IF NOT EXISTS memories (
                 id TEXT PRIMARY KEY,
                 content TEXT NOT NULL,
-                created_at TEXT NOT NULL
+                created_at TEXT NOT NULL,
+                metadata TEXT
             )
         ''')
+        try:
+            cursor.execute('ALTER TABLE memories ADD COLUMN metadata TEXT')
+        except sqlite3.OperationalError:
+            pass
         conn.commit()
         conn.close()
 
-    def store(self, memory_id: str, content: str, created_at: str):
+    def store(self, memory_id: str, content: str, created_at: str, metadata: str = "{}"):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute('''
-            INSERT INTO memories (id, content, created_at)
-            VALUES (?, ?, ?)
-        ''', (memory_id, content, created_at))
+            INSERT INTO memories (id, content, created_at, metadata)
+            VALUES (?, ?, ?, ?)
+        ''', (memory_id, content, created_at, metadata))
         conn.commit()
         conn.close()
 
@@ -37,7 +43,7 @@ class SQLiteAdapter(StorageAdapter):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute('''
-            SELECT id, content, created_at FROM memories WHERE id = ?
+            SELECT id, content, created_at, metadata FROM memories WHERE id = ?
         ''', (memory_id,))
         row = cursor.fetchone()
         conn.close()
@@ -46,7 +52,8 @@ class SQLiteAdapter(StorageAdapter):
             return {
                 "id": row[0],
                 "content": row[1],
-                "created_at": row[2]
+                "created_at": row[2],
+                "metadata": json.loads(row[3]) if row[3] else {}
             }
         return None
 
@@ -63,7 +70,7 @@ class SQLiteAdapter(StorageAdapter):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute('''
-            SELECT id, content, created_at FROM memories
+            SELECT id, content, created_at, metadata FROM memories
         ''')
         rows = cursor.fetchall()
         conn.close()
@@ -73,6 +80,7 @@ class SQLiteAdapter(StorageAdapter):
             records.append({
                 "id": row[0],
                 "content": row[1],
-                "created_at": row[2]
+                "created_at": row[2],
+                "metadata": json.loads(row[3]) if row[3] else {}
             })
         return records
