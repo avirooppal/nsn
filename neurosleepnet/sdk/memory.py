@@ -37,3 +37,9 @@ class Memory:
         if record_dict:
             return MemoryRecord.from_dict(record_dict)
         return None
+
+    def list(self):
+        records = []
+        for record_dict in self.storage.list():
+            records.append(MemoryRecord.from_dict(record_dict))
+        return records
