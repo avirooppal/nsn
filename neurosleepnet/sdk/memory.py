@@ -1,6 +1,7 @@
 from neurosleepnet.config.settings import Settings
 from neurosleepnet.storage.sqlite import SQLiteAdapter
 from neurosleepnet.memory.schemas import MemoryRecord
+from neurosleepnet.embeddings.local import LocalEmbeddingProvider
 import json
 
 class Memory:
@@ -13,13 +14,18 @@ class Memory:
             self.storage = SQLiteAdapter()
         else:
             raise NotImplementedError(f"Backend {self.settings.backend} not implemented")
+            
+        self.embedder = LocalEmbeddingProvider()
 
     def store(self, content: str, metadata: dict = None, importance: float = 0.0, trust_score: float = 0.5):
+        embedding = self.embedder.embed(content)
+        
         record = MemoryRecord(
             content=content, 
             metadata=metadata or {}, 
             importance=importance, 
-            trust_score=trust_score
+            trust_score=trust_score,
+            embedding=embedding
         )
         
         self.storage.store(
@@ -28,7 +34,8 @@ class Memory:
             created_at=record.created_at,
             metadata=json.dumps(record.metadata),
             importance=record.importance,
-            trust_score=record.trust_score
+            trust_score=record.trust_score,
+            embedding=json.dumps(record.embedding)
         )
         return record.id
 
