@@ -21,7 +21,8 @@ class SQLiteAdapter(StorageAdapter):
                 created_at TEXT NOT NULL,
                 metadata TEXT,
                 importance REAL DEFAULT 0.0,
-                trust_score REAL DEFAULT 0.5
+                trust_score REAL DEFAULT 0.5,
+                embedding TEXT
             )
         ''')
         try:
@@ -36,16 +37,20 @@ class SQLiteAdapter(StorageAdapter):
             cursor.execute('ALTER TABLE memories ADD COLUMN trust_score REAL DEFAULT 0.5')
         except sqlite3.OperationalError:
             pass
+        try:
+            cursor.execute('ALTER TABLE memories ADD COLUMN embedding TEXT')
+        except sqlite3.OperationalError:
+            pass
         conn.commit()
         conn.close()
 
-    def store(self, memory_id: str, content: str, created_at: str, metadata: str = "{}", importance: float = 0.0, trust_score: float = 0.5):
+    def store(self, memory_id: str, content: str, created_at: str, metadata: str = "{}", importance: float = 0.0, trust_score: float = 0.5, embedding: str = "[]"):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute('''
-            INSERT INTO memories (id, content, created_at, metadata, importance, trust_score)
-            VALUES (?, ?, ?, ?, ?, ?)
-        ''', (memory_id, content, created_at, metadata, importance, trust_score))
+            INSERT INTO memories (id, content, created_at, metadata, importance, trust_score, embedding)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        ''', (memory_id, content, created_at, metadata, importance, trust_score, embedding))
         conn.commit()
         conn.close()
 
@@ -53,7 +58,7 @@ class SQLiteAdapter(StorageAdapter):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute('''
-            SELECT id, content, created_at, metadata, importance, trust_score FROM memories WHERE id = ?
+            SELECT id, content, created_at, metadata, importance, trust_score, embedding FROM memories WHERE id = ?
         ''', (memory_id,))
         row = cursor.fetchone()
         conn.close()
@@ -65,7 +70,8 @@ class SQLiteAdapter(StorageAdapter):
                 "created_at": row[2],
                 "metadata": json.loads(row[3]) if row[3] else {},
                 "importance": row[4],
-                "trust_score": row[5]
+                "trust_score": row[5],
+                "embedding": json.loads(row[6]) if row[6] else []
             }
         return None
 
@@ -82,7 +88,7 @@ class SQLiteAdapter(StorageAdapter):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute('''
-            SELECT id, content, created_at, metadata, importance, trust_score FROM memories
+            SELECT id, content, created_at, metadata, importance, trust_score, embedding FROM memories
         ''')
         rows = cursor.fetchall()
         conn.close()
@@ -95,6 +101,7 @@ class SQLiteAdapter(StorageAdapter):
                 "created_at": row[2],
                 "metadata": json.loads(row[3]) if row[3] else {},
                 "importance": row[4],
-                "trust_score": row[5]
+                "trust_score": row[5],
+                "embedding": json.loads(row[6]) if row[6] else []
             })
         return records

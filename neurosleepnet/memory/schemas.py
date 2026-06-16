@@ -2,7 +2,7 @@ from dataclasses import dataclass, asdict, field
 import json
 from datetime import datetime
 import uuid
-from typing import Dict, Any
+from typing import Dict, Any, List
 
 @dataclass
 class MemoryRecord:
@@ -15,6 +15,7 @@ class MemoryRecord:
     metadata: Dict[str, Any] = field(default_factory=dict)
     importance: float = 0.0
     trust_score: float = 0.5
+    embedding: List[float] = field(default_factory=list)
 
     def __post_init__(self):
         if self.id is None:
