@@ -5,6 +5,7 @@ Summary: Cognitive Memory Operating System for SLMs & AI Agents
 Requires-Python: >=3.9
 Description-Content-Type: text/markdown
 Requires-Dist: pyyaml>=6.0
+Requires-Dist: sentence-transformers>=2.2.0
 Provides-Extra: dev
 Requires-Dist: pytest; extra == "dev"
 

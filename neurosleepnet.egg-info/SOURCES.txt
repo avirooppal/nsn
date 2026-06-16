@@ -8,5 +8,13 @@ neurosleepnet.egg-info/requires.txt
 neurosleepnet.egg-info/top_level.txt
 neurosleepnet/config/__init__.py
 neurosleepnet/config/settings.py
+neurosleepnet/embeddings/__init__.py
+neurosleepnet/embeddings/base.py
+neurosleepnet/embeddings/local.py
+neurosleepnet/memory/__init__.py
+neurosleepnet/memory/schemas.py
 neurosleepnet/sdk/__init__.py
 neurosleepnet/sdk/memory.py
+neurosleepnet/storage/__init__.py
+neurosleepnet/storage/base.py
+neurosleepnet/storage/sqlite.py
