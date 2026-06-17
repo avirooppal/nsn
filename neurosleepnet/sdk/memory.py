@@ -75,3 +75,35 @@ class Memory:
         """
         results = self.storage.search_keyword(query, limit=limit)
         return results
+
+    def search_hybrid(self, query: str, limit: int = 5):
+        """
+        Combined keyword and semantic search using Reciprocal Rank Fusion (RRF).
+        """
+        semantic_results = self.search(query, limit=limit*2)
+        keyword_results = self.search_keyword(query, limit=limit*2)
+        
+        rrf_scores = {}
+        k = 60
+        all_records = {}
+        
+        for rank, res in enumerate(semantic_results):
+            id_ = res['id']
+            all_records[id_] = res
+            rrf_scores[id_] = rrf_scores.get(id_, 0.0) + 1.0 / (k + rank + 1)
+            
+        for rank, res in enumerate(keyword_results):
+            id_ = res['id']
+            if id_ not in all_records:
+                all_records[id_] = res
+            rrf_scores[id_] = rrf_scores.get(id_, 0.0) + 1.0 / (k + rank + 1)
+            
+        sorted_ids = sorted(rrf_scores.keys(), key=lambda x: rrf_scores[x], reverse=True)
+        
+        final_results = []
+        for id_ in sorted_ids[:limit]:
+            record = all_records[id_]
+            record['hybrid_score'] = rrf_scores[id_]
+            final_results.append(record)
+            
+        return final_results
