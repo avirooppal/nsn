@@ -62,6 +62,56 @@ class SleepEngine:
         logger.info(f"NREM Complete: Aggregated {len(episodic_mems)} episodic memories.")
         return semantic_id
 
+    def rem_consolidation(self):
+        """
+        Phase 2: REM Consolidation
+        Resolves contradictions and prunes conflicting data.
+        """
+        logger.info("Starting REM consolidation phase...")
+        all_memories = self.memory.storage.list()
+        
+        negation_words = {'not', 'never', 'false', 'no', 'cannot', "don't", "doesn't", "isn't", 'dislike', 'hate'}
+        
+        to_delete = []
+        for i in range(len(all_memories)):
+            if all_memories[i]['id'] in to_delete: continue
+            
+            for j in range(i + 1, len(all_memories)):
+                if all_memories[j]['id'] in to_delete: continue
+                
+                m1 = all_memories[i]
+                m2 = all_memories[j]
+                
+                w1 = set(m1['content'].lower().split())
+                w2 = set(m2['content'].lower().split())
+                
+                c1 = w1 - negation_words
+                c2 = w2 - negation_words
+                
+                if len(c1) == 0 or len(c2) == 0:
+                    continue
+                    
+                overlap = len(c1.intersection(c2))
+                if overlap / max(len(c1), len(c2)) > 0.6:
+                    has_neg_1 = any(w in w1 for w in negation_words)
+                    has_neg_2 = any(w in w2 for w in negation_words)
+                    
+                    if has_neg_1 != has_neg_2:
+                        logger.warning(f"Contradiction detected between {m1['id']} and {m2['id']}")
+                        t1 = m1.get('trust_score', 0.5)
+                        t2 = m2.get('trust_score', 0.5)
+                        if t1 >= t2:
+                            to_delete.append(m2['id'])
+                        else:
+                            to_delete.append(m1['id'])
+                            
+        for mem_id in to_delete:
+            self.memory.storage.delete(mem_id)
+            logger.info(f"REM Pruning: Deleted contradicted memory {mem_id}")
+            
+        logger.info(f"REM Complete: Resolved {len(to_delete)} contradictions.")
+        return len(to_delete)
+
     def trigger(self):
         """
         Initiates the sleep cycle.
@@ -75,6 +125,7 @@ class SleepEngine:
         
         # Sleep phases
         self.nrem_consolidation()
+        self.rem_consolidation()
         
         # Simulate waking up
         self.is_sleeping = False
