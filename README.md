@@ -1,3 +1,83 @@
 # NeuroSleepNet
 
-Cognitive Memory Operating System for Small Language Models (SLMs) and AI Agents.
+**NeuroSleepNet** is a Cognitive Memory Operating System designed specifically for Small Language Models (SLMs) and Autonomous AI Agents. It provides long-term memory, knowledge formation, context compression, and offline memory consolidation—all running **100% locally** with zero cloud dependencies.
+
+## 🌟 Key Features
+
+* **Local-First Architecture:** Built on top of SQLite and local HuggingFace sentence-transformers (`all-MiniLM-L6-v2`), ensuring complete data privacy and offline capability.
+* **Biomimetic Perception Layer:** Filters raw input streams just like the human brain. It detects duplicates, scores importance, and classifies incoming streams into Episodic, Semantic, and Procedural memories.
+* **Trust & Verification Engine:** Evaluates new information against existing memory using source validity, recency, and logical consistency checks.
+* **Knowledge Graph Formation:** Automatically extracts entities and relationships from unstructured text to build a deeply connected semantic graph of concepts, seamlessly linking back to the raw episodic memory.
+* **Hybrid Retrieval (RRF):** Combines traditional keyword search with dense semantic vector search, fused using Reciprocal Rank Fusion (RRF) for the highest retrieval accuracy.
+* **Offline Memory Consolidation (Sleep Engine):** Simulates the human sleep cycle (NREM/REM) to prune obsolete data, compress redundant contexts, and generate high-level reasoning abstractions.
+
+## 🛠️ Architecture
+
+### 1. Perception
+Filters out the noise.
+- **Duplicate Detector:** Prevents identical or near-identical (>= 95% semantic similarity) observations from cluttering memory.
+- **Importance Scorer:** Evaluates input significance using heuristic keyword analysis.
+- **Memory Classifier:** Categorizes data into `EPISODIC`, `SEMANTIC`, or `PROCEDURAL` types.
+
+### 2. Trust Engine
+Maintains data integrity and reliability over time.
+- **Source Scorer:** Evaluates the reliability of the agent or sensor providing the data.
+- **Recency Scorer:** Prioritizes fresh, timely data over stale information.
+- **Consistency Scorer:** Detects conflicts and contradictions with previously established facts in the Knowledge Graph.
+
+### 3. Knowledge Graph
+Transforms flat memory logs into an interconnected web of knowledge.
+- **Entity Extractor:** Identifies and isolates key actors, objects, and concepts.
+- **Relationship Extractor:** Detects dynamic relationships between entities.
+- **GraphBuilder:** Coordinates the bidirectional linking between raw memories in SQLite and graph relationships.
+
+### 4. Sleep Engine
+*In active development.*
+Manages offline consolidation cycles where raw episodic logs are abstracted into semantic knowledge, and contradictions are resolved while the agent is "asleep".
+
+## 🚀 Getting Started
+
+### Prerequisites
+* Python 3.9+
+* `sentence-transformers`
+* `numpy`
+
+### Installation
+
+```bash
+git clone https://github.com/avirooppal/nsn.git
+cd nsn
+# Install your dependencies
+pip install sentence-transformers numpy
+```
+
+### Quick Usage
+
+```python
+from neurosleepnet import Memory
+
+# Initialize the memory system (creates local SQLite DB)
+memory = Memory()
+
+# Observe an event
+memory.observe(
+    content="Alice built Neurosleepnet.",
+    metadata={"source": "system_log"}
+)
+
+# Retrieve memory using Hybrid Search
+results = memory.search_hybrid("Who built neurosleepnet?", limit=5)
+print(results)
+
+# Initiate offline consolidation
+memory.trigger_sleep() # Soon to be integrated!
+```
+
+## 🧪 Testing
+NeuroSleepNet is built with Test-Driven Development (TDD). To run the test suite locally:
+```bash
+python -m unittest discover tests/
+```
+
+## 📜 License
+MIT
