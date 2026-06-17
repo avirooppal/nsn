@@ -141,7 +141,7 @@ class SQLiteAdapter(StorageAdapter):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute('''
-            INSERT INTO memories (id, content, created_at, metadata, importance, trust_score, embedding)
+            INSERT OR REPLACE INTO memories (id, content, created_at, metadata, importance, trust_score, embedding)
             VALUES (?, ?, ?, ?, ?, ?, ?)
         ''', (memory_id, content, created_at, metadata, importance, trust_score, embedding))
         conn.commit()
