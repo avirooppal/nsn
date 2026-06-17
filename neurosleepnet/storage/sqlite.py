@@ -97,6 +97,46 @@ class SQLiteAdapter(StorageAdapter):
             return {"id": row[0], "label": row[1], "name": row[2], "properties": json.loads(row[3]) if row[3] else {}, "created_at": row[4]}
         return None
 
+    def query_graph(self, node_name: str):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        cursor.execute('SELECT id, label, properties FROM graph_nodes WHERE name = ?', (node_name,))
+        node_row = cursor.fetchone()
+        
+        if not node_row:
+            conn.close()
+            return None
+            
+        node_id = node_row[0]
+        result = {
+            "node": {"id": node_id, "name": node_name, "label": node_row[1], "properties": json.loads(node_row[2]) if node_row[2] else {}},
+            "edges": []
+        }
+        
+        cursor.execute('''
+            SELECT e.relation, e.properties, n.id, n.name, n.label, n.properties 
+            FROM graph_edges e
+            JOIN graph_nodes n ON e.target_id = n.id
+            WHERE e.source_id = ?
+        ''', (node_id,))
+        
+        edge_rows = cursor.fetchall()
+        for row in edge_rows:
+            result["edges"].append({
+                "relation": row[0],
+                "edge_properties": json.loads(row[1]) if row[1] else {},
+                "target": {
+                    "id": row[2],
+                    "name": row[3],
+                    "label": row[4],
+                    "properties": json.loads(row[5]) if row[5] else {}
+                }
+            })
+            
+        conn.close()
+        return result
+
     def store(self, memory_id: str, content: str, created_at: str, metadata: str = "{}", importance: float = 0.0, trust_score: float = 0.5, embedding: str = "[]"):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
