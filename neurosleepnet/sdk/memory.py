@@ -68,3 +68,10 @@ class Memory:
         query_embedding = self.embedder.embed(query)
         results = self.vector_store.search(query_embedding, limit=limit)
         return results
+
+    def search_keyword(self, query: str, limit: int = 5):
+        """
+        Keyword search memories.
+        """
+        results = self.storage.search_keyword(query, limit=limit)
+        return results

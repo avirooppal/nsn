@@ -105,3 +105,30 @@ class SQLiteAdapter(StorageAdapter):
                 "embedding": json.loads(row[6]) if row[6] else []
             })
         return records
+
+    def search_keyword(self, query: str, limit: int = 5):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        search_pattern = f"%{query}%"
+        cursor.execute('''
+            SELECT id, content, created_at, metadata, importance, trust_score, embedding 
+            FROM memories 
+            WHERE content LIKE ? 
+            LIMIT ?
+        ''', (search_pattern, limit))
+        rows = cursor.fetchall()
+        conn.close()
+        
+        records = []
+        for row in rows:
+            records.append({
+                "id": row[0],
+                "content": row[1],
+                "created_at": row[2],
+                "metadata": json.loads(row[3]) if row[3] else {},
+                "importance": row[4],
+                "trust_score": row[5],
+                "embedding": json.loads(row[6]) if row[6] else [],
+                "score": 1.0
+            })
+        return records

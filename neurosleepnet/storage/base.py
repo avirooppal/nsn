@@ -20,3 +20,7 @@ class StorageAdapter(ABC):
     @abstractmethod
     def list(self, *args, **kwargs):
         pass
+
+    @abstractmethod
+    def search_keyword(self, *args, **kwargs):
+        pass
