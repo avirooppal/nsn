@@ -2,6 +2,7 @@ from neurosleepnet.config.settings import Settings
 from neurosleepnet.storage.sqlite import SQLiteAdapter
 from neurosleepnet.memory.schemas import MemoryRecord
 from neurosleepnet.embeddings.local import LocalEmbeddingProvider
+from neurosleepnet.storage.local_vector import LocalVectorStore
 import json
 
 class Memory:
@@ -10,12 +11,21 @@ class Memory:
     """
     def __init__(self):
         self.settings = Settings()
+        
+        # Storage
         if self.settings.backend == "sqlite":
             self.storage = SQLiteAdapter()
         else:
             raise NotImplementedError(f"Backend {self.settings.backend} not implemented")
             
+        # Embedding
         self.embedder = LocalEmbeddingProvider()
+        
+        # Vector Store
+        if getattr(self.settings, 'vector_store', 'local') == "local":
+            self.vector_store = LocalVectorStore(self.storage)
+        else:
+            self.vector_store = LocalVectorStore(self.storage)
 
     def store(self, content: str, metadata: dict = None, importance: float = 0.0, trust_score: float = 0.5):
         embedding = self.embedder.embed(content)
@@ -50,3 +60,11 @@ class Memory:
         for record_dict in self.storage.list():
             records.append(MemoryRecord.from_dict(record_dict))
         return records
+
+    def search(self, query: str, limit: int = 5):
+        """
+        Semantically search memories.
+        """
+        query_embedding = self.embedder.embed(query)
+        results = self.vector_store.search(query_embedding, limit=limit)
+        return results
