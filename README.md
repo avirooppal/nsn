@@ -3,7 +3,7 @@
 
 NeuroSleepNet is a Cognitive Memory Operating System for SLMs and AI agents. It provides long-term memory, knowledge formation, context compression, and offline memory consolidation—all running **100% locally** with zero cloud dependencies.
 
-## 🌟 Key Features
+## Key Features
 
 * **Local-First Architecture:** Built on top of SQLite and local HuggingFace sentence-transformers (`all-MiniLM-L6-v2`), ensuring complete data privacy and offline capability.
 * **Biomimetic Perception Layer:** Filters raw input streams just like the human brain. It detects duplicates, scores importance, and classifies incoming streams into Episodic, Semantic, and Procedural memories.
@@ -12,7 +12,7 @@ NeuroSleepNet is a Cognitive Memory Operating System for SLMs and AI agents. It 
 * **Hybrid Retrieval (RRF):** Combines traditional keyword search with dense semantic vector search, fused using Reciprocal Rank Fusion (RRF) for the highest retrieval accuracy.
 * **Offline Memory Consolidation (Sleep Engine):** Simulates the human sleep cycle (NREM/REM) to prune obsolete data, compress redundant contexts, and generate high-level reasoning abstractions.
 
-## 🛠️ Architecture
+## Architecture
 
 ### 1. Perception
 Filters out the noise.
@@ -33,8 +33,7 @@ Transforms flat memory logs into an interconnected web of knowledge.
 - **GraphBuilder:** Coordinates the bidirectional linking between raw memories in SQLite and graph relationships.
 
 ### 4. Sleep Engine
-*In active development.*
-Manages offline consolidation cycles where raw episodic logs are abstracted into semantic knowledge, and contradictions are resolved while the agent is "asleep".
+Manages offline consolidation cycles where raw episodic logs are abstracted into semantic knowledge, and contradictions are resolved while the agent is asleep.
 
 ### Advanced Capabilities (v0.2.0)
 
@@ -44,7 +43,7 @@ Manages offline consolidation cycles where raw episodic logs are abstracted into
 - **NREM Synthesis**: Automatically compresses and synthesizes overlapping episodic logs into permanent semantic knowledge using `ContextCompressor`.
 - **Async API**: Non-blocking `AsyncMemory` wrapper designed seamlessly for LangChain, AutoGen, and CrewAI async paradigms.
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 * Python 3.9+
@@ -56,8 +55,8 @@ Manages offline consolidation cycles where raw episodic logs are abstracted into
 ```bash
 git clone https://github.com/avirooppal/nsn.git
 cd nsn
-# Install your dependencies
-pip install sentence-transformers numpy
+pip install -e .
+python -m spacy download en_core_web_sm
 ```
 
 ## Quickstart Usage
@@ -79,14 +78,14 @@ results = memory.search_hybrid("Who built neurosleepnet?", limit=5)
 print(results)
 
 # Initiate offline consolidation
-memory.trigger_sleep() # Soon to be integrated!
+memory.trigger_sleep()
 ```
 
-## 🧪 Testing
+## Testing
 NeuroSleepNet is built with Test-Driven Development (TDD). To run the test suite locally:
 ```bash
 python -m unittest discover tests/
 ```
 
-## 📜 License
+## License
 MIT
