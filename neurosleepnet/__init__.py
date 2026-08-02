@@ -1,8 +1,5 @@
-"""
-NeuroSleepNet - Cognitive Memory Operating System for SLMs & AI Agents.
-"""
-
 from .sdk.memory import Memory
+from .sdk.async_memory import AsyncMemory
 
-__version__ = "0.1.0"
-__all__ = ["Memory"]
+__version__ = "0.2.0"
+__all__ = ["Memory", "AsyncMemory"]

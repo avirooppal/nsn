@@ -7,37 +7,38 @@ class ReasoningPackGenerator:
     A reasoning pack provides an SLM with highly condensed context and 
     explicit logical rules extracted from the Knowledge Graph.
     """
-    def __init__(self, storage, compressor=None):
+    def __init__(self, storage, memory=None, compressor=None):
         self.storage = storage
+        self.memory = memory
         self.compressor = compressor or ContextCompressor(max_tokens=200)
 
     def generate_pack(self, topic: str) -> str:
         """
-        Generates a reasoning pack around a specific topic.
+        Generates a JSON reasoning pack for SLMs.
         """
-        # 1. Retrieve memories relevant to the topic
-        memories = self.storage.search_keyword(topic, limit=10)
+        if self.memory is not None:
+            results = self.memory.search_hybrid(topic, limit=10)
+        else:
+            results = self.storage.search_keyword(topic, limit=10)
+            
+        key_facts = [r for r in results if float(r.get('importance', 0)) >= 0.7][:3]
         
-        # 2. Compress the episodic/semantic context
-        context = self.compressor.compress(memories, query=topic)
-        
-        # 3. Extract logical rules from the Knowledge Graph
-        graph_data = self.storage.query_graph(topic)
-        
+        pack = {
+            "topic": topic,
+            "context": [r['content'] for r in results],
+            "key_facts": [r['content'] for r in key_facts],
+            "logical_rules": self._extract_rules([r['content'] for r in results]),
+            "system_prompt": "You are a reasoning engine with access to long-term memory. Use the provided context, key facts, and logical rules to answer precisely. Prefer information from key_facts when answering direct questions."
+        }
+        return json.dumps(pack)
+
+    def _extract_rules(self, context_data):
         logical_rules = []
+        graph_data = self.storage.query_graph(None)
         if graph_data and "edges" in graph_data:
             node_name = graph_data['node']['name']
             for edge in graph_data["edges"]:
                 relation = edge['relation']
                 target_name = edge['target']['name']
                 logical_rules.append(f"({node_name}) -[{relation}]-> ({target_name})")
-
-        # 4. Assemble the Reasoning Pack payload
-        pack = {
-            "topic": topic,
-            "context": context,
-            "logical_rules": logical_rules,
-            "system_prompt": "You are a reasoning engine. Utilize the provided context and logical rules to answer the user's queries precisely."
-        }
-        
-        return json.dumps(pack, indent=2)
+        return logical_rules

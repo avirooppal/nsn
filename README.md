@@ -1,6 +1,7 @@
 # NeuroSleepNet
+**Version:** 0.2.0
 
-**NeuroSleepNet** is a Cognitive Memory Operating System designed specifically for Small Language Models (SLMs) and Autonomous AI Agents. It provides long-term memory, knowledge formation, context compression, and offline memory consolidation—all running **100% locally** with zero cloud dependencies.
+NeuroSleepNet is a Cognitive Memory Operating System for SLMs and AI agents. It provides long-term memory, knowledge formation, context compression, and offline memory consolidation—all running **100% locally** with zero cloud dependencies.
 
 ## 🌟 Key Features
 
@@ -35,6 +36,14 @@ Transforms flat memory logs into an interconnected web of knowledge.
 *In active development.*
 Manages offline consolidation cycles where raw episodic logs are abstracted into semantic knowledge, and contradictions are resolved while the agent is "asleep".
 
+### Advanced Capabilities (v0.2.0)
+
+- **Intelligence Orchestrator (`Memory`)**: A single, robust entry point handling duplicate detection, classification, and scoring automatically.
+- **Namespace Isolation**: Full multi-tenant support. Data from different agents is strictly segregated at the database level.
+- **Graph-RRF Search**: Combines semantic embeddings, keyword search, and Knowledge Graph traversal using weighted Reciprocal Rank Fusion.
+- **NREM Synthesis**: Automatically compresses and synthesizes overlapping episodic logs into permanent semantic knowledge using `ContextCompressor`.
+- **Async API**: Non-blocking `AsyncMemory` wrapper designed seamlessly for LangChain, AutoGen, and CrewAI async paradigms.
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -51,7 +60,7 @@ cd nsn
 pip install sentence-transformers numpy
 ```
 
-### Quick Usage
+## Quickstart Usage
 
 ```python
 from neurosleepnet import Memory

@@ -33,16 +33,37 @@ class SleepEngine:
             logger.info("No new episodic memories to consolidate.")
             return None
             
-        aggregated_content = " | ".join([m['content'] for m in episodic_mems])
+        import re
+        from collections import Counter
+        from neurosleepnet.compression.compressor import ContextCompressor
+        
+        stop_words = {'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'is', 'are', 'was', 'were', 'it', 'this', 'that'}
+        
+        all_words = []
+        for m in episodic_mems:
+            words = re.findall(r'\b[a-zA-Z]+\b', m['content'].lower())
+            all_words.extend([w for w in words if w not in stop_words and len(w) > 2])
+            
+        common_words = [w for w, count in Counter(all_words).most_common(5)]
+        synthesis_query = " ".join(common_words)
+        
+        compressed_content = ContextCompressor(max_tokens=150).compress(episodic_mems, query=synthesis_query)
+        
         semantic_id = str(uuid.uuid4())
         
         self.memory.storage.store(
             memory_id=semantic_id,
-            content=f"CONSOLIDATED NREM KNOWLEDGE: {aggregated_content}",
+            content=compressed_content,
             created_at=datetime.datetime.utcnow().isoformat(),
-            metadata=json.dumps({"type": "SEMANTIC", "source": "NREM_CONSOLIDATION", "consolidated_count": len(episodic_mems)}),
+            metadata=json.dumps({
+                "source": "NREM_CONSOLIDATION", 
+                "consolidated_count": len(episodic_mems),
+                "source_ids": [m['id'] for m in episodic_mems]
+            }),
             importance=0.8,
-            trust_score=0.9
+            trust_score=0.9,
+            memory_type="semantic",
+            namespace=episodic_mems[0].get('namespace', 'default')
         )
         
         # Mark originals as consolidated
@@ -56,7 +77,9 @@ class SleepEngine:
                 metadata=json.dumps(meta),
                 importance=m.get('importance', 0.0),
                 trust_score=m.get('trust_score', 0.5),
-                embedding=json.dumps(m.get('embedding', []))
+                embedding=json.dumps(m.get('embedding', [])),
+                namespace=m.get('namespace', 'default'),
+                memory_type=m.get('memory_type', 'episodic')
             )
             
         logger.info(f"NREM Complete: Aggregated {len(episodic_mems)} episodic memories.")
@@ -112,6 +135,48 @@ class SleepEngine:
         logger.info(f"REM Complete: Resolved {len(to_delete)} contradictions.")
         return len(to_delete)
 
+    def apply_decay(self, min_importance=0.05):
+        logger.info("Starting Decay phase...")
+        all_memories = self.memory.storage.list()
+        
+        for m in all_memories:
+            access_count = m.get('access_count', 0)
+            importance = float(m.get('importance', 0.0))
+            memory_type = m.get('memory_type', 'semantic')
+            meta = m.get('metadata', {})
+            
+            needs_update = False
+            
+            if access_count == 0:
+                new_importance = max(min_importance, importance * 0.85)
+                if new_importance != importance:
+                    importance = new_importance
+                    needs_update = True
+            else:
+                new_importance = min(1.0, importance + min(access_count * 0.02, 0.2))
+                if new_importance != importance:
+                    importance = new_importance
+                    needs_update = True
+                    
+            if memory_type == "episodic" and access_count >= 3:
+                memory_type = "semantic"
+                meta["promoted_from"] = "episodic"
+                needs_update = True
+                
+            if needs_update:
+                self.memory.storage.store(
+                    memory_id=m['id'],
+                    content=m['content'],
+                    created_at=m['created_at'],
+                    metadata=json.dumps(meta),
+                    importance=importance,
+                    trust_score=m.get('trust_score', 0.5),
+                    embedding=json.dumps(m.get('embedding', [])),
+                    namespace=m.get('namespace', 'default'),
+                    memory_type=memory_type
+                )
+        logger.info("Decay phase complete.")
+
     def trigger(self):
         """
         Initiates the sleep cycle.
@@ -126,6 +191,7 @@ class SleepEngine:
         # Sleep phases
         self.nrem_consolidation()
         self.rem_consolidation()
+        self.apply_decay()
         
         # Simulate waking up
         self.is_sleeping = False

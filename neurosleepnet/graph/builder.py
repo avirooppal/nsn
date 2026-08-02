@@ -20,11 +20,11 @@ class GraphBuilder:
             # We add source_memory link in the properties of nodes and edges
             properties = json.dumps({"source_memory": memory_record['id']})
             
-            src_node = GraphNode(label="Entity", name=rel['source'])
+            src_node = GraphNode(label=rel['source']['label'], name=rel['source']['name'])
             self.storage.store_graph_node(src_node.id, src_node.label, src_node.name, properties, src_node.created_at)
             node_ids.append(src_node.id)
             
-            tgt_node = GraphNode(label="Entity", name=rel['target'])
+            tgt_node = GraphNode(label=rel['target']['label'], name=rel['target']['name'])
             self.storage.store_graph_node(tgt_node.id, tgt_node.label, tgt_node.name, properties, tgt_node.created_at)
             node_ids.append(tgt_node.id)
             

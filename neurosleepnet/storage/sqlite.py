@@ -1,5 +1,6 @@
 import sqlite3
 import json
+from datetime import datetime, timezone
 from .base import StorageAdapter
 
 class SQLiteAdapter(StorageAdapter):
@@ -22,7 +23,11 @@ class SQLiteAdapter(StorageAdapter):
                 metadata TEXT,
                 importance REAL DEFAULT 0.0,
                 trust_score REAL DEFAULT 0.5,
-                embedding TEXT
+                embedding TEXT,
+                namespace TEXT DEFAULT 'default',
+                memory_type TEXT DEFAULT 'semantic',
+                access_count INTEGER DEFAULT 0,
+                last_accessed_at TEXT
             )
         ''')
         try:
@@ -41,7 +46,23 @@ class SQLiteAdapter(StorageAdapter):
             cursor.execute('ALTER TABLE memories ADD COLUMN embedding TEXT')
         except sqlite3.OperationalError:
             pass
-            
+        try:
+            cursor.execute("ALTER TABLE memories ADD COLUMN namespace TEXT DEFAULT 'default'")
+        except sqlite3.OperationalError:
+            pass
+        try:
+            cursor.execute("ALTER TABLE memories ADD COLUMN memory_type TEXT DEFAULT 'semantic'")
+        except sqlite3.OperationalError:
+            pass
+        try:
+            cursor.execute("ALTER TABLE memories ADD COLUMN access_count INTEGER DEFAULT 0")
+        except sqlite3.OperationalError:
+            pass
+        try:
+            cursor.execute("ALTER TABLE memories ADD COLUMN last_accessed_at TEXT")
+        except sqlite3.OperationalError:
+            pass
+
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS graph_nodes (
                 id TEXT PRIMARY KEY,
@@ -63,6 +84,12 @@ class SQLiteAdapter(StorageAdapter):
                 FOREIGN KEY(target_id) REFERENCES graph_nodes(id)
             )
         ''')
+        
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_memories_namespace ON memories(namespace)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_memories_type ON memories(memory_type)")
+        
+        cursor.execute("PRAGMA journal_mode=WAL")
+        cursor.execute("PRAGMA synchronous=NORMAL")
         
         conn.commit()
         conn.close()
@@ -137,13 +164,13 @@ class SQLiteAdapter(StorageAdapter):
         conn.close()
         return result
 
-    def store(self, memory_id: str, content: str, created_at: str, metadata: str = "{}", importance: float = 0.0, trust_score: float = 0.5, embedding: str = "[]"):
+    def store(self, memory_id: str, content: str, created_at: str, metadata: str = "{}", importance: float = 0.0, trust_score: float = 0.5, embedding: str = "[]", namespace: str = "default", memory_type: str = "semantic"):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute('''
-            INSERT OR REPLACE INTO memories (id, content, created_at, metadata, importance, trust_score, embedding)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-        ''', (memory_id, content, created_at, metadata, importance, trust_score, embedding))
+            INSERT OR REPLACE INTO memories (id, content, created_at, metadata, importance, trust_score, embedding, namespace, memory_type)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (memory_id, content, created_at, metadata, importance, trust_score, embedding, namespace, memory_type))
         conn.commit()
         conn.close()
 
@@ -151,7 +178,7 @@ class SQLiteAdapter(StorageAdapter):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute('''
-            SELECT id, content, created_at, metadata, importance, trust_score, embedding FROM memories WHERE id = ?
+            SELECT id, content, created_at, metadata, importance, trust_score, embedding, namespace, memory_type, access_count, last_accessed_at FROM memories WHERE id = ?
         ''', (memory_id,))
         row = cursor.fetchone()
         conn.close()
@@ -164,7 +191,11 @@ class SQLiteAdapter(StorageAdapter):
                 "metadata": json.loads(row[3]) if row[3] else {},
                 "importance": row[4],
                 "trust_score": row[5],
-                "embedding": json.loads(row[6]) if row[6] else []
+                "embedding": json.loads(row[6]) if row[6] else [],
+                "namespace": row[7],
+                "memory_type": row[8],
+                "access_count": row[9],
+                "last_accessed_at": row[10]
             }
         return None
 
@@ -181,7 +212,7 @@ class SQLiteAdapter(StorageAdapter):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute('''
-            SELECT id, content, created_at, metadata, importance, trust_score, embedding FROM memories
+            SELECT id, content, created_at, metadata, importance, trust_score, embedding, namespace, memory_type, access_count, last_accessed_at FROM memories
         ''')
         rows = cursor.fetchall()
         conn.close()
@@ -195,20 +226,34 @@ class SQLiteAdapter(StorageAdapter):
                 "metadata": json.loads(row[3]) if row[3] else {},
                 "importance": row[4],
                 "trust_score": row[5],
-                "embedding": json.loads(row[6]) if row[6] else []
+                "embedding": json.loads(row[6]) if row[6] else [],
+                "namespace": row[7],
+                "memory_type": row[8],
+                "access_count": row[9],
+                "last_accessed_at": row[10]
             })
         return records
 
-    def search_keyword(self, query: str, limit: int = 5):
+    def search_keyword(self, query: str, limit: int = 5, namespace: str = None):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         search_pattern = f"%{query}%"
-        cursor.execute('''
-            SELECT id, content, created_at, metadata, importance, trust_score, embedding 
-            FROM memories 
-            WHERE content LIKE ? 
-            LIMIT ?
-        ''', (search_pattern, limit))
+        
+        if namespace:
+            cursor.execute('''
+                SELECT id, content, created_at, metadata, importance, trust_score, embedding, namespace, memory_type, access_count, last_accessed_at
+                FROM memories 
+                WHERE content LIKE ? AND namespace = ?
+                LIMIT ?
+            ''', (search_pattern, namespace, limit))
+        else:
+            cursor.execute('''
+                SELECT id, content, created_at, metadata, importance, trust_score, embedding, namespace, memory_type, access_count, last_accessed_at
+                FROM memories 
+                WHERE content LIKE ? 
+                LIMIT ?
+            ''', (search_pattern, limit))
+            
         rows = cursor.fetchall()
         conn.close()
         
@@ -222,6 +267,48 @@ class SQLiteAdapter(StorageAdapter):
                 "importance": row[4],
                 "trust_score": row[5],
                 "embedding": json.loads(row[6]) if row[6] else [],
+                "namespace": row[7],
+                "memory_type": row[8],
+                "access_count": row[9],
+                "last_accessed_at": row[10],
                 "score": 1.0
+            })
+        return records
+
+    def increment_access(self, memory_id: str):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        now = datetime.now(timezone.utc).isoformat()
+        cursor.execute('''
+            UPDATE memories SET access_count = access_count + 1, last_accessed_at = ? WHERE id = ?
+        ''', (now, memory_id))
+        conn.commit()
+        conn.close()
+
+    def list_namespace(self, namespace: str):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT id, content, created_at, metadata, importance, trust_score, embedding, namespace, memory_type, access_count, last_accessed_at 
+            FROM memories
+            WHERE namespace = ?
+        ''', (namespace,))
+        rows = cursor.fetchall()
+        conn.close()
+        
+        records = []
+        for row in rows:
+            records.append({
+                "id": row[0],
+                "content": row[1],
+                "created_at": row[2],
+                "metadata": json.loads(row[3]) if row[3] else {},
+                "importance": row[4],
+                "trust_score": row[5],
+                "embedding": json.loads(row[6]) if row[6] else [],
+                "namespace": row[7],
+                "memory_type": row[8],
+                "access_count": row[9],
+                "last_accessed_at": row[10]
             })
         return records

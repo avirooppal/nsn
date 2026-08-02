@@ -16,6 +16,10 @@ class MemoryRecord:
     importance: float = 0.0
     trust_score: float = 0.5
     embedding: List[float] = field(default_factory=list)
+    namespace: str = "default"
+    memory_type: str = "semantic"
+    access_count: int = 0
+    last_accessed_at: str = None
 
     def __post_init__(self):
         if self.id is None:
@@ -30,8 +34,11 @@ class MemoryRecord:
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_dict(cls, data):
-        return cls(**data)
+    def from_dict(cls, data: dict):
+        from dataclasses import fields
+        valid_keys = {f.name for f in fields(cls)}
+        filtered = {k: v for k, v in data.items() if k in valid_keys}
+        return cls(**filtered)
 
     @classmethod
     def from_json(cls, json_str):
