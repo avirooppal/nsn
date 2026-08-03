@@ -40,7 +40,7 @@ class TestReasoningPackGenerator(unittest.TestCase):
         pack = json.loads(pack_json)
         
         self.assertEqual(pack["topic"], "Alice")
-        self.assertIn("Alice is an engineer", pack["context"])
+        self.assertTrue(any("Alice is an engineer" in c for c in pack["context"]))
         self.assertIn("(Alice) -[BUILT]-> (Neurosleepnet)", pack["logical_rules"])
         self.assertIn("system_prompt", pack)
 

@@ -2,7 +2,7 @@ from neurosleepnet.config.settings import Settings
 from neurosleepnet.storage.sqlite import SQLiteAdapter
 from neurosleepnet.memory.schemas import MemoryRecord
 from neurosleepnet.embeddings.local import LocalEmbeddingProvider
-from neurosleepnet.storage.local_vector import FAISSVectorStore
+from neurosleepnet.storage.local_vector import TieredVectorStore
 from neurosleepnet.perception.schemas import Observation
 from neurosleepnet.perception.classifier import MemoryClassifier
 from neurosleepnet.perception.detector import DuplicateDetector
@@ -36,7 +36,7 @@ class Memory:
         self.settings = Settings()
         self.storage = SQLiteAdapter(db_path=db_path)
         self.embedder = LocalEmbeddingProvider()
-        self.vector_store = FAISSVectorStore(
+        self.vector_store = TieredVectorStore(
             self.storage,
             index_path=db_path.replace(".db", ".faiss"),
             ids_path=db_path.replace(".db", ".faiss_ids")

@@ -9,6 +9,7 @@ from neurosleepnet.sleep.engine import SleepEngine
 class DummyMemory:
     def __init__(self, storage):
         self.storage = storage
+        self.namespace = 'default'
 
 class TestSleepNREM(unittest.TestCase):
     def setUp(self):

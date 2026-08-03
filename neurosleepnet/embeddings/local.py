@@ -26,11 +26,15 @@ class LocalEmbeddingProvider(EmbeddingProvider):
 
     def _embed_raw(self, text: str) -> tuple:
         """Returns a tuple (hashable) for caching. Callers convert to list."""
-        return tuple(self.model.encode(text).tolist())
+        out = self.model.encode(text, output_value='token_embeddings')
+        return tuple(tuple(t) for t in out.tolist())
 
-    def embed(self, text: str) -> List[float]:
-        return list(self._embed_cached(text))
+    def embed(self, text: str) -> List[List[float]]:
+        return [list(t) for t in self._embed_cached(text)]
 
-    def embed_batch(self, texts: List[str]) -> List[List[float]]:
+    def embed_batch(self, texts: List[str]) -> List[List[List[float]]]:
         # For batch, use the model directly (more efficient than individual cached calls)
-        return self.model.encode(texts).tolist()
+        out = self.model.encode(texts, output_value='token_embeddings')
+        if isinstance(out, list):
+            return [t.tolist() for t in out]
+        return out.tolist()

@@ -15,10 +15,10 @@ class TestRelationshipExtractor(unittest.TestCase):
         # Charlie loves David -> LOVES
         # Depending on order, it might find Alice RELATED_TO Charlie, but let's check for the specific ones
         
-        knows_rel = next((r for r in relations if r["source"] == "Alice" and r["target"] == "Bob" and r["relation"] == "KNOWS"), None)
+        knows_rel = next((r for r in relations if r["source"]["name"] == "Alice" and r["target"]["name"] == "Bob" and r["relation"] == "KNOWS"), None)
         self.assertIsNotNone(knows_rel, "Failed to find Alice KNOWS Bob")
         
-        loves_rel = next((r for r in relations if r["source"] == "Charlie" and r["target"] == "David" and r["relation"] == "LOVES"), None)
+        loves_rel = next((r for r in relations if r["source"]["name"] == "Charlie" and r["target"]["name"] == "David" and r["relation"] == "LOVES"), None)
         self.assertIsNotNone(loves_rel, "Failed to find Charlie LOVES David")
 
 if __name__ == '__main__':

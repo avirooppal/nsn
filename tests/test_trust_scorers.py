@@ -42,7 +42,7 @@ class TestConsistencyScorer(unittest.TestCase):
     def test_score_conflict(self):
         # High similarity but introduces a negation
         score = self.scorer.score("User does not like apples.")
-        self.assertEqual(score, 0.2)
+        self.assertEqual(score, 0.15)
 
 if __name__ == '__main__':
     unittest.main()

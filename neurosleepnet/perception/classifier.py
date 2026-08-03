@@ -34,7 +34,8 @@ class MemoryClassifier:
         self._prototype_embeddings = {}
         for mem_type, sentences in PROTOTYPES.items():
             embeddings = self.embedder.embed_batch(sentences)
-            mean_vec = np.mean(embeddings, axis=0)
+            sentence_vecs = [np.mean(tok_embs, axis=0) for tok_embs in embeddings]
+            mean_vec = np.mean(sentence_vecs, axis=0)
             norm = np.linalg.norm(mean_vec)
             if norm > 0:
                 mean_vec = mean_vec / norm
@@ -48,7 +49,7 @@ class MemoryClassifier:
             self._build_prototypes()
 
         input_emb = self.embedder.embed(observation.content)
-        input_vec = np.array(input_emb)
+        input_vec = np.mean(input_emb, axis=0)
         norm = np.linalg.norm(input_vec)
         if norm > 0:
             input_vec = input_vec / norm

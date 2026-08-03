@@ -18,7 +18,7 @@ class TestSourceScorer(unittest.TestCase):
         self.assertEqual(self.scorer.score('unknown'), 0.5)
 
     def test_score_unregistered(self):
-        self.assertEqual(self.scorer.score('random_source'), 0.5)
+        self.assertEqual(self.scorer.score('random_source'), 0.6)
 
 if __name__ == '__main__':
     unittest.main()

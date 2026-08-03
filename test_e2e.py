@@ -36,6 +36,7 @@ assert "key_facts" in pack
 
 # Timeline
 timeline = memory.timeline(memory_type="procedural")
+print("TIMELINE PROCEDURAL:", timeline)
 assert any("docker" in t["content"].lower() for t in timeline), "Procedural memory not in timeline"
 
 # Sleep cycle

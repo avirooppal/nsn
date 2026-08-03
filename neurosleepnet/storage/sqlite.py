@@ -64,6 +64,14 @@ class SQLiteAdapter(StorageAdapter):
             pass
 
         cursor.execute('''
+            CREATE VIRTUAL TABLE IF NOT EXISTS memories_fts USING fts5(
+                id UNINDEXED,
+                content,
+                namespace
+            )
+        ''')
+
+        cursor.execute('''
             CREATE TABLE IF NOT EXISTS graph_nodes (
                 id TEXT PRIMARY KEY,
                 label TEXT NOT NULL,
@@ -171,6 +179,12 @@ class SQLiteAdapter(StorageAdapter):
             INSERT OR REPLACE INTO memories (id, content, created_at, metadata, importance, trust_score, embedding, namespace, memory_type)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ''', (memory_id, content, created_at, metadata, importance, trust_score, embedding, namespace, memory_type))
+        
+        cursor.execute('''
+            INSERT OR REPLACE INTO memories_fts (id, content, namespace)
+            VALUES (?, ?, ?)
+        ''', (memory_id, content, namespace))
+        
         conn.commit()
         conn.close()
 
@@ -205,6 +219,9 @@ class SQLiteAdapter(StorageAdapter):
         cursor.execute('''
             DELETE FROM memories WHERE id = ?
         ''', (memory_id,))
+        cursor.execute('''
+            DELETE FROM memories_fts WHERE id = ?
+        ''', (memory_id,))
         conn.commit()
         conn.close()
 
@@ -237,22 +254,25 @@ class SQLiteAdapter(StorageAdapter):
     def search_keyword(self, query: str, limit: int = 5, namespace: str = None):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
-        search_pattern = f"%{query}%"
+        # Escape query for FTS5 by wrapping in quotes to treat it as a phrase
+        safe_query = '"' + query.replace('"', '') + '"'
         
         if namespace:
             cursor.execute('''
-                SELECT id, content, created_at, metadata, importance, trust_score, embedding, namespace, memory_type, access_count, last_accessed_at
-                FROM memories 
-                WHERE content LIKE ? AND namespace = ?
+                SELECT m.id, m.content, m.created_at, m.metadata, m.importance, m.trust_score, m.embedding, m.namespace, m.memory_type, m.access_count, m.last_accessed_at
+                FROM memories_fts fts
+                JOIN memories m ON fts.id = m.id
+                WHERE memories_fts MATCH ? AND fts.namespace = ?
                 LIMIT ?
-            ''', (search_pattern, namespace, limit))
+            ''', (safe_query, namespace, limit))
         else:
             cursor.execute('''
-                SELECT id, content, created_at, metadata, importance, trust_score, embedding, namespace, memory_type, access_count, last_accessed_at
-                FROM memories 
-                WHERE content LIKE ? 
+                SELECT m.id, m.content, m.created_at, m.metadata, m.importance, m.trust_score, m.embedding, m.namespace, m.memory_type, m.access_count, m.last_accessed_at
+                FROM memories_fts fts
+                JOIN memories m ON fts.id = m.id
+                WHERE memories_fts MATCH ? 
                 LIMIT ?
-            ''', (search_pattern, limit))
+            ''', (safe_query, limit))
             
         rows = cursor.fetchall()
         conn.close()

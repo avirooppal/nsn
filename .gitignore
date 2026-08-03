@@ -33,6 +33,11 @@ htmlcov/
 *.faiss
 *.faiss_ids
 
+# ── Project Planning & Scratch ──────────────────────────────────────────────────
+plan.md
+test_classifier.py
+architecture.md
+
 # ── Type checking ─────────────────────────────────────────────────────────────
 .mypy_cache/
 .pytype/

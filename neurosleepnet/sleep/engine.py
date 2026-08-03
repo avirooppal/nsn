@@ -58,7 +58,8 @@ class SleepEngine:
             metadata=json.dumps({
                 "source": "NREM_CONSOLIDATION", 
                 "consolidated_count": len(episodic_mems),
-                "source_ids": [m['id'] for m in episodic_mems]
+                "source_ids": [m['id'] for m in episodic_mems],
+                "type": "SEMANTIC"
             }),
             importance=0.8,
             trust_score=0.9,

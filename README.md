@@ -244,7 +244,7 @@ observe(content)
       ├─ MemoryClassifier    (prototype embedding → episodic / semantic / procedural)
       ├─ TrustEngine         (source × recency × consistency → trust score)
       ├─ SQLiteAdapter       (persist with namespace, type, WAL mode)
-      ├─ FAISSVectorStore    (IndexFlatIP, L2-normalised, disk-persisted)
+      ├─ TieredVectorStore   (HNSW + IVFPQ, MaxSim ColBERT scoring, disk-persisted)
       └─ GraphBuilder        (spaCy NER → entity nodes + relationship edges)
 
 search_hybrid(query)

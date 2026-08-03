@@ -9,10 +9,10 @@ class TestEntityExtractor(unittest.TestCase):
         text = "The quick brown fox jumps over the lazy dog in New York. John Smith was there."
         entities = self.extractor.extract(text)
         
-        self.assertIn("New York", entities)
-        self.assertIn("John Smith", entities)
+        self.assertTrue(any(e["name"] == "New York" for e in entities))
+        self.assertTrue(any(e["name"] == "John Smith" for e in entities))
         # 'The' at the start should not be an entity
-        self.assertNotIn("The", entities)
+        self.assertFalse(any(e["name"] == "The" for e in entities))
 
     def test_no_entities(self):
         text = "this is a lower case sentence with no entities."

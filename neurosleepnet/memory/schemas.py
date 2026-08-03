@@ -15,7 +15,7 @@ class MemoryRecord:
     metadata: Dict[str, Any] = field(default_factory=dict)
     importance: float = 0.0
     trust_score: float = 0.5
-    embedding: List[float] = field(default_factory=list)
+    embedding: List[List[float]] = field(default_factory=list)
     namespace: str = "default"
     memory_type: str = "semantic"
     access_count: int = 0
