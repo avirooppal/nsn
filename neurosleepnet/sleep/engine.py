@@ -21,7 +21,7 @@ class SleepEngine:
         """
         logger.info("Starting NREM consolidation phase...")
         
-        all_memories = self.memory.storage.list()
+        all_memories = self.memory.storage.list_namespace(self.memory.namespace)
         
         episodic_mems = []
         for m in all_memories:
@@ -82,6 +82,13 @@ class SleepEngine:
                 memory_type=m.get('memory_type', 'episodic')
             )
             
+        # Add synthesized memory to FAISS so it is visible to semantic search
+        try:
+            nrem_embedding = self.memory.embedder.embed(compressed_content)
+            self.memory.vector_store.add(semantic_id, nrem_embedding)
+        except Exception as e:
+            logger.warning(f"NREM: Could not add synthesized memory to vector store: {e}")
+
         logger.info(f"NREM Complete: Aggregated {len(episodic_mems)} episodic memories.")
         return semantic_id
 
@@ -91,7 +98,7 @@ class SleepEngine:
         Resolves contradictions and prunes conflicting data.
         """
         logger.info("Starting REM consolidation phase...")
-        all_memories = self.memory.storage.list()
+        all_memories = self.memory.storage.list_namespace(self.memory.namespace)
         
         negation_words = {'not', 'never', 'false', 'no', 'cannot', "don't", "doesn't", "isn't", 'dislike', 'hate'}
         
@@ -137,7 +144,7 @@ class SleepEngine:
 
     def apply_decay(self, min_importance=0.05):
         logger.info("Starting Decay phase...")
-        all_memories = self.memory.storage.list()
+        all_memories = self.memory.storage.list_namespace(self.memory.namespace)
         
         for m in all_memories:
             access_count = m.get('access_count', 0)

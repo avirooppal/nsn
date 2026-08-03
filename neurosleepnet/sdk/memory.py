@@ -13,6 +13,9 @@ from collections import OrderedDict
 from dataclasses import dataclass
 import json
 import datetime
+import logging
+
+logger = logging.getLogger("neurosleepnet")
 
 @dataclass
 class ObserveResult:
@@ -72,8 +75,9 @@ class Memory:
         
         if self.duplicate_detector.is_duplicate(obs):
             self._emit("duplicate_detected", {"content": content})
+            logger.debug(f"Duplicate detected for content: {content[:60]}...")
             return ObserveResult(stored=False, is_duplicate=True, reason="Duplicate detected")
-            
+
         importance = self.importance_scorer.score(obs)
         memory_type = self.classifier.classify(obs)
         trust_profile = self.trust_engine.calculate(obs)
@@ -108,7 +112,8 @@ class Memory:
         self.graph_builder.process_memory(record.to_dict())
         
         self._emit("stored", {"memory_id": record.id, "type": memory_type, "importance": importance})
-        
+        logger.debug(f"Stored memory {record.id[:8]} type={memory_type} importance={importance:.3f} trust={trust_profile.final_score:.3f}")
+
         return ObserveResult(
             stored=True,
             memory_id=record.id,
@@ -378,47 +383,33 @@ class Memory:
                 
         return count
 
-    def timeline(self, limit: int = 10, memory_type: str = None) -> list:
-        """Returns chronological list of memories."""
-        import sqlite3
-        conn = sqlite3.connect(self.storage.db_path)
-        cursor = conn.cursor()
-        
-        query = "SELECT id, content, created_at, metadata, importance, trust_score, embedding, namespace, memory_type, access_count, last_accessed_at FROM memories WHERE namespace = ?"
-        params = [self.namespace]
-        if memory_type:
-            query += " AND memory_type = ?"
-            params.append(memory_type)
-        query += " ORDER BY created_at DESC LIMIT ?"
-        params.append(limit)
-        
-        cursor.execute(query, tuple(params))
-        
-        records = []
-        for row in cursor.fetchall():
-            record_dict = {
-                "id": row[0],
-                "content": row[1],
-                "created_at": row[2],
-                "metadata": json.loads(row[3]) if row[3] else {},
-                "importance": float(row[4]),
-                "trust_score": float(row[5]),
-                "embedding": json.loads(row[6]) if row[6] else [],
-                "namespace": row[7],
-                "memory_type": row[8],
-                "access_count": int(row[9]),
-                "last_accessed_at": row[10]
+    def timeline(self, limit: int = 20, memory_type: str = None, ascending: bool = False) -> list:
+        """Returns chronologically ordered memories, optionally filtered by type.
+
+        Args:
+            limit: Maximum number of records to return.
+            memory_type: Filter to 'episodic', 'semantic', or 'procedural'.
+            ascending: If True, oldest first. Default False (newest first).
+
+        Returns:
+            List of dicts with keys: id, content, created_at, type, importance.
+        """
+        rows = self.storage.timeline(
+            namespace=self.namespace,
+            memory_type=memory_type,
+            limit=limit,
+            ascending=ascending,
+        )
+        return [
+            {
+                "id": r["id"],
+                "content": r["content"],
+                "created_at": r["created_at"],
+                "type": r["memory_type"],
+                "importance": r["importance"],
             }
-            records.append({
-                "id": record_dict["id"],
-                "content": record_dict["content"],
-                "created_at": record_dict["created_at"],
-                "type": record_dict["memory_type"],
-                "importance": record_dict["importance"]
-            })
-            
-        conn.close()
-        return records
+            for r in rows
+        ]
 
     def get_entity_subgraph(self, entity_name: str, depth: int = 1) -> dict:
         """Returns nodes and edges up to N hops from entity."""
@@ -454,8 +445,17 @@ class Memory:
                         
         return {"nodes": nodes, "edges": edges}
 
-    def surface_relevant(self, context: str, threshold: float = 0.75) -> list:
+    def surface_relevant(self, context: str, threshold: float = None) -> list:
         results = self.search_hybrid(context, limit=10)
+        if not results:
+            return []
+
+        # Dynamic threshold: if none provided, use 50% of the mean score
+        if threshold is None:
+            scores = [r.get('hybrid_score', 0.0) for r in results]
+            mean_score = sum(scores) / len(scores) if scores else 0.0
+            threshold = mean_score * 0.5
+
         surfaced = []
         for r in results:
             score = r.get('hybrid_score', 0.0)

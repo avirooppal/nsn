@@ -312,3 +312,43 @@ class SQLiteAdapter(StorageAdapter):
                 "last_accessed_at": row[10]
             })
         return records
+
+    def timeline(self, namespace: str, memory_type: str = None, limit: int = 20, ascending: bool = True) -> list:
+        """Returns chronologically ordered memories, optionally filtered by type."""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+
+        query = (
+            "SELECT id, content, created_at, metadata, importance, trust_score, "
+            "namespace, memory_type, access_count, last_accessed_at "
+            "FROM memories WHERE namespace = ?"
+        )
+        params = [namespace]
+
+        if memory_type:
+            query += " AND memory_type = ?"
+            params.append(memory_type)
+
+        order = "ASC" if ascending else "DESC"
+        query += f" ORDER BY created_at {order} LIMIT ?"
+        params.append(limit)
+
+        cursor.execute(query, tuple(params))
+        rows = cursor.fetchall()
+        conn.close()
+
+        records = []
+        for row in rows:
+            records.append({
+                "id": row[0],
+                "content": row[1],
+                "created_at": row[2],
+                "metadata": json.loads(row[3]) if row[3] else {},
+                "importance": float(row[4]),
+                "trust_score": float(row[5]),
+                "namespace": row[6],
+                "memory_type": row[7],
+                "access_count": int(row[8]),
+                "last_accessed_at": row[9],
+            })
+        return records

@@ -42,5 +42,7 @@ class GraphBuilder:
                 metadata=json.dumps(meta),
                 importance=memory_record.get('importance', 0.0),
                 trust_score=memory_record.get('trust_score', 0.5),
-                embedding=json.dumps(memory_record.get('embedding', []))
+                embedding=json.dumps(memory_record.get('embedding', [])),
+                namespace=memory_record.get('namespace', 'default'),
+                memory_type=memory_record.get('memory_type', 'semantic')
             )

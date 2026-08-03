@@ -1,0 +1,19 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.git/
+.gitignore
+
+# Ignore local databases and vector indexes
+*.db
+*.faiss
+*.faiss_ids
