@@ -1,30 +1,55 @@
-# Python artifacts
+# ── Python ────────────────────────────────────────────────────────────────────
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+*$py.class
 *.pyd
+*.pyo
 .Python
-*.egg-info/
-dist/
-build/
-.pytest_cache/
-.coverage
-htmlcov/
 
-# Virtual environments
+# ── Build & distribution ──────────────────────────────────────────────────────
+build/
+dist/
+*.egg-info/
+*.egg
+MANIFEST
+
+# ── Virtual environments ──────────────────────────────────────────────────────
 .venv/
 venv/
 env/
+ENV/
 
-# NeuroSleepNet runtime artifacts (databases & vector indexes)
+# ── Testing ───────────────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ── NeuroSleepNet runtime artifacts ──────────────────────────────────────────
+# Database and vector index files generated at runtime.
+# Never commit these — they are recreated automatically on first run.
 *.db
 *.faiss
 *.faiss_ids
 
-# IDE
+# ── Type checking ─────────────────────────────────────────────────────────────
+.mypy_cache/
+.pytype/
+
+# ── IDEs ──────────────────────────────────────────────────────────────────────
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# OS
+# ── OS ────────────────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# ── Secrets ───────────────────────────────────────────────────────────────────
+.env
+.env.*
+*.pem
+*.key

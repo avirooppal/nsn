@@ -1,52 +1,66 @@
 # NeuroSleepNet
 
-**Version:** 0.3.0
+**Cognitive Memory Operating System for SLMs and AI Agents**
 
-NeuroSleepNet is a Cognitive Memory Operating System for SLMs and AI agents. It provides long-term memory, knowledge formation, context compression, and offline memory consolidation — all running **100% locally** with zero cloud dependencies.
+NeuroSleepNet gives any language model or AI agent persistent, long-term memory with two lines of code. It runs entirely locally — no cloud services, no external APIs, no data leaving your machine.
 
-Wrap any existing LLM or agent with two lines of code and it gains persistent memory automatically.
+```python
+import neurosleepnet
+
+model = neurosleepnet.NSN(your_llm, namespace="my_agent")
+```
+
+That is the entire integration. From that point, every call your model makes automatically recalls relevant past memories and stores the new interaction — continuously building a self-organising knowledge base in the background.
+
+---
+
+## How It Works
+
+When your model processes any input, NSN transparently:
+
+1. **Recalls** relevant memories using hybrid semantic + keyword + graph search
+2. **Injects** that context into the model's input before it runs
+3. **Stores** the input and output back into long-term memory
+4. **Classifies** each memory as Episodic, Semantic, or Procedural automatically
+5. **Consolidates** memories offline during sleep cycles (NREM synthesis, REM contradiction resolution, importance decay)
 
 ---
 
 ## Installation
 
 ```bash
+git clone https://github.com/avirooppal/nsn.git
+cd nsn
 pip install -e .
 python -m spacy download en_core_web_sm
 ```
 
-Optional integrations:
+Optional extras:
 
 ```bash
-pip install "neurosleepnet[api]"       # FastAPI REST server
-pip install "neurosleepnet[langchain]" # LangChain adapter
-pip install "neurosleepnet[all]"       # Everything
+pip install "neurosleepnet[api]"        # FastAPI REST microservice
+pip install "neurosleepnet[langchain]"  # LangChain adapter
+pip install "neurosleepnet[all]"        # All integrations
 ```
-
----
-
-## Quickstart — Wrap any model (2 lines)
-
-```python
-import neurosleepnet
-
-# Your existing LLM, pipeline, or callable
-model = YourLLM()
-
-# Wrap it — memory is now live
-model = neurosleepnet.NSN(model, namespace="my_agent")
-
-# Use it exactly like before — NSN injects memory automatically
-response = model("What do we know about Alice?")
-```
-
-That is the entire integration. NSN auto-observes inputs, injects recalled context before each call, and stores responses back into long-term memory.
 
 ---
 
 ## Integrations
 
-### OpenAI / OpenAI-compatible (GPT-4o, Claude, Gemini via API)
+### Any callable model
+
+```python
+import neurosleepnet
+
+model = neurosleepnet.NSN(your_model, namespace="my_agent")
+
+# Use exactly as before — memory is injected and stored automatically
+response = model("Summarise what we know about the project.")
+```
+
+### OpenAI / OpenAI-compatible APIs
+
+Works with any API that follows the OpenAI chat completions format (GPT-4o, Claude via proxy, Gemini, Groq, Ollama, Together.ai, etc.).
 
 ```python
 import neurosleepnet
@@ -55,10 +69,10 @@ from openai import OpenAI
 client = OpenAI()
 client = neurosleepnet.NSN(client, namespace="my_agent")
 
-# Memory is injected automatically as a system message
+# Recalled memory is automatically injected as a system message
 response = client.chat.completions.create(
     model="gpt-4o",
-    messages=[{"role": "user", "content": "What did Alice say?"}]
+    messages=[{"role": "user", "content": "What do you know about Alice?"}]
 )
 ```
 
@@ -71,18 +85,18 @@ from langchain_openai import ChatOpenAI
 llm = ChatOpenAI()
 llm = neurosleepnet.NSN(llm, namespace="my_agent")
 
-response = llm.invoke("Summarize what we know about the project.")
+response = llm.invoke("Summarise the project status.")
 ```
 
-Or use the native LangChain history adapter:
+Or use the native session history adapter with `RunnableWithMessageHistory`:
 
 ```python
 from neurosleepnet.integrations.langchain import NeurosleepNetHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 
-chain = RunnableWithMessageHistory(
+chain_with_memory = RunnableWithMessageHistory(
     runnable=your_chain,
-    get_session_history=lambda sid: NeurosleepNetHistory(namespace=sid),
+    get_session_history=lambda session_id: NeurosleepNetHistory(namespace=session_id),
 )
 ```
 
@@ -92,179 +106,208 @@ chain = RunnableWithMessageHistory(
 from neurosleepnet.integrations.tool import MemoryTool
 
 tool = MemoryTool(namespace="my_agent")
-tool.remember("Alice leads the engineering team.")
-results = tool.recall("Who leads engineering?")
+
+tool.remember("The API rate limit is 1000 requests per hour.", source="system")
+results = tool.recall("What are the rate limits?")
 tool.sleep()  # Run NREM/REM consolidation
 ```
 
-Register as an AutoGen function tool:
+Register directly as an AutoGen/OpenAI function tool:
 
 ```python
-schema = tool.as_autogen_tool()
+schema = tool.as_autogen_tool()  # Returns OpenAI function calling schema
 ```
 
-### FastAPI REST Server
+Dispatch-style invocation for frameworks that call tools as callables:
+
+```python
+tool("remember", text="Deployment uses docker-compose up -d.")
+tool("recall", query="How do I deploy?")
+```
+
+### FastAPI REST Microservice
+
+Expose NSN as an HTTP service that any language or service can call.
 
 ```bash
 uvicorn neurosleepnet.integrations.api:app --host 0.0.0.0 --port 8000
 ```
 
-| Endpoint | Method | Description |
-|---|---|---|
-| `/observe` | POST | Store a memory |
-| `/observe/batch` | POST | Batch ingest |
-| `/search` | GET | Hybrid search |
-| `/surface` | GET | Proactive surfacing |
-| `/graph/{entity}` | GET | Knowledge subgraph |
-| `/timeline` | GET | Chronological memories |
-| `/reasoning-pack` | GET | SLM context pack |
-| `/sleep` | POST | Trigger consolidation |
-| `/forget/{id}` | DELETE | Remove a memory |
-
----
-
-## Core Architecture
-
-### 1. Perception
-
-Filters incoming data before it enters memory.
-
-- **Duplicate Detector:** Rejects identical or near-identical observations (>= 95% semantic similarity).
-- **Importance Scorer:** Scores input significance via keyword signals, entity density, and length.
-- **Memory Classifier:** Categorizes data into `EPISODIC`, `SEMANTIC`, or `PROCEDURAL` using embedding-based prototype matching.
-
-### 2. Trust Engine
-
-Maintains data reliability over time.
-
-- **Source Scorer:** Evaluates trust based on data origin (`system=1.0`, `user=0.9`, `llm=0.8`, `agent=0.75`, `web=0.4`).
-- **Recency Scorer:** Prioritizes fresh data.
-- **Consistency Scorer:** Detects contradictions with existing memories using negation analysis and antonym pairs.
-
-### 3. Knowledge Graph
-
-Transforms flat memory logs into a connected semantic web.
-
-- **Entity Extractor:** Identifies entities via spaCy NER with heuristic fallback.
-- **Relationship Extractor:** Detects relationships between entity pairs.
-- **GraphBuilder:** Links graph nodes back to source memories in SQLite.
-
-### 4. Hybrid Retrieval (Graph-RRF)
-
-Combines three search modalities via Reciprocal Rank Fusion:
-
-- Dense semantic vector search (FAISS `IndexFlatIP`)
-- Keyword search (SQLite FTS)
-- Knowledge graph traversal
-
-### 5. Sleep Engine
-
-Offline memory consolidation mimicking the human sleep cycle:
-
-- **NREM:** Synthesizes unconsolidated episodic memories into permanent semantic knowledge using `ContextCompressor`.
-- **REM:** Detects and resolves contradictions between memories, pruning the lower-trust copy.
-- **Decay:** Adjusts importance scores based on access frequency; promotes frequently-accessed episodic memories to semantic.
-
----
-
-## Advanced Usage
-
-### Manual memory control
+Or mount in an existing FastAPI app:
 
 ```python
-import neurosleepnet
+from neurosleepnet.integrations.api import create_app
 
-model = neurosleepnet.NSN(your_model, namespace="my_agent")
-
-# Manual store
-model.remember("The API rate limit is 1000 requests per hour.", source="system")
-
-# Manual search
-hits = model.recall("What are the API limits?", limit=5)
-
-# Trigger offline consolidation
-model.sleep()
-
-# Chronological memory log
-model.timeline(memory_type="procedural", limit=10)
-
-# Direct access to the full Memory API
-model.memory.get_entity_subgraph("Alice", depth=2)
-model.memory.reasoning_pack("Project Alpha")
-model.memory.forget("some-memory-id")
+app = create_app(namespace="production_agent", db_path="/data/agent.db")
 ```
 
-### NSN wrapper options
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/observe` | Store a memory |
+| POST | `/observe/batch` | Batch ingest |
+| GET | `/search` | Hybrid search (semantic + keyword + graph) |
+| GET | `/surface` | Proactive memory surfacing |
+| GET | `/graph/{entity}` | Knowledge graph subgraph |
+| GET | `/timeline` | Chronological memory log |
+| GET | `/reasoning-pack` | Structured SLM context pack |
+| POST | `/sleep` | Trigger NREM/REM consolidation |
+| DELETE | `/forget/{id}` | Remove a memory |
+
+---
+
+## Configuration
 
 ```python
 model = neurosleepnet.NSN(
     model,
-    namespace="my_agent",        # Namespace for multi-agent isolation
-    db_path="agent.db",          # Custom SQLite path
-    recall_limit=5,               # Memories injected per call
-    auto_observe_inputs=True,     # Store user inputs automatically
-    auto_observe_outputs=True,    # Store model outputs automatically
+    namespace="my_agent",           # Namespace for multi-agent data isolation
+    db_path="agent.db",             # SQLite database path
+    recall_limit=5,                  # Memories injected per call
+    auto_observe_inputs=True,        # Automatically store user inputs
+    auto_observe_outputs=True,       # Automatically store model outputs
 )
 ```
 
-### Low-level Memory API
+Environment variables (override config/defaults.yaml):
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `NSN_NAMESPACE` | `default` | Memory namespace |
+| `NSN_EMBEDDING_MODEL` | `all-MiniLM-L6-v2` | Sentence transformer model |
+| `NSN_DUPLICATE_THRESHOLD` | `0.95` | Cosine similarity threshold for deduplication |
+
+---
+
+## Manual Memory Control
+
+Access the full Memory API directly through the wrapper:
 
 ```python
-from neurosleepnet import Memory
+model = neurosleepnet.NSN(your_model, namespace="my_agent")
 
-m = Memory(namespace="my_agent")
-m.observe("Alice leads the project.", source="system")
-m.search_hybrid("Who leads?", limit=5)
-m.trigger_sleep()
-m.timeline(memory_type="episodic")
-m.get_entity_subgraph("Alice", depth=1)
-m.reasoning_pack("Project Alpha")
-```
+# Store
+model.remember("The server runs on port 8080.", source="system")
 
-### Async support
+# Search
+hits = model.recall("What port does the server use?", limit=5)
 
-```python
-from neurosleepnet import AsyncMemory
+# Proactive surfacing
+relevant = model.memory.surface_relevant("I need to connect to the server.")
 
-m = AsyncMemory(namespace="async_agent")
-await m.observe("Alice is the lead engineer.")
-results = await m.search_hybrid("Who leads?")
+# Chronological log
+model.timeline(memory_type="procedural", limit=20)
+
+# Knowledge graph
+model.memory.get_entity_subgraph("Alice", depth=2)
+
+# Reasoning pack for SLM injection
+model.memory.reasoning_pack("Project Alpha")
+
+# Remove a memory
+model.memory.forget("memory-id")
+model.memory.forget_entity("Alice")  # Remove all memories linked to an entity
+
+# Offline consolidation
+model.sleep()
 ```
 
 ---
 
-## Getting Started
+## Low-Level API
 
-### Prerequisites
+For direct use without the wrapper:
 
-- Python 3.9+
-- `sentence-transformers` (auto-downloads `all-MiniLM-L6-v2` on first use)
-- `faiss-cpu`
-- `spacy` + `en_core_web_sm`
+```python
+from neurosleepnet import Memory, AsyncMemory
 
-### Installation
+# Synchronous
+m = Memory(namespace="my_agent")
+m.observe("Alice leads the engineering team.", source="system")
+m.search_hybrid("Who leads engineering?", limit=5)
+m.trigger_sleep()
 
-```bash
-git clone https://github.com/avirooppal/nsn.git
-cd nsn
-pip install -e .
-python -m spacy download en_core_web_sm
+# Async
+m = AsyncMemory(namespace="my_agent")
+await m.observe("Alice leads the engineering team.")
+results = await m.search_hybrid("Who leads engineering?")
 ```
 
-### Run the demo
+---
+
+## Architecture
+
+```
+observe(content)
+      │
+      ├─ DuplicateDetector   (cosine similarity ≥ 0.95 → reject)
+      ├─ ImportanceScorer    (keyword + entity density + length heuristics)
+      ├─ MemoryClassifier    (prototype embedding → episodic / semantic / procedural)
+      ├─ TrustEngine         (source × recency × consistency → trust score)
+      ├─ SQLiteAdapter       (persist with namespace, type, WAL mode)
+      ├─ FAISSVectorStore    (IndexFlatIP, L2-normalised, disk-persisted)
+      └─ GraphBuilder        (spaCy NER → entity nodes + relationship edges)
+
+search_hybrid(query)
+      │
+      ├─ Semantic search     (FAISS dense retrieval)
+      ├─ Keyword search      (SQLite FTS)
+      ├─ Graph search        (entity traversal → linked memories)
+      └─ RRF fusion          (weighted Reciprocal Rank Fusion)
+
+trigger_sleep()
+      │
+      ├─ NREM consolidation  (episodic → compressed semantic via ContextCompressor)
+      ├─ REM resolution      (contradiction detection → prune lower-trust memory)
+      └─ Decay               (importance ×0.85 if unused, +0.02×access_count if used)
+```
+
+### Memory Types
+
+| Type | Description | Example |
+|------|-------------|---------|
+| `EPISODIC` | Events and experiences tied to a time or context | "Bob deployed the fix at 3pm." |
+| `SEMANTIC` | General facts and knowledge | "NeuroSleepNet uses FAISS for vector search." |
+| `PROCEDURAL` | Step-by-step instructions and workflows | "To deploy: run docker-compose up -d." |
+
+### Trust Scoring
+
+| Source | Trust Score |
+|--------|-------------|
+| `system` | 1.0 |
+| `user` / `user_input` | 0.9 |
+| `llm` / `gpt` / `claude` | 0.8 |
+| `agent` / `agent_sensor` / `tool` | 0.75 |
+| `web` / `web_scrape` | 0.4 |
+
+---
+
+## Running the Demo
 
 ```bash
 python demo.py
 ```
+
+The demo shows the complete NSN workflow: wrapping a model in two lines, ingesting facts, calling the model with auto-injected memory context, hybrid search, reasoning pack generation, sleep consolidation, and the timeline API.
 
 ---
 
 ## Testing
 
 ```bash
-python test_e2e.py   # Full acceptance suite
-python smoke_test.py # Integration smoke tests
+python test_e2e.py    # Full end-to-end acceptance suite
+python smoke_test.py  # Integration smoke tests (MemoryTool + OpenAI adapter)
 ```
+
+---
+
+## Requirements
+
+- Python 3.9+
+- `sentence-transformers >= 2.2.0` (downloads `all-MiniLM-L6-v2` automatically on first use)
+- `faiss-cpu >= 1.7.4`
+- `spacy >= 3.7.0` + `en_core_web_sm`
+- `pyyaml >= 6.0`
+- `numpy >= 1.24.0`
 
 ---
 
