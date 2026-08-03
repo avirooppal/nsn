@@ -1,90 +1,129 @@
-import os
-import sys
-import json
+import os, json, logging
 
-# Ensure local package can be imported if run from repo root
-sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+# Clean up previous run
+for f in os.listdir("."):
+    if f.startswith("agent_memory") and (f.endswith(".db") or f.endswith(".faiss") or f.endswith(".faiss_ids")):
+        os.remove(f)
 
-from neurosleepnet import Memory
+# ================================================================
+# Step 1: Define / initialise your model (any LLM or callable)
+# ================================================================
+class MockLLM:
+    """Stand-in for any real LLM (OpenAI, Ollama, HuggingFace, etc.)"""
+    def __call__(self, prompt: str) -> str:
+        return f"[LLM] Response to: {prompt[:60]}"
 
-def main():
-    print("="*60)
-    print(">> NeuroSleepNet v0.2.0 - Capability Demonstration")
-    print("="*60)
-    
-    # Cleanup old test databases if they exist
-    for f in ["demo_memory.db", "demo_memory.faiss", "demo_memory.faiss_ids"]:
-        if os.path.exists(f):
-            try:
-                os.remove(f)
-            except OSError:
-                pass
-            
-    print("\n[1] Initializing Intelligence Orchestrator (Namespace: demo_agent)")
-    memory = Memory(namespace="demo_agent", db_path="demo_memory.db")
-    
-    print("\n[2] Simulating Agent Observations (Ingestion Pipeline)")
-    statements = [
-        "Alice is the lead architect for project Alpha.",
-        "Project Alpha is a revolutionary AI framework.",
-        "Bob works under Alice on project Alpha.",
-        "The project relies heavily on vector databases.",
-        "To start the server, you must run: docker-compose up -d.",
-        "Alice is the lead architect for project Alpha." # Intentional duplicate
-    ]
-    
-    for s in statements:
-        print(f"\nObserving: '{s}'")
-        res = memory.observe(s, source="agent_sensor")
-        if res.is_duplicate:
-            print(" -> [Result] DUPLICATE DETECTED. Ignored.")
-        else:
-            print(f" -> [Result] Stored! Type: {res.memory_type.upper()}, Trust Score: {res.trust_score}")
-            
-    print("\n[3] Testing Hybrid Search (Semantic + Keyword + Graph)")
-    query = "Who leads the AI framework project?"
-    print(f"\nQuery: '{query}'")
-    results = memory.search_hybrid(query, limit=3)
-    for i, r in enumerate(results):
-        print(f"  {i+1}. {r['content']} (Hybrid Score: {r.get('hybrid_score', 0):.4f})")
-        
-    print("\n[4] Knowledge Graph Subgraph Extraction")
-    print("Extracting subgraph for 'Alice' (Depth=1)...")
-    subgraph = memory.get_entity_subgraph("Alice", depth=1)
-    if subgraph and subgraph.get('nodes'):
-        print(f" -> Nodes: {[n['name'] for n in subgraph['nodes']]}")
-        print(f" -> Edges: {[e['relation'] + ' -> ' + e['target']['name'] for e in subgraph.get('edges', [])]}")
+    def invoke(self, prompt: str) -> str:
+        return self(prompt)
+
+model = MockLLM()
+
+# ================================================================
+# Step 2: Wrap it with NSN — that's the entire integration.
+# ================================================================
+import neurosleepnet
+model = neurosleepnet.NSN(model, namespace="my_agent", db_path="agent_memory.db")
+
+# ================================================================
+# From here, 'model' works exactly like before — but now has
+# persistent cognitive memory attached automatically.
+# ================================================================
+
+SEP = "-" * 56
+
+def section(n, title):
+    print(f"\n{'='*56}")
+    print(f"  {n}. {title}")
+    print(f"{'='*56}")
+
+# ---------------------------------------------------------------
+# 1. Manually load facts into memory
+# ---------------------------------------------------------------
+section(1, "Loading facts into memory")
+
+facts = [
+    ("Alice is the lead engineer at NeuroSleepNet.", "system"),
+    ("NeuroSleepNet is a cognitive memory OS for AI agents.", "system"),
+    ("Bob deployed the system with docker-compose up -d.", "agent"),
+    ("The vector store crashed due to a memory leak.", "agent"),
+    ("To deploy: run docker-compose up -d --build", "system"),
+    ("Alice is the lead engineer at NeuroSleepNet.", "system"),  # intentional duplicate
+]
+
+for content, source in facts:
+    r = model.remember(content, source=source)
+    if r.is_duplicate:
+        print(f"  [DUPLICATE] {content[:52]}...")
     else:
-        print(" -> No subgraph found. Graph extraction might not have triggered properly.")
-        
-    print("\n[5] Proactive Memory Surfacing")
-    print("Context: 'I need to deploy the application.'")
-    # Low threshold because RRF scores tend to be very small decimals
-    surfaced = memory.surface_relevant("I need to deploy the application.", threshold=0.01)
-    for s in surfaced:
-        print(f" -> Surfaced ({s['memory_type']}): {s['content']} (Relevance: {s['relevance_score']:.4f})")
-        
-    print("\n[6] Generating Reasoning Pack for SLM")
-    topic = "Project Alpha"
-    print(f"Topic: '{topic}'")
-    pack_str = memory.reasoning_pack(topic)
-    pack = json.loads(pack_str)
-    print("\n--- Reasoning Pack JSON ---")
-    print(json.dumps(pack, indent=2))
-    print("---------------------------")
-    
-    print("\n[7] Triggering Sleep Cycle (Consolidation & Decay)")
-    memory.trigger_sleep()
-    print(" -> NREM Synthesis, REM Pruning, and Importance Decay completed offline.")
-    
-    print("\n[8] Memory Timeline (Procedural Only)")
-    timeline = memory.timeline(memory_type="procedural")
-    for t in timeline:
-        print(f" -> [{t['created_at']}] {t['content']}")
-        
-    print("\n" + "="*60)
-    print("[OK] Demonstration Complete!")
-    print("="*60)
+        print(f"  [STORED]    type={r.memory_type:<11} trust={r.trust_score:.2f}  {content[:42]}...")
 
-if __name__ == "__main__":
-    main()
+# ---------------------------------------------------------------
+# 2. Call the model normally — memory is auto-injected & stored
+# ---------------------------------------------------------------
+section(2, "Calling the model (memory auto-injected)")
+
+queries = [
+    "Who leads the engineering team?",
+    "How do I deploy the application?",
+    "What went wrong with the vector store?",
+]
+
+for q in queries:
+    response = model(q)
+    print(f"  Q: {q}")
+    print(f"  A: {response}")
+    print(f"  {SEP}")
+
+# ---------------------------------------------------------------
+# 3. Recall — search memory directly
+# ---------------------------------------------------------------
+section(3, "Direct memory recall")
+
+hits = model.recall("Who leads engineering?", limit=3)
+for i, h in enumerate(hits, 1):
+    print(f"  {i}. [{h['memory_type'].upper():<11}] {h['content']}")
+
+# ---------------------------------------------------------------
+# 4. Reasoning pack (SLM context injection)
+# ---------------------------------------------------------------
+section(4, "Reasoning pack for SLM injection")
+
+pack = json.loads(model.memory.reasoning_pack("NeuroSleepNet"))
+print(f"  Key Facts  ({len(pack['key_facts'])}):")
+for f in pack["key_facts"]:
+    print(f"    - {f}")
+print(f"  Graph Rules: {pack['logical_rules'] or 'none extracted'}")
+
+# ---------------------------------------------------------------
+# 5. Sleep cycle (NREM + REM + Decay)
+# ---------------------------------------------------------------
+section(5, "Offline sleep cycle")
+
+logging.disable(logging.CRITICAL)
+ok = model.sleep()
+logging.disable(logging.NOTSET)
+print(f"  Sleep cycle ran successfully: {ok}")
+
+# ---------------------------------------------------------------
+# 6. Timeline
+# ---------------------------------------------------------------
+section(6, "Memory timeline (procedural only)")
+
+for e in model.timeline(memory_type="procedural", limit=5):
+    ts = e["created_at"][:19]
+    print(f"  [{ts}] {e['content']}")
+
+# ---------------------------------------------------------------
+# 7. Wrapper introspection
+# ---------------------------------------------------------------
+section(7, "Wrapper introspection")
+
+print(f"  repr:           {model}")
+print(f"  model type:     {type(model._model).__name__}")
+print(f"  namespace:      {model.memory.namespace}")
+print(f"  original attr:  model.invoke exists = {callable(getattr(model, 'invoke', None))}")
+
+# ---------------------------------------------------------------
+print(f"\n{'='*56}")
+print("  Done. Entire NSN integration = 2 lines.")
+print(f"{'='*56}\n")

@@ -18,6 +18,7 @@ Integrations::
 
 from .sdk.memory import Memory
 from .sdk.async_memory import AsyncMemory
+from .sdk.wrapper import NSN, wrap
 
 __version__ = "0.3.0"
-__all__ = ["Memory", "AsyncMemory", "__version__"]
+__all__ = ["Memory", "AsyncMemory", "NSN", "wrap", "__version__"]
