@@ -313,3 +313,6 @@ def wrap(
         model = neurosleepnet.wrap(my_llm, namespace="agent_1")
     """
     return NSN(model, namespace=namespace, db_path=db_path, **kwargs)
+
+# Alias for wrap
+init = wrap
