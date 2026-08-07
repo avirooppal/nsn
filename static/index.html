@@ -3,45 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeuroSleepNet Chat</title>
+    <title>NeuroSleepNet — Ollama Cloud Memory Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div class="app-container">
-        <header class="app-header">
-            <div class="logo-container">
-                <div class="pulse-ring"></div>
-                <div class="logo"></div>
-                <h1>NeuroSleepNet</h1>
-            </div>
-            <div class="header-actions">
-                <!-- NSN handles everything automatically -->
-            </div>
-        </header>
+    <div class="app-layout">
+        <!-- Main Chat Area -->
+        <div class="main-panel">
+            <header class="app-header">
+                <div class="brand">
+                    <div class="logo-badge">
+                        <span class="pulse-ring"></span>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1>NeuroSleepNet <span class="badge">Ollama Cloud</span></h1>
+                        <p class="subtitle">Vanilla LLM + Persistent Cognitive Memory Layer</p>
+                    </div>
+                </div>
 
-        <main class="chat-container">
-            <div id="chat-box" class="chat-box">
-                <div class="message system-msg">
-                    <div class="msg-content">Welcome! I am powered by Nemotron and have persistent memory thanks to NeuroSleepNet.</div>
+                <div class="controls-group">
+                    <!-- Dynamic API Key Input Option -->
+                    <div class="control-item api-key-container">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input type="password" id="api-key-input" class="custom-input" placeholder="Custom API Key (Optional)">
+                    </div>
+
+                    <div class="control-item">
+                        <label for="model-select">Model:</label>
+                        <select id="model-select" class="custom-select">
+                            <option value="nemotron-3-nano:30b">nemotron-3-nano:30b</option>
+                            <option value="gemma4:31b">gemma4:31b</option>
+                            <option value="qwen3.5:397b">qwen3.5:397b</option>
+                            <option value="deepseek-v4-pro">deepseek-v4-pro</option>
+                        </select>
+                    </div>
+
+                    <div class="mode-selector">
+                        <button class="mode-btn active" data-mode="nsn" id="mode-nsn-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            NSN Memory Layer
+                        </button>
+                        <button class="mode-btn" data-mode="vanilla" id="mode-vanilla-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/></svg>
+                            Vanilla LLM (Stateless)
+                        </button>
+                        <button class="mode-btn" data-mode="both" id="mode-both-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18"/></svg>
+                            Side-by-Side Test
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="chat-viewport">
+                <!-- Dual / Single Container -->
+                <div id="chat-container" class="chat-container mode-single">
+                    <!-- Standard Chat Box -->
+                    <div id="chat-box" class="chat-box">
+                        <div class="system-card">
+                            <div class="card-icon">🧠</div>
+                            <div class="card-text">
+                                <h3>Testing Vanilla Model vs NSN Memory Layer</h3>
+                                <p><strong>Vanilla Mode:</strong> Sends queries statelessly to Ollama Cloud with zero prompt history. The model itself retains no memory.</p>
+                                <p><strong>NSN Mode:</strong> NeuroSleepNet automatically retrieves relevant memories from SQLite + FAISS index and injects context before forwarding to the vanilla model.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </main>
 
-        <footer class="chat-input-container">
-            <form id="chat-form">
-                <input type="text" id="user-input" placeholder="Type a message..." autocomplete="off" required>
-                <button type="submit" id="send-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            <footer class="chat-input-bar">
+                <form id="chat-form">
+                    <div class="input-wrapper">
+                        <input type="text" id="user-input" placeholder="Type a message or teach the agent a fact (e.g. 'My favorite food is ramen')..." autocomplete="off" required>
+                        <button type="submit" id="send-btn" class="send-button">
+                            <span>Send</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                    </div>
+                </form>
+            </footer>
+        </div>
+
+        <!-- Sidebar: Memory Inspector -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                    <span>NSN Memory Inspector</span>
+                </div>
+                <button id="refresh-memories-btn" class="icon-btn" title="Refresh Memory">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
                 </button>
-            </form>
-        </footer>
-    </div>
-    
-    <div id="toast-container"></div>
+            </div>
 
+            <div class="sidebar-search">
+                <input type="text" id="memory-search-input" placeholder="Search NSN memories...">
+            </div>
+
+            <div class="memory-actions-bar">
+                <button id="trigger-sleep-btn" class="action-chip sleep-chip">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    Sleep Consolidation
+                </button>
+                <button id="clear-memory-btn" class="action-chip clear-chip">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                    Clear DB
+                </button>
+            </div>
+
+            <div class="memory-list-container">
+                <div class="section-label">Active Memories (<span id="memory-count">0</span>)</div>
+                <div id="memory-list" class="memory-list">
+                    <div class="empty-memory">No memories recorded yet. Send a message to populate NSN memory!</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <div id="toast-container"></div>
     <script src="/static/script.js"></script>
 </body>
 </html>

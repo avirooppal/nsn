@@ -56,7 +56,11 @@ class _CompletionsProxy:
             "",
         )
 
-        # 2. Inject recalled memory as a system message
+        # 2. Store user query into NSN long-term memory
+        if user_query:
+            self._memory.observe(user_query, source="user_input")
+
+        # 3. Inject recalled memory as a system message
         enriched = _inject_memory_message(self._memory, user_query, messages, self._recall_limit)
 
         # 3. Forward to the real completions endpoint
