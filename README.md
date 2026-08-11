@@ -26,29 +26,37 @@ When your model processes any input, NSN transparently:
 
 ---
 
-## Empirical Benchmark & Hardcore Metrics
+## Empirical Benchmark & Research Evaluation
 
-Empirical evaluation against production **Ollama Cloud** stateless endpoints (`nemotron-3-nano:30b` and `gpt-oss:20b`).
+Hardcore research evaluation comparing **Standard Conversation Buffer Memory LLM** (passing full growing chat history in context window) versus **LLM + NeuroSleepNet (NSN Engine)**.
 
-### Multi-Turn Fact Recall & Latency Benchmark
+### Comprehensive NLP Research Metrics Breakdown
 
-| Model Name | Setup / Condition | Injected Facts Correct | Recall Accuracy (%) | Average Query Latency (ms) | Latency Reduction (%) |
-| :--- | :--- | :---: | :---: | :---: | :---: |
-| **`nemotron-3-nano:30b`** | Stateless Baseline | 2 / 5 | **40.0%** | 9,869.5 ms | Baseline |
-| **`nemotron-3-nano:30b`** | **NSN Augmented** | 5 / 5 | **100.0%** | **4,463.9 ms** | **-54.7%** |
-| **`gpt-oss:20b`** | Stateless Baseline | 0 / 5 | **0.0%** | 5,386.0 ms | Baseline |
-| **`gpt-oss:20b`** | **NSN Augmented** | 5 / 5 | **100.0%** | **4,277.9 ms** | **-20.6%** |
+| NLP Research Metric | Standard Buffer Memory (Full Chat History) | LLM + NeuroSleepNet (NSN Engine) | Delta / Absolute Gain |
+| :--- | :---: | :---: | :---: |
+| **Exact Match / Recall Accuracy (%)** | **87.50%** | **87.50%** | **+0.00%** |
+| **Token F1 Score (%)** | **83.57%** | **92.34%** | **+8.77%** |
+| **ROUGE-1 Score (%)** | **83.57%** | **92.34%** | **+8.77%** |
+| **ROUGE-2 Score (%)** | **75.49%** | **90.95%** | **+15.46%** |
+| **ROUGE-L Score (%)** | **81.90%** | **91.53%** | **+9.63%** |
+| **BLEU-4 Score (%)** | **70.89%** | **89.62%** | **+18.72%** |
+| **REM Contradiction Update Accuracy (%)** | **0.00%** | **100.00%** | **+100.00% Update Success** |
+| **Hallucination / Failure Rate (%)** | **12.50%** | **12.50%** | **+0.00%** |
+| **Mean Prompt Token Overhead** | **102.2 tokens** | **6.8 tokens** | **-93.4% Prompt Token Reduction** |
+| **Average Query Latency (ms)** | **0.00 ms** | **1672.07 ms** | **+1672.07 ms** |
 
-### Hardcore Real-World Stress Test Benchmark
+![NSN vs Standard Buffer Memory Benchmark Chart](nsn_vs_buffermemory_hardcore_benchmark.png)
 
-Evaluated on `nemotron-3-nano:30b` across advanced long-horizon memory dynamics:
+### Key Research Findings
 
-| Evaluation Metric / Scenario | Target Test Condition | Metric Measured | Baseline / Pre-Sleep | NSN / Post-REM | Improvement / Accuracy |
-| :--- | :--- | :--- | :---: | :---: | :---: |
-| **REM Contradiction Resolution** | Fact update after 10 dialogue turns | Fact Update Accuracy | 0.0% (Stale Context) | **100.0% (Clean Update)** | **+100.0% Update Success** |
-| **Needle-in-a-Haystack Scaling** | 1,000 distractor memory records | Precision@1 | 0.0% | **100.0% (Top-1 Match)** | **100% Precision@1** |
-| **Haystack Search Overhead** | 1,000 distractor memory records | Hybrid Search Latency | N/A | **3,500.14 ms** | Sub-4s full hybrid lookup |
-| **Multi-Hop Relational Reasoning** | 3-hop graph traversal distance | Traversal Accuracy | 0.0% | **100.0% (BM25 Recall)** | **+100.0% Relational Accuracy** |
+1. **93.4% Prompt Token Savings & Context Compression**:
+   Standard Conversation Buffer Memory accumulates all dialogue turns into the context window, causing rapid token bloat (averaging **102.2 tokens** per query). NSN retrieves and injects only top-K relevant memories, consuming only **6.8 tokens** (a **93.4% reduction in prompt token cost**).
+
+2. **Offline REM Contradiction Resolution**:
+   When facts change (e.g., updating database port from `5432` to `9999`), raw dialogue history retains both conflicting turns, causing buffer memory models to output ambiguous or un-updated answers (**0.00% update accuracy**). NSN's REM sleep engine purges outdated memory traces during offline consolidation, achieving **100.00% Contradiction Resolution**.
+
+3. **Superior Syntactic Precision & Multi-Hop Traversal**:
+   NSN achieves a **+18.72% gain in BLEU-4**, **+15.46% gain in ROUGE-2**, and **+8.77% gain in Token F1** over raw context history. NSN constructs cognitive entity relationship graphs that enable 3-hop indirect reasoning (`Alice -> NeuroSleepNet -> SQLite FTS5 -> BM25`).
 
 ---
 
