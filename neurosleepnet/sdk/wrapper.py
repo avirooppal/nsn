@@ -95,27 +95,50 @@ class _ChatProxy:
 # ---------------------------------------------------------------------------
 
 def _inject_memory_message(memory: Memory, query: str, messages: list, limit: int) -> list:
-    """Prepend a memory context system message to the messages list."""
+    """
+    Phase 2: Anchored Provenance System Prompt.
+
+    Replaces the loose [EPISODIC] format with a strict structured context block
+    that explicitly instructs the LLM to answer using verified fact values
+    verbatim, preventing paraphrasing or omission of exact entity strings.
+    """
     if not query:
         return messages
 
-    results = memory.search_hybrid(query, limit=limit)
+    results = memory.search_hybrid(query, limit=limit, adaptive_k=False)
     if not results:
         return messages
 
-    context_lines = "\n".join(
-        f"[{r.get('memory_type', 'memory').upper()}] {r['content']}"
-        for r in results
-    )
+    # Build anchored provenance entries with Memory ID and source attribution
+    provenance_lines = []
+    for i, r in enumerate(results):
+        mem_id = r.get('id', f'mem_{i:03d}')[:12]
+        mem_type = r.get('memory_type', 'memory').upper()
+        content = r['content']
+        importance = float(r.get('importance', 0.5))
+        # Classify source trustworthiness
+        source_tag = "Verified User" if importance >= 0.5 else "Agent Observation"
+        provenance_lines.append(
+            f"  - Memory ID: {mem_id} | Type: {mem_type} | Source: {source_tag}\n"
+            f"    Fact: {content}"
+        )
+
+    context_block = "\n".join(provenance_lines)
+
     system_msg = {
         "role": "system",
         "content": (
-            "Long-term memory context (use this to inform your response):\n\n"
-            f"{context_lines}"
+            "[STRICT COGNITIVE MEMORY CONTEXT]\n"
+            "The following verified facts have been retrieved from long-term memory.\n"
+            "These facts are authoritative and must be used verbatim in your answer.\n\n"
+            f"{context_block}\n\n"
+            "INSTRUCTION: Answer using the exact verified fact values above. "
+            "Do NOT rephrase, generalize, or omit specific entity strings, codes, or identifiers. "
+            "If the answer is directly stated in the facts above, reproduce it exactly."
         ),
     }
 
-    # Keep any existing system messages, prepend the memory system message
+    # Keep any existing system messages, prepend the anchored memory system message
     return [system_msg] + list(messages)
 
 

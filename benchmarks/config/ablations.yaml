@@ -1,0 +1,26 @@
+retrieval_ablations:
+  - semantic_only
+  - keyword_only
+  - graph_only
+  - semantic_keyword
+  - semantic_graph
+  - keyword_graph
+  - nsn_full
+
+sleep_ablations:
+  - no_sleep
+  - nrem_only
+  - rem_only
+  - full_sleep
+
+component_ablations:
+  - nsn_full
+  - nsn_no_graph
+  - nsn_no_semantic
+  - nsn_no_keyword
+  - nsn_no_rrf
+  - nsn_no_sleep
+  - nsn_no_decay
+  - nsn_no_trust
+  - nsn_no_classification
+  - nsn_no_importance

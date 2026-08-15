@@ -1,0 +1,23 @@
+benchmark:
+  seed: 42
+  default_memory_size: 100
+  top_k: 5
+  adaptive_k: true
+
+systems:
+  - nsn
+  - bm25
+  - dense
+  - hybrid
+  - full_context
+
+output:
+  dir: "benchmarks/results"
+  raw_dir: "benchmarks/results/raw"
+  processed_dir: "benchmarks/results/processed"
+  figures_dir: "benchmarks/results/figures"
+  tables_dir: "benchmarks/results/tables"
+
+llm:
+  model_name: "mock-eval-llm"
+  temperature: 0.0

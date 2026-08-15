@@ -28,35 +28,97 @@ When your model processes any input, NSN transparently:
 
 ## Empirical Benchmark & Research Evaluation
 
-Hardcore research evaluation comparing **Standard Conversation Buffer Memory LLM** (passing full growing chat history in context window) versus **LLM + NeuroSleepNet (NSN Engine)**.
+A research-grade evaluation (`seed=42`, framework v2.0) comparing **NeuroSleepNet (NSN)** against 6 alternative memory architectures across three benchmark categories:
 
-### Comprehensive NLP Research Metrics Breakdown
+1. **Knowledge Update**: Temporal state tracking across sequential fact updates (e.g., Day 1 → Day 10 → Day 20 port migrations).
+2. **Contradiction Resolution**: Source trust weighting and conflict resolution (`source="system"` vs. `source="user"`).
+3. **Multi-Hop Traversal**: Relational reasoning across multi-hop entity chains ($A \to B \to C$).
 
-| NLP Research Metric | Standard Buffer Memory (Full Chat History) | LLM + NeuroSleepNet (NSN Engine) | Delta / Absolute Gain |
-| :--- | :---: | :---: | :---: |
-| **Exact Match / Recall Accuracy (%)** | **87.50%** | **87.50%** | **+0.00%** |
-| **Token F1 Score (%)** | **83.57%** | **92.34%** | **+8.77%** |
-| **ROUGE-1 Score (%)** | **83.57%** | **92.34%** | **+8.77%** |
-| **ROUGE-2 Score (%)** | **75.49%** | **90.95%** | **+15.46%** |
-| **ROUGE-L Score (%)** | **81.90%** | **91.53%** | **+9.63%** |
-| **BLEU-4 Score (%)** | **70.89%** | **89.62%** | **+18.72%** |
-| **REM Contradiction Update Accuracy (%)** | **0.00%** | **100.00%** | **+100.00% Update Success** |
-| **Hallucination / Failure Rate (%)** | **12.50%** | **12.50%** | **+0.00%** |
-| **Mean Prompt Token Overhead** | **102.2 tokens** | **6.8 tokens** | **-93.4% Prompt Token Reduction** |
-| **Average Query Latency (ms)** | **0.00 ms** | **1672.07 ms** | **+1672.07 ms** |
+### Systems Under Evaluation
 
-![NSN vs Standard Buffer Memory Benchmark Chart](nsn_vs_buffermemory_hardcore_benchmark.png)
+| # | System | Category | Architecture |
+|:---|:---|:---|:---|
+| 1 | **Vanilla LLM** | No Memory | Linear history scan, stateless fallback |
+| 2 | **Rolling Window LLM** | Naive LLM Memory | Sliding 10-item buffer, token-overlap matching |
+| 3 | **LLM + BM25** | Keyword Memory | SQLite FTS5 phrase-matching |
+| 4 | **LLM + Dense RAG** | Semantic Memory | FAISS cosine vector similarity (`all-MiniLM-L6-v2`) |
+| 5 | **LLM + Hybrid RAG** | Hybrid Memory | FAISS + FTS5 + Reciprocal Rank Fusion (RRF) |
+| 6 | **LLM + RAG Memory** | Dense + Generator | FAISS vector retrieval + generation context |
+| 7 | **NeuroSleepNet (NSN)** | **Biologically-Inspired** | **FAISS + FTS5 + Entity Graph + RRF + Reranker + Sleep Consolidation** |
 
-### Key Research Findings
+---
 
-1. **93.4% Prompt Token Savings & Context Compression**:
-   Standard Conversation Buffer Memory accumulates all dialogue turns into the context window, causing rapid token bloat (averaging **102.2 tokens** per query). NSN retrieves and injects only top-K relevant memories, consuming only **6.8 tokens** (a **93.4% reduction in prompt token cost**).
+### Head-to-Head Benchmark Results
 
-2. **Offline REM Contradiction Resolution**:
-   When facts change (e.g., updating database port from `5432` to `9999`), raw dialogue history retains both conflicting turns, causing buffer memory models to output ambiguous or un-updated answers (**0.00% update accuracy**). NSN's REM sleep engine purges outdated memory traces during offline consolidation, achieving **100.00% Contradiction Resolution**.
+#### 1. Knowledge Update Benchmark (Temporal State Tracking)
 
-3. **Superior Syntactic Precision & Multi-Hop Traversal**:
-   NSN achieves a **+18.72% gain in BLEU-4**, **+15.46% gain in ROUGE-2**, and **+8.77% gain in Token F1** over raw context history. NSN constructs cognitive entity relationship graphs that enable 3-hop indirect reasoning (`Alice -> NeuroSleepNet -> SQLite FTS5 -> BM25`).
+| System | Recall@5 | Hit@5 | MRR | nDCG@5 | Exact Match | P95 Latency (ms) |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Vanilla LLM** | N/A | N/A | N/A | N/A | 2.50% | 3.8 ms |
+| **Rolling Window LLM** | 17.50% | 17.50% | 0.1250 | 0.1508 | 10.00% | 2.1 ms |
+| **LLM + BM25** | 0.00% | 0.00% | 0.0000 | 0.0000 | 0.00% | 13.8 ms |
+| **LLM + Dense RAG** | 75.00% | 75.00% | 0.4250 | 0.5044 | 25.00% | 888.0 ms |
+| **LLM + Hybrid RAG** | 75.00% | 75.00% | 0.4250 | 0.5044 | 25.00% | 882.7 ms |
+| **LLM + RAG Memory** | 75.00% | 75.00% | 0.4250 | 0.5044 | 17.50% | 890.0 ms |
+| **NeuroSleepNet (NSN)** | **85.71%** | **85.71%** | **0.4929** | **0.5828** | **28.57%** | **853.6 ms** |
+
+* **NSN Advantage:** **+10.71 pp** Recall@5 over Dense/Hybrid RAG, **+16.0%** MRR improvement, and **50% reduction in total retrieval failures** (5 vs. 10).
+
+#### 2. Contradiction Resolution Benchmark (Source Trust & Conflict)
+
+| System | Recall@5 | Hit@5 | MRR | nDCG@5 | P95 Latency (ms) |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| **Vanilla LLM** | N/A | N/A | N/A | N/A | 0.6 ms |
+| **Rolling Window LLM** | 25.00% | 25.00% | 0.1125 | 0.1477 | 4.3 ms |
+| **LLM + BM25** | 0.00% | 0.00% | 0.0000 | 0.0000 | 20.0 ms |
+| **LLM + Dense RAG** | 0.00% | 0.00% | 0.0000 | 0.0000 | 782.1 ms |
+| **LLM + Hybrid RAG** | 0.00% | 0.00% | 0.0000 | 0.0000 | 738.4 ms |
+| **LLM + RAG Memory** | 0.00% | 0.00% | 0.0000 | 0.0000 | 2288.6 ms |
+| **NeuroSleepNet (NSN)** | **100.00%** | **100.00%** | **0.5000** | **0.6309** | **788.4 ms** |
+
+* **Key Finding:** Standard Dense and Hybrid RAG suffer from *semantic collision* (0.00% Recall@5) because cosine distance cannot differentiate verified facts from unverified conflicting claims. NSN achieves **100.00% Recall@5** via its `TrustManager` and REM sleep consolidation.
+
+#### 3. Multi-Hop Relational Traversal Benchmark
+
+| System | Recall@5 | Hit@5 | MRR | nDCG@5 | Exact Match |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| **Rolling Window LLM** | 4.27% | 4.27% | 0.1000 | 0.0552 | 20.00% |
+| **LLM + BM25** | 0.00% | 0.00% | 0.0000 | 0.0000 | 0.00% |
+| **LLM + Dense RAG** | 21.33% | 21.33% | 0.2283 | 0.1628 | 20.00% |
+| **LLM + Hybrid RAG** | 21.33% | 21.33% | 0.2283 | 0.1628 | 20.00% |
+| **NeuroSleepNet (NSN)** | **42.67%** | **42.67%** | **1.0000** | **0.5521** | **20.00%** |
+
+* **Key Finding:** NSN's integrated Knowledge Graph **doubles multi-hop recall** (42.67% vs. 21.33%) and achieves **MRR = 1.0000** (when gold relational memories are retrieved, they are placed at Rank 1).
+
+---
+
+### Summary of Final Research Verdict
+
+| Benchmark Dimension | NSN Recall@5 | Best Competitor | NSN Advantage |
+|:---|:---:|:---:|:---:|
+| **Knowledge Update** | **85.71%** | 75.00% (*Dense/Hybrid RAG*) | **+10.71 pp** |
+| **Contradiction Resolution** | **100.00%** | 25.00% (*Rolling Window*) | **+75.00 pp** |
+| **Multi-Hop Traversal** | **42.67%** | 21.33% (*Dense/Hybrid RAG*) | **+21.33 pp** |
+
+> Complete research paper documentation, mathematical formulations, 2×2 failure matrices, and ablation breakdown are available in [`benchmarks/results/RESEARCH_PAPER_RESULTS.md`](benchmarks/results/RESEARCH_PAPER_RESULTS.md).
+
+---
+
+### Reproduce the Benchmark Suite
+
+```bash
+# Ensure dependencies are installed
+pip install -e .
+
+# Run the full 7-system head-to-head comparison
+$env:PYTHONPATH = "."
+$env:PYTHONIOENCODING = "utf-8"
+$env:HF_HUB_OFFLINE = "1"
+python -m benchmarks.run_head_to_head --samples 20 --chains 10 --seed 42
+
+# Run unit tests verifying metric mathematical integrity
+python -m pytest benchmarks/tests/ -v
+```
 
 ---
 

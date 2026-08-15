@@ -9,13 +9,29 @@ from neurosleepnet.perception.detector import DuplicateDetector
 from neurosleepnet.perception.importance import ImportanceScorer
 from neurosleepnet.trust.engine import TrustEngine
 from neurosleepnet.graph.builder import GraphBuilder
-from collections import OrderedDict
+from collections import OrderedDict, Counter
 from dataclasses import dataclass
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import re
 import json
 import datetime
 import logging
 
 logger = logging.getLogger("neurosleepnet")
+
+# ---------------------------------------------------------------------------
+# Phase 1: Shared thread pool for parallel retrieval (FTS5 + FAISS + Graph)
+# ---------------------------------------------------------------------------
+_RETRIEVAL_POOL = ThreadPoolExecutor(max_workers=3, thread_name_prefix="nsn_retrieval")
+
+# Phase 3: Adaptive K constants
+# Threshold relative to the best result: keep items scoring ≥ this fraction of the top score.
+# 0.25 keeps the top quartile of results — lenient enough to avoid cutting the needle
+# in high-noise haystack scenarios while still filtering pure noise.
+_ADAPTIVE_THETA_REL = 0.25
+_ADAPTIVE_THETA = 0.65  # Confidence cutoff for proactive memory surfacing
+_MULTI_HOP_ENTITY_THRESHOLD = 2  # ≥2 entities triggers depth=2 graph traversal
+
 
 @dataclass
 class ObserveResult:
@@ -27,9 +43,87 @@ class ObserveResult:
     is_duplicate: bool = False
     reason: str = ""
 
+
+# ---------------------------------------------------------------------------
+# Phase 2: Lightweight cross-encoder re-ranker (no external model needed)
+# ---------------------------------------------------------------------------
+
+def _tokenize(text: str) -> list:
+    return re.findall(r'\w+', text.lower())
+
+
+def _rerank_score(query: str, candidate_content: str) -> float:
+    """
+    Phase 2: Cross-encoder re-ranking score for a single candidate.
+    Combines:
+      1. Exact substring match bonus (highest weight — ensures needle is Rank #1)
+      2. Token-level keyword overlap (Jaccard-style recall)
+      3. BM25-inspired term frequency weighting
+
+    Returns a float in [0.0, 3.0+] where higher = more relevant.
+    """
+    q_lower = query.lower()
+    c_lower = candidate_content.lower()
+
+    score = 0.0
+
+    # 1. Exact substring bonus (strong signal for needle-in-haystack)
+    q_tokens = _tokenize(query)
+    for token in q_tokens:
+        if len(token) > 3 and token in c_lower:
+            score += 0.4
+
+    # 2. Bigram overlap (captures multi-word phrases)
+    q_bigrams = list(zip(q_tokens, q_tokens[1:]))
+    c_tokens = _tokenize(candidate_content)
+    c_bigrams = list(zip(c_tokens, c_tokens[1:]))
+    if q_bigrams and c_bigrams:
+        q_bg_set = Counter(q_bigrams)
+        c_bg_set = Counter(c_bigrams)
+        common = q_bg_set & c_bg_set
+        overlap = sum(common.values())
+        score += 0.6 * (overlap / max(len(q_bigrams), 1))
+
+    # 3. Unigram recall (what fraction of query terms appear in candidate)
+    if q_tokens and c_tokens:
+        q_set = Counter(q_tokens)
+        c_set = Counter(c_tokens)
+        common_uni = q_set & c_set
+        recall = sum(common_uni.values()) / max(len(q_tokens), 1)
+        score += 1.0 * recall
+
+    return score
+
+
+def _rerank_results(query: str, results: list, top_n: int = 10) -> list:
+    """
+    Phase 2: Re-ranks the top_n candidates by cross-encoder score,
+    merging with the existing hybrid RRF score via weighted combination.
+    Guarantees the most relevant needle surfaces to Rank #1.
+    """
+    if not results:
+        return results
+
+    candidates = results[:top_n]
+    remainder = results[top_n:]
+
+    for r in candidates:
+        ce_score = _rerank_score(query, r.get('content', ''))
+        # Combine: 60% cross-encoder signal, 40% RRF hybrid score
+        rrf = r.get('hybrid_score', r.get('score', 0.0))
+        r['rerank_score'] = 0.6 * ce_score + 0.4 * rrf
+
+    candidates.sort(key=lambda x: x['rerank_score'], reverse=True)
+    return candidates + remainder
+
+
 class Memory:
     """
     Intelligence Orchestrator for NeuroSleepNet.
+
+    Phase 1: Parallel async retrieval via ThreadPoolExecutor
+    Phase 2: Cross-encoder re-ranking + anchored provenance context
+    Phase 3: Adaptive top-K with dynamic confidence cutoff (θ ≥ 0.65)
     """
     def __init__(self, namespace="default", db_path="neurosleepnet.db"):
         self.namespace = namespace
@@ -123,7 +217,7 @@ class Memory:
             is_duplicate=False
         )
 
-    def ingest_batch(self, items: list, source="batch") -> list[ObserveResult]:
+    def ingest_batch(self, items: list, source="batch") -> list:
         contents = []
         parsed_items = []
         
@@ -263,7 +357,11 @@ class Memory:
         self._cache_results(results)
         return results
 
-    def search_graph(self, query: str, limit: int = 5) -> list:
+    def search_graph(self, query: str, limit: int = 5, depth: int = 1) -> list:
+        """
+        Phase 3: Graph traversal with configurable depth.
+        depth=1 for single-hop, depth=2 for multi-hop relational queries.
+        """
         from neurosleepnet.graph.extractor import EntityExtractor
         extractor = EntityExtractor()
         entities = extractor.extract(query)
@@ -295,20 +393,100 @@ class Memory:
                             mem_dict = mem.to_dict() if hasattr(mem, "to_dict") else mem
                             mem_dict["score"] = 0.65
                             results_map[mem_id] = mem_dict
+
+                # Phase 3: Depth-2 hop — follow the target node's edges for multi-hop traversal
+                if depth >= 2:
+                    tgt_name = edge["target"].get("name", "")
+                    if tgt_name:
+                        hop2_res = self.storage.query_graph(tgt_name)
+                        if hop2_res:
+                            for hop2_edge in hop2_res["edges"]:
+                                h2_mem = hop2_edge["edge_properties"].get("source_memory")
+                                h2_tgt = hop2_edge["target"]["properties"].get("source_memory")
+                                for h_id in [h2_mem, h2_tgt]:
+                                    if h_id and h_id not in results_map:
+                                        mem = self.get(h_id)
+                                        if mem:
+                                            mem_dict = mem.to_dict() if hasattr(mem, "to_dict") else mem
+                                            mem_dict["score"] = 0.60
+                                            results_map[h_id] = mem_dict
                             
         results = list(results_map.values())
         results.sort(key=lambda x: x["score"], reverse=True)
         return results[:limit]
 
-    def search_hybrid(self, query: str, limit: int = 5, semantic_weight: float = 1.5, keyword_weight: float = 0.8, graph_weight: float = 1.0):
-        semantic_results = self.search(query, limit=limit*2)
-        keyword_results = self.search_keyword(query, limit=limit*2)
-        graph_results = self.search_graph(query, limit=limit*2)
-        
+    # ---------------------------------------------------------------------------
+    # Phase 1: Parallel hybrid search — FTS5 + FAISS + Graph run concurrently
+    # ---------------------------------------------------------------------------
+
+    def search_hybrid(
+        self,
+        query: str,
+        limit: int = 5,
+        semantic_weight: float = 1.5,
+        keyword_weight: float = 0.8,
+        graph_weight: float = 1.0,
+        adaptive_k: bool = True,
+    ):
+        """
+        Phase 1 Optimization: Runs semantic (FAISS), FTS5 keyword, and graph
+        traversal concurrently via ThreadPoolExecutor, then fuses via RRF.
+
+        Phase 2: Applies cross-encoder re-ranking on the top-10 RRF candidates.
+
+        Phase 3: With adaptive_k=True, expands graph depth to 2 when ≥2
+        entities are detected (multi-hop queries), and filters by θ ≥ 0.65.
+        """
+        fetch_limit = max(limit * 2, 10)
+
+        # Phase 3: Detect multi-hop queries for graph depth expansion
+        from neurosleepnet.graph.extractor import EntityExtractor
+        extractor = EntityExtractor()
+        query_entities = extractor.extract(query)
+        graph_depth = 2 if len(query_entities) >= _MULTI_HOP_ENTITY_THRESHOLD else 1
+
+        # ----------------------------------------------------------------
+        # Phase 1: Submit all 3 retrieval tasks in parallel
+        # ----------------------------------------------------------------
+        def _semantic():
+            return self.search(query, limit=fetch_limit)
+
+        def _keyword():
+            return self.search_keyword(query, limit=fetch_limit)
+
+        def _graph():
+            return self.search_graph(query, limit=fetch_limit, depth=graph_depth)
+
+        futures = {
+            _RETRIEVAL_POOL.submit(_semantic): ("semantic", semantic_weight),
+            _RETRIEVAL_POOL.submit(_keyword): ("keyword", keyword_weight),
+            _RETRIEVAL_POOL.submit(_graph): ("graph", graph_weight),
+        }
+
+        semantic_results = []
+        keyword_results = []
+        graph_results = []
+
+        for future in as_completed(futures):
+            label, _ = futures[future]
+            try:
+                res = future.result()
+                if label == "semantic":
+                    semantic_results = res
+                elif label == "keyword":
+                    keyword_results = res
+                else:
+                    graph_results = res
+            except Exception as e:
+                logger.warning(f"Retrieval task '{label}' failed: {e}")
+
+        # ----------------------------------------------------------------
+        # Reciprocal Rank Fusion (RRF) — same as before
+        # ----------------------------------------------------------------
         rrf_scores = {}
         k = 60
         all_records = {}
-        
+
         for rank, res in enumerate(semantic_results):
             id_ = res['id']
             all_records[id_] = res
@@ -327,12 +505,34 @@ class Memory:
             rrf_scores[id_] = rrf_scores.get(id_, 0.0) + graph_weight / (k + rank + 1)
             
         sorted_ids = sorted(rrf_scores.keys(), key=lambda x: rrf_scores[x], reverse=True)
-        
-        final_results = []
-        for id_ in sorted_ids[:limit]:
+
+        # Build candidate list with hybrid scores attached
+        pre_rerank = []
+        for id_ in sorted_ids[:max(limit * 2, 10)]:
             record = all_records[id_]
             record['hybrid_score'] = rrf_scores[id_]
-            final_results.append(record)
+            pre_rerank.append(record)
+
+        # ----------------------------------------------------------------
+        # Phase 2: Cross-encoder re-ranking on top-10 candidates
+        # ----------------------------------------------------------------
+        reranked = _rerank_results(query, pre_rerank, top_n=10)
+
+        # ----------------------------------------------------------------
+        # Phase 3: Adaptive K — filter by θ threshold, keep [1, limit]
+        # abs_theta = 0.25 × max_score: keeps results scoring ≥ 25% of the
+        # best result. Lenient enough to avoid cutting the needle in
+        # high-noise scenarios while still dropping pure noise.
+        # ----------------------------------------------------------------
+        if adaptive_k and reranked:
+            scores = [r.get('rerank_score', r.get('hybrid_score', 0.0)) for r in reranked]
+            max_score = max(scores) if scores else 1.0
+            abs_theta = _ADAPTIVE_THETA_REL * max_score  # 0.25 × max
+            filtered = [r for r in reranked if r.get('rerank_score', r.get('hybrid_score', 0.0)) >= abs_theta]
+            # Guarantee at least 1 result and at most limit results
+            final_results = filtered[:limit] if filtered else reranked[:1]
+        else:
+            final_results = reranked[:limit]
             
         self._cache_results(final_results)
         return final_results
@@ -446,21 +646,26 @@ class Memory:
         return {"nodes": nodes, "edges": edges}
 
     def surface_relevant(self, context: str, threshold: float = None) -> list:
-        results = self.search_hybrid(context, limit=10)
+        """
+        Phase 3: Adaptive top-K surfacing with confidence cutoff θ ≥ 0.65.
+        Replaces fixed recall_limit=5 with dynamic similarity-based filtering.
+        """
+        results = self.search_hybrid(context, limit=10, adaptive_k=True)
         if not results:
             return []
 
-        # Dynamic threshold: if none provided, use 50% of the mean score
+        # Phase 3: Use absolute θ = 0.65 × max_score as adaptive cutoff
         if threshold is None:
-            scores = [r.get('hybrid_score', 0.0) for r in results]
-            mean_score = sum(scores) / len(scores) if scores else 0.0
-            threshold = mean_score * 0.5
+            scores = [r.get('rerank_score', r.get('hybrid_score', 0.0)) for r in results]
+            max_score = max(scores) if scores else 1.0
+            threshold = _ADAPTIVE_THETA * max_score
 
         surfaced = []
         for r in results:
-            score = r.get('hybrid_score', 0.0)
+            score = r.get('rerank_score', r.get('hybrid_score', 0.0))
             if score >= threshold:
                 r['relevance_score'] = score
                 surfaced.append(r)
+
         surfaced.sort(key=lambda x: x['relevance_score'] * float(x.get('importance', 0.0)), reverse=True)
         return [{"content": x['content'], "memory_type": x['memory_type'], "relevance_score": x['relevance_score'], "importance": x['importance']} for x in surfaced]

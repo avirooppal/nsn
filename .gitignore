@@ -62,4 +62,7 @@ desktop.ini
 # ── Benchmark & scratch output ────────────────────────────────────────────────
 run.log
 *.log
+*.jsonl
+benchmarks/results/raw/
 tasks.md
+
