@@ -50,6 +50,8 @@ A research-grade evaluation (`seed=42`, framework v2.0) comparing **NeuroSleepNe
 
 ### Head-to-Head Benchmark Results
 
+![Head-to-Head Recall@5 Benchmark Results](docs/images/nsn_head_to_head_recall.png)
+
 #### 1. Knowledge Update Benchmark (Temporal State Tracking)
 
 | System | Recall@5 | Hit@5 | MRR | nDCG@5 | Exact Match | P95 Latency (ms) |
@@ -64,6 +66,8 @@ A research-grade evaluation (`seed=42`, framework v2.0) comparing **NeuroSleepNe
 
 * **NSN Advantage:** **+10.71 pp** Recall@5 over Dense/Hybrid RAG, **+16.0%** MRR improvement, and **50% reduction in total retrieval failures** (5 vs. 10).
 
+![Mean Reciprocal Rank (MRR) & Retrieval Latency Analysis](docs/images/nsn_mrr_and_latency.png)
+
 #### 2. Contradiction Resolution Benchmark (Source Trust & Conflict)
 
 | System | Recall@5 | Hit@5 | MRR | nDCG@5 | P95 Latency (ms) |
@@ -77,6 +81,8 @@ A research-grade evaluation (`seed=42`, framework v2.0) comparing **NeuroSleepNe
 | **NeuroSleepNet (NSN)** | **100.00%** | **100.00%** | **0.5000** | **0.6309** | **788.4 ms** |
 
 * **Key Finding:** Standard Dense and Hybrid RAG suffer from *semantic collision* (0.00% Recall@5) because cosine distance cannot differentiate verified facts from unverified conflicting claims. NSN achieves **100.00% Recall@5** via its `TrustManager` and REM sleep consolidation.
+
+![Contradiction Resolution & Trust Weighting Deep-Dive](docs/images/nsn_contradiction_resolution.png)
 
 #### 3. Multi-Hop Relational Traversal Benchmark
 
@@ -100,7 +106,10 @@ A research-grade evaluation (`seed=42`, framework v2.0) comparing **NeuroSleepNe
 | **Contradiction Resolution** | **100.00%** | 25.00% (*Rolling Window*) | **+75.00 pp** |
 | **Multi-Hop Traversal** | **42.67%** | 21.33% (*Dense/Hybrid RAG*) | **+21.33 pp** |
 
+![2x2 Error & Failure Mode Analysis](docs/images/nsn_failure_matrix.png)
+
 > Complete research paper documentation, mathematical formulations, 2×2 failure matrices, and ablation breakdown are available in [`benchmarks/results/RESEARCH_PAPER_RESULTS.md`](benchmarks/results/RESEARCH_PAPER_RESULTS.md).
+
 
 ---
 
