@@ -396,6 +396,18 @@ The demo shows the complete NSN workflow: wrapping a model in two lines, ingesti
 
 ---
 
+## Frontend Dashboard
+
+NeuroSleepNet includes a web dashboard to visualize memory timeline and state. To run it:
+
+```bash
+python -m http.server 8080 -d frontend
+```
+
+Then open `http://localhost:8080` in your browser.
+
+---
+
 ## Testing
 
 ```bash
