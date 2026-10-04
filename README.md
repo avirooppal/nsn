@@ -29,6 +29,23 @@ The restart demo checks evidence injection deterministically. A real local Qwen 
 
 Use a fixed data path in services and call `nsn.close()` at shutdown or before changing directories. Closed runtimes reject memory and maintenance operations. `nsn.flush()` reports pending indexing consistency; inspect failures instead of assuming success.
 
+### Try memory yourself
+
+From a clone, install the lightweight package and run the self-contained test:
+
+```powershell
+python -m pip install -e .
+python examples/try_memory.py
+```
+
+It checks stored evidence delivery, restart persistence, namespace isolation and no self-recall using temporary memory. The default backend is a deterministic fixture, so no model, API key or network is needed. To try an already installed local Ollama model with the same checks:
+
+```powershell
+python examples/try_memory.py --model qwen3:1.7b
+```
+
+Ollama must already be running with that model available. The script shows memory checks separately from actual model answers, downloads nothing and leaves existing memory directories untouched.
+
 [Quickstart, adapters, profiles and migration guide](docs/user-guide.md) includes a real local-model example, offline assets, advanced commands and backup/restore. [Phase status](docs/implementation/README.md) records verified behavior and limitations.
 
 ## Supported profiles
