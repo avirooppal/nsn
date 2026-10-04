@@ -1,0 +1,117 @@
+{
+  "manifest_sha256": "1322463af776addf5ed1e1876a77ce05c7fded1c057825b6ead77e2c1702f163",
+  "per_category": 5,
+  "sampling": "fixed digest order per dataset/category, includes failures",
+  "reviews": [
+    {
+      "case_id": "longmemeval:031748ae_abs",
+      "profile": "full_context",
+      "row_sha256": "c58974841202fcfeabda01875613e8ea8d8027ee8362654cda4d0fd2a3e061b1",
+      "question": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+      "reference_answer": "The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:031748ae_abs",
+      "profile": "pooled_dense",
+      "row_sha256": "7a9749c549472ff44bc8e1416b4c052bb4b4053a0b4d3b9d205f90b75cd13d48",
+      "question": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+      "reference_answer": "The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:031748ae_abs",
+      "profile": "stateless",
+      "row_sha256": "0b7fe26d182b37e513d6fdb1f4fe5f675521b29b1cd9fac17564b13142381963",
+      "question": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+      "reference_answer": "The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:031748ae_abs",
+      "profile": "hybrid",
+      "row_sha256": "243d55c9fb18dfc14bf00f7652493dcadfcdb4a72c609341bb77dcffba2a4047",
+      "question": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+      "reference_answer": "The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.",
+      "predicted_answer": "3",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:07741c44",
+      "profile": "nsn_semantic",
+      "row_sha256": "985c1f189c675c70a9321012e46871b36df59e4154f5adca1e2c990f1e671d07",
+      "question": "Where do I initially keep my old sneakers?",
+      "reference_answer": "under my bed",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "full_context",
+      "row_sha256": "349a8d759e924eac96402b98da70c55c2e8a0405afde7223d8ea668b71f0873a",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "nsn_semantic",
+      "row_sha256": "37507472f962e8beb2a3838f01a6569635908fd904181ddc5d233146d34f625f",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "yes",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "stateless",
+      "row_sha256": "a97306ab50e34732ce01242839451abfa48de48a0b557695e0992df2f8436f37",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "oracle",
+      "row_sha256": "b40bc76403b283ae15ecaa5320b6118be1635542514ab823c7c503a513bda328",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "bm25",
+      "row_sha256": "681c247f57d72608bcbf0ccb9a2c6a5a0a345e6670b55accea915257a3cfafd2",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "yes",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "parent": 27064,
+  "children": [
+    27172,
+    28336
+  ],
+  "failure": "Measurement stdout pipe filled; no qualified result. Same workload reruns with file redirection."
+}

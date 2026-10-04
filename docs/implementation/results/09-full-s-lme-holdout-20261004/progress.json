@@ -1,0 +1,7 @@
+{
+  "status": "incomplete",
+  "expected_rows": 4500,
+  "completed_rows": 18,
+  "missing_rows": 4482,
+  "publishable_superiority": false
+}

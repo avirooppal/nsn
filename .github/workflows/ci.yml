@@ -1,0 +1,73 @@
+name: installed-wheel
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  core:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.9', '3.10', '3.12']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install build
+      - run: python -m build --wheel
+      - shell: bash
+        run: |
+          python -m venv "$RUNNER_TEMP/nsn-minimal"
+          if [ -f "$RUNNER_TEMP/nsn-minimal/Scripts/python.exe" ]; then
+            task_python="$RUNNER_TEMP/nsn-minimal/Scripts/python.exe"
+          else
+            task_python="$RUNNER_TEMP/nsn-minimal/bin/python"
+          fi
+          "$task_python" -m pip install dist/*.whl
+          cd "$RUNNER_TEMP"
+          "$task_python" "$GITHUB_WORKSPACE/scripts/verify_install.py"
+      - run: python -m pip install -e ".[dev]"
+      - run: python -m pytest tests/test_durable_storage.py tests/test_facts_history.py tests/test_retrieval_context.py tests/test_sdk_facade.py tests/test_audit_repairs.py tests/test_bounded_relationships.py tests/test_consolidation.py tests/test_advanced_memory.py tests/test_procedure_tasks.py tests/test_runtime_wal_lifecycle.py tests/test_event_retrieval_status.py tests/test_retrieval_cache_consistency.py tests/test_deferred_indexing.py tests/test_onnx_encoder.py tests/test_memory_hardening.py tests/test_memory_layer_contract.py -k "not rest_authentication and not legacy_deprecation" -q -p no:cacheprovider
+  optional:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: python -m pip install -e ".[dev,api,langchain]" httpx
+      - run: python -m pytest tests/test_langchain_runtime.py tests/test_advanced_memory.py -q -p no:cacheprovider
+  semantic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install build
+      - run: python -m build --wheel
+      - run: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - shell: bash
+        run: |
+          wheel=("$GITHUB_WORKSPACE"/dist/*.whl)
+          python -m pip install "${wheel[0]}[semantic]"
+          # Explicit test preparation; default NSN setup never downloads assets.
+          python -c "from huggingface_hub import snapshot_download; snapshot_download('sentence-transformers/all-MiniLM-L6-v2', revision='1110a243fdf4706b3f48f1d95db1a4f5529b4d41', local_dir='$RUNNER_TEMP/nsn-assets', allow_patterns=['*.json','*.txt','*.safetensors'])"
+          cd "$RUNNER_TEMP"
+          python "$GITHUB_WORKSPACE/scripts/verify_semantic.py" --assets "$RUNNER_TEMP/nsn-assets" --output "$RUNNER_TEMP/semantic-verification.json"
+  semantic-onnx:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install build
+      - run: python -m build --wheel
+      - shell: bash
+        run: |
+          wheel=("$GITHUB_WORKSPACE"/dist/*.whl)
+          python -m pip install "${wheel[0]}[semantic-onnx]"
+          python scripts/prepare_onnx_assets.py --target "$RUNNER_TEMP/nsn-onnx-assets"
+          cd "$RUNNER_TEMP"
+          python "$GITHUB_WORKSPACE/scripts/verify_onnx.py" --assets "$RUNNER_TEMP/nsn-onnx-assets" --output "$RUNNER_TEMP/onnx-verification.json"

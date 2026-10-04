@@ -1,0 +1,60 @@
+{
+  "track": "actual OSS competitor readiness, not ranked results",
+  "systems": {
+    "mem0": {
+      "source": {
+        "repository": "https://github.com/mem0ai/mem0",
+        "revision": "abb81c88e1f738a8117d8293530fbc31a5ef8fd9"
+      },
+      "module_available_in_this_environment": false,
+      "benchmark_status": "unevaluated",
+      "reason": "Full native-conversation ingestion/query adapter and matched/recommended runs outstanding",
+      "score": null,
+      "local_setup_qualification": {
+        "artifact": "docs/implementation/results/09-mem0-qualified.json",
+        "passed": true,
+        "failure": null,
+        "revision": "abb81c88e1f738a8117d8293530fbc31a5ef8fd9",
+        "version": "2.2.1",
+        "management_calls": 1,
+        "ingestion_ms": 78389.29439999993,
+        "retrieval_ms": 1631.9089000025997
+      }
+    },
+    "graphiti": {
+      "source": {
+        "repository": "https://github.com/getzep/graphiti",
+        "revision": "3c427640abf909f12f71f963fce15eb514a3c493"
+      },
+      "module_available_in_this_environment": false,
+      "benchmark_status": "unevaluated",
+      "reason": "No configured graph backend/provider, isolated namespace adapter or matched/recommended run",
+      "score": null,
+      "localhost_ports": {
+        "6379": false,
+        "7687": false
+      }
+    },
+    "letta_current": {
+      "source": {
+        "repository": "https://github.com/letta-ai/letta-code",
+        "revision": "0828add8a5d1ebfa756351de06754d08eb263d65"
+      },
+      "module_available_in_this_environment": false,
+      "benchmark_status": "unevaluated",
+      "reason": "Current Letta code/App Server not provisioned; historical Python server is archived",
+      "score": null,
+      "localhost_8283_open": false
+    },
+    "amem": {
+      "source": {
+        "repository": "https://github.com/agiresearch/A-mem",
+        "revision": "ceffb860f0712bbae97b184d440df62bc910ca8d"
+      },
+      "module_available_in_this_environment": false,
+      "benchmark_status": "unevaluated",
+      "reason": "Pinned A-MEM package, Chroma store and local-provider adapter not provisioned",
+      "score": null
+    }
+  }
+}

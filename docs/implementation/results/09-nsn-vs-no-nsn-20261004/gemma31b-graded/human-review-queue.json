@@ -1,0 +1,249 @@
+{
+  "manifest_sha256": "0218d9c16a70feedabb86a70343d063b0bae52b4934b487a7ccd71be2f06a4b7",
+  "per_category": 2,
+  "sampling": "fixed digest order per dataset/category, includes failures",
+  "reviews": [
+    {
+      "case_id": "longmemeval:d7c942c3",
+      "profile": "full_context",
+      "row_sha256": "eb3e9fa46c71824e391d68b8b52951dc1f995cd2208de88667e4aa174ac57b7a",
+      "question": "Is my mom using the same grocery list method as me?",
+      "reference_answer": "Yes.",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:d7c942c3",
+      "profile": "bm25",
+      "row_sha256": "f4438a2403457aabb254a0b08b171bd7c17180b93586a0c7eea268c151ba312d",
+      "question": "Is my mom using the same grocery list method as me?",
+      "reference_answer": "Yes.",
+      "predicted_answer": "Yes, the user's mom is using the same grocery list app.",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0006",
+      "profile": "bm25",
+      "row_sha256": "e15fe0bf3df5839a4d67985a431a4f55eca52d38dde156ad0fbc0285997606d3",
+      "question": "When is Jon's group performing at a festival?",
+      "reference_answer": "February, 2023",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0009",
+      "profile": "nsn_semantic",
+      "row_sha256": "466a6faf00e7cae188d71e4225f30f3e3de227f136941f672bf75acbaa772502",
+      "question": "What major achievement did Joanna accomplish in January 2022?",
+      "reference_answer": "finished her screenplay and printed it",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0086",
+      "profile": "nsn_lexical",
+      "row_sha256": "3ec26c3e11492cdfbb4400024f826f0c0fa27ff41e155ea5fee76cc4182299d7",
+      "question": "What kind of flooring is Gina looking for in her dance studio?",
+      "reference_answer": null,
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0086",
+      "profile": "hybrid",
+      "row_sha256": "c66857d9f05ea9e82dcc3b7ea150846256ae21008f6fb366c92ffbe566b4cb51",
+      "question": "What kind of flooring is Gina looking for in her dance studio?",
+      "reference_answer": null,
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:60159905",
+      "profile": "hybrid",
+      "row_sha256": "c0cf03f30e16001f9cd2f04391c89965f6d958085bbe9b2850b465c1f712ffe1",
+      "question": "How many dinner parties have I attended in the past month?",
+      "reference_answer": "three",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:60159905",
+      "profile": "nsn_semantic",
+      "row_sha256": "385bf6c7fb591890919c30971925320433fa1e1f6c1ea75eaf19d307ef949256",
+      "question": "How many dinner parties have I attended in the past month?",
+      "reference_answer": "three",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:8550ddae",
+      "profile": "stateless",
+      "row_sha256": "28cf02fafc3b291a3971ca8b9379a77aafc7ce3ef8fbed25e19922c7cc6a83c3",
+      "question": "What type of cocktail recipe did I try last weekend?",
+      "reference_answer": "lavender gin fizz",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:8550ddae",
+      "profile": "nsn_semantic",
+      "row_sha256": "f13dc2b7d7972135fdb7edf6006e467d021159f032cea70847e9f31aeaf1cae5",
+      "question": "What type of cocktail recipe did I try last weekend?",
+      "reference_answer": "lavender gin fizz",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:gpt4_1d80365e",
+      "profile": "hybrid",
+      "row_sha256": "1540c2cf8f16e7277ccf656839f476c04803a01239da232efd8d0ae021703d69",
+      "question": "How many days did I spend on my solo camping trip to Yosemite National Park?",
+      "reference_answer": "2 days. 3 days (including the last day) is also acceptable.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:gpt4_1d80365e",
+      "profile": "full_context",
+      "row_sha256": "5b7a4bb0dc2cb127d50fe00337f4a3ee4b1679c66e2582e2b8c46ca5b0173f65",
+      "question": "How many days did I spend on my solo camping trip to Yosemite National Park?",
+      "reference_answer": "2 days. 3 days (including the last day) is also acceptable.",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0009",
+      "profile": "nsn_semantic",
+      "row_sha256": "969fbbd4f527b7b5c98d0a7b8d13afdec66e8397a635f073084571c541bb51db",
+      "question": "Which city have both Jean and John visited?",
+      "reference_answer": "Rome",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0009",
+      "profile": "full_context",
+      "row_sha256": "482c0ad29bcce08b67dec6a932de2e2af23606e2c349e506525430450b9704d3",
+      "question": "Which city have both Jean and John visited?",
+      "reference_answer": "Rome",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:70b3e69b",
+      "profile": "rolling",
+      "row_sha256": "d77e4834ea70374331c606712b0199ac042dc9eec03acbd898575a05bafb63a4",
+      "question": "I was going through our previous conversation about the impact of the political climate in Catalonia on its literature and music. Can you remind me of the example you gave of a Spanish-Catalan singer-songwriter who supports unity between Catalonia and Spain?",
+      "reference_answer": "Manolo Garc\u00eda",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:70b3e69b",
+      "profile": "full_context",
+      "row_sha256": "551d3f6622abb5ae352ea259102c644f576e31f008f50e9bd4906066522645c9",
+      "question": "I was going through our previous conversation about the impact of the political climate in Catalonia on its literature and music. Can you remind me of the example you gave of a Spanish-Catalan singer-songwriter who supports unity between Catalonia and Spain?",
+      "reference_answer": "Manolo Garc\u00eda",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0085",
+      "profile": "bm25",
+      "row_sha256": "5c44cdeff6ff6f434337bb5467680a6fe185ff2f66bac0f2bbb3cd5fae5b3bbb",
+      "question": "What kind of job is Joanna beginning to preform the duties of because of her movie scripts?",
+      "reference_answer": "filmmaker.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0085",
+      "profile": "nsn_lexical",
+      "row_sha256": "5182491b6d0f02d3ec716615f885997d1811109ce2c31cb653d3d061f60c4a3e",
+      "question": "What kind of job is Joanna beginning to preform the duties of because of her movie scripts?",
+      "reference_answer": "filmmaker.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:32260d93",
+      "profile": "nsn_semantic",
+      "row_sha256": "ae660799747055a56e7b00800f3046e2a61833f7893781af13423015b9f6a832",
+      "question": "Can you recommend a show or movie for me to watch tonight?",
+      "reference_answer": "The user would prefer recommendations for stand-up comedy specials on Netflix, especially those that are known for their storytelling. They may not prefer recommendations for other genres or platforms.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:32260d93",
+      "profile": "stateless",
+      "row_sha256": "63f8f9fb1c4511fc09ffc808f6612da516ee2c636b269f6eb84ec8eb744a8d6e",
+      "question": "Can you recommend a show or movie for me to watch tonight?",
+      "reference_answer": "The user would prefer recommendations for stand-up comedy specials on Netflix, especially those that are known for their storytelling. They may not prefer recommendations for other genres or platforms.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0185",
+      "profile": "hybrid",
+      "row_sha256": "3b9553b3239ad2febdfb61c91a7c40000f43d2f206f03ef96f6641a579ed4923",
+      "question": "What is the type of game \"Xenoblade Chronicles\" that Nate is playing?",
+      "reference_answer": "fantasy RPG",
+      "predicted_answer": "fantasy RPG",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0185",
+      "profile": "rolling",
+      "row_sha256": "245196f41eb6b59b7bc7e434d955d11387c8833b344b0d7b1743d15ae7b97e7e",
+      "question": "What is the type of game \"Xenoblade Chronicles\" that Nate is playing?",
+      "reference_answer": "fantasy RPG",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    }
+  ]
+}

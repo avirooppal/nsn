@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "installed_module": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_memory_verified_onnx_20261004\\Lib\\site-packages\\nsn\\__init__.py",
+  "network_denied": true,
+  "deferred_restart_recall": true,
+  "namespace_isolation": true,
+  "encoder_fingerprint": "onnx_minilm_mean_31481896cd1290221ddd3e67931fae5b0db7e09fd20a4f448883203af5aa05f9",
+  "heavy_imports": []
+}

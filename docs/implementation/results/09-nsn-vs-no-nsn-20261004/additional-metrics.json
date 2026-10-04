@@ -1,0 +1,2357 @@
+{
+  "qwen2b": {
+    "stateless": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 1.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 1.0,
+      "answerable_abstentions": 12,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "rolling": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 1.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0.0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 1.0,
+      "answerable_abstentions": 13,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "full_context": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 0,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "bm25": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.125,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.5,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.5,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 1,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.3,
+      "selected_evidence_ndcg": 0.25714827594015827,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.5,
+      "answerable_abstentions": 8,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "hybrid": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.25263157894736843,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.5,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.5,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.23333333333333334,
+      "selected_evidence_ndcg": 0.19048160927349161,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.5,
+      "answerable_abstentions": 8,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "nsn_lexical": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.603448275862069,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 1.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.1,
+      "selected_evidence_ndcg": 0.10872865023809716,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 1.0,
+      "answerable_abstentions": 11,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": 5.18
+    },
+    "nsn_semantic": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.2,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.5,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.5,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.23333333333333334,
+      "selected_evidence_ndcg": 0.2420619835714305,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.5,
+      "answerable_abstentions": 9,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": 38.714
+    }
+  },
+  "qwen4b": {
+    "stateless": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.052631578947368425,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 15,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "rolling": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.05128205128205128,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0.0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 14,
+      "successful_provider_calls": 14,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "full_context": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 0,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "bm25": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.05405405405405405,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 1,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.3,
+      "selected_evidence_ndcg": 0.25714827594015827,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 15,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "hybrid": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.05405405405405405,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.23333333333333334,
+      "selected_evidence_ndcg": 0.19048160927349161,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 15,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "nsn_lexical": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.052631578947368425,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.1,
+      "selected_evidence_ndcg": 0.10872865023809716,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 15,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": 6.089
+    },
+    "nsn_semantic": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.05405405405405405,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.23333333333333334,
+      "selected_evidence_ndcg": 0.2420619835714305,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 15,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": 40.724
+    }
+  },
+  "qwen8b": {
+    "stateless": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 1.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 1.0,
+      "answerable_abstentions": 13,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "rolling": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 1.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0.0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 1.0,
+      "answerable_abstentions": 13,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "full_context": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 0,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "bm25": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.25,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 1.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 1,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.3,
+      "selected_evidence_ndcg": 0.25714827594015827,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 1.0,
+      "answerable_abstentions": 9,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "hybrid": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.5,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.5,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.23333333333333334,
+      "selected_evidence_ndcg": 0.19048160927349161,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.5,
+      "answerable_abstentions": 10,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "nsn_lexical": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.5625,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 1.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.1,
+      "selected_evidence_ndcg": 0.10872865023809716,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 1.0,
+      "answerable_abstentions": 11,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": 6.474
+    },
+    "nsn_semantic": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.28571428571428575,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.5,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.23333333333333334,
+      "selected_evidence_ndcg": 0.2420619835714305,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.5,
+      "answerable_abstentions": 11,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": 41.357
+    }
+  },
+  "gemma31b": {
+    "stateless": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 1.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 1.0,
+      "answerable_abstentions": 13,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "rolling": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.11111111111111112,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 1.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0.0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 1.0,
+      "answerable_abstentions": 12,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "full_context": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 0,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "bm25": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.5,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 1.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 1,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.3,
+      "selected_evidence_ndcg": 0.25714827594015827,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 1.0,
+      "answerable_abstentions": 10,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "hybrid": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.5,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 1.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.23333333333333334,
+      "selected_evidence_ndcg": 0.19048160927349161,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 1.0,
+      "answerable_abstentions": 11,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "nsn_lexical": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.5,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 1.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.1,
+      "selected_evidence_ndcg": 0.10872865023809716,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 1.0,
+      "answerable_abstentions": 12,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": 12.275
+    },
+    "nsn_semantic": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.5,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 1.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.23333333333333334,
+      "selected_evidence_ndcg": 0.2420619835714305,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 1.0,
+      "answerable_abstentions": 11,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": 69.073
+    }
+  },
+  "qwen4b-nothink": {
+    "stateless": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.027027027027027025,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 15,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "rolling": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.027027027027027025,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0.0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 15,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "full_context": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0,
+          "failures": 2
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 1
+        }
+      },
+      "selected_evidence_mrr": 0,
+      "selected_evidence_ndcg": 0,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 0,
+      "successful_provider_calls": 0,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "bm25": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.05405405405405405,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.3,
+      "selected_evidence_ndcg": 0.25714827594015827,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 15,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "hybrid": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.05405405405405405,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.23333333333333334,
+      "selected_evidence_ndcg": 0.19048160927349161,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 15,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": null
+    },
+    "nsn_lexical": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.05405405405405405,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.1,
+      "selected_evidence_ndcg": 0.10872865023809716,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 15,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": 9.022
+    },
+    "nsn_semantic": {
+      "categories": {
+        "locomo:1": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:2": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "score_mean": 0.05405405405405405,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "score_mean": 0.0,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "score_mean": 0,
+          "failures": 0
+        }
+      },
+      "selected_evidence_mrr": 0.23333333333333334,
+      "selected_evidence_ndcg": 0.2420619835714305,
+      "expected_abstention_questions": 2,
+      "expected_abstention_rate": 0.0,
+      "answerable_abstentions": 0,
+      "length_terminated_answers": 15,
+      "successful_provider_calls": 15,
+      "nsn_internal_retrieval_p50_ms": 53.282
+    }
+  }
+}

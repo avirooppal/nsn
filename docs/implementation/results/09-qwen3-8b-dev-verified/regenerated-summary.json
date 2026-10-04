@@ -1,0 +1,651 @@
+{
+  "status": "development_smoke_only",
+  "publishable_superiority": false,
+  "manifest_sha256": "cbbe8d326db6d4cf2fd0f303b564d5a7b2f13ca6daae7290e05c1c0ee068eb39",
+  "profiles": {
+    "stateless": {
+      "questions": 3,
+      "failures": 0,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0.0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 1,
+          "total": 1,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0.5,
+          "score_lower_bound": 0.5,
+          "score_upper_bound": 0.5,
+          "scored": 2,
+          "total": 2,
+          "judge_missing": 0,
+          "scorer": "upstream LongMemEval prompt with local self-judge (diagnostic)"
+        }
+      },
+      "complete_evidence_rate": 0,
+      "categories": {
+        "locomo:3": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 2,
+          "failures": 0
+        }
+      },
+      "generation_ms_total": 21550.05369999708,
+      "prompt_tokens_total": 271,
+      "output_tokens_total": 12,
+      "sampled_client_rss_max": 734228480,
+      "retrieval_ms_median": 0.0008999995770864189,
+      "judge_calls": 2,
+      "abstention": {
+        "expected_questions": 1,
+        "abstained_rate": 1.0,
+        "answerable_abstentions": 2
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    },
+    "rolling": {
+      "questions": 3,
+      "failures": 0,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0.0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 1,
+          "total": 1,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0.5,
+          "score_lower_bound": 0.5,
+          "score_upper_bound": 0.5,
+          "scored": 2,
+          "total": 2,
+          "judge_missing": 0,
+          "scorer": "upstream LongMemEval prompt with local self-judge (diagnostic)"
+        }
+      },
+      "complete_evidence_rate": 0,
+      "categories": {
+        "locomo:3": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 2,
+          "failures": 0
+        }
+      },
+      "generation_ms_total": 39306.11300000237,
+      "prompt_tokens_total": 758,
+      "output_tokens_total": 14,
+      "sampled_client_rss_max": 734228480,
+      "retrieval_ms_median": 0.2679999997781124,
+      "judge_calls": 2,
+      "abstention": {
+        "expected_questions": 1,
+        "abstained_rate": 1.0,
+        "answerable_abstentions": 1
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    },
+    "full_context": {
+      "questions": 3,
+      "failures": 3,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 1,
+          "total": 1,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 2,
+          "total": 2,
+          "judge_missing": 0,
+          "scorer": "upstream LongMemEval prompt with local self-judge (diagnostic)"
+        }
+      },
+      "complete_evidence_rate": 0,
+      "categories": {
+        "locomo:3": {
+          "count": 1,
+          "failures": 1
+        },
+        "longmemeval:knowledge-update": {
+          "count": 2,
+          "failures": 2
+        }
+      },
+      "generation_ms_total": 0,
+      "prompt_tokens_total": 0,
+      "output_tokens_total": 0,
+      "sampled_client_rss_max": 734228480,
+      "retrieval_ms_median": 0.09750000026542693,
+      "judge_calls": 0,
+      "abstention": {
+        "expected_questions": 1,
+        "abstained_rate": 0.0,
+        "answerable_abstentions": 0
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    },
+    "bm25": {
+      "questions": 3,
+      "failures": 1,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0.0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 1,
+          "total": 1,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 2,
+          "total": 2,
+          "judge_missing": 0,
+          "scorer": "upstream LongMemEval prompt with local self-judge (diagnostic)"
+        }
+      },
+      "complete_evidence_rate": 0,
+      "categories": {
+        "locomo:3": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 2,
+          "failures": 1
+        }
+      },
+      "generation_ms_total": 18880.90170000214,
+      "prompt_tokens_total": 415,
+      "output_tokens_total": 5,
+      "sampled_client_rss_max": 734236672,
+      "retrieval_ms_median": 8.885100000043167,
+      "judge_calls": 1,
+      "abstention": {
+        "expected_questions": 1,
+        "abstained_rate": 0.0,
+        "answerable_abstentions": 0
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    },
+    "pooled_dense": {
+      "questions": 3,
+      "failures": 0,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0.0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 1,
+          "total": 1,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0.5,
+          "score_lower_bound": 0.5,
+          "score_upper_bound": 0.5,
+          "scored": 2,
+          "total": 2,
+          "judge_missing": 0,
+          "scorer": "upstream LongMemEval prompt with local self-judge (diagnostic)"
+        }
+      },
+      "complete_evidence_rate": 0,
+      "categories": {
+        "locomo:3": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 2,
+          "failures": 0
+        }
+      },
+      "generation_ms_total": 24971.259800000553,
+      "prompt_tokens_total": 731,
+      "output_tokens_total": 12,
+      "sampled_client_rss_max": 708440064,
+      "retrieval_ms_median": 40.15200000139885,
+      "judge_calls": 2,
+      "abstention": {
+        "expected_questions": 1,
+        "abstained_rate": 1.0,
+        "answerable_abstentions": 2
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    },
+    "hybrid": {
+      "questions": 3,
+      "failures": 0,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0.0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 1,
+          "total": 1,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 2,
+          "total": 2,
+          "judge_missing": 0,
+          "scorer": "upstream LongMemEval prompt with local self-judge (diagnostic)"
+        }
+      },
+      "complete_evidence_rate": 0,
+      "categories": {
+        "locomo:3": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 2,
+          "failures": 0
+        }
+      },
+      "generation_ms_total": 19413.22819999914,
+      "prompt_tokens_total": 722,
+      "output_tokens_total": 19,
+      "sampled_client_rss_max": 708440064,
+      "retrieval_ms_median": 5.594599999312777,
+      "judge_calls": 2,
+      "abstention": {
+        "expected_questions": 1,
+        "abstained_rate": 0.0,
+        "answerable_abstentions": 1
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    },
+    "nsn_lexical": {
+      "questions": 3,
+      "failures": 0,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0.0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 1,
+          "total": 1,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0.5,
+          "score_lower_bound": 0.5,
+          "score_upper_bound": 0.5,
+          "scored": 2,
+          "total": 2,
+          "judge_missing": 0,
+          "scorer": "upstream LongMemEval prompt with local self-judge (diagnostic)"
+        }
+      },
+      "complete_evidence_rate": 0,
+      "categories": {
+        "locomo:3": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 2,
+          "failures": 0
+        }
+      },
+      "generation_ms_total": 27746.03140000181,
+      "prompt_tokens_total": 680,
+      "output_tokens_total": 21,
+      "sampled_client_rss_max": 708444160,
+      "retrieval_ms_median": 15.594399999827147,
+      "judge_calls": 2,
+      "abstention": {
+        "expected_questions": 1,
+        "abstained_rate": 1.0,
+        "answerable_abstentions": 1
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    },
+    "nsn_semantic": {
+      "questions": 3,
+      "failures": 0,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0.0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 1,
+          "total": 1,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 2,
+          "total": 2,
+          "judge_missing": 0,
+          "scorer": "upstream LongMemEval prompt with local self-judge (diagnostic)"
+        }
+      },
+      "complete_evidence_rate": 0,
+      "categories": {
+        "locomo:3": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 2,
+          "failures": 0
+        }
+      },
+      "generation_ms_total": 20253.38179999744,
+      "prompt_tokens_total": 642,
+      "output_tokens_total": 9,
+      "sampled_client_rss_max": 708444160,
+      "retrieval_ms_median": 111.43470000024536,
+      "judge_calls": 2,
+      "abstention": {
+        "expected_questions": 1,
+        "abstained_rate": 0.0,
+        "answerable_abstentions": 1
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    },
+    "oracle": {
+      "questions": 3,
+      "failures": 0,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0.0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 1,
+          "total": 1,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 1,
+          "score_lower_bound": 1.0,
+          "score_upper_bound": 1.0,
+          "scored": 2,
+          "total": 2,
+          "judge_missing": 0,
+          "scorer": "upstream LongMemEval prompt with local self-judge (diagnostic)"
+        }
+      },
+      "complete_evidence_rate": 0.5,
+      "categories": {
+        "locomo:3": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 2,
+          "failures": 0
+        }
+      },
+      "generation_ms_total": 18915.25609999735,
+      "prompt_tokens_total": 435,
+      "output_tokens_total": 12,
+      "sampled_client_rss_max": 708444160,
+      "retrieval_ms_median": 0.03730000025825575,
+      "judge_calls": 2,
+      "abstention": {
+        "expected_questions": 1,
+        "abstained_rate": 1.0,
+        "answerable_abstentions": 1
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    }
+  },
+  "comparisons": {
+    "locomo:stateless-bm25": {
+      "delta": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "clusters": 1,
+      "scored_pairs": 1,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "locomo:rolling-bm25": {
+      "delta": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "clusters": 1,
+      "scored_pairs": 1,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "locomo:full_context-bm25": {
+      "delta": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "clusters": 1,
+      "scored_pairs": 1,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "locomo:pooled_dense-bm25": {
+      "delta": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "clusters": 1,
+      "scored_pairs": 1,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "locomo:hybrid-bm25": {
+      "delta": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "clusters": 1,
+      "scored_pairs": 1,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "locomo:nsn_lexical-bm25": {
+      "delta": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "clusters": 1,
+      "scored_pairs": 1,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "locomo:nsn_semantic-bm25": {
+      "delta": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "clusters": 1,
+      "scored_pairs": 1,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "locomo:oracle-bm25": {
+      "delta": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "clusters": 1,
+      "scored_pairs": 1,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "longmemeval:stateless-bm25": {
+      "delta": 0.5,
+      "ci95": [
+        0,
+        1
+      ],
+      "clusters": 2,
+      "scored_pairs": 2,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "longmemeval:rolling-bm25": {
+      "delta": 0.5,
+      "ci95": [
+        0,
+        1
+      ],
+      "clusters": 2,
+      "scored_pairs": 2,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "longmemeval:full_context-bm25": {
+      "delta": 0,
+      "ci95": [
+        0,
+        0
+      ],
+      "clusters": 2,
+      "scored_pairs": 2,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "longmemeval:pooled_dense-bm25": {
+      "delta": 0.5,
+      "ci95": [
+        0,
+        1
+      ],
+      "clusters": 2,
+      "scored_pairs": 2,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "longmemeval:hybrid-bm25": {
+      "delta": 0,
+      "ci95": [
+        0,
+        0
+      ],
+      "clusters": 2,
+      "scored_pairs": 2,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "longmemeval:nsn_lexical-bm25": {
+      "delta": 0.5,
+      "ci95": [
+        0,
+        1
+      ],
+      "clusters": 2,
+      "scored_pairs": 2,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "longmemeval:nsn_semantic-bm25": {
+      "delta": 0,
+      "ci95": [
+        0,
+        0
+      ],
+      "clusters": 2,
+      "scored_pairs": 2,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "longmemeval:oracle-bm25": {
+      "delta": 1,
+      "ci95": [
+        1,
+        1
+      ],
+      "clusters": 2,
+      "scored_pairs": 2,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    }
+  }
+}

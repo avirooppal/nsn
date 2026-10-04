@@ -1,0 +1,134 @@
+{
+  "3.9": {
+    "passed": false,
+    "attempts": [
+      {
+        "command": [
+          "uv",
+          "venv",
+          "--python",
+          "3.9",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_6mbivm8l\\venv"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using CPython 3.9.25\nCreating virtual environment at: venv\nActivate with: venv\\Scripts\\activate\n"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_6mbivm8l\\venv\\Scripts\\python.exe",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\dist\\nsn-0.3.0-py3-none-any.whl",
+          "pytest",
+          "pytest-asyncio",
+          "psutil"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using Python 3.9.25 environment at: venv\nResolved 14 packages in 429ms\nInstalled 14 packages in 159ms\n + backports-asyncio-runner==1.2.0\n + colorama==0.4.6\n + exceptiongroup==1.3.1\n + iniconfig==2.1.0\n + nsn==0.3.0 (from file:///C:/Users/aviroop/Desktop/nsn/dist/nsn-0.3.0-py3-none-any.whl)\n + packaging==26.3\n + pluggy==1.6.0\n + psutil==7.2.2\n + pygments==2.21.0\n + pytest==8.4.2\n + pytest-asyncio==1.2.0\n + pyyaml==6.0.3\n + tomli==2.4.1\n + typing-extensions==4.16.0\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_6mbivm8l\\venv\\Scripts\\python.exe",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\scripts\\verify_install.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"minimal_wheel\": \"C:\\\\Users\\\\aviroop\\\\AppData\\\\Local\\\\Temp\\\\nsn_matrix_6mbivm8l\\\\venv\\\\Lib\\\\site-packages\\\\nsn\\\\__init__.py\", \"network_denied\": true, \"restart_recall\": true, \"namespace_isolation\": true, \"package_yaml\": true, \"import_threads_unchanged\": true}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_6mbivm8l\\venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_durable_storage.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_facts_history.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_retrieval_context.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_sdk_facade.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_audit_repairs.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_bounded_relationships.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_consolidation.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_advanced_memory.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_runtime_wal_lifecycle.py",
+          "-k",
+          "not rest_authentication and not legacy_deprecation",
+          "-q",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "exit_code": 1,
+        "stdout": "..........................................................F              [100%]\n================================== FAILURES ===================================\n__ test_runtime_close_does_not_close_another_owner_or_lose_committed_events ___\n\ntmp_path = WindowsPath('C:/Users/aviroop/AppData/Local/Temp/pytest-of-aviroop/pytest-118/test_runtime_close_does_not_cl0')\n\n    def test_runtime_close_does_not_close_another_owner_or_lose_committed_events(tmp_path):\n        one=Runtime(str(tmp_path));two=Runtime(str(tmp_path))\n        event=one.append_event(namespace='agent',content='gateway port 8080')\n>       assert one.storage._wal_anchor is not None\nE       AttributeError: 'SQLiteAdapter' object has no attribute '_wal_anchor'\n\n..\\..\\..\\..\\Desktop\\nsn\\tests\\test_runtime_wal_lifecycle.py:9: AttributeError\n=========================== short test summary info ===========================\nFAILED ..\\..\\..\\..\\Desktop\\nsn\\tests\\test_runtime_wal_lifecycle.py::test_runtime_close_does_not_close_another_owner_or_lose_committed_events\n1 failed, 58 passed, 2 deselected in 7.18s\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "3.12": {
+    "passed": false,
+    "attempts": [
+      {
+        "command": [
+          "uv",
+          "venv",
+          "--python",
+          "3.12",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_t7bbvqb4\\venv"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using CPython 3.12.13\nCreating virtual environment at: venv\nActivate with: venv\\Scripts\\activate\n"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_t7bbvqb4\\venv\\Scripts\\python.exe",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\dist\\nsn-0.3.0-py3-none-any.whl",
+          "pytest",
+          "pytest-asyncio",
+          "psutil"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using Python 3.12.13 environment at: venv\nResolved 11 packages in 13ms\nInstalled 11 packages in 161ms\n + colorama==0.4.6\n + iniconfig==2.3.0\n + nsn==0.3.0 (from file:///C:/Users/aviroop/Desktop/nsn/dist/nsn-0.3.0-py3-none-any.whl)\n + packaging==26.3\n + pluggy==1.6.0\n + psutil==7.2.2\n + pygments==2.21.0\n + pytest==9.1.1\n + pytest-asyncio==1.4.0\n + pyyaml==6.0.3\n + typing-extensions==4.16.0\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_t7bbvqb4\\venv\\Scripts\\python.exe",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\scripts\\verify_install.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"minimal_wheel\": \"C:\\\\Users\\\\aviroop\\\\AppData\\\\Local\\\\Temp\\\\nsn_matrix_t7bbvqb4\\\\venv\\\\Lib\\\\site-packages\\\\nsn\\\\__init__.py\", \"network_denied\": true, \"restart_recall\": true, \"namespace_isolation\": true, \"package_yaml\": true, \"import_threads_unchanged\": true}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_t7bbvqb4\\venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_durable_storage.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_facts_history.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_retrieval_context.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_sdk_facade.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_audit_repairs.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_bounded_relationships.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_consolidation.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_advanced_memory.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_runtime_wal_lifecycle.py",
+          "-k",
+          "not rest_authentication and not legacy_deprecation",
+          "-q",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "exit_code": 1,
+        "stdout": "..........................................................F              [100%]\n================================== FAILURES ===================================\n__ test_runtime_close_does_not_close_another_owner_or_lose_committed_events ___\n\ntmp_path = WindowsPath('C:/Users/aviroop/AppData/Local/Temp/pytest-of-aviroop/pytest-119/test_runtime_close_does_not_cl0')\n\n    def test_runtime_close_does_not_close_another_owner_or_lose_committed_events(tmp_path):\n        one=Runtime(str(tmp_path));two=Runtime(str(tmp_path))\n        event=one.append_event(namespace='agent',content='gateway port 8080')\n>       assert one.storage._wal_anchor is not None\n               ^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'SQLiteAdapter' object has no attribute '_wal_anchor'\n\n..\\..\\..\\..\\Desktop\\nsn\\tests\\test_runtime_wal_lifecycle.py:9: AttributeError\n=========================== short test summary info ===========================\nFAILED ..\\..\\..\\..\\Desktop\\nsn\\tests\\test_runtime_wal_lifecycle.py::test_runtime_close_does_not_close_another_owner_or_lose_committed_events\n1 failed, 58 passed, 2 deselected in 6.82s\n",
+        "stderr": ""
+      }
+    ]
+  }
+}

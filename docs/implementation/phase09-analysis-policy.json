@@ -1,0 +1,41 @@
+{
+  "declared_utc": "2026-10-04T06:30:00Z",
+  "status": "predeclared continuation; previous partial holdout exposure retained",
+  "primary": {
+    "dataset": "locomo",
+    "model": "qwen3:4b",
+    "comparison": ["hybrid", "nsn_semantic"],
+    "metric": "upstream category-aware per-question F1, full denominator",
+    "target_absolute_gain": 0.05,
+    "paired_unit": "frozen connected conversation cluster",
+    "interval": "95% paired cluster bootstrap, seed 42, 2000 replicates",
+    "independent_holdout_clusters": 8,
+    "limitations": "Only eight clusters: uncertainty may be wide; no general superiority claim from one dataset."
+  },
+  "secondary": "Other datasets, model sizes, profiles and feature contrasts are exploratory; no confirmatory winner selection from their intervals.",
+  "longmemeval_uncertainty": "S/M currently form one connected cluster. Preserve clustering and descriptive full-denominator scores; meaningful paired cluster intervals remain unqualified. Do not bootstrap questions as independent.",
+  "campaign": {
+    "local_answering_models": ["qwen3:1.7b", "qwen3:4b", "qwen3:8b"],
+    "datasets": {"locomo": 1621, "longmemeval_s": 500, "longmemeval_m": 500},
+    "profiles_per_model": 9,
+    "baseline_expected_rows": 70767,
+    "cloud_role": "independent judging and separate larger-model reference; never substitute for local SLMs",
+    "encoder": "pinned MiniLM ONNX, CPU mean pooling; default SDK encoder remains unchanged",
+    "context_tokens": 2048,
+    "output_tokens": 32,
+    "memory_utf8_bytes": 512,
+    "seed": 42,
+    "tuning_trials": 0
+  },
+  "grading": {
+    "independent_judge": "Ollama Cloud gpt-oss:120b provider revision d98fe6ba01e6; full weights/server hardware opaque",
+    "output_tokens": 512,
+    "development_calibration": "Frozen diagnostic review queue prepared; human agreement pending. No AI-generated human labels.",
+    "uncertain_review": "Retain uncertain label and rationale; exclude it from binary agreement but include its frequency and complete sample coverage. No automatic adjudication.",
+    "missing_grade": "Full-denominator lower/upper bounds; never remove missing or failed rows",
+    "historical_self_judging": "Permanently excluded from accuracy claims"
+  },
+  "prior_exposure": "Earlier SDK snapshots include two full-S holdout cases and one combined holdout case. Preserve them as qualification evidence; no tuning based on their answer scores.",
+  "competitors": "Actual pinned implementations required; matched resource and documented recommended configurations remain distinct. Missing systems do not become invented accuracy zeros.",
+  "resource_gates": "Original 10k workloads unchanged. Keep minimal, PyTorch, ONNX inline and explicit deferred profiles separate. Failed targets remain visible."
+}

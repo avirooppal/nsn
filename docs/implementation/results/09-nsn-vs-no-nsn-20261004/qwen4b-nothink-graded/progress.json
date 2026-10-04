@@ -1,0 +1,8 @@
+{
+  "status": "complete_reference_validation_pending",
+  "expected_rows": 105,
+  "completed_rows": 105,
+  "missing_rows": 0,
+  "publishable_superiority": false,
+  "failed_grades_are_not_retried": true
+}

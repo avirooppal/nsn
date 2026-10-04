@@ -1,0 +1,11 @@
+{
+  "artifact": "C:\\Users\\aviroop\\Desktop\\nsn\\dist\\nsn-0.3.0-py3-none-any.whl",
+  "bytes": 101776,
+  "sha256": "3fff5fcbcbfdd2afd1c8b1803de39d19ae780873a441a74f28d546f8611fd432",
+  "published": false,
+  "yaml_resource": true,
+  "notice_included": true,
+  "evaluation_data_bundled": false,
+  "schema": 7,
+  "status": "local candidate; Windows 3.12 consolidation, semantic RSS, fresh-query latency, inline semantic append, hosted CI, evaluation, human grading and owner license gates incomplete"
+}

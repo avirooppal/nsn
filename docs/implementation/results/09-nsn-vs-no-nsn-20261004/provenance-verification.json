@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "models": 5,
+  "frozen_question_count": 15,
+  "profiles": [
+    "stateless",
+    "rolling",
+    "full_context",
+    "bm25",
+    "hybrid",
+    "nsn_lexical",
+    "nsn_semantic"
+  ],
+  "helper_snapshots_identical": true,
+  "sdk_sources_match_wheel": true,
+  "wheel_sha256": "ce32c7573366aa9d706889b042224f2d974edf2197e17aed34dac8fcc79e1431",
+  "sample_sha256": "2cd6da8d9fc77ad7c54ec113cd28fe0bb1b29af7feac8540840594affa32ff43",
+  "complete_coverage": {
+    "qwen2b": {
+      "rows": 105,
+      "failures": 15,
+      "ungraded": 0
+    },
+    "qwen4b": {
+      "rows": 105,
+      "failures": 16,
+      "ungraded": 0
+    },
+    "qwen8b": {
+      "rows": 105,
+      "failures": 15,
+      "ungraded": 0
+    },
+    "gemma31b": {
+      "rows": 105,
+      "failures": 15,
+      "ungraded": 0
+    },
+    "qwen4b-nothink": {
+      "rows": 105,
+      "failures": 15,
+      "ungraded": 0
+    }
+  },
+  "independently_regenerated_reports_match": true,
+  "human_calibration": "pending",
+  "reporter_sha256": "43f73ed6491f734167b63769aacdbcf06ea03db20cdc309e5d2d7f4fa2415957"
+}

@@ -1,0 +1,249 @@
+{
+  "manifest_sha256": "728ec18809fb7be2aa0790967beb751b0cb93cba839f7135a59ef1946ef099c0",
+  "per_category": 2,
+  "sampling": "fixed digest order per dataset/category, includes failures",
+  "reviews": [
+    {
+      "case_id": "locomo:conv-42:0213",
+      "profile": "full_context",
+      "row_sha256": "0679d0fe6bd27a116fa2f65e2c4ac0148658028cfe21e64603930c141136adcb",
+      "question": "What are the main ingredients of the ice cream recipe shared by Joanna?",
+      "reference_answer": null,
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0213",
+      "profile": "bm25",
+      "row_sha256": "489852eb4caf953f7b7926f44f338ade0e3cf754c6d13f8878dd264481fc2b4e",
+      "question": "What are the main ingredients of the ice cream recipe shared by Joanna?",
+      "reference_answer": null,
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0085",
+      "profile": "rolling",
+      "row_sha256": "9e0f7fd653a6630273c32a95628879eace968ca9df087aed30fab9431fce4cf4",
+      "question": "What kind of job is Joanna beginning to preform the duties of because of her movie scripts?",
+      "reference_answer": "filmmaker.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0085",
+      "profile": "bm25",
+      "row_sha256": "7b6029c71436b6a14a7dca94fa16ef4a8e82d8b8c9cf882427d24898ee455541",
+      "question": "What kind of job is Joanna beginning to preform the duties of because of her movie scripts?",
+      "reference_answer": "filmmaker.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0009",
+      "profile": "bm25",
+      "row_sha256": "0b13525fb7c39d3b93b83ae90db059d906c95f86bb6e862e0083dfb7e649a6a7",
+      "question": "Which city have both Jean and John visited?",
+      "reference_answer": "Rome",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0005",
+      "profile": "nsn_lexical",
+      "row_sha256": "48f4303ed1549c827881a8f3c8a4a567852e4de3016245f9426d2936b7afc7f8",
+      "question": "What are Joanna's hobbies?",
+      "reference_answer": "Writing, watchingmovies, exploringnature, hanging withfriends.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:70b3e69b",
+      "profile": "bm25",
+      "row_sha256": "617191b3626994df1ac61c54bb22e8194880df2868f54c8f443fc1be5e94c7d5",
+      "question": "I was going through our previous conversation about the impact of the political climate in Catalonia on its literature and music. Can you remind me of the example you gave of a Spanish-Catalan singer-songwriter who supports unity between Catalonia and Spain?",
+      "reference_answer": "Manolo Garc\u00eda",
+      "predicted_answer": "The example given was a Spanish-Catalan singer-songwriter who supports unity between Catalonia and Spain.",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:70b3e69b",
+      "profile": "nsn_semantic",
+      "row_sha256": "b85728abce6350d3901cb7935cdbff2b2305c1c0e83f9c7c844f845afd14a039",
+      "question": "I was going through our previous conversation about the impact of the political climate in Catalonia on its literature and music. Can you remind me of the example you gave of a Spanish-Catalan singer-songwriter who supports unity between Catalonia and Spain?",
+      "reference_answer": "Manolo Garc\u00eda",
+      "predicted_answer": "The example you mentioned is the Spanish-Catalan singer-songwriter Pablo Casals, who is known for his advocacy of cultural unity between Catalonia and Spain.",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0080",
+      "profile": "nsn_semantic",
+      "row_sha256": "8f58a8a9d112a4f39314983964a8675d44d3a2c0a866290adf52fa808f58e670",
+      "question": "What plans does Jon have after receiving advice at the networking event?",
+      "reference_answer": "Sprucing up his business plan, tweaking his pitch to investors, and working on an online platform.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0185",
+      "profile": "stateless",
+      "row_sha256": "ebdf2e8c1f6f225793dfa7fc2ec302a9685d74fb382d62182e7fd60a4a6a30fe",
+      "question": "What is the type of game \"Xenoblade Chronicles\" that Nate is playing?",
+      "reference_answer": "fantasy RPG",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0009",
+      "profile": "full_context",
+      "row_sha256": "72f2c89c68cd09fd89a1bcf6427ad596f15f712297122feb6c626234669f6863",
+      "question": "What major achievement did Joanna accomplish in January 2022?",
+      "reference_answer": "finished her screenplay and printed it",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0006",
+      "profile": "hybrid",
+      "row_sha256": "d74b9ed6dcfab43da356264f04fc8f76a3507c0ce5a813394cd44ca5676229ec",
+      "question": "When is Jon's group performing at a festival?",
+      "reference_answer": "February, 2023",
+      "predicted_answer": "20 January, 2023",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:32260d93",
+      "profile": "bm25",
+      "row_sha256": "0b7c42e2a8c0fef558ee859fc2eff4b34970bcc2344b7a9330c1a8fea7353e68",
+      "question": "Can you recommend a show or movie for me to watch tonight?",
+      "reference_answer": "The user would prefer recommendations for stand-up comedy specials on Netflix, especially those that are known for their storytelling. They may not prefer recommendations for other genres or platforms.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:32260d93",
+      "profile": "rolling",
+      "row_sha256": "83a86e89008f40052991d69f3d275e33651a8f2cb3f151294db199299d61989e",
+      "question": "Can you recommend a show or movie for me to watch tonight?",
+      "reference_answer": "The user would prefer recommendations for stand-up comedy specials on Netflix, especially those that are known for their storytelling. They may not prefer recommendations for other genres or platforms.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:8550ddae",
+      "profile": "rolling",
+      "row_sha256": "37c5dc2449b33e8d7cec250a5b43780030aac8c257e0c5302fbafb30d7939dbe",
+      "question": "What type of cocktail recipe did I try last weekend?",
+      "reference_answer": "lavender gin fizz",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:8550ddae",
+      "profile": "stateless",
+      "row_sha256": "e4b13e6ddc78903de12e74ab55f68d973ddc929a6a677116799af97c25d0f7ce",
+      "question": "What type of cocktail recipe did I try last weekend?",
+      "reference_answer": "lavender gin fizz",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:gpt4_1d80365e",
+      "profile": "nsn_lexical",
+      "row_sha256": "11df1e4c048a1d273b2c688e0f45bb66bbca5dfe55febdbb4fa6d5676897cfe3",
+      "question": "How many days did I spend on my solo camping trip to Yosemite National Park?",
+      "reference_answer": "2 days. 3 days (including the last day) is also acceptable.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:gpt4_1d80365e",
+      "profile": "full_context",
+      "row_sha256": "97af31c1d0c5d116e0359ba9666cf332573e7983449e6ea81bc8280a4e18feae",
+      "question": "How many days did I spend on my solo camping trip to Yosemite National Park?",
+      "reference_answer": "2 days. 3 days (including the last day) is also acceptable.",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:60159905",
+      "profile": "rolling",
+      "row_sha256": "3134076d2901e8b6527c6ae04914cc764700f1835ba6b2079ce796e931422675",
+      "question": "How many dinner parties have I attended in the past month?",
+      "reference_answer": "three",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:60159905",
+      "profile": "full_context",
+      "row_sha256": "c8b9ac1e8962807e38f50d40c3e4820e2dd6ecef3882b66d32f46a490f611631",
+      "question": "How many dinner parties have I attended in the past month?",
+      "reference_answer": "three",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:d7c942c3",
+      "profile": "rolling",
+      "row_sha256": "cd46733de7c8cbc62d825c4c781a5004867c1321a7638b3c92d2956f51096cdc",
+      "question": "Is my mom using the same grocery list method as me?",
+      "reference_answer": "Yes.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:d7c942c3",
+      "profile": "full_context",
+      "row_sha256": "bcc3493e20e105b63672583a837346721d426754628ea83f02714c00486100d9",
+      "question": "Is my mom using the same grocery list method as me?",
+      "reference_answer": "Yes.",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    }
+  ]
+}

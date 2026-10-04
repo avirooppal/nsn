@@ -288,6 +288,14 @@ class NSN:
 
         return output
 
+    def invoke(self, input_: Any = None, *args, **kwargs) -> Any:
+        """Route .invoke() through memory interception."""
+        return self(input_, *args, **kwargs)
+
+    async def ainvoke(self, input_: Any = None, *args, **kwargs) -> Any:
+        """Route .ainvoke() through memory interception."""
+        return self(input_, *args, **kwargs)
+
     # ------------------------------------------------------------------
     # Direct memory access on the wrapper
     # ------------------------------------------------------------------

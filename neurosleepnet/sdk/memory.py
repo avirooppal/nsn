@@ -19,10 +19,13 @@ import logging
 
 logger = logging.getLogger("neurosleepnet")
 
-# ---------------------------------------------------------------------------
-# Phase 1: Shared thread pool for parallel retrieval (FTS5 + FAISS + Graph)
-# ---------------------------------------------------------------------------
-_RETRIEVAL_POOL = ThreadPoolExecutor(max_workers=3, thread_name_prefix="nsn_retrieval")
+_RETRIEVAL_POOL = None
+
+def _get_retrieval_pool():
+    global _RETRIEVAL_POOL
+    if _RETRIEVAL_POOL is None:
+        _RETRIEVAL_POOL = ThreadPoolExecutor(max_workers=3, thread_name_prefix="nsn_retrieval")
+    return _RETRIEVAL_POOL
 
 # Phase 3: Adaptive K constants
 # Threshold relative to the best result: keep items scoring ≥ this fraction of the top score.
@@ -457,10 +460,11 @@ class Memory:
         def _graph():
             return self.search_graph(query, limit=fetch_limit, depth=graph_depth)
 
+        pool = _get_retrieval_pool()
         futures = {
-            _RETRIEVAL_POOL.submit(_semantic): ("semantic", semantic_weight),
-            _RETRIEVAL_POOL.submit(_keyword): ("keyword", keyword_weight),
-            _RETRIEVAL_POOL.submit(_graph): ("graph", graph_weight),
+            pool.submit(_semantic): ("semantic", semantic_weight),
+            pool.submit(_keyword): ("keyword", keyword_weight),
+            pool.submit(_graph): ("graph", graph_weight),
         }
 
         semantic_results = []

@@ -1,0 +1,10 @@
+{
+  "version":1,
+  "description":"Extractive consolidation development evidence controls, not generated-answer evaluation.",
+  "groups":[
+    {"id":"endpoints","query":"Build endpoints","sources":["Build endpoints: auth host auth.internal:8080.","Build endpoints: billing host billing.internal:9090.","Build endpoints: logs host logs.internal:7070."],"gold":["auth.internal:8080","billing.internal:9090","logs.internal:7070"]},
+    {"id":"units","query":"Latency budget","sources":["Latency budget: connect timeout 7 ms.","Latency budget: read timeout 11 ms.","Latency budget: write timeout 13 ms."],"gold":["7 ms","11 ms","13 ms"]},
+    {"id":"identifier","query":"deploy-id-42","sources":["Production deployment deploy-id-42 is active."],"gold":["deploy-id-42"]},
+    {"id":"conflict","query":"Reported gateway ports","sources":["Reported gateway ports: source A says 8080.","Reported gateway ports: source B says 9090; disagreement unresolved."],"gold":["8080","9090","disagreement unresolved"]}
+  ]
+}

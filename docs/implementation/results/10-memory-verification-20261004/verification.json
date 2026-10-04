@@ -1,0 +1,68 @@
+{
+  "wheel": "dist\\memory-verification-20261004\\nsn-0.3.0-py3-none-any.whl",
+  "wheel_sha256": "423370a5b09e7104627dbad911e39c6a8b3f8c0c974d2dc6799ed6e726af6f3b",
+  "wheel_bytes": 104567,
+  "sdk_source_matches_wheel": true,
+  "changed_sdk_files_since_previous_candidate": [
+    "neurosleepnet/retrieval/pack.py",
+    "neurosleepnet/storage/compact_vector.py",
+    "nsn/runtime.py"
+  ],
+  "functional": "300 passed, 2 skipped, 1 deselected, 3 warnings in 166.18s (0:02:46)",
+  "new_memory_contract_tests": 18,
+  "fresh_onnx_tests": "23 passed",
+  "windows_first_attempt": {
+    "3.9": false,
+    "3.10": true,
+    "3.12": true
+  },
+  "windows_confirmation": {
+    "3.9": true,
+    "3.10": true,
+    "3.12": true
+  },
+  "linux": {
+    "3.9": true,
+    "3.10": true,
+    "3.12": true
+  },
+  "minimal_offline": {
+    "minimal_wheel": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_memory_verified_minimal_20261004\\Lib\\site-packages\\nsn\\__init__.py",
+    "network_denied": true,
+    "restart_recall": true,
+    "namespace_isolation": true,
+    "package_yaml": true,
+    "import_threads_unchanged": true
+  },
+  "semantic_offline": {
+    "passed": true,
+    "installed_module": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_memory_verified_onnx_20261004\\Lib\\site-packages\\nsn\\__init__.py",
+    "network_denied": true,
+    "deferred_restart_recall": true,
+    "namespace_isolation": true,
+    "encoder_fingerprint": "onnx_minilm_mean_31481896cd1290221ddd3e67931fae5b0db7e09fd20a4f448883203af5aa05f9",
+    "heavy_imports": []
+  },
+  "local_model_smoke": {
+    "installed_module": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_memory_verified_minimal_20261004\\Lib\\site-packages\\nsn\\__init__.py",
+    "model": "qwen3:1.7b",
+    "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+    "memory_injection_passed": true,
+    "restart_injection_passed": true,
+    "namespace_isolation_passed": true,
+    "observed_token_answers": [
+      "violet-7812",
+      "violet-7812"
+    ],
+    "token_answer_matches": [
+      true,
+      true
+    ],
+    "scope": "Single synthetic nonce smoke; not an accuracy or superiority benchmark"
+  },
+  "unresolved": [
+    "First concurrent Windows 3.9 optional enrichment failure retained; root cause not proven",
+    "Current candidate performance not requalified; earlier failed resource gates remain open",
+    "Full public evaluations, competitors, human review, hosted CI and owner license remain incomplete"
+  ]
+}

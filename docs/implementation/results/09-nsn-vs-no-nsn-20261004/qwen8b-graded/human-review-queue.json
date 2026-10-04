@@ -1,0 +1,249 @@
+{
+  "manifest_sha256": "6335d3054386fccb867c14cad0550ec8206450a5e3ebff2e318bf3d607743100",
+  "per_category": 2,
+  "sampling": "fixed digest order per dataset/category, includes failures",
+  "reviews": [
+    {
+      "case_id": "longmemeval:70b3e69b",
+      "profile": "rolling",
+      "row_sha256": "87963497ea0a68313784b58c4e58cd6824fccea32bb7114b8beb60b04b96261c",
+      "question": "I was going through our previous conversation about the impact of the political climate in Catalonia on its literature and music. Can you remind me of the example you gave of a Spanish-Catalan singer-songwriter who supports unity between Catalonia and Spain?",
+      "reference_answer": "Manolo Garc\u00eda",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:70b3e69b",
+      "profile": "nsn_lexical",
+      "row_sha256": "2f1e62a170bd210fb6d3d94b2df92b90e31b6ef1f4731e4f8f6bd4cb9402eea2",
+      "question": "I was going through our previous conversation about the impact of the political climate in Catalonia on its literature and music. Can you remind me of the example you gave of a Spanish-Catalan singer-songwriter who supports unity between Catalonia and Spain?",
+      "reference_answer": "Manolo Garc\u00eda",
+      "predicted_answer": "No information available.",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:gpt4_1d80365e",
+      "profile": "rolling",
+      "row_sha256": "e54ddc657beadbb9e34a4433a5e124b0affcc5ac1061425a860f23b5a1dd37af",
+      "question": "How many days did I spend on my solo camping trip to Yosemite National Park?",
+      "reference_answer": "2 days. 3 days (including the last day) is also acceptable.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:gpt4_1d80365e",
+      "profile": "full_context",
+      "row_sha256": "7a93e32202f90cb6969ab83ed6f8eb8d67501aa26eeff6470c34a9342cc340f0",
+      "question": "How many days did I spend on my solo camping trip to Yosemite National Park?",
+      "reference_answer": "2 days. 3 days (including the last day) is also acceptable.",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:60159905",
+      "profile": "hybrid",
+      "row_sha256": "b68626ba120c7007a41b6675d9bba3b5dec3373087fe923fa3eeeb13b51bf992",
+      "question": "How many dinner parties have I attended in the past month?",
+      "reference_answer": "three",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:60159905",
+      "profile": "stateless",
+      "row_sha256": "a46376f41b2520e7b75346d52b329e9d6a4a99d42d0836e482b2989ebd9b0e27",
+      "question": "How many dinner parties have I attended in the past month?",
+      "reference_answer": "three",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0009",
+      "profile": "full_context",
+      "row_sha256": "0952bd4110f7df4c0d96d34959aeead6fb390a253553c47ce7fbf0d57778b4bf",
+      "question": "What major achievement did Joanna accomplish in January 2022?",
+      "reference_answer": "finished her screenplay and printed it",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0006",
+      "profile": "rolling",
+      "row_sha256": "4ac3eda0166bed447ccd56916fb8376ca2c03e4af79f29755462a24323b65991",
+      "question": "When is Jon's group performing at a festival?",
+      "reference_answer": "February, 2023",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0009",
+      "profile": "full_context",
+      "row_sha256": "0d7f1c456bab49dbbfe2f9d1065de90e05fb5b9554997df4c378195dff8dd8e2",
+      "question": "Which city have both Jean and John visited?",
+      "reference_answer": "Rome",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0009",
+      "profile": "stateless",
+      "row_sha256": "a471c30b4310a0336412d49b4f8e3870fd35a3a328f758a08f3ed12df8b8c7e0",
+      "question": "Which city have both Jean and John visited?",
+      "reference_answer": "Rome",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0086",
+      "profile": "bm25",
+      "row_sha256": "ab344fa5663fa46500eb578c3ddfd2a83135605802e69f4a39e7b7a1ffb86ffc",
+      "question": "What kind of flooring is Gina looking for in her dance studio?",
+      "reference_answer": null,
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0213",
+      "profile": "stateless",
+      "row_sha256": "b255dc8c58f91587f3d774b8792e1a15a0ca5937eeddc9bd1e470bd7c07bb621",
+      "question": "What are the main ingredients of the ice cream recipe shared by Joanna?",
+      "reference_answer": null,
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:8550ddae",
+      "profile": "nsn_lexical",
+      "row_sha256": "2734e650a65983e396088f742d846054543be2e9d7e5bf789b92d750374a24e8",
+      "question": "What type of cocktail recipe did I try last weekend?",
+      "reference_answer": "lavender gin fizz",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:8550ddae",
+      "profile": "full_context",
+      "row_sha256": "c3ca8612dfda475c75331da62c3a78a2e5bfaa5001db2b50b5583c074221ca8e",
+      "question": "What type of cocktail recipe did I try last weekend?",
+      "reference_answer": "lavender gin fizz",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:d7c942c3",
+      "profile": "full_context",
+      "row_sha256": "eed869b4bf754821f7d8e02e12562d42a50a7b81eb6869edff94a6b920f1eb3a",
+      "question": "Is my mom using the same grocery list method as me?",
+      "reference_answer": "Yes.",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:d7c942c3",
+      "profile": "nsn_semantic",
+      "row_sha256": "d9a815eb48a34ff354e4f977079a1b4296f2ff4e961a583896722115a4b76b89",
+      "question": "Is my mom using the same grocery list method as me?",
+      "reference_answer": "Yes.",
+      "predicted_answer": "Yes, your mom is using the same grocery list app as you.",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0085",
+      "profile": "bm25",
+      "row_sha256": "32fcd3e93d72694b63166a47537ab0b89416d99c6a6ec1292db4c119f7864468",
+      "question": "What kind of job is Joanna beginning to preform the duties of because of her movie scripts?",
+      "reference_answer": "filmmaker.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0085",
+      "profile": "nsn_semantic",
+      "row_sha256": "34026af8a9858326c2b93efacc1f6be3463b7e104136766ce01e351fcee7f7b0",
+      "question": "What kind of job is Joanna beginning to preform the duties of because of her movie scripts?",
+      "reference_answer": "filmmaker.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0080",
+      "profile": "full_context",
+      "row_sha256": "c2dcd8c4bf32e631ded504bd4d82222ce120d7716892eebacaaa045d3e0c6445",
+      "question": "What plans does Jon have after receiving advice at the networking event?",
+      "reference_answer": "Sprucing up his business plan, tweaking his pitch to investors, and working on an online platform.",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0080",
+      "profile": "nsn_lexical",
+      "row_sha256": "8d3e096f2215483b72c8091098437cc0826b572df5e1a971a82b81e64482edf5",
+      "question": "What plans does Jon have after receiving advice at the networking event?",
+      "reference_answer": "Sprucing up his business plan, tweaking his pitch to investors, and working on an online platform.",
+      "predicted_answer": "Jon's plans after receiving advice at the networking event include pursuing his goals with the motivation and guidance gained from the event.",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:32260d93",
+      "profile": "full_context",
+      "row_sha256": "7e52a2122d0559225cab66bf587ca934e825346a024b150382ab715c45932569",
+      "question": "Can you recommend a show or movie for me to watch tonight?",
+      "reference_answer": "The user would prefer recommendations for stand-up comedy specials on Netflix, especially those that are known for their storytelling. They may not prefer recommendations for other genres or platforms.",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:32260d93",
+      "profile": "stateless",
+      "row_sha256": "2a5d2f653aa136a23758a9bfa02d19b97272cd1846de52c55db2d476de415e59",
+      "question": "Can you recommend a show or movie for me to watch tonight?",
+      "reference_answer": "The user would prefer recommendations for stand-up comedy specials on Netflix, especially those that are known for their storytelling. They may not prefer recommendations for other genres or platforms.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    }
+  ]
+}

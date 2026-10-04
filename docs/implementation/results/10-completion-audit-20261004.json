@@ -1,0 +1,78 @@
+{
+  "observed_utc": "2026-10-04T07:51:26.572030+00:00",
+  "wheel_sha256": "ce32c7573366aa9d706889b042224f2d974edf2197e17aed34dac8fcc79e1431",
+  "wheel_bytes": 104013,
+  "installed_candidate_source_matches": true,
+  "local_matrix": {
+    "windows-3.9": true,
+    "windows-3.10": true,
+    "windows-3.12": true,
+    "linux-3.9": true,
+    "linux-3.10": true,
+    "linux-3.12": true
+  },
+  "artifact_sha256": {
+    "10-completion-release-artifact-20261004.json": "569b4e34287141986a7d831412d031af21fbf17dc579618f65b4e1a6e19a6860",
+    "10-completion-final-windows-matrix-20261004.json": "9bc7593ea9bba3c1ddafc30401bc4f21997323bcc7147e64eacc0271152e6c9c",
+    "10-completion-final-linux-matrix-20261004.json": "69935f4cacc4c679b284e654861d34de9d1e17cbd65b4ae0de1211fd92f053fb",
+    "10-completion-minimal-profile-20261004.json": "2ab86df6841c0bb7b0fc07de093bc3d9119ce50ee7cd65d399aae6eb031ef46b",
+    "10-completion-onnx-profile-20261004.json": "af0911ec38d27bad0a0f98f33b24ce39193fc2bf482bbc96c2b87477f8438b7e",
+    "10-torch-final-offline-20261004.json": "893450156639a550a0c652e531503ad14c260119c227c73d9ebc1ca66cefdf42",
+    "10-onnx-final-offline-20261004.json": "19da323a347aa97f38c2e1c54076b58b23518f5cd1e56cde838dfe9c1dd878c5",
+    "10-completion-latest-functional-20261004.txt": "a93c0d08f147f23915662ee73a3efc80dae8d10c9d45e93ed2ebe490469ce67f",
+    "09-completion-benchmark-regressions-20261004.txt": "ad61de36f402f8ad04a8882230551063a8286f5c1f3b915e02cd7a1cd62fff2a",
+    "09-latest-agreement-audit-regressions-20261004.txt": "355489fd03bc848b2c5402bd2060d9f38d0a5232b2a2c27d7fb039eef7f26e95",
+    "09-cloud-resumable-judge-regenerated-20261004.json": "bba65272587cc722e6c24a7a7adfaea7c8fad157fc4711674233200f2b96a4e1",
+    "09-cloud-resumable-judge-human-review-20261004.json": "c36cdac5e29557d0cbb71430ff67bcb28950d72464ce1d1da08bf0b1fa5b4a17",
+    "09-qwen-chat-counter-qualification-20261004.json": "9101018274ec4163783ab2ac7ff6a493a5782841b3ce4ff280dc06556c8bc93c"
+  },
+  "credential_scan": {
+    "owned_text_files": 491,
+    "plaintext_key_matches": 0
+  },
+  "human_labels_pending": 10,
+  "coverage": [
+    {
+      "run": "C:\\Users\\aviroop\\Desktop\\nsn\\docs\\implementation\\results\\09-completion-qwen2b-full-s-v2-20261004",
+      "manifest_sha256": "86d493b40f5ee49b136e1739b031cc490297a47ea41afbfe2642e1035f298290",
+      "rows_sha256_at_checkpoint": "d9cba14a0345e7e0d1fbf57e0db406e9408a98687a9cd1870824a263514061a3",
+      "expected_rows": 4500,
+      "observed_rows": 144,
+      "missing_rows": 4356,
+      "completed_cases": 16,
+      "answer_failures": 16,
+      "missing_scores": 128,
+      "complete_coverage": false,
+      "publishable_superiority": false
+    },
+    {
+      "run": "C:\\Users\\aviroop\\Desktop\\nsn\\docs\\implementation\\results\\09-cloud-resumable-judge-20261004",
+      "manifest_sha256": "a96bc86a36a1188a2d6ac0e38bc6c9ec3dea3d50fbd9f2c7c997775aeed630ac",
+      "rows_sha256_at_checkpoint": "970f006f472155db1f3594bab47df559ee20b5bc4bf34ad91c94c51df909cdeb",
+      "expected_rows": 27,
+      "observed_rows": 27,
+      "missing_rows": 0,
+      "completed_cases": 3,
+      "answer_failures": 3,
+      "missing_scores": 0,
+      "complete_coverage": true,
+      "publishable_superiority": false
+    }
+  ],
+  "phase09": "PARTIAL",
+  "phase10": "PARTIAL",
+  "published": false,
+  "license": "owner decision unresolved",
+  "open_gates": [
+    "full local 70767-row baseline campaign",
+    "actual native competitor adapters/complete comparisons",
+    "public feature ablations and validated annotations",
+    "human calibration/adjudication",
+    "LongMemEval meaningful uncertainty design",
+    "fresh-query latency",
+    "default inline semantic append/default PyTorch RSS",
+    "hosted CI",
+    "owner source-license choice"
+  ],
+  "diff_review": "Two pre-existing whitespace findings retained in legacy init/detector; current SDK bytes remain identical to the frozen installed candidate."
+}

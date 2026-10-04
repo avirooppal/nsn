@@ -1,0 +1,33 @@
+         30270 function calls (30265 primitive calls) in 2.876 seconds
+
+   Ordered by: cumulative time
+   List reduced from 99 to 25 due to restriction <25>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+       40    0.000    0.000    2.876    0.072 C:\Users\aviroop\Desktop\nsn\nsn\runtime.py:90(retrieve_pack)
+       40    0.007    0.000    2.876    0.072 C:\Users\aviroop\Desktop\nsn\neurosleepnet\retrieval\pack.py:217(retrieve_pack)
+       40    0.002    0.000    2.832    0.071 C:\Users\aviroop\Desktop\nsn\neurosleepnet\retrieval\pack.py:730(_retrieve_candidate_events)
+       40    2.813    0.070    2.813    0.070 {method 'execute' of 'sqlite3.Cursor' objects}
+      440    0.002    0.000    0.026    0.000 C:\Users\aviroop\Desktop\nsn\neurosleepnet\retrieval\pack.py:83(count_tokens)
+      480    0.001    0.000    0.021    0.000 C:\Users\aviroop\AppData\Local\Programs\Python\Python310\lib\re.py:232(findall)
+      480    0.019    0.000    0.019    0.000 {method 'findall' of 're.Pattern' objects}
+       40    0.001    0.000    0.006    0.000 {built-in method builtins.sum}
+     3240    0.003    0.000    0.005    0.000 C:\Users\aviroop\Desktop\nsn\neurosleepnet\retrieval\pack.py:779(<genexpr>)
+       40    0.000    0.000    0.005    0.000 C:\Users\aviroop\Desktop\nsn\neurosleepnet\retrieval\pack.py:690(_retrieve_candidate_facts)
+       40    0.000    0.000    0.005    0.000 C:\Users\aviroop\Desktop\nsn\neurosleepnet\memory\facts.py:405(list_facts)
+       40    0.001    0.000    0.005    0.000 C:\Users\aviroop\Desktop\nsn\neurosleepnet\retrieval\pack.py:787(<listcomp>)
+       80    0.004    0.000    0.004    0.000 {method 'fetchall' of 'sqlite3.Cursor' objects}
+       80    0.004    0.000    0.004    0.000 {method 'execute' of 'sqlite3.Connection' objects}
+      400    0.001    0.000    0.004    0.000 C:\Users\aviroop\AppData\Local\Programs\Python\Python310\lib\json\__init__.py:299(loads)
+      440    0.003    0.000    0.003    0.000 {method 'split' of 'str' objects}
+      400    0.001    0.000    0.003    0.000 C:\Users\aviroop\AppData\Local\Programs\Python\Python310\lib\json\decoder.py:332(decode)
+      480    0.001    0.000    0.002    0.000 C:\Users\aviroop\AppData\Local\Programs\Python\Python310\lib\re.py:288(_compile)
+       40    0.000    0.000    0.002    0.000 C:\Users\aviroop\Desktop\nsn\neurosleepnet\retrieval\query.py:23(compile)
+     4901    0.001    0.000    0.001    0.000 {built-in method builtins.isinstance}
+       80    0.001    0.000    0.001    0.000 C:\Users\aviroop\AppData\Local\Programs\Python\Python310\lib\contextlib.py:139(__exit__)
+      400    0.001    0.000    0.001    0.000 C:\Users\aviroop\Desktop\nsn\neurosleepnet\retrieval\pack.py:663(_render_item)
+      800    0.001    0.000    0.001    0.000 {method 'match' of 're.Pattern' objects}
+4844/4841    0.001    0.000    0.001    0.000 {built-in method builtins.len}
+      280    0.001    0.000    0.001    0.000 {built-in method builtins.round}
+
+

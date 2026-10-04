@@ -1,0 +1,134 @@
+{
+  "3.9": {
+    "passed": false,
+    "attempts": [
+      {
+        "command": [
+          "uv",
+          "venv",
+          "--python",
+          "3.9",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_xefi9x4d\\venv"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using CPython 3.9.25\nCreating virtual environment at: venv\nActivate with: venv\\Scripts\\activate\n"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_xefi9x4d\\venv\\Scripts\\python.exe",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\dist\\nsn-0.3.0-py3-none-any.whl",
+          "pytest",
+          "pytest-asyncio",
+          "psutil"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using Python 3.9.25 environment at: venv\nResolved 14 packages in 66ms\nPrepared 1 package in 78ms\nInstalled 14 packages in 188ms\n + backports-asyncio-runner==1.2.0\n + colorama==0.4.6\n + exceptiongroup==1.3.1\n + iniconfig==2.1.0\n + nsn==0.3.0 (from file:///C:/Users/aviroop/Desktop/nsn/dist/nsn-0.3.0-py3-none-any.whl)\n + packaging==26.3\n + pluggy==1.6.0\n + psutil==7.2.2\n + pygments==2.21.0\n + pytest==8.4.2\n + pytest-asyncio==1.2.0\n + pyyaml==6.0.3\n + tomli==2.4.1\n + typing-extensions==4.16.0\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_xefi9x4d\\venv\\Scripts\\python.exe",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\scripts\\verify_install.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"minimal_wheel\": \"C:\\\\Users\\\\aviroop\\\\AppData\\\\Local\\\\Temp\\\\nsn_matrix_xefi9x4d\\\\venv\\\\Lib\\\\site-packages\\\\nsn\\\\__init__.py\", \"network_denied\": true, \"restart_recall\": true, \"namespace_isolation\": true, \"package_yaml\": true, \"import_threads_unchanged\": true}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_xefi9x4d\\venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_durable_storage.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_facts_history.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_retrieval_context.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_sdk_facade.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_audit_repairs.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_bounded_relationships.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_consolidation.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_advanced_memory.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_runtime_wal_lifecycle.py",
+          "-k",
+          "not rest_authentication and not legacy_deprecation",
+          "-q",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "exit_code": 1,
+        "stdout": "...............................................F...........              [100%]\n================================== FAILURES ===================================\n___ test_phase06_retry_safe_connect_and_rebuild_preserves_concurrent_insert ___\n\ntmp_path = WindowsPath('C:/Users/aviroop/AppData/Local/Temp/pytest-of-aviroop/pytest-120/test_phase06_retry_safe_connec0')\n\n    def test_phase06_retry_safe_connect_and_rebuild_preserves_concurrent_insert(tmp_path):\n        class Encoder(FastHashEncoder):\n            callback = None\n            def encode(self, text):\n                if self.callback:\n                    callback, self.callback = self.callback, None\n                    callback()\n                return super().encode(text)\n        encoder = Encoder(dimension=16)\n        rt = Runtime(str(tmp_path), graph=True, encoder=encoder)\n        eid = rt.append_event(content=\"Alice works for Acme.\")\n        assert rt.extract_relations(eid) == rt.extract_relations(eid)\n        assert query(rt, \"SELECT COUNT(*) FROM relationships\")[0][0] == 1\n        assert rt.sleep(connect=True)[\"failed\"] == 0\n        assert query(rt, \"SELECT COUNT(*) FROM relationships\")[0][0] == 1\n        conn = sqlite3.connect(rt.db_path)\n        with conn:\n            conn.execute(\"UPDATE events SET content='Alice works for Beta.' WHERE id=?\", (eid,))\n        conn.close()\n        assert rt.relationships.traverse(\"Alice\", max_tokens=1000).paths == []\n        assert rt.extract_relations(eid)\n>       assert rt.relationships.traverse(\"Alice\", max_tokens=1000).paths[0][\"edges\"][0][\"object\"] == \"beta\"\nE       IndexError: list index out of range\n\n..\\..\\..\\..\\Desktop\\nsn\\tests\\test_consolidation.py:227: IndexError\n=========================== short test summary info ===========================\nFAILED ..\\..\\..\\..\\Desktop\\nsn\\tests\\test_consolidation.py::test_phase06_retry_safe_connect_and_rebuild_preserves_concurrent_insert\n1 failed, 58 passed, 2 deselected in 26.22s\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "3.12": {
+    "passed": false,
+    "attempts": [
+      {
+        "command": [
+          "uv",
+          "venv",
+          "--python",
+          "3.12",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_ewgqxo47\\venv"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using CPython 3.12.13\nCreating virtual environment at: venv\nActivate with: venv\\Scripts\\activate\n"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_ewgqxo47\\venv\\Scripts\\python.exe",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\dist\\nsn-0.3.0-py3-none-any.whl",
+          "pytest",
+          "pytest-asyncio",
+          "psutil"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using Python 3.12.13 environment at: venv\nResolved 11 packages in 196ms\nInstalled 11 packages in 714ms\n + colorama==0.4.6\n + iniconfig==2.3.0\n + nsn==0.3.0 (from file:///C:/Users/aviroop/Desktop/nsn/dist/nsn-0.3.0-py3-none-any.whl)\n + packaging==26.3\n + pluggy==1.6.0\n + psutil==7.2.2\n + pygments==2.21.0\n + pytest==9.1.1\n + pytest-asyncio==1.4.0\n + pyyaml==6.0.3\n + typing-extensions==4.16.0\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_ewgqxo47\\venv\\Scripts\\python.exe",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\scripts\\verify_install.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"minimal_wheel\": \"C:\\\\Users\\\\aviroop\\\\AppData\\\\Local\\\\Temp\\\\nsn_matrix_ewgqxo47\\\\venv\\\\Lib\\\\site-packages\\\\nsn\\\\__init__.py\", \"network_denied\": true, \"restart_recall\": true, \"namespace_isolation\": true, \"package_yaml\": true, \"import_threads_unchanged\": true}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_ewgqxo47\\venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_durable_storage.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_facts_history.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_retrieval_context.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_sdk_facade.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_audit_repairs.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_bounded_relationships.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_consolidation.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_advanced_memory.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_runtime_wal_lifecycle.py",
+          "-k",
+          "not rest_authentication and not legacy_deprecation",
+          "-q",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "exit_code": 1,
+        "stdout": "................................F..........................              [100%]\n================================== FAILURES ===================================\n______________ test_temporal_complete_paths_and_deleted_support _______________\n\ntmp_path = WindowsPath('C:/Users/aviroop/AppData/Local/Temp/pytest-of-aviroop/pytest-121/test_temporal_complete_paths_a0')\n\n    def test_temporal_complete_paths_and_deleted_support(tmp_path):\n        rt = Runtime(str(tmp_path), graph=True)\n        relation(rt, \"Alice\", \"works_for\", \"Acme\", valid_from=\"2025-01-01T00:00:00Z\")\n        _, old_source = relation(rt, \"Acme\", \"located_in\", \"Paris\", valid_from=\"2025-01-01T00:00:00Z\")\n        _, new_source = relation(rt, \"Acme\", \"located_in\", \"Rome\", valid_from=\"2026-01-01T00:00:00Z\", replace=True)\n        g = rt.relationships\n>       old = g.traverse(\"Alice\", as_of_time=\"2025-06-01T00:00:00Z\", max_tokens=1500).paths[0]\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       IndexError: list index out of range\n\n..\\..\\..\\..\\Desktop\\nsn\\tests\\test_bounded_relationships.py:41: IndexError\n=========================== short test summary info ===========================\nFAILED ..\\..\\..\\..\\Desktop\\nsn\\tests\\test_bounded_relationships.py::test_temporal_complete_paths_and_deleted_support\n1 failed, 58 passed, 2 deselected in 33.73s\n",
+        "stderr": ""
+      }
+    ]
+  }
+}

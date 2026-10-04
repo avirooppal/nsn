@@ -1,0 +1,29 @@
+{
+  "status": "local candidate verified; performance/public-evaluation/license/hosted-matrix gates remain open",
+  "minimal_wheel": {
+    "network_denied": true,
+    "restart": true,
+    "namespace_isolation": true,
+    "yaml_resource": true,
+    "import_threads": true,
+    "outside_checkout_tests_passed": 58,
+    "optional_tests_deselected": 2
+  },
+  "optional_api_langchain_tests_passed": 9,
+  "real_prepared_semantic_offline": true,
+  "linux_container_network_none": true,
+  "ci_yaml_validated": true,
+  "hosted_ci_executed": false,
+  "legacy_trust_fixture_tests_passed": 4,
+  "performance_qualified": false,
+  "public_evaluation_complete": false,
+  "source_redistribution_license_declared": false,
+  "functional_regression": {
+    "passed": 196,
+    "skipped": 2,
+    "deselected_performance": 1,
+    "dependency_warnings": 3,
+    "seconds": 131.48,
+    "command": "python -m pytest tests/ benchmarks/tests/ -m 'not performance' -q -p no:cacheprovider"
+  }
+}

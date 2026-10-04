@@ -66,7 +66,8 @@ def evaluate_retrieval_and_answer(
     gold_ids: list,
     prediction: str,
     ground_truth: str,
-    is_full_context: bool = False
+    is_full_context: bool = False,
+    total_gold_count: int = None,
 ) -> dict:
     """
     Separates retrieval evaluation from answer evaluation.
@@ -83,7 +84,8 @@ def evaluate_retrieval_and_answer(
         top_5 = set(retrieved_ids[:5]) if retrieved_ids else set()
         hits = top_5.intersection(gt_set)
         evidence_retrieved = bool(len(hits) > 0)
-        recall_5 = len(hits) / len(gt_set) if gt_set else 0.0
+        denom = total_gold_count if total_gold_count is not None else len(gt_set)
+        recall_5 = len(hits) / denom if denom else 0.0
         
         mrr = 0.0
         for rank, id_ in enumerate(retrieved_ids, 1):

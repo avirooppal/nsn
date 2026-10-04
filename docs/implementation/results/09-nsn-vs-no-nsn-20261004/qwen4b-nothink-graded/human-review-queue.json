@@ -1,0 +1,249 @@
+{
+  "manifest_sha256": "462a353ce5b13f3cab4b4c632337e30e73788d03c452cd1be2056ab571a4ffb7",
+  "per_category": 2,
+  "sampling": "fixed digest order per dataset/category, includes failures",
+  "reviews": [
+    {
+      "case_id": "locomo:conv-42:0005",
+      "profile": "bm25",
+      "row_sha256": "48401e229e621433750c44f1bc92070d0e69d02b856c6a4a818901bacebfa00f",
+      "question": "What are Joanna's hobbies?",
+      "reference_answer": "Writing, watchingmovies, exploringnature, hanging withfriends.",
+      "predicted_answer": "Hmm, the user is asking about Joanna's hobbies based on a reference conversation. Let me check the conversation data carefully.\n\nLooking at the reference conversation:\n- [",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0005",
+      "profile": "stateless",
+      "row_sha256": "24186b9da1ee4b279b3f14aceabdbc3acc58d1e6ab4a9bc4d621093bf21c8974",
+      "question": "What are Joanna's hobbies?",
+      "reference_answer": "Writing, watchingmovies, exploringnature, hanging withfriends.",
+      "predicted_answer": "Hmm, the user is asking about Joanna's hobbies based on a reference conversation. Let me check what's provided.\n\nThe reference conversation shows:\n- Question date:",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:8550ddae",
+      "profile": "stateless",
+      "row_sha256": "8581e6f81426990880464b45d95fc5a62897b97ab2272d199a13ed93f649ed22",
+      "question": "What type of cocktail recipe did I try last weekend?",
+      "reference_answer": "lavender gin fizz",
+      "predicted_answer": "Hmm, the user is asking about a cocktail recipe they tried last weekend. Let me check the reference conversation provided.\n\nThe reference conversation shows:\n- Question date:",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:8550ddae",
+      "profile": "full_context",
+      "row_sha256": "9417da06c1001d0e3439f768b4166c1c71dee6361081f62548cf4a955f6a0fd6",
+      "question": "What type of cocktail recipe did I try last weekend?",
+      "reference_answer": "lavender gin fizz",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:gpt4_1d80365e",
+      "profile": "hybrid",
+      "row_sha256": "eb01f9b175393efd70bd9e63ce7ccd9bfa1967749916bf964e7c2dd3620eb122",
+      "question": "How many days did I spend on my solo camping trip to Yosemite National Park?",
+      "reference_answer": "2 days. 3 days (including the last day) is also acceptable.",
+      "predicted_answer": "Hmm, the user is asking about how many days they spent on their solo camping trip to Yosemite National Park. Let me check the reference conversation.\n\nLooking at the",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:gpt4_1d80365e",
+      "profile": "stateless",
+      "row_sha256": "58748f51843e0a011fb29d2b1b48b7fb2253958f93a65136cd3cdb69d02aef15",
+      "question": "How many days did I spend on my solo camping trip to Yosemite National Park?",
+      "reference_answer": "2 days. 3 days (including the last day) is also acceptable.",
+      "predicted_answer": "Hmm, the user is asking about how many days they spent on a solo camping trip to Yosemite National Park. They provided a reference conversation with a date of",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:70b3e69b",
+      "profile": "stateless",
+      "row_sha256": "56d4bff1f4b31ac7b0f8207cd239ff29e43ae1215e26b4c1e7359e31fe822f17",
+      "question": "I was going through our previous conversation about the impact of the political climate in Catalonia on its literature and music. Can you remind me of the example you gave of a Spanish-Catalan singer-songwriter who supports unity between Catalonia and Spain?",
+      "reference_answer": "Manolo Garc\u00eda",
+      "predicted_answer": "Hmm, the user is asking me to recall a specific example from our previous conversation about how the political climate in Catalonia affects its literature and music. They want to",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:70b3e69b",
+      "profile": "nsn_lexical",
+      "row_sha256": "e51eb188aa91da5e104ce459df1ed68f43d146acb920759fc4f74d1ae9a4eecf",
+      "question": "I was going through our previous conversation about the impact of the political climate in Catalonia on its literature and music. Can you remind me of the example you gave of a Spanish-Catalan singer-songwriter who supports unity between Catalonia and Spain?",
+      "reference_answer": "Manolo Garc\u00eda",
+      "predicted_answer": "Hmm, the user is asking about a previous conversation where I mentioned a Spanish-Catalan singer-songwriter who supports unity between Catalonia and Spain. Let me check",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0006",
+      "profile": "nsn_semantic",
+      "row_sha256": "dce0b5e8c98545a78116d03582d37441ea43ea60a8e62f9a4712c993dbf43ef0",
+      "question": "When is Jon's group performing at a festival?",
+      "reference_answer": "February, 2023",
+      "predicted_answer": "Hmm, the user is asking about when Jon's group is performing at a festival based on the reference conversation. Let me check the conversation data carefully.\n\nLooking at",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-30:0006",
+      "profile": "bm25",
+      "row_sha256": "20227347075d1fc708912499ea953fa2f6aedaf34c3d65a75ae2be34cd58037b",
+      "question": "When is Jon's group performing at a festival?",
+      "reference_answer": "February, 2023",
+      "predicted_answer": "Hmm, the user is asking about when Jon's group is performing at a festival based on a reference conversation. Let me look at the conversation data carefully.\n\nThe",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:32260d93",
+      "profile": "nsn_lexical",
+      "row_sha256": "785945eb8a18ec23d42d5afa27fc5750b3ebc3f80b0734ae75d56303dd63adfc",
+      "question": "Can you recommend a show or movie for me to watch tonight?",
+      "reference_answer": "The user would prefer recommendations for stand-up comedy specials on Netflix, especially those that are known for their storytelling. They may not prefer recommendations for other genres or platforms.",
+      "predicted_answer": "Hmm, the user is asking me to recommend a show or movie for tonight, but I need to check the reference conversation to see if there's any relevant information",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:32260d93",
+      "profile": "bm25",
+      "row_sha256": "eaad2df534826026cd74da33254cd51b9bebaf8cb066e391178f75271d38d31a",
+      "question": "Can you recommend a show or movie for me to watch tonight?",
+      "reference_answer": "The user would prefer recommendations for stand-up comedy specials on Netflix, especially those that are known for their storytelling. They may not prefer recommendations for other genres or platforms.",
+      "predicted_answer": "Hmm, the user is asking me to recommend a show or movie for tonight, but I need to check the reference conversation to see if there's any relevant information",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:60159905",
+      "profile": "nsn_semantic",
+      "row_sha256": "41687bed360aede2eb635d7844cde117ba147d8cdceb9d758c6d41ba23c7361b",
+      "question": "How many dinner parties have I attended in the past month?",
+      "reference_answer": "three",
+      "predicted_answer": "Hmm, the user is asking about how many dinner parties they've attended in the past month. Let me check the reference conversation carefully.\n\nThe reference conversation shows a",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:60159905",
+      "profile": "hybrid",
+      "row_sha256": "d2d0f2b62d2b794ba4b408213f5f147bc763db6a23d32c7ddcc5a3f08f524191",
+      "question": "How many dinner parties have I attended in the past month?",
+      "reference_answer": "three",
+      "predicted_answer": "Hmm, the user is asking how many dinner parties they've attended in the past month. Let me check the reference conversation.\n\nThe reference conversation shows a user message",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0185",
+      "profile": "rolling",
+      "row_sha256": "2681a6ee9ea9c04e84402ad58899d1b334409ee408905e0ccc831d6df098039b",
+      "question": "What is the type of game \"Xenoblade Chronicles\" that Nate is playing?",
+      "reference_answer": "fantasy RPG",
+      "predicted_answer": "Hmm, the user is asking about the type of game \"Xenoblade Chronicles\" that Nate is playing. Let me check the reference conversation provided.\n\nLooking",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0185",
+      "profile": "full_context",
+      "row_sha256": "4ff5ef36193ee6118b644a64eaff7714c807bd1f7ef47190cc6442a14b39e1a3",
+      "question": "What is the type of game \"Xenoblade Chronicles\" that Nate is playing?",
+      "reference_answer": "fantasy RPG",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0085",
+      "profile": "full_context",
+      "row_sha256": "7468feee2551d6498cad5c43c92de3926abd89a5dce3214454fc1ceaaffa1b79",
+      "question": "What kind of job is Joanna beginning to preform the duties of because of her movie scripts?",
+      "reference_answer": "filmmaker.",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0085",
+      "profile": "hybrid",
+      "row_sha256": "13cb853bc62fab7cc327823a78b3a72c4691a0a4a85d8013de3fc9e46fa7f207",
+      "question": "What kind of job is Joanna beginning to preform the duties of because of her movie scripts?",
+      "reference_answer": "filmmaker.",
+      "predicted_answer": "Hmm, the user is asking about what kind of job Joanna is beginning to perform duties for because of her movie scripts. Let me look at the reference conversation provided",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0213",
+      "profile": "stateless",
+      "row_sha256": "cf3aff21980c709c0cd4923f0c6ad54e25c8a98b04c85db398775bb750b0a9cd",
+      "question": "What are the main ingredients of the ice cream recipe shared by Joanna?",
+      "reference_answer": null,
+      "predicted_answer": "Hmm, the user is asking about the main ingredients of an ice cream recipe shared by Joanna. But looking at the reference conversation provided, it shows that the answer",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0213",
+      "profile": "bm25",
+      "row_sha256": "f079958f4d3ad730e65d794e7be85e83d568b1555683c48d46991972bc8d451d",
+      "question": "What are the main ingredients of the ice cream recipe shared by Joanna?",
+      "reference_answer": null,
+      "predicted_answer": "Hmm, the user is asking about the main ingredients of an ice cream recipe that Joanna shared. Let me look at the reference conversation carefully.\n\nThe reference conversation shows",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:d7c942c3",
+      "profile": "nsn_lexical",
+      "row_sha256": "d2a8c99d11def0b7f4a5da6d296cf82d80ea46a8b1b2d17ab6f2636e755b262a",
+      "question": "Is my mom using the same grocery list method as me?",
+      "reference_answer": "Yes.",
+      "predicted_answer": "Hmm, the user is asking about gift ideas for their mom, but the reference conversation shows they're actually asking a different question about grocery lists. Let me check",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:d7c942c3",
+      "profile": "bm25",
+      "row_sha256": "55c23824237b163db7c82935ad6b8d53d57384af04f76166e0bc555490ea462f",
+      "question": "Is my mom using the same grocery list method as me?",
+      "reference_answer": "Yes.",
+      "predicted_answer": "Hmm, the user is asking if their mom is using the same grocery list method as them. Let me check the reference conversation.\n\nIn the reference conversation, there",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    }
+  ]
+}

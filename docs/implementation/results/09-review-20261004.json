@@ -1,0 +1,117 @@
+{
+  "manifest_sha256": "ce847dff013ebdd219ca5e274191848f5c63dd31c441b46e90079442068a4229",
+  "per_category": 5,
+  "sampling": "fixed digest order per dataset/category, includes failures",
+  "reviews": [
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "nsn_lexical",
+      "row_sha256": "d3519917f2d9ffb16beea07cc3fd40234fae30c1a4e5102e9f901e5d36e1125a",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "pooled_dense",
+      "row_sha256": "8be1e8c0f370bd14e44c5ba48fdf287d2fc592829e8f10ed03aab94dd03cf6d7",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "rolling",
+      "row_sha256": "aede7db9594f5092e5e37c15a170691ba2f88a295bb8c56217150936788c77ae",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "stateless",
+      "row_sha256": "a97306ab50e34732ce01242839451abfa48de48a0b557695e0992df2f8436f37",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "hybrid",
+      "row_sha256": "764fd4e07962bf033e140dceec9fe3b0885a608171f7a4783348428ae48adf3d",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "yes",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:07741c44",
+      "profile": "stateless",
+      "row_sha256": "fc4b4a193d5f33eb91a3c75b87bf17dddc180ef862d5b1bc617e18fb2d7f5a87",
+      "question": "Where do I initially keep my old sneakers?",
+      "reference_answer": "under my bed",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:031748ae_abs",
+      "profile": "nsn_lexical",
+      "row_sha256": "60469ef50a2e40917007a0cc1b7bce6aeead6b943261c2f63ae0567e70f9641c",
+      "question": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+      "reference_answer": "The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.",
+      "predicted_answer": "5",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:031748ae_abs",
+      "profile": "bm25",
+      "row_sha256": "7b340d2bccd1e1427ed34970b412ff132c954815feb8ad81c5c5426f12d3a362",
+      "question": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+      "reference_answer": "The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.",
+      "predicted_answer": "3",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:07741c44",
+      "profile": "pooled_dense",
+      "row_sha256": "0689708081ddc852cbf2f94cca2c7d4148a1f7619f0cbf119ae7a62f31e2c407",
+      "question": "Where do I initially keep my old sneakers?",
+      "reference_answer": "under my bed",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:031748ae_abs",
+      "profile": "oracle",
+      "row_sha256": "a7e59cab3c78e8e14d303ca840d0cdf60710b4685e650b010bc17412e8c6965f",
+      "question": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+      "reference_answer": "The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    }
+  ]
+}

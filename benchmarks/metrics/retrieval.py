@@ -3,13 +3,14 @@ Retrieval quality metrics (Recall@K, Precision@K, Hit@K, MRR, nDCG@K, Mean Rank)
 """
 import math
 
-def compute_recall_at_k(retrieved_ids: list, ground_truth_ids: list, k: int) -> float:
-    if not ground_truth_ids:
+def compute_recall_at_k(retrieved_ids: list, ground_truth_ids: list, k: int, total_gold_count: int = None) -> float:
+    denom = total_gold_count if total_gold_count is not None else len(ground_truth_ids)
+    if denom == 0:
         return 0.0
     top_k = set(retrieved_ids[:k])
     gt_set = set(ground_truth_ids)
     hits = len(top_k.intersection(gt_set))
-    return hits / len(gt_set)
+    return hits / denom
 
 def compute_precision_at_k(retrieved_ids: list, ground_truth_ids: list, k: int) -> float:
     """Fraction of top-K retrieved items that are relevant."""

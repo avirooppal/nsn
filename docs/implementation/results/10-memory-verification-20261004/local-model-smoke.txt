@@ -1,0 +1,17 @@
+{
+  "installed_module": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_memory_verified_minimal_20261004\\Lib\\site-packages\\nsn\\__init__.py",
+  "model": "qwen3:1.7b",
+  "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "memory_injection_passed": true,
+  "restart_injection_passed": true,
+  "namespace_isolation_passed": true,
+  "observed_token_answers": [
+    "violet-7812",
+    "violet-7812"
+  ],
+  "token_answer_matches": [
+    true,
+    true
+  ],
+  "scope": "Single synthetic nonce smoke; not an accuracy or superiority benchmark"
+}

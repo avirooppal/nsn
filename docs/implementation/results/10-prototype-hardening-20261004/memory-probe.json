@@ -1,0 +1,1134 @@
+{
+  "scope": "Exploratory memory-only diagnostic on the previous 15-question sample; no new answer accuracy or production-quality claim",
+  "native_cache": "Inherited checksum-verified original native database and neural embeddings, private copies; no generated memories or old answers used as inputs",
+  "old_wheel_sha256": "ce32c7573366aa9d706889b042224f2d974edf2197e17aed34dac8fcc79e1431",
+  "new_wheel_sha256": "f02f9cf608be0265f26ca13bdf0f6074f21aad134b4657c063ba164cad3d2da1",
+  "summary": {
+    "locomo:minimal:before": {
+      "questions_with_evidence": 9,
+      "recall": 0.1111111111111111,
+      "complete_support": 0.1111111111111111
+    },
+    "locomo:minimal:after": {
+      "questions_with_evidence": 9,
+      "recall": 0.2222222222222222,
+      "complete_support": 0.2222222222222222
+    },
+    "locomo:semantic:before": {
+      "questions_with_evidence": 9,
+      "recall": 0.2222222222222222,
+      "complete_support": 0.2222222222222222
+    },
+    "locomo:semantic:after": {
+      "questions_with_evidence": 9,
+      "recall": 0.2222222222222222,
+      "complete_support": 0.2222222222222222
+    },
+    "longmemeval:minimal:before": {
+      "questions_with_evidence": 6,
+      "recall": 0.08333333333333333,
+      "complete_support": 0
+    },
+    "longmemeval:minimal:after": {
+      "questions_with_evidence": 6,
+      "recall": 0.3333333333333333,
+      "complete_support": 0.16666666666666666
+    },
+    "longmemeval:semantic:before": {
+      "questions_with_evidence": 6,
+      "recall": 0.16666666666666666,
+      "complete_support": 0
+    },
+    "longmemeval:semantic:after": {
+      "questions_with_evidence": 6,
+      "recall": 0.16666666666666666,
+      "complete_support": 0
+    }
+  },
+  "rows": [
+    {
+      "case_id": "locomo:conv-30:0006",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "D1:24"
+      ],
+      "selected_ids": [
+        "D14:15",
+        "D8:20"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 474,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0006",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "D1:24"
+      ],
+      "selected_ids": [
+        "D1:26"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 487,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0006",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "D1:24"
+      ],
+      "selected_ids": [
+        "D1:26",
+        "D1:27"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 511,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0006",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "D1:24"
+      ],
+      "selected_ids": [
+        "D1:26",
+        "D1:27"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 511,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0009",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "D15:1",
+        "D2:5"
+      ],
+      "selected_ids": [
+        "D17:11",
+        "D15:16",
+        "D14:7"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 489,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0009",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "D15:1",
+        "D2:5"
+      ],
+      "selected_ids": [
+        "D6:16",
+        "D6:15",
+        "D17:11"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 505,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0009",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "D15:1",
+        "D2:5"
+      ],
+      "selected_ids": [
+        "D6:15",
+        "D6:16"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 510,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0009",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "D15:1",
+        "D2:5"
+      ],
+      "selected_ids": [
+        "D6:15",
+        "D6:16"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 510,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0080",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "D18:10"
+      ],
+      "selected_ids": [
+        "D18:9",
+        "D18:8"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 494,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0080",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "D18:10"
+      ],
+      "selected_ids": [
+        "D18:6",
+        "D18:9"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 494,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0080",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "D18:10"
+      ],
+      "selected_ids": [
+        "D18:6",
+        "D18:9"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 473,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0080",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "D18:10"
+      ],
+      "selected_ids": [
+        "D18:6",
+        "D18:9"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 473,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0086",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "D2:8"
+      ],
+      "selected_ids": [
+        "D18:3",
+        "D15:15"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 476,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0086",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "D2:8"
+      ],
+      "selected_ids": [
+        "D11:1",
+        "D2:8"
+      ],
+      "evidence_recall": 1.0,
+      "complete_support": true,
+      "pack_tokens": 462,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0086",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "D2:8"
+      ],
+      "selected_ids": [
+        "D2:7",
+        "D2:8"
+      ],
+      "evidence_recall": 1.0,
+      "complete_support": true,
+      "pack_tokens": 487,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-30:0086",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "D2:8"
+      ],
+      "selected_ids": [
+        "D2:7",
+        "D2:8"
+      ],
+      "evidence_recall": 1.0,
+      "complete_support": true,
+      "pack_tokens": 487,
+      "budget": 512,
+      "cache_key": "de3eb0dd309ffbc8f0861a621016d1b7c26b071d07fc58079cfcf4a4b0d0fd68"
+    },
+    {
+      "case_id": "locomo:conv-42:0005",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "D1:10",
+        "D2:25"
+      ],
+      "selected_ids": [
+        "D28:33",
+        "D23:30",
+        "D23:5"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 481,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0005",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "D1:10",
+        "D2:25"
+      ],
+      "selected_ids": [
+        "D1:11",
+        "D1:9",
+        "D1:2"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 491,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0005",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "D1:10",
+        "D2:25"
+      ],
+      "selected_ids": [
+        "D13:20",
+        "D1:11",
+        "D1:9"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 501,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0005",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "D1:10",
+        "D2:25"
+      ],
+      "selected_ids": [
+        "D13:20",
+        "D1:11",
+        "D1:9"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 501,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0009",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "D2:3"
+      ],
+      "selected_ids": [
+        "D21:1",
+        "D14:1"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 511,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0009",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "D2:3"
+      ],
+      "selected_ids": [
+        "D14:1",
+        "D21:1"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 507,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0009",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "D2:3"
+      ],
+      "selected_ids": [
+        "D19:2",
+        "D14:1",
+        "D10:7"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 476,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0009",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "D2:3"
+      ],
+      "selected_ids": [
+        "D19:2",
+        "D14:1",
+        "D10:7"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 476,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0085",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "D29:1"
+      ],
+      "selected_ids": [
+        "D27:11",
+        "D27:5",
+        "D24:5"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 491,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0085",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "D29:1"
+      ],
+      "selected_ids": [
+        "D1:6",
+        "D27:11",
+        "D24:5"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 501,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0085",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "D29:1"
+      ],
+      "selected_ids": [
+        "D27:28",
+        "D1:6",
+        "D24:5"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 501,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0085",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "D29:1"
+      ],
+      "selected_ids": [
+        "D27:28",
+        "D1:6",
+        "D24:5"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 501,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0185",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "D27:23"
+      ],
+      "selected_ids": [
+        "D27:24",
+        "D27:23"
+      ],
+      "evidence_recall": 1.0,
+      "complete_support": true,
+      "pack_tokens": 470,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0185",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "D27:23"
+      ],
+      "selected_ids": [
+        "D27:23",
+        "D27:24"
+      ],
+      "evidence_recall": 1.0,
+      "complete_support": true,
+      "pack_tokens": 493,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0185",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "D27:23"
+      ],
+      "selected_ids": [
+        "D27:23",
+        "D1:11"
+      ],
+      "evidence_recall": 1.0,
+      "complete_support": true,
+      "pack_tokens": 475,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0185",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "D27:23"
+      ],
+      "selected_ids": [
+        "D27:23",
+        "D1:11"
+      ],
+      "evidence_recall": 1.0,
+      "complete_support": true,
+      "pack_tokens": 475,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0213",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "D8:19"
+      ],
+      "selected_ids": [
+        "D29:13",
+        "D28:1"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 506,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0213",
+      "dataset": "locomo",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "D8:19"
+      ],
+      "selected_ids": [
+        "D16:8",
+        "D4:4"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 475,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0213",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "D8:19"
+      ],
+      "selected_ids": [
+        "D4:4",
+        "D25:18"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 496,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "locomo:conv-42:0213",
+      "dataset": "locomo",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "D8:19"
+      ],
+      "selected_ids": [
+        "D4:4",
+        "D25:18"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 496,
+      "budget": 512,
+      "cache_key": "032f74e480e147c05d702ed196f839cd2a8fcfbe2a65824d6ad2ee854d507845"
+    },
+    {
+      "case_id": "longmemeval:8550ddae",
+      "dataset": "longmemeval",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "answer_c8354ae9:2"
+      ],
+      "selected_ids": [
+        "4f234e2c:2"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 509,
+      "budget": 512,
+      "cache_key": "87c4cce7312fab706a156890633076e44545250b5f223743e0a5e25201f37608"
+    },
+    {
+      "case_id": "longmemeval:8550ddae",
+      "dataset": "longmemeval",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "answer_c8354ae9:2"
+      ],
+      "selected_ids": [
+        "answer_c8354ae9:2"
+      ],
+      "evidence_recall": 1.0,
+      "complete_support": true,
+      "pack_tokens": 462,
+      "budget": 512,
+      "cache_key": "87c4cce7312fab706a156890633076e44545250b5f223743e0a5e25201f37608"
+    },
+    {
+      "case_id": "longmemeval:8550ddae",
+      "dataset": "longmemeval",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "answer_c8354ae9:2"
+      ],
+      "selected_ids": [
+        "71cf5aeb_3:0"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 440,
+      "budget": 512,
+      "cache_key": "87c4cce7312fab706a156890633076e44545250b5f223743e0a5e25201f37608"
+    },
+    {
+      "case_id": "longmemeval:8550ddae",
+      "dataset": "longmemeval",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "answer_c8354ae9:2"
+      ],
+      "selected_ids": [
+        "71cf5aeb_3:0"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 440,
+      "budget": 512,
+      "cache_key": "87c4cce7312fab706a156890633076e44545250b5f223743e0a5e25201f37608"
+    },
+    {
+      "case_id": "longmemeval:32260d93",
+      "dataset": "longmemeval",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "answer_0250ae1c:0"
+      ],
+      "selected_ids": [
+        "answer_0250ae1c:6",
+        "answer_0250ae1c:4"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 478,
+      "budget": 512,
+      "cache_key": "591393c531c81b10be137d44829a29035057b240bf2b5a5952a6a6019965a219"
+    },
+    {
+      "case_id": "longmemeval:32260d93",
+      "dataset": "longmemeval",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "answer_0250ae1c:0"
+      ],
+      "selected_ids": [
+        "answer_0250ae1c:4"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 508,
+      "budget": 512,
+      "cache_key": "591393c531c81b10be137d44829a29035057b240bf2b5a5952a6a6019965a219"
+    },
+    {
+      "case_id": "longmemeval:32260d93",
+      "dataset": "longmemeval",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "answer_0250ae1c:0"
+      ],
+      "selected_ids": [
+        "6d3f5c68_4:2",
+        "answer_0250ae1c:4"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 505,
+      "budget": 512,
+      "cache_key": "591393c531c81b10be137d44829a29035057b240bf2b5a5952a6a6019965a219"
+    },
+    {
+      "case_id": "longmemeval:32260d93",
+      "dataset": "longmemeval",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "answer_0250ae1c:0"
+      ],
+      "selected_ids": [
+        "6d3f5c68_4:2",
+        "answer_0250ae1c:4"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 505,
+      "budget": 512,
+      "cache_key": "591393c531c81b10be137d44829a29035057b240bf2b5a5952a6a6019965a219"
+    },
+    {
+      "case_id": "longmemeval:60159905",
+      "dataset": "longmemeval",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "answer_75eca223_1:0",
+        "answer_75eca223_2:4"
+      ],
+      "selected_ids": [
+        "d5f4d9fa_2:0"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 487,
+      "budget": 512,
+      "cache_key": "19845c0c16dfb7af67891bcd91eeebe79f48fde9191844f6d311fde0b3d05445"
+    },
+    {
+      "case_id": "longmemeval:60159905",
+      "dataset": "longmemeval",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "answer_75eca223_1:0",
+        "answer_75eca223_2:4"
+      ],
+      "selected_ids": [
+        "answer_75eca223_1:4"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 499,
+      "budget": 512,
+      "cache_key": "19845c0c16dfb7af67891bcd91eeebe79f48fde9191844f6d311fde0b3d05445"
+    },
+    {
+      "case_id": "longmemeval:60159905",
+      "dataset": "longmemeval",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "answer_75eca223_1:0",
+        "answer_75eca223_2:4"
+      ],
+      "selected_ids": [
+        "answer_75eca223_1:2"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 453,
+      "budget": 512,
+      "cache_key": "19845c0c16dfb7af67891bcd91eeebe79f48fde9191844f6d311fde0b3d05445"
+    },
+    {
+      "case_id": "longmemeval:60159905",
+      "dataset": "longmemeval",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "answer_75eca223_1:0",
+        "answer_75eca223_2:4"
+      ],
+      "selected_ids": [
+        "answer_75eca223_1:2"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 453,
+      "budget": 512,
+      "cache_key": "19845c0c16dfb7af67891bcd91eeebe79f48fde9191844f6d311fde0b3d05445"
+    },
+    {
+      "case_id": "longmemeval:gpt4_1d80365e",
+      "dataset": "longmemeval",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "answer_661b711f_1:0",
+        "answer_661b711f_2:0"
+      ],
+      "selected_ids": [
+        "answer_661b711f_2:0"
+      ],
+      "evidence_recall": 0.5,
+      "complete_support": false,
+      "pack_tokens": 506,
+      "budget": 512,
+      "cache_key": "079dea2d0542f2009aa55b31d252557d3dd32d0d9bb65de788fcc5339bc9f923"
+    },
+    {
+      "case_id": "longmemeval:gpt4_1d80365e",
+      "dataset": "longmemeval",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "answer_661b711f_1:0",
+        "answer_661b711f_2:0"
+      ],
+      "selected_ids": [
+        "answer_661b711f_1:0"
+      ],
+      "evidence_recall": 0.5,
+      "complete_support": false,
+      "pack_tokens": 502,
+      "budget": 512,
+      "cache_key": "079dea2d0542f2009aa55b31d252557d3dd32d0d9bb65de788fcc5339bc9f923"
+    },
+    {
+      "case_id": "longmemeval:gpt4_1d80365e",
+      "dataset": "longmemeval",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "answer_661b711f_1:0",
+        "answer_661b711f_2:0"
+      ],
+      "selected_ids": [
+        "answer_661b711f_2:0"
+      ],
+      "evidence_recall": 0.5,
+      "complete_support": false,
+      "pack_tokens": 502,
+      "budget": 512,
+      "cache_key": "079dea2d0542f2009aa55b31d252557d3dd32d0d9bb65de788fcc5339bc9f923"
+    },
+    {
+      "case_id": "longmemeval:gpt4_1d80365e",
+      "dataset": "longmemeval",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "answer_661b711f_1:0",
+        "answer_661b711f_2:0"
+      ],
+      "selected_ids": [
+        "answer_661b711f_2:0"
+      ],
+      "evidence_recall": 0.5,
+      "complete_support": false,
+      "pack_tokens": 502,
+      "budget": 512,
+      "cache_key": "079dea2d0542f2009aa55b31d252557d3dd32d0d9bb65de788fcc5339bc9f923"
+    },
+    {
+      "case_id": "longmemeval:d7c942c3",
+      "dataset": "longmemeval",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "answer_eecb10d9_1:8",
+        "answer_eecb10d9_2:4"
+      ],
+      "selected_ids": [
+        "b2243528_1:8"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 511,
+      "budget": 512,
+      "cache_key": "2873cbd2bc93d1a35bed7d2265968c3f3e9ee0ca1d3248d696eae63d31e4b25a"
+    },
+    {
+      "case_id": "longmemeval:d7c942c3",
+      "dataset": "longmemeval",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "answer_eecb10d9_1:8",
+        "answer_eecb10d9_2:4"
+      ],
+      "selected_ids": [
+        "answer_eecb10d9_2:4"
+      ],
+      "evidence_recall": 0.5,
+      "complete_support": false,
+      "pack_tokens": 471,
+      "budget": 512,
+      "cache_key": "2873cbd2bc93d1a35bed7d2265968c3f3e9ee0ca1d3248d696eae63d31e4b25a"
+    },
+    {
+      "case_id": "longmemeval:d7c942c3",
+      "dataset": "longmemeval",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "answer_eecb10d9_1:8",
+        "answer_eecb10d9_2:4"
+      ],
+      "selected_ids": [
+        "answer_eecb10d9_2:4"
+      ],
+      "evidence_recall": 0.5,
+      "complete_support": false,
+      "pack_tokens": 474,
+      "budget": 512,
+      "cache_key": "2873cbd2bc93d1a35bed7d2265968c3f3e9ee0ca1d3248d696eae63d31e4b25a"
+    },
+    {
+      "case_id": "longmemeval:d7c942c3",
+      "dataset": "longmemeval",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "answer_eecb10d9_1:8",
+        "answer_eecb10d9_2:4"
+      ],
+      "selected_ids": [
+        "answer_eecb10d9_2:4"
+      ],
+      "evidence_recall": 0.5,
+      "complete_support": false,
+      "pack_tokens": 474,
+      "budget": 512,
+      "cache_key": "2873cbd2bc93d1a35bed7d2265968c3f3e9ee0ca1d3248d696eae63d31e4b25a"
+    },
+    {
+      "case_id": "longmemeval:70b3e69b",
+      "dataset": "longmemeval",
+      "mode": "minimal",
+      "version": "before",
+      "gold_ids": [
+        "answer_ultrachat_334948:5"
+      ],
+      "selected_ids": [
+        "answer_ultrachat_334948:12"
+      ],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 499,
+      "budget": 512,
+      "cache_key": "a4409625203a00808c8fc355f7c17deb463f496bdce19baf0334f10b3ef1a4f5"
+    },
+    {
+      "case_id": "longmemeval:70b3e69b",
+      "dataset": "longmemeval",
+      "mode": "minimal",
+      "version": "after",
+      "gold_ids": [
+        "answer_ultrachat_334948:5"
+      ],
+      "selected_ids": [],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 458,
+      "budget": 512,
+      "cache_key": "a4409625203a00808c8fc355f7c17deb463f496bdce19baf0334f10b3ef1a4f5"
+    },
+    {
+      "case_id": "longmemeval:70b3e69b",
+      "dataset": "longmemeval",
+      "mode": "semantic",
+      "version": "before",
+      "gold_ids": [
+        "answer_ultrachat_334948:5"
+      ],
+      "selected_ids": [],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 458,
+      "budget": 512,
+      "cache_key": "a4409625203a00808c8fc355f7c17deb463f496bdce19baf0334f10b3ef1a4f5"
+    },
+    {
+      "case_id": "longmemeval:70b3e69b",
+      "dataset": "longmemeval",
+      "mode": "semantic",
+      "version": "after",
+      "gold_ids": [
+        "answer_ultrachat_334948:5"
+      ],
+      "selected_ids": [],
+      "evidence_recall": 0.0,
+      "complete_support": false,
+      "pack_tokens": 458,
+      "budget": 512,
+      "cache_key": "a4409625203a00808c8fc355f7c17deb463f496bdce19baf0334f10b3ef1a4f5"
+    }
+  ]
+}

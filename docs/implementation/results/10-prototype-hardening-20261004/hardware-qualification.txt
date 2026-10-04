@@ -1,0 +1,268 @@
+============================= test session starts =============================
+platform win32 -- Python 3.10.0, pytest-8.2.0, pluggy-1.6.0 -- C:\Users\aviroop\AppData\Local\Programs\Python\Python310\python.exe
+rootdir: C:\Users\aviroop\Desktop\nsn
+configfile: pyproject.toml
+plugins: anyio-4.13.0, asyncio-0.23.6, cov-7.1.0, httpx-0.30.0, respx-0.23.1
+asyncio: mode=strict
+collecting ... collected 139 items / 138 deselected / 1 skipped / 1 selected
+
+tests/test_compact_semantic.py::test_performance_benchmarks_varied_1k_and_10k_corpora 
+================================================================================
+PHASE 05 MEASURED BENCHMARKS: EXACT 1k vs 10k CORPORA IN RUNTIME
+NOTE: Timings use FastHashEncoder (synthetic n-gram hash). FastHash timings do NOT
+measure real-model embedding cost; neural encoder performance must be measured separately.
+================================================================================
+Corpus Size: 1000 items
+  - Authoritative Records in SQLite:     1000 events (asserted == 1000)
+  - Authoritative Vectors in Store:      1000 vectors (asserted == 1000)
+  - Ingestion (SQLite + Vectors):        4592.43 ms (4.592 ms/item)
+  - Vector-Only Search (Cold):           97.07 ms
+  - Vector-Only Search (Warm):           p50 = 10.336 ms, p95 = 15.099 ms
+  - End-to-End retrieve_pack (Cold):     89.95 ms
+  - End-to-End retrieve_pack (Warm):     p50 = 34.208 ms, p95 = 53.406 ms
+      * FastHash Query Embedding (p50):  2.044 ms (synthetic test hash only)
+      * Retrieval & Fusion (Lex+Dense):  9.667 ms
+      * Context Packing & Budgets:       13.348 ms
+  - Peak Python Heap (tracemalloc):      22.14 MB
+  - Process RSS Samples (psutil):        [('start', 64.68), ('post_insert', 122.24), ('post_vec_search', 126.19), ('post_e2e_search', 131.18)]
+  - Maximum sampled RSS (psutil):           131.18 MB (start: 64.68 MB)
+  - Total Disk (inc. WAL and metadata):  3088.1 KB (3162 amortized bytes/item)
+  - Raw float32 vector payload:         1536 bytes/vector
+--------------------------------------------------------------------------------
+Corpus Size: 10000 items
+  - Authoritative Records in SQLite:     10000 events (asserted == 10000)
+  - Authoritative Vectors in Store:      10000 vectors (asserted == 10000)
+  - Ingestion (SQLite + Vectors):        45016.78 ms (4.502 ms/item)
+  - Vector-Only Search (Cold):           367.86 ms
+  - Vector-Only Search (Warm):           p50 = 10.499 ms, p95 = 11.348 ms
+  - End-to-End retrieve_pack (Cold):     463.09 ms
+  - End-to-End retrieve_pack (Warm):     p50 = 56.931 ms, p95 = 65.687 ms
+      * FastHash Query Embedding (p50):  2.351 ms (synthetic test hash only)
+      * Retrieval & Fusion (Lex+Dense):  13.331 ms
+      * Context Packing & Budgets:       15.366 ms
+  - Peak Python Heap (tracemalloc):      219.41 MB
+  - Process RSS Samples (psutil):        [('start', 86.66), ('post_insert', 610.46), ('post_vec_search', 664.04), ('post_e2e_search', 699.85)]
+  - Maximum sampled RSS (psutil):           699.85 MB (start: 86.66 MB)
+  - Total Disk (inc. WAL and metadata):  47644.5 KB (4879 amortized bytes/item)
+  - Raw float32 vector payload:         1536 bytes/vector
+--------------------------------------------------------------------------------
+FAILED
+
+================================== FAILURES ===================================
+____________ test_performance_benchmarks_varied_1k_and_10k_corpora ____________
+
+temp_dir = 'C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_semantic_test_inbm0j8w'
+
+    @pytest.mark.performance
+    def test_performance_benchmarks_varied_1k_and_10k_corpora(temp_dir):
+        """
+        Performance benchmarks measuring:
+        - Exactly 1,000 and 10,000 authoritative records AND corresponding vectors in the runtime being measured.
+        - Verified count assertions before timing.
+        - Cold and warm p50 / p95 for:
+            1) Vector-only search (exact dot product)
+            2) End-to-end retrieve_pack (query embedding + retrieval/fusion + context packing)
+        - Process RSS sampled at workload phase boundaries; maximum sample is not an OS peak.
+        - Python heap allocations via tracemalloc.
+        - Disk size including SQLite WAL.
+        - FastHashEncoder explicit labeling: synthetic n-gram hashing does not measure real-model embedding cost.
+        """
+        dim = 384
+        encoder = FastHashEncoder(dimension=dim)
+        process = psutil.Process()
+    
+        results_table = {}
+    
+        for corpus_size in [1000, 10000]:
+            rt_dir = os.path.join(temp_dir, f"bench_rt_{corpus_size}")
+            rt = nsn.Runtime(rt_dir, default_namespace="default", semantic=True, encoder=encoder)
+    
+            tracemalloc.start()
+            rss_samples = []
+            rss_samples.append(("start", process.memory_info().rss))
+    
+            # 1. Ingest exactly corpus_size authoritative events and corresponding vectors into the runtime
+            t_start_insert = time.perf_counter()
+            events_rows = []
+            fts_rows = []
+            vector_items = []
+    
+            for i in range(corpus_size):
+                eid = f"evt_{corpus_size}_{i:05d}"
+                content = f"Telemetry diagnostics incident code_{i % 100} server node_{i % 25} operational status {i}."
+                events_rows.append((eid, "default", "s1", "user", content, "user", "2026-01-01T00:00:00Z", "completed", "permanent"))
+                fts_rows.append((eid, content, "default"))
+                vec = encoder.encode(content)
+                vector_items.append((eid, vec, "default", "event"))
+    
+            conn = sqlite3.connect(rt.db_path)
+            with conn:
+                conn.executemany(
+                    "INSERT INTO events (id, namespace, session_id, role, content, source_identity, observed_at, turn_status, retention_policy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    events_rows
+                )
+                conn.executemany(
+                    "INSERT INTO events_fts (id, content, namespace) VALUES (?, ?, ?)",
+                    fts_rows
+                )
+            conn.close()
+    
+            # Batch insert corresponding vectors into rt.vector_store
+            rt.vector_store.add_batch(vector_items)
+            insert_duration_ms = (time.perf_counter() - t_start_insert) * 1000.0
+    
+            rss_samples.append(("post_insert", process.memory_info().rss))
+    
+            # 2. Assert exact authoritative record and vector counts in runtime before timing
+            conn = sqlite3.connect(rt.db_path)
+            cursor = conn.cursor()
+            cursor.execute("SELECT COUNT(*) FROM events WHERE namespace = 'default'")
+            db_event_count = cursor.fetchone()[0]
+            cursor.execute("SELECT COUNT(*) FROM compact_vectors WHERE namespace = 'default' AND tombstoned = 0")
+            db_vector_count = cursor.fetchone()[0]
+            conn.close()
+    
+            assert db_event_count == corpus_size, f"Expected {corpus_size} authoritative events, found {db_event_count}"
+            assert db_vector_count == corpus_size, f"Expected {corpus_size} compact vectors, found {db_vector_count}"
+            assert rt.vector_store.count("default", "event") == corpus_size
+    
+            # 3. Vector-Only Search Timings
+            query_text = "Telemetry diagnostics incident code_42"
+            query_vec = encoder.encode(query_text)
+    
+            # Vector-Only Cold search latency (uncached store instance / cold cache)
+            store_cold = CompactVectorStore(
+                db_path=rt.db_path,
+                dimension=dim,
+                model_name=encoder.model_name,
+                revision=encoder.revision,
+                fingerprint=encoder.fingerprint
+            )
+            t_vec_cold_start = time.perf_counter()
+            _ = store_cold.search(query_vec, namespace="default", limit=10)
+            vec_cold_ms = (time.perf_counter() - t_vec_cold_start) * 1000.0
+    
+            # Vector-Only Warm search latency: 30 repetitions
+            vec_warm_latencies = []
+            for _ in range(30):
+                t_w = time.perf_counter()
+                _ = rt.vector_store.search(query_vec, namespace="default", limit=10)
+                vec_warm_latencies.append((time.perf_counter() - t_w) * 1000.0)
+    
+            vec_warm_latencies.sort()
+            vec_warm_p50_ms = vec_warm_latencies[len(vec_warm_latencies) // 2]
+            vec_warm_p95_ms = vec_warm_latencies[int(len(vec_warm_latencies) * 0.95)]
+    
+            rss_samples.append(("post_vec_search", process.memory_info().rss))
+    
+            # 4. End-to-End retrieve_pack Timings (Embedding + Lexical/Dense Retrieval/Fusion + Budget Packing)
+            # Cold E2E retrieve_pack (uncached runtime instance)
+            rt_cold = nsn.Runtime(rt_dir, default_namespace="default", semantic=True, encoder=encoder)
+            t_e2e_cold_start = time.perf_counter()
+            pack_cold = rt_cold.retrieve_pack(query_text, namespace="default", token_budget=256)
+            e2e_cold_total_ms = (time.perf_counter() - t_e2e_cold_start) * 1000.0
+            timings_cold_breakdown = pack_cold.diagnostic_explain.get("timings", {})
+            rt_cold.close()
+    
+            # Warm E2E retrieve_pack: 30 repetitions
+            e2e_total_latencies = []
+            e2e_embed_latencies = []
+            e2e_fusion_latencies = []
+            e2e_pack_latencies = []
+    
+            for _ in range(30):
+                t_e2e_w = time.perf_counter()
+                pack_warm = rt.retrieve_pack(query_text, namespace="default", token_budget=256)
+                total_elapsed = (time.perf_counter() - t_e2e_w) * 1000.0
+                e2e_total_latencies.append(total_elapsed)
+    
+                t_data = pack_warm.diagnostic_explain.get("timings", {})
+                e2e_embed_latencies.append(t_data.get("query_embed_ms", 0.0))
+                fusion_time = t_data.get("lexical_search_ms", 0.0) + t_data.get("dense_search_ms", 0.0) + t_data.get("fusion_ms", 0.0)
+                e2e_fusion_latencies.append(fusion_time)
+                e2e_pack_latencies.append(t_data.get("pack_ms", 0.0))
+    
+            rss_samples.append(("post_e2e_search", process.memory_info().rss))
+    
+            e2e_total_latencies.sort()
+            e2e_warm_total_p50_ms = e2e_total_latencies[len(e2e_total_latencies) // 2]
+            e2e_warm_total_p95_ms = e2e_total_latencies[int(len(e2e_total_latencies) * 0.95)]
+            e2e_embed_p50 = sorted(e2e_embed_latencies)[len(e2e_embed_latencies) // 2]
+            e2e_fusion_p50 = sorted(e2e_fusion_latencies)[len(e2e_fusion_latencies) // 2]
+            e2e_pack_p50 = sorted(e2e_pack_latencies)[len(e2e_pack_latencies) // 2]
+    
+            current_heap, peak_python_heap = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+    
+            # 5. Disk and Process Footprint
+            db_size = os.path.getsize(rt.db_path)
+            wal_path = rt.db_path + "-wal"
+            wal_size = os.path.getsize(wal_path) if os.path.exists(wal_path) else 0
+            total_disk_bytes = db_size + wal_size
+            conn = sqlite3.connect(rt.db_path)
+            vector_payload_bytes = conn.execute("SELECT SUM(length(vector)) FROM compact_vectors WHERE namespace='default' AND tombstoned=0").fetchone()[0]
+            conn.close()
+    
+            rt.close()
+    
+            min_rss = min(s[1] for s in rss_samples)
+            max_rss = max(s[1] for s in rss_samples)
+    
+            results_table[corpus_size] = {
+                "authoritative_events": db_event_count,
+                "vectors_in_store": db_vector_count,
+                "insert_ms": insert_duration_ms,
+                "vec_cold_ms": vec_cold_ms,
+                "vec_warm_p50_ms": vec_warm_p50_ms,
+                "vec_warm_p95_ms": vec_warm_p95_ms,
+                "e2e_cold_total_ms": e2e_cold_total_ms,
+                "e2e_warm_total_p50_ms": e2e_warm_total_p50_ms,
+                "e2e_warm_total_p95_ms": e2e_warm_total_p95_ms,
+                "e2e_query_embed_p50_ms": e2e_embed_p50,
+                "e2e_fusion_p50_ms": e2e_fusion_p50,
+                "e2e_pack_p50_ms": e2e_pack_p50,
+                "python_heap_mb": peak_python_heap / (1024 * 1024),
+                "rss_start_mb": rss_samples[0][1] / (1024 * 1024),
+                "rss_peak_mb": max_rss / (1024 * 1024),
+                "rss_samples_mb": [(lbl, round(b / (1024 * 1024), 2)) for lbl, b in rss_samples],
+                "disk_total_kb": total_disk_bytes / 1024,
+                "bytes_per_vector": total_disk_bytes / corpus_size,
+                "vector_payload_bytes": vector_payload_bytes,
+            }
+    
+        print("\n" + "=" * 80)
+        print("PHASE 05 MEASURED BENCHMARKS: EXACT 1k vs 10k CORPORA IN RUNTIME")
+        print("NOTE: Timings use FastHashEncoder (synthetic n-gram hash). FastHash timings do NOT")
+        print("measure real-model embedding cost; neural encoder performance must be measured separately.")
+        print("=" * 80)
+        for c_size, metrics in results_table.items():
+            print(f"Corpus Size: {c_size} items")
+            print(f"  - Authoritative Records in SQLite:     {metrics['authoritative_events']} events (asserted == {c_size})")
+            print(f"  - Authoritative Vectors in Store:      {metrics['vectors_in_store']} vectors (asserted == {c_size})")
+            print(f"  - Ingestion (SQLite + Vectors):        {metrics['insert_ms']:.2f} ms ({metrics['insert_ms'] / c_size:.3f} ms/item)")
+            print(f"  - Vector-Only Search (Cold):           {metrics['vec_cold_ms']:.2f} ms")
+            print(f"  - Vector-Only Search (Warm):           p50 = {metrics['vec_warm_p50_ms']:.3f} ms, p95 = {metrics['vec_warm_p95_ms']:.3f} ms")
+            print(f"  - End-to-End retrieve_pack (Cold):     {metrics['e2e_cold_total_ms']:.2f} ms")
+            print(f"  - End-to-End retrieve_pack (Warm):     p50 = {metrics['e2e_warm_total_p50_ms']:.3f} ms, p95 = {metrics['e2e_warm_total_p95_ms']:.3f} ms")
+            print(f"      * FastHash Query Embedding (p50):  {metrics['e2e_query_embed_p50_ms']:.3f} ms (synthetic test hash only)")
+            print(f"      * Retrieval & Fusion (Lex+Dense):  {metrics['e2e_fusion_p50_ms']:.3f} ms")
+            print(f"      * Context Packing & Budgets:       {metrics['e2e_pack_p50_ms']:.3f} ms")
+            print(f"  - Peak Python Heap (tracemalloc):      {metrics['python_heap_mb']:.2f} MB")
+            print(f"  - Process RSS Samples (psutil):        {metrics['rss_samples_mb']}")
+            print(f"  - Maximum sampled RSS (psutil):           {metrics['rss_peak_mb']:.2f} MB (start: {metrics['rss_start_mb']:.2f} MB)")
+            print(f"  - Total Disk (inc. WAL and metadata):  {metrics['disk_total_kb']:.1f} KB ({metrics['bytes_per_vector']:.0f} amortized bytes/item)")
+            print(f"  - Raw float32 vector payload:         {metrics['vector_payload_bytes'] / c_size:.0f} bytes/vector")
+            print("-" * 80)
+    
+        # Validations
+        assert results_table[1000]["authoritative_events"] == 1000
+        assert results_table[1000]["vectors_in_store"] == 1000
+        assert results_table[10000]["authoritative_events"] == 10000
+        assert results_table[10000]["vectors_in_store"] == 10000
+>       assert results_table[1000]["vec_warm_p50_ms"] < 10.0
+E       assert 10.33570000436157 < 10.0
+
+tests\test_compact_semantic.py:1138: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_compact_semantic.py::test_performance_benchmarks_varied_1k_and_10k_corpora
+=========== 1 failed, 1 skipped, 138 deselected in 60.20s (0:01:00) ===========

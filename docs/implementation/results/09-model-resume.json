@@ -1,0 +1,8 @@
+{
+  "model": "qwen3:4b",
+  "latest": {
+    "status": "success"
+  },
+  "failure": null,
+  "elapsed_seconds": 136.04214599999978
+}

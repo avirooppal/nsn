@@ -1,0 +1,741 @@
+{
+  "status": "bounded_comparison_not_full_evaluation",
+  "publishable_superiority": false,
+  "manifest_sha256": "728ec18809fb7be2aa0790967beb751b0cb93cba839f7135a59ef1946ef099c0",
+  "profiles": {
+    "stateless": {
+      "questions": 15,
+      "failures": 0,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0.2222222222222222,
+          "score_lower_bound": 0.2222222222222222,
+          "score_upper_bound": 0.2222222222222222,
+          "scored": 9,
+          "total": 9,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 6,
+          "total": 6,
+          "judge_missing": 0,
+          "scorer": "upstream prompt, independent cloud judge; reference/human validation pending"
+        }
+      },
+      "complete_evidence_rate": 0,
+      "categories": {
+        "locomo:2": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:1": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "failures": 0
+        }
+      },
+      "generation_ms_total": 15411.306300011347,
+      "prompt_tokens_total": 1326,
+      "output_tokens_total": 76,
+      "sampled_client_rss_max": 1269719040,
+      "retrieval_ms_median": 0.0014999968698248267,
+      "judge_calls": 6,
+      "abstention": {
+        "expected_questions": 2,
+        "abstained_rate": 1.0,
+        "answerable_abstentions": 12
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    },
+    "rolling": {
+      "questions": 15,
+      "failures": 0,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0.2222222222222222,
+          "score_lower_bound": 0.2222222222222222,
+          "score_upper_bound": 0.2222222222222222,
+          "scored": 9,
+          "total": 9,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 6,
+          "total": 6,
+          "judge_missing": 0,
+          "scorer": "upstream prompt, independent cloud judge; reference/human validation pending"
+        }
+      },
+      "complete_evidence_rate": 0,
+      "categories": {
+        "locomo:2": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:1": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "failures": 0
+        }
+      },
+      "generation_ms_total": 37565.068799987785,
+      "prompt_tokens_total": 4186,
+      "output_tokens_total": 60,
+      "sampled_client_rss_max": 1269719040,
+      "retrieval_ms_median": 0.857699997141026,
+      "judge_calls": 6,
+      "abstention": {
+        "expected_questions": 2,
+        "abstained_rate": 1.0,
+        "answerable_abstentions": 13
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    },
+    "full_context": {
+      "questions": 15,
+      "failures": 15,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 9,
+          "total": 9,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 6,
+          "total": 6,
+          "judge_missing": 0,
+          "scorer": "upstream prompt, independent cloud judge; reference/human validation pending"
+        }
+      },
+      "complete_evidence_rate": 0,
+      "categories": {
+        "locomo:2": {
+          "count": 2,
+          "failures": 2
+        },
+        "locomo:1": {
+          "count": 2,
+          "failures": 2
+        },
+        "locomo:4": {
+          "count": 2,
+          "failures": 2
+        },
+        "locomo:5": {
+          "count": 2,
+          "failures": 2
+        },
+        "locomo:3": {
+          "count": 1,
+          "failures": 1
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "failures": 1
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "failures": 1
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "failures": 1
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "failures": 1
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "failures": 1
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "failures": 1
+        }
+      },
+      "generation_ms_total": 0,
+      "prompt_tokens_total": 0,
+      "output_tokens_total": 0,
+      "sampled_client_rss_max": 1271857152,
+      "retrieval_ms_median": 0.8509999897796661,
+      "judge_calls": 0,
+      "abstention": {
+        "expected_questions": 2,
+        "abstained_rate": 0.0,
+        "answerable_abstentions": 0
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    },
+    "bm25": {
+      "questions": 15,
+      "failures": 0,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0.25,
+          "score_lower_bound": 0.25,
+          "score_upper_bound": 0.25,
+          "scored": 9,
+          "total": 9,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0.3333333333333333,
+          "score_lower_bound": 0.3333333333333333,
+          "score_upper_bound": 0.3333333333333333,
+          "scored": 6,
+          "total": 6,
+          "judge_missing": 0,
+          "scorer": "upstream prompt, independent cloud judge; reference/human validation pending"
+        }
+      },
+      "complete_evidence_rate": 0.2,
+      "categories": {
+        "locomo:2": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:1": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "failures": 0
+        }
+      },
+      "generation_ms_total": 38623.680299991975,
+      "prompt_tokens_total": 3662,
+      "output_tokens_total": 92,
+      "sampled_client_rss_max": 1271959552,
+      "retrieval_ms_median": 32.73199999239296,
+      "judge_calls": 6,
+      "abstention": {
+        "expected_questions": 2,
+        "abstained_rate": 0.5,
+        "answerable_abstentions": 8
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    },
+    "hybrid": {
+      "questions": 15,
+      "failures": 0,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0.2783625730994152,
+          "score_lower_bound": 0.2783625730994152,
+          "score_upper_bound": 0.2783625730994152,
+          "scored": 9,
+          "total": 9,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0.16666666666666666,
+          "score_lower_bound": 0.16666666666666666,
+          "score_upper_bound": 0.16666666666666666,
+          "scored": 6,
+          "total": 6,
+          "judge_missing": 0,
+          "scorer": "upstream prompt, independent cloud judge; reference/human validation pending"
+        }
+      },
+      "complete_evidence_rate": 0.13333333333333333,
+      "categories": {
+        "locomo:2": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:1": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "failures": 0
+        }
+      },
+      "generation_ms_total": 33939.1045000084,
+      "prompt_tokens_total": 3712,
+      "output_tokens_total": 100,
+      "sampled_client_rss_max": 1271980032,
+      "retrieval_ms_median": 28.76309999555815,
+      "judge_calls": 6,
+      "abstention": {
+        "expected_questions": 2,
+        "abstained_rate": 0.5,
+        "answerable_abstentions": 8
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    },
+    "nsn_lexical": {
+      "questions": 15,
+      "failures": 0,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0.3563218390804598,
+          "score_lower_bound": 0.3563218390804598,
+          "score_upper_bound": 0.3563218390804598,
+          "scored": 9,
+          "total": 9,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0,
+          "score_lower_bound": 0.0,
+          "score_upper_bound": 0.0,
+          "scored": 6,
+          "total": 6,
+          "judge_missing": 0,
+          "scorer": "upstream prompt, independent cloud judge; reference/human validation pending"
+        }
+      },
+      "complete_evidence_rate": 0.06666666666666667,
+      "categories": {
+        "locomo:2": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:1": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "failures": 0
+        }
+      },
+      "generation_ms_total": 31995.20140000095,
+      "prompt_tokens_total": 3301,
+      "output_tokens_total": 76,
+      "sampled_client_rss_max": 1271980032,
+      "retrieval_ms_median": 5.267700005788356,
+      "judge_calls": 6,
+      "abstention": {
+        "expected_questions": 2,
+        "abstained_rate": 1.0,
+        "answerable_abstentions": 11
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    },
+    "nsn_semantic": {
+      "questions": 15,
+      "failures": 0,
+      "answer_metrics": {
+        "locomo": {
+          "score": 0.26666666666666666,
+          "score_lower_bound": 0.26666666666666666,
+          "score_upper_bound": 0.26666666666666666,
+          "scored": 9,
+          "total": 9,
+          "judge_missing": 0,
+          "scorer": "upstream LoCoMo F1/category scoring"
+        },
+        "longmemeval": {
+          "score": 0.16666666666666666,
+          "score_lower_bound": 0.16666666666666666,
+          "score_upper_bound": 0.16666666666666666,
+          "scored": 6,
+          "total": 6,
+          "judge_missing": 0,
+          "scorer": "upstream prompt, independent cloud judge; reference/human validation pending"
+        }
+      },
+      "complete_evidence_rate": 0.13333333333333333,
+      "categories": {
+        "locomo:2": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:1": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:4": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:5": {
+          "count": 2,
+          "failures": 0
+        },
+        "locomo:3": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-user": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-preference": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:multi-session": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:temporal-reasoning": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:knowledge-update": {
+          "count": 1,
+          "failures": 0
+        },
+        "longmemeval:single-session-assistant": {
+          "count": 1,
+          "failures": 0
+        }
+      },
+      "generation_ms_total": 14161.507499986328,
+      "prompt_tokens_total": 3251,
+      "output_tokens_total": 93,
+      "sampled_client_rss_max": 1271988224,
+      "retrieval_ms_median": 137.33319999300875,
+      "judge_calls": 6,
+      "abstention": {
+        "expected_questions": 2,
+        "abstained_rate": 0.5,
+        "answerable_abstentions": 9
+      },
+      "unsupported_metrics": [
+        "stale-answer/conflict rates require validated old-answer/conflict annotations",
+        "task success requires an agent task suite; QA F1 is not task success"
+      ]
+    }
+  },
+  "comparisons": {
+    "locomo:stateless-bm25": {
+      "delta": -0.027777777777777776,
+      "ci95": [
+        -0.2,
+        0.1875
+      ],
+      "clusters": 2,
+      "scored_pairs": 9,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "locomo:rolling-bm25": {
+      "delta": -0.027777777777777776,
+      "ci95": [
+        -0.2,
+        0.1875
+      ],
+      "clusters": 2,
+      "scored_pairs": 9,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "locomo:full_context-bm25": {
+      "delta": -0.25,
+      "ci95": [
+        -0.4,
+        -0.0625
+      ],
+      "clusters": 2,
+      "scored_pairs": 9,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "locomo:hybrid-bm25": {
+      "delta": 0.028362573099415204,
+      "ci95": [
+        0.021052631578947364,
+        0.037500000000000006
+      ],
+      "clusters": 2,
+      "scored_pairs": 9,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "locomo:nsn_lexical-bm25": {
+      "delta": 0.10632183908045978,
+      "ci95": [
+        0.0,
+        0.23922413793103448
+      ],
+      "clusters": 2,
+      "scored_pairs": 9,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "locomo:nsn_semantic-bm25": {
+      "delta": 0.01666666666666667,
+      "ci95": [
+        0.0,
+        0.037500000000000006
+      ],
+      "clusters": 2,
+      "scored_pairs": 9,
+      "samples": 2000,
+      "seed": 42,
+      "multiple_comparisons": "exploratory unadjusted; no confirmatory winner claim"
+    },
+    "longmemeval:stateless-bm25": {
+      "delta": null,
+      "ci95": null,
+      "clusters": 1,
+      "scored_pairs": 6,
+      "unscored_pairs": 0,
+      "reason": "fewer than two independent conversation clusters"
+    },
+    "longmemeval:rolling-bm25": {
+      "delta": null,
+      "ci95": null,
+      "clusters": 1,
+      "scored_pairs": 6,
+      "unscored_pairs": 0,
+      "reason": "fewer than two independent conversation clusters"
+    },
+    "longmemeval:full_context-bm25": {
+      "delta": null,
+      "ci95": null,
+      "clusters": 1,
+      "scored_pairs": 6,
+      "unscored_pairs": 0,
+      "reason": "fewer than two independent conversation clusters"
+    },
+    "longmemeval:hybrid-bm25": {
+      "delta": null,
+      "ci95": null,
+      "clusters": 1,
+      "scored_pairs": 6,
+      "unscored_pairs": 0,
+      "reason": "fewer than two independent conversation clusters"
+    },
+    "longmemeval:nsn_lexical-bm25": {
+      "delta": null,
+      "ci95": null,
+      "clusters": 1,
+      "scored_pairs": 6,
+      "unscored_pairs": 0,
+      "reason": "fewer than two independent conversation clusters"
+    },
+    "longmemeval:nsn_semantic-bm25": {
+      "delta": null,
+      "ci95": null,
+      "clusters": 1,
+      "scored_pairs": 6,
+      "unscored_pairs": 0,
+      "reason": "fewer than two independent conversation clusters"
+    }
+  },
+  "excluded_self_judge_scores": 0,
+  "corpus_cache_costs": {
+    "distinct_native_builds": 8,
+    "observed_builds": 8,
+    "original_ingestion_build_ms": 4821.350700018229,
+    "original_embedding_build_ms": 440188.59229997906,
+    "observed_build_ms": 445009.9429999973,
+    "private_copy_restore_ms": 340.28160000161733,
+    "interpretation": "Benchmark corpus work counted once, not nine times; shared physical work is not a per-system deployment cost qualification."
+  }
+}

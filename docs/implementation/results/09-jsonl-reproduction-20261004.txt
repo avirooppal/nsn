@@ -1,0 +1,53 @@
+F...                                                                     [100%]
+================================== FAILURES ===================================
+__________ test_unicode_content_survives_resume_grading_and_coverage __________
+
+tmp_path = WindowsPath('C:/Users/aviroop/AppData/Local/Temp/pytest-of-aviroop/pytest-197/test_unicode_content_survives_0/run')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002C132399750>
+
+    def test_unicode_content_survives_resume_grading_and_coverage(tmp_path,monkeypatch):
+        tmp_path=tmp_path/'run'
+        manifest={'case_ids':['q','missing'],'profiles':['nsn']}
+        manifest['manifest_sha256']=digest(manifest)
+        frozen={'split':{'q':'evaluation','missing':'evaluation'}}
+        open_run(tmp_path,manifest,frozen)
+        row={'case_id':'q','profile':'nsn','failure':None,'score':None,
+             'answer':'first\u2028second\u2029third\x85fourth'}
+        path=tmp_path/'rows.jsonl'
+        path.write_text(json.dumps(row,ensure_ascii=False)+'\n',encoding='utf-8')
+        original=path.read_bytes()
+>       assert open_run(tmp_path,manifest,frozen,resume=True)[1]==[row]
+
+benchmarks\tests\test_jsonl_records.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+benchmarks\public_eval\ledger.py:35: in open_run
+    rows = [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines()] if path.exists() else []
+benchmarks\public_eval\ledger.py:35: in <listcomp>
+    rows = [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines()] if path.exists() else []
+..\..\AppData\Local\Programs\Python\Python310\lib\json\__init__.py:346: in loads
+    return _default_decoder.decode(s)
+..\..\AppData\Local\Programs\Python\Python310\lib\json\decoder.py:337: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <json.decoder.JSONDecoder object at 0x000002C12F8FD870>
+s = '{"case_id": "q", "profile": "nsn", "failure": null, "score": null, "answer": "first'
+idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+>           obj, end = self.scan_once(s, idx)
+E           json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 78 (char 77)
+
+..\..\AppData\Local\Programs\Python\Python310\lib\json\decoder.py:353: JSONDecodeError
+=========================== short test summary info ===========================
+FAILED benchmarks/tests/test_jsonl_records.py::test_unicode_content_survives_resume_grading_and_coverage
+1 failed, 3 passed in 0.36s

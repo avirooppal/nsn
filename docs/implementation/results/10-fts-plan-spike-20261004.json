@@ -1,0 +1,50 @@
+{
+  "original": {
+    "p50_ms": 18.031850006082095,
+    "p95_ms": 20.291699998779222,
+    "plan": [
+      [
+        6,
+        0,
+        0,
+        "SCAN TABLE events_fts AS fts VIRTUAL TABLE INDEX 0:M3"
+      ],
+      [
+        13,
+        0,
+        0,
+        "SEARCH TABLE events AS e USING INDEX sqlite_autoindex_events_1 (id=?)"
+      ],
+      [
+        41,
+        0,
+        0,
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    ]
+  },
+  "fts_first": {
+    "p50_ms": 19.03304999723332,
+    "p95_ms": 20.040399991557933,
+    "plan": [
+      [
+        6,
+        0,
+        0,
+        "SCAN TABLE events_fts AS fts VIRTUAL TABLE INDEX 0:M3"
+      ],
+      [
+        13,
+        0,
+        0,
+        "SEARCH TABLE events AS e USING INDEX sqlite_autoindex_events_1 (id=?)"
+      ],
+      [
+        41,
+        0,
+        0,
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    ]
+  }
+}

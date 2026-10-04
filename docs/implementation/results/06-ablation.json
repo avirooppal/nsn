@@ -1,0 +1,190 @@
+{
+  "dataset_sha256": "d4eba76154cbbee8fab3244070f3bf33fbd7b76d9f0db5ebde2b8ef3bdca98b3",
+  "scope": "development evidence retrieval; no generated-answer accuracy",
+  "cases": [
+    {
+      "mode": "graph_off",
+      "id": "two_hop_employer",
+      "complete_path": true,
+      "gold_evidence_coverage": 1.0,
+      "unsupported_full_path": false,
+      "direct_recall": null,
+      "latency_p50_ms": 2.899,
+      "latency_p95_ms": 3.91
+    },
+    {
+      "mode": "graph_off",
+      "id": "two_hop_project",
+      "complete_path": true,
+      "gold_evidence_coverage": 1.0,
+      "unsupported_full_path": false,
+      "direct_recall": null,
+      "latency_p50_ms": 3.336,
+      "latency_p95_ms": 4.327
+    },
+    {
+      "mode": "graph_off",
+      "id": "three_hop",
+      "complete_path": false,
+      "gold_evidence_coverage": 0.6666666666666666,
+      "unsupported_full_path": false,
+      "direct_recall": null,
+      "latency_p50_ms": 3.079,
+      "latency_p95_ms": 3.803
+    },
+    {
+      "mode": "graph_off",
+      "id": "historical",
+      "complete_path": false,
+      "gold_evidence_coverage": 0.5,
+      "unsupported_full_path": false,
+      "direct_recall": null,
+      "latency_p50_ms": 4.716,
+      "latency_p95_ms": 5.957
+    },
+    {
+      "mode": "graph_off",
+      "id": "current",
+      "complete_path": false,
+      "gold_evidence_coverage": 0.5,
+      "unsupported_full_path": false,
+      "direct_recall": null,
+      "latency_p50_ms": 3.689,
+      "latency_p95_ms": 5.269
+    },
+    {
+      "mode": "graph_off",
+      "id": "deleted_support",
+      "complete_path": null,
+      "gold_evidence_coverage": null,
+      "unsupported_full_path": false,
+      "direct_recall": null,
+      "latency_p50_ms": 2.932,
+      "latency_p95_ms": 3.624
+    },
+    {
+      "mode": "graph_off",
+      "id": "association",
+      "complete_path": null,
+      "gold_evidence_coverage": null,
+      "unsupported_full_path": false,
+      "direct_recall": null,
+      "latency_p50_ms": 3.187,
+      "latency_p95_ms": 3.918
+    },
+    {
+      "mode": "graph_off",
+      "id": "identifier_regression",
+      "complete_path": null,
+      "gold_evidence_coverage": 1.0,
+      "unsupported_full_path": false,
+      "direct_recall": true,
+      "latency_p50_ms": 3.178,
+      "latency_p95_ms": 4.183
+    },
+    {
+      "mode": "graph_on",
+      "id": "two_hop_employer",
+      "complete_path": true,
+      "gold_evidence_coverage": 1.0,
+      "unsupported_full_path": false,
+      "direct_recall": null,
+      "latency_p50_ms": 6.696,
+      "latency_p95_ms": 9.789
+    },
+    {
+      "mode": "graph_on",
+      "id": "two_hop_project",
+      "complete_path": true,
+      "gold_evidence_coverage": 1.0,
+      "unsupported_full_path": false,
+      "direct_recall": null,
+      "latency_p50_ms": 6.413,
+      "latency_p95_ms": 8.42
+    },
+    {
+      "mode": "graph_on",
+      "id": "three_hop",
+      "complete_path": true,
+      "gold_evidence_coverage": 1.0,
+      "unsupported_full_path": false,
+      "direct_recall": null,
+      "latency_p50_ms": 7.979,
+      "latency_p95_ms": 9.331
+    },
+    {
+      "mode": "graph_on",
+      "id": "historical",
+      "complete_path": true,
+      "gold_evidence_coverage": 1.0,
+      "unsupported_full_path": false,
+      "direct_recall": null,
+      "latency_p50_ms": 5.471,
+      "latency_p95_ms": 8.65
+    },
+    {
+      "mode": "graph_on",
+      "id": "current",
+      "complete_path": true,
+      "gold_evidence_coverage": 1.0,
+      "unsupported_full_path": false,
+      "direct_recall": null,
+      "latency_p50_ms": 5.507,
+      "latency_p95_ms": 6.814
+    },
+    {
+      "mode": "graph_on",
+      "id": "deleted_support",
+      "complete_path": null,
+      "gold_evidence_coverage": null,
+      "unsupported_full_path": false,
+      "direct_recall": null,
+      "latency_p50_ms": 5.153,
+      "latency_p95_ms": 6.479
+    },
+    {
+      "mode": "graph_on",
+      "id": "association",
+      "complete_path": null,
+      "gold_evidence_coverage": null,
+      "unsupported_full_path": false,
+      "direct_recall": null,
+      "latency_p50_ms": 5.126,
+      "latency_p95_ms": 6.472
+    },
+    {
+      "mode": "graph_on",
+      "id": "identifier_regression",
+      "complete_path": null,
+      "gold_evidence_coverage": 1.0,
+      "unsupported_full_path": false,
+      "direct_recall": true,
+      "latency_p50_ms": 5.978,
+      "latency_p95_ms": 8.668
+    }
+  ],
+  "summary": {
+    "graph_off": {
+      "complete_path_rate": 0.4,
+      "mean_gold_evidence_coverage": 0.7777777777777777,
+      "unsupported_full_paths": 0,
+      "direct_recall": true,
+      "mean_query_p50_ms": 3.377,
+      "database_bytes": 270336,
+      "relationship_used_page_bytes": null,
+      "relationship_json_payload_bytes": 0,
+      "stored_relations": 0
+    },
+    "graph_on": {
+      "complete_path_rate": 1.0,
+      "mean_gold_evidence_coverage": 1.0,
+      "unsupported_full_paths": 0,
+      "direct_recall": true,
+      "mean_query_p50_ms": 6.04,
+      "database_bytes": 270336,
+      "relationship_used_page_bytes": null,
+      "relationship_json_payload_bytes": 7518,
+      "stored_relations": 17
+    }
+  }
+}

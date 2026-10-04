@@ -16,9 +16,21 @@ Integrations::
     from neurosleepnet.integrations.api import create_app            # FastAPI REST
 """
 
-from .sdk.memory import Memory
-from .sdk.async_memory import AsyncMemory
-from .sdk.wrapper import NSN, wrap, init
-
 __version__ = "0.3.0"
-__all__ = ["Memory", "AsyncMemory", "NSN", "wrap", "init", "__version__"]
+__all__ = ["Memory", "AsyncMemory", "NSN", "wrap", "init", "Runtime", "flush", "close", "__version__"]
+
+def __getattr__(name: str):
+    if name == "Memory":
+        from .sdk.memory import Memory
+        return Memory
+    if name == "AsyncMemory":
+        from .sdk.async_memory import AsyncMemory
+        return AsyncMemory
+    if name == "NSN":
+        from .sdk.wrapper import NSN
+        return NSN
+    if name in ("init", "wrap", "Runtime", "flush", "close"):
+        import nsn
+        return getattr(nsn, name)
+    raise AttributeError(f"module 'neurosleepnet' has no attribute '{name}'")
+

@@ -1,0 +1,27 @@
+Using Python 3.12.13 environment at: C:\Users\aviroop\AppData\Local\Temp\nsn_memory_verified_onnx_20261004
+anyio==4.15.1
+certifi==2026.7.22
+click==8.5.0
+colorama==0.4.6
+filelock==4.0.10
+flatbuffers==25.12.19
+fsspec==2026.9.0
+h11==0.16.0
+hf-xet==1.6.0
+httpcore==1.0.9
+httpx==0.28.1
+huggingface-hub==1.33.0
+idna==3.20
+iniconfig==2.3.0
+nsn @ file:///C:/Users/aviroop/Desktop/nsn/dist/memory-verification-20261004/nsn-0.3.0-py3-none-any.whl
+numpy==2.5.3
+onnxruntime==1.30.0
+packaging==26.3
+pluggy==1.6.0
+protobuf==7.36.2
+pygments==2.21.0
+pytest==9.1.1
+pyyaml==6.0.3
+tokenizers==0.23.2
+tqdm==4.70.1
+typing-extensions==4.16.0

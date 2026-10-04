@@ -1,0 +1,159 @@
+running egg_info
+writing nsn.egg-info\PKG-INFO
+writing dependency_links to nsn.egg-info\dependency_links.txt
+writing requirements to nsn.egg-info\requires.txt
+writing top-level names to nsn.egg-info\top_level.txt
+reading manifest file 'nsn.egg-info\SOURCES.txt'
+adding license file 'NOTICE.md'
+writing manifest file 'nsn.egg-info\SOURCES.txt'
+running bdist_wheel
+running build
+running build_py
+copying nsn\runtime.py -> build\lib\nsn
+copying neurosleepnet\retrieval\pack.py -> build\lib\neurosleepnet\retrieval
+running egg_info
+writing nsn.egg-info\PKG-INFO
+writing dependency_links to nsn.egg-info\dependency_links.txt
+writing requirements to nsn.egg-info\requires.txt
+writing top-level names to nsn.egg-info\top_level.txt
+reading manifest file 'nsn.egg-info\SOURCES.txt'
+adding license file 'NOTICE.md'
+writing manifest file 'nsn.egg-info\SOURCES.txt'
+installing to build\bdist.win-amd64\wheel
+running install
+running install_lib
+creating build\bdist.win-amd64\wheel
+creating build\bdist.win-amd64\wheel\neurosleepnet
+creating build\bdist.win-amd64\wheel\neurosleepnet\compression
+copying build\lib\neurosleepnet\compression\compressor.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\compression
+copying build\lib\neurosleepnet\compression\pack.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\compression
+creating build\bdist.win-amd64\wheel\neurosleepnet\config
+copying build\lib\neurosleepnet\config\defaults.yaml -> build\bdist.win-amd64\wheel\.\neurosleepnet\config
+copying build\lib\neurosleepnet\config\settings.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\config
+copying build\lib\neurosleepnet\config\__init__.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\config
+creating build\bdist.win-amd64\wheel\neurosleepnet\embeddings
+copying build\lib\neurosleepnet\embeddings\base.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\embeddings
+copying build\lib\neurosleepnet\embeddings\local.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\embeddings
+copying build\lib\neurosleepnet\embeddings\onnx_pooled.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\embeddings
+copying build\lib\neurosleepnet\embeddings\pooled.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\embeddings
+copying build\lib\neurosleepnet\embeddings\__init__.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\embeddings
+creating build\bdist.win-amd64\wheel\neurosleepnet\graph
+copying build\lib\neurosleepnet\graph\builder.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\graph
+copying build\lib\neurosleepnet\graph\extractor.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\graph
+copying build\lib\neurosleepnet\graph\relationships.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\graph
+copying build\lib\neurosleepnet\graph\schemas.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\graph
+creating build\bdist.win-amd64\wheel\neurosleepnet\integrations
+copying build\lib\neurosleepnet\integrations\api.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\integrations
+copying build\lib\neurosleepnet\integrations\langchain.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\integrations
+copying build\lib\neurosleepnet\integrations\openai_adapter.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\integrations
+copying build\lib\neurosleepnet\integrations\tool.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\integrations
+copying build\lib\neurosleepnet\integrations\__init__.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\integrations
+creating build\bdist.win-amd64\wheel\neurosleepnet\memory
+copying build\lib\neurosleepnet\memory\facts.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\memory
+copying build\lib\neurosleepnet\memory\schemas.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\memory
+copying build\lib\neurosleepnet\memory\__init__.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\memory
+creating build\bdist.win-amd64\wheel\neurosleepnet\perception
+copying build\lib\neurosleepnet\perception\classifier.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\perception
+copying build\lib\neurosleepnet\perception\detector.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\perception
+copying build\lib\neurosleepnet\perception\importance.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\perception
+copying build\lib\neurosleepnet\perception\schemas.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\perception
+creating build\bdist.win-amd64\wheel\neurosleepnet\retrieval
+copying build\lib\neurosleepnet\retrieval\pack.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\retrieval
+copying build\lib\neurosleepnet\retrieval\query.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\retrieval
+copying build\lib\neurosleepnet\retrieval\__init__.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\retrieval
+creating build\bdist.win-amd64\wheel\neurosleepnet\sdk
+copying build\lib\neurosleepnet\sdk\async_memory.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\sdk
+copying build\lib\neurosleepnet\sdk\memory.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\sdk
+copying build\lib\neurosleepnet\sdk\wrapper.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\sdk
+copying build\lib\neurosleepnet\sdk\__init__.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\sdk
+creating build\bdist.win-amd64\wheel\neurosleepnet\sleep
+copying build\lib\neurosleepnet\sleep\consolidation.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\sleep
+copying build\lib\neurosleepnet\sleep\engine.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\sleep
+copying build\lib\neurosleepnet\sleep\local_worker.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\sleep
+creating build\bdist.win-amd64\wheel\neurosleepnet\storage
+copying build\lib\neurosleepnet\storage\base.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\storage
+copying build\lib\neurosleepnet\storage\compact_vector.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\storage
+copying build\lib\neurosleepnet\storage\local_vector.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\storage
+copying build\lib\neurosleepnet\storage\migrations.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\storage
+copying build\lib\neurosleepnet\storage\sqlite.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\storage
+copying build\lib\neurosleepnet\storage\vector.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\storage
+copying build\lib\neurosleepnet\storage\__init__.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\storage
+creating build\bdist.win-amd64\wheel\neurosleepnet\trust
+copying build\lib\neurosleepnet\trust\consistency.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\trust
+copying build\lib\neurosleepnet\trust\engine.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\trust
+copying build\lib\neurosleepnet\trust\recency.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\trust
+copying build\lib\neurosleepnet\trust\schemas.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\trust
+copying build\lib\neurosleepnet\trust\source.py -> build\bdist.win-amd64\wheel\.\neurosleepnet\trust
+copying build\lib\neurosleepnet\__init__.py -> build\bdist.win-amd64\wheel\.\neurosleepnet
+creating build\bdist.win-amd64\wheel\nsn
+copying build\lib\nsn\adapters.py -> build\bdist.win-amd64\wheel\.\nsn
+copying build\lib\nsn\advanced.py -> build\bdist.win-amd64\wheel\.\nsn
+copying build\lib\nsn\runtime.py -> build\bdist.win-amd64\wheel\.\nsn
+copying build\lib\nsn\wrapper.py -> build\bdist.win-amd64\wheel\.\nsn
+copying build\lib\nsn\__init__.py -> build\bdist.win-amd64\wheel\.\nsn
+running install_egg_info
+Copying nsn.egg-info to build\bdist.win-amd64\wheel\.\nsn-0.3.0-py3.10.egg-info
+running install_scripts
+creating build\bdist.win-amd64\wheel\nsn-0.3.0.dist-info\WHEEL
+creating 'C:\\Users\\aviroop\\Desktop\\nsn\\dist\\prototype-hardening-20261004\\.tmp-j0qfld3e\\nsn-0.3.0-py3-none-any.whl' and adding 'build\\bdist.win-amd64\\wheel' to it
+adding 'neurosleepnet/__init__.py'
+adding 'neurosleepnet/compression/compressor.py'
+adding 'neurosleepnet/compression/pack.py'
+adding 'neurosleepnet/config/__init__.py'
+adding 'neurosleepnet/config/defaults.yaml'
+adding 'neurosleepnet/config/settings.py'
+adding 'neurosleepnet/embeddings/__init__.py'
+adding 'neurosleepnet/embeddings/base.py'
+adding 'neurosleepnet/embeddings/local.py'
+adding 'neurosleepnet/embeddings/onnx_pooled.py'
+adding 'neurosleepnet/embeddings/pooled.py'
+adding 'neurosleepnet/graph/builder.py'
+adding 'neurosleepnet/graph/extractor.py'
+adding 'neurosleepnet/graph/relationships.py'
+adding 'neurosleepnet/graph/schemas.py'
+adding 'neurosleepnet/integrations/__init__.py'
+adding 'neurosleepnet/integrations/api.py'
+adding 'neurosleepnet/integrations/langchain.py'
+adding 'neurosleepnet/integrations/openai_adapter.py'
+adding 'neurosleepnet/integrations/tool.py'
+adding 'neurosleepnet/memory/__init__.py'
+adding 'neurosleepnet/memory/facts.py'
+adding 'neurosleepnet/memory/schemas.py'
+adding 'neurosleepnet/perception/classifier.py'
+adding 'neurosleepnet/perception/detector.py'
+adding 'neurosleepnet/perception/importance.py'
+adding 'neurosleepnet/perception/schemas.py'
+adding 'neurosleepnet/retrieval/__init__.py'
+adding 'neurosleepnet/retrieval/pack.py'
+adding 'neurosleepnet/retrieval/query.py'
+adding 'neurosleepnet/sdk/__init__.py'
+adding 'neurosleepnet/sdk/async_memory.py'
+adding 'neurosleepnet/sdk/memory.py'
+adding 'neurosleepnet/sdk/wrapper.py'
+adding 'neurosleepnet/sleep/consolidation.py'
+adding 'neurosleepnet/sleep/engine.py'
+adding 'neurosleepnet/sleep/local_worker.py'
+adding 'neurosleepnet/storage/__init__.py'
+adding 'neurosleepnet/storage/base.py'
+adding 'neurosleepnet/storage/compact_vector.py'
+adding 'neurosleepnet/storage/local_vector.py'
+adding 'neurosleepnet/storage/migrations.py'
+adding 'neurosleepnet/storage/sqlite.py'
+adding 'neurosleepnet/storage/vector.py'
+adding 'neurosleepnet/trust/consistency.py'
+adding 'neurosleepnet/trust/engine.py'
+adding 'neurosleepnet/trust/recency.py'
+adding 'neurosleepnet/trust/schemas.py'
+adding 'neurosleepnet/trust/source.py'
+adding 'nsn/__init__.py'
+adding 'nsn/adapters.py'
+adding 'nsn/advanced.py'
+adding 'nsn/runtime.py'
+adding 'nsn/wrapper.py'
+adding 'nsn-0.3.0.dist-info/licenses/NOTICE.md'
+adding 'nsn-0.3.0.dist-info/METADATA'
+adding 'nsn-0.3.0.dist-info/WHEEL'
+adding 'nsn-0.3.0.dist-info/top_level.txt'
+adding 'nsn-0.3.0.dist-info/RECORD'
+removing build\bdist.win-amd64\wheel
+Successfully built nsn-0.3.0-py3-none-any.whl

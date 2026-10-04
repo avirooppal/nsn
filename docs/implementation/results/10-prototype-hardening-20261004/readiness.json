@@ -1,0 +1,146 @@
+{
+  "status": "hardened_controlled_prototype; full_production_qualification_incomplete",
+  "wheel": "C:\\Users\\aviroop\\Desktop\\nsn\\dist\\prototype-hardening-20261004\\nsn-0.3.0-py3-none-any.whl",
+  "wheel_bytes": 104079,
+  "wheel_sha256": "f02f9cf608be0265f26ca13bdf0f6074f21aad134b4657c063ba164cad3d2da1",
+  "functional_result": "282 passed, 2 skipped, 1 deselected, 3 warnings in 86.42s (0:01:26)",
+  "installed_core_cells": {
+    "windows": {
+      "3.9": true,
+      "3.10": true,
+      "3.12": true
+    },
+    "linux": {
+      "3.9": true,
+      "3.10": true,
+      "3.12": true
+    }
+  },
+  "hardware_qualification": {
+    "passed": false,
+    "result": "=========== 1 failed, 1 skipped, 138 deselected in 60.20s (0:01:00) ===========",
+    "miss": "1k synthetic vector warm median 10.3357ms exceeds unchanged 10ms assertion"
+  },
+  "network_denied_onnx": {
+    "passed": true,
+    "installed_module": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_prototype_onnx_20261004\\Lib\\site-packages\\nsn\\__init__.py",
+    "network_denied": true,
+    "deferred_restart_recall": true,
+    "namespace_isolation": true,
+    "encoder_fingerprint": "onnx_minilm_mean_31481896cd1290221ddd3e67931fae5b0db7e09fd20a4f448883203af5aa05f9",
+    "heavy_imports": []
+  },
+  "memory_only_probe": {
+    "locomo:minimal:before": {
+      "questions_with_evidence": 9,
+      "recall": 0.1111111111111111,
+      "complete_support": 0.1111111111111111
+    },
+    "locomo:minimal:after": {
+      "questions_with_evidence": 9,
+      "recall": 0.2222222222222222,
+      "complete_support": 0.2222222222222222
+    },
+    "locomo:semantic:before": {
+      "questions_with_evidence": 9,
+      "recall": 0.2222222222222222,
+      "complete_support": 0.2222222222222222
+    },
+    "locomo:semantic:after": {
+      "questions_with_evidence": 9,
+      "recall": 0.2222222222222222,
+      "complete_support": 0.2222222222222222
+    },
+    "longmemeval:minimal:before": {
+      "questions_with_evidence": 6,
+      "recall": 0.08333333333333333,
+      "complete_support": 0
+    },
+    "longmemeval:minimal:after": {
+      "questions_with_evidence": 6,
+      "recall": 0.3333333333333333,
+      "complete_support": 0.16666666666666666
+    },
+    "longmemeval:semantic:before": {
+      "questions_with_evidence": 6,
+      "recall": 0.16666666666666666,
+      "complete_support": 0
+    },
+    "longmemeval:semantic:after": {
+      "questions_with_evidence": 6,
+      "recall": 0.16666666666666666,
+      "complete_support": 0
+    }
+  },
+  "resource_gates": {
+    "wheel_under_5mb": {
+      "measured": 104079,
+      "target_under": 5242880,
+      "passed": true
+    },
+    "minimal_append_p95_ms": {
+      "measured": 3.6247999960323796,
+      "target_under": 10,
+      "passed": true
+    },
+    "minimal_repeated_retrieval_p95_ms": {
+      "measured": 0.6804000004194677,
+      "target_under": 25,
+      "passed": true
+    },
+    "minimal_fresh_retrieval_p95_ms": {
+      "measured": 53.84930000582244,
+      "target_under": 25,
+      "passed": false
+    },
+    "minimal_conservative_peak_rss_bytes": {
+      "measured": 36409344,
+      "target_under": 104857600,
+      "passed": true
+    },
+    "onnx_deferred_append_p95_ms": {
+      "measured": 7.716699998127297,
+      "target_under": 10,
+      "passed": true
+    },
+    "onnx_repeated_retrieval_p95_ms": {
+      "measured": 68.58089999877848,
+      "target_under": 100,
+      "passed": true
+    },
+    "onnx_fresh_retrieval_p95_ms": {
+      "measured": 207.00519999081735,
+      "target_under": 100,
+      "passed": false
+    },
+    "onnx_incremental_rss_bytes": {
+      "measured": 238559232,
+      "target_under": 419430400,
+      "passed": true
+    },
+    "onnx_encoder_assets_bytes": {
+      "measured": 90883168,
+      "target_under": 104857600,
+      "passed": true
+    }
+  },
+  "scope": "10k short English events, single host; no answering-model overhead in isolated profiles; repeated/fresh workloads unchanged",
+  "open_gates": [
+    "minimal and ONNX fresh-query latency",
+    "default inline semantic and PyTorch qualification",
+    "full frozen public/competitor evaluation and public feature ablations",
+    "human calibration of independent grading",
+    "hosted CI evidence",
+    "owner source redistribution license",
+    "100k/1M, large-document, multilingual and service-load qualification"
+  ],
+  "source_license": "owner choice unresolved",
+  "published": false,
+  "new_answer_accuracy_claim": false,
+  "notes": [
+    "Original wheel/raw artifacts preserved. Only pack.py and runtime.py SDK bytes changed.",
+    "Evidence boundary escaping does not guarantee natural-language injection immunity.",
+    "Deferred semantic appends qualify foreground durable writes, not inline encoding; replay costs separate.",
+    "A higher recall in this small previously observed sample is exploratory, not confirmatory superiority."
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "3.9": {
+    "passed": true,
+    "wheel_sha256": "ce32c7573366aa9d706889b042224f2d974edf2197e17aed34dac8fcc79e1431",
+    "attempts": [
+      {
+        "command": [
+          "docker",
+          "build",
+          "-t",
+          "nsn-matrix:3.9",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_linux_matrix_pixds5uz"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "#0 building with \"desktop-linux\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 268B 0.0s done\n#1 DONE 0.1s\n\n#2 [internal] load metadata for docker.io/library/python:3.9-slim\n#2 DONE 1.5s\n\n#3 [internal] load .dockerignore\n#3 transferring context: 2B done\n#3 DONE 0.0s\n\n#4 [1/6] FROM docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b\n#4 resolve docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b 0.0s done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 208.42kB 0.1s done\n#5 DONE 0.1s\n\n#4 [1/6] FROM docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b\n#4 CACHED\n\n#6 [2/6] COPY nsn-0.3.0-py3-none-any.whl /tmp/\n#6 DONE 0.0s\n\n#7 [3/6] RUN pip install --no-cache-dir /tmp/nsn-0.3.0-py3-none-any.whl pytest pytest-asyncio psutil\n#7 2.699 Processing /tmp/nsn-0.3.0-py3-none-any.whl\n#7 2.842 Collecting pytest\n#7 2.904   Downloading pytest-8.4.2-py3-none-any.whl (365 kB)\n#7 2.975      \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 365.8/365.8 kB 5.5 MB/s eta 0:00:00\n#7 3.029 Collecting pytest-asyncio\n#7 3.039   Downloading pytest_asyncio-1.2.0-py3-none-any.whl (15 kB)\n#7 3.232 Collecting psutil\n#7 3.244   Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)\n#7 3.261      \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 155.6/155.6 kB 9.9 MB/s eta 0:00:00\n#7 3.347 Collecting pyyaml>=6.0\n#7 3.357   Downloading pyyaml-6.0.3-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (750 kB)\n#7 3.453      \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 750.8/750.8 kB 8.0 MB/s eta 0:00:00\n#7 3.492 Collecting packaging>=20\n#7 3.503   Downloading packaging-26.3-py3-none-any.whl (129 kB)\n#7 3.512      \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 130.0/130.0 kB 20.9 MB/s eta 0:00:00\n#7 3.534 Collecting exceptiongroup>=1\n#7 3.545   Downloading exceptiongroup-1.3.1-py3-none-any.whl (16 kB)\n#7 3.574 Collecting iniconfig>=1\n#7 3.580   Downloading iniconfig-2.1.0-py3-none-any.whl (6.0 kB)\n#7 3.615 Collecting pygments>=2.7.2\n#7 3.627   Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)\n#7 3.843      \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 1.3/1.3 MB 5.8 MB/s eta 0:00:00\n#7 3.886 Collecting tomli>=1\n#7 3.893   Downloading tomli-2.4.1-py3-none-any.whl (14 kB)\n#7 3.915 Collecting pluggy<2,>=1.5\n#7 3.924   Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)\n#7 3.949 Collecting backports-asyncio-runner<2,>=1.1\n#7 3.957   Downloading backports_asyncio_runner-1.2.0-py3-none-any.whl (12 kB)\n#7 3.993 Collecting typing-extensions>=4.12\n#7 4.002   Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)\n#7 4.010      \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 45.6/45.6 kB 6.9 MB/s eta 0:00:00\n#7 4.169 Installing collected packages: typing-extensions, tomli, pyyaml, pygments, psutil, pluggy, packaging, iniconfig, backports-asyncio-runner, nsn, exceptiongroup, pytest, pytest-asyncio\n#7 5.257 Successfully installed backports-asyncio-runner-1.2.0 exceptiongroup-1.3.1 iniconfig-2.1.0 nsn-0.3.0 packaging-26.3 pluggy-1.6.0 psutil-7.2.2 pygments-2.21.0 pytest-8.4.2 pytest-asyncio-1.2.0 pyyaml-6.0.3 tomli-2.4.1 typing-extensions-4.16.0\n#7 5.258 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\n#7 5.360 \n#7 5.360 [notice] A new release of pip is available: 23.0.1 -> 26.0.1\n#7 5.360 [notice] To update, run: pip install --upgrade pip\n#7 DONE 5.6s\n\n#8 [4/6] COPY verify_install.py /checks/\n#8 DONE 0.1s\n\n#9 [5/6] COPY tests/ /checks/tests/\n#9 DONE 0.1s\n\n#10 [6/6] WORKDIR /tmp\n#10 DONE 0.1s\n\n#11 exporting to image\n#11 exporting layers\n#11 exporting layers 0.9s done\n#11 exporting manifest sha256:c6c0cdeed8743584e4f0e9c23a70396fa4cd28be10261a0b51080861010cba18 0.0s done\n#11 exporting config sha256:b49b5b05f8f2f73965de5b6ea92e834ab5961360c0f853dd48c0c06a803ae0bf 0.0s done\n#11 exporting attestation manifest sha256:1715bc86d902c6c3e5bfe36116ec5683df0a81bdae1a603f1e70a9b928cf6b83 0.0s done\n#11 exporting manifest list sha256:c4a10b798f2312a6c3217d97330dcc12cb1eabcce73701d368437e8482c3c865 0.0s done\n#11 naming to docker.io/library/nsn-matrix:3.9\n#11 naming to docker.io/library/nsn-matrix:3.9 done\n#11 unpacking to docker.io/library/nsn-matrix:3.9\n#11 unpacking to docker.io/library/nsn-matrix:3.9 0.4s done\n#11 DONE 1.4s\n\nView build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/3vipq95yux9brkuc3e6jgclty\n"
+      },
+      {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--network",
+          "none",
+          "nsn-matrix:3.9",
+          "python",
+          "/checks/verify_install.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"minimal_wheel\": \"/usr/local/lib/python3.9/site-packages/nsn/__init__.py\", \"network_denied\": true, \"restart_recall\": true, \"namespace_isolation\": true, \"package_yaml\": true, \"import_threads_unchanged\": true}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--network",
+          "none",
+          "nsn-matrix:3.9",
+          "python",
+          "-m",
+          "pytest",
+          "/checks/tests",
+          "-k",
+          "not rest_authentication and not legacy_deprecation",
+          "-q",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "exit_code": 0,
+        "stdout": ".........................................................s.............. [ 93%]\n.....                                                                    [100%]\n76 passed, 1 skipped, 2 deselected in 4.65s\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "3.10": {
+    "passed": true,
+    "wheel_sha256": "ce32c7573366aa9d706889b042224f2d974edf2197e17aed34dac8fcc79e1431",
+    "attempts": [
+      {
+        "command": [
+          "docker",
+          "build",
+          "-t",
+          "nsn-matrix:3.10",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_linux_matrix_pixds5uz"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "#0 building with \"desktop-linux\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 269B done\n#1 DONE 0.0s\n\n#2 [internal] load metadata for docker.io/library/python:3.10-slim\n#2 DONE 0.3s\n\n#3 [internal] load .dockerignore\n#3 transferring context: 2B done\n#3 DONE 0.0s\n\n#4 [internal] load build context\n#4 transferring context: 770B done\n#4 DONE 0.0s\n\n#5 [1/6] FROM docker.io/library/python:3.10-slim@sha256:c1aaf3d03e14944a039a1647e0b3f6f34c6bee517bac6ff380215ee099c4e808\n#5 resolve docker.io/library/python:3.10-slim@sha256:c1aaf3d03e14944a039a1647e0b3f6f34c6bee517bac6ff380215ee099c4e808 0.0s done\n#5 CACHED\n\n#6 [2/6] COPY nsn-0.3.0-py3-none-any.whl /tmp/\n#6 DONE 0.0s\n\n#7 [3/6] RUN pip install --no-cache-dir /tmp/nsn-0.3.0-py3-none-any.whl pytest pytest-asyncio psutil\n#7 1.804 Processing /tmp/nsn-0.3.0-py3-none-any.whl\n#7 1.933 Collecting pytest\n#7 1.973   Downloading pytest-9.1.1-py3-none-any.whl (386 kB)\n#7 2.011      \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 386.5/386.5 kB 12.1 MB/s eta 0:00:00\n#7 2.043 Collecting pytest-asyncio\n#7 2.050   Downloading pytest_asyncio-1.4.0-py3-none-any.whl (16 kB)\n#7 2.172 Collecting psutil\n#7 2.188   Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)\n#7 2.200      \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 155.6/155.6 kB 15.6 MB/s eta 0:00:00\n#7 2.272 Collecting pyyaml>=6.0\n#7 2.280   Downloading pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (770 kB)\n#7 2.383      \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 770.3/770.3 kB 7.7 MB/s eta 0:00:00\n#7 2.416 Collecting pluggy<2,>=1.5\n#7 2.429   Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)\n#7 2.466 Collecting pygments>=2.7.2\n#7 2.473   Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)\n#7 2.695      \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 1.3/1.3 MB 5.7 MB/s eta 0:00:00\n#7 2.701 Requirement already satisfied: packaging>=22 in /usr/local/lib/python3.10/site-packages (from pytest) (26.3)\n#7 2.719 Collecting iniconfig>=1.0.1\n#7 2.727   Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)\n#7 2.776 Collecting tomli>=1\n#7 2.787   Downloading tomli-2.4.1-py3-none-any.whl (14 kB)\n#7 2.809 Collecting exceptiongroup>=1\n#7 2.822   Downloading exceptiongroup-1.3.1-py3-none-any.whl (16 kB)\n#7 2.860 Collecting typing-extensions>=4.12\n#7 2.870   Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)\n#7 2.874      \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 45.6/45.6 kB 17.9 MB/s eta 0:00:00\n#7 2.890 Collecting backports-asyncio-runner<2,>=1.1\n#7 2.899   Downloading backports_asyncio_runner-1.2.0-py3-none-any.whl (12 kB)\n#7 3.049 Installing collected packages: typing-extensions, tomli, pyyaml, pygments, psutil, pluggy, iniconfig, backports-asyncio-runner, nsn, exceptiongroup, pytest, pytest-asyncio\n#7 3.967 Successfully installed backports-asyncio-runner-1.2.0 exceptiongroup-1.3.1 iniconfig-2.3.0 nsn-0.3.0 pluggy-1.6.0 psutil-7.2.2 pygments-2.21.0 pytest-9.1.1 pytest-asyncio-1.4.0 pyyaml-6.0.3 tomli-2.4.1 typing-extensions-4.16.0\n#7 3.967 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\n#7 4.058 \n#7 4.058 [notice] A new release of pip is available: 23.0.1 -> 26.2.1\n#7 4.058 [notice] To update, run: pip install --upgrade pip\n#7 DONE 4.3s\n\n#8 [4/6] COPY verify_install.py /checks/\n#8 DONE 0.0s\n\n#9 [5/6] COPY tests/ /checks/tests/\n#9 DONE 0.0s\n\n#10 [6/6] WORKDIR /tmp\n#10 DONE 0.0s\n\n#11 exporting to image\n#11 exporting layers\n#11 exporting layers 0.9s done\n#11 exporting manifest sha256:d95d7211eb518eb45cf4e12d9997a3f0fc51334d5aaac294b14c8a6e92b44beb 0.0s done\n#11 exporting config sha256:0481bac27da81f60796aa36fecfd2e5e924ea7e8ffdab853ab7a570ccce4e941 0.0s done\n#11 exporting attestation manifest sha256:b19907a353cf8ec4ea57dd45fa5b7ce1415eb1fa75f261b9648ce908c7235b9a 0.1s done\n#11 exporting manifest list sha256:6818a145caffecf46550937043679da82e8cc8db4018bfc89ee13d2e75798e08\n#11 exporting manifest list sha256:6818a145caffecf46550937043679da82e8cc8db4018bfc89ee13d2e75798e08 0.0s done\n#11 naming to docker.io/library/nsn-matrix:3.10 done\n#11 unpacking to docker.io/library/nsn-matrix:3.10\n#11 unpacking to docker.io/library/nsn-matrix:3.10 0.6s done\n#11 DONE 1.8s\n\nView build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/nymufww0zonoyfdzfzodel392\n"
+      },
+      {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--network",
+          "none",
+          "nsn-matrix:3.10",
+          "python",
+          "/checks/verify_install.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"minimal_wheel\": \"/usr/local/lib/python3.10/site-packages/nsn/__init__.py\", \"network_denied\": true, \"restart_recall\": true, \"namespace_isolation\": true, \"package_yaml\": true, \"import_threads_unchanged\": true}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--network",
+          "none",
+          "nsn-matrix:3.10",
+          "python",
+          "-m",
+          "pytest",
+          "/checks/tests",
+          "-k",
+          "not rest_authentication and not legacy_deprecation",
+          "-q",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "exit_code": 0,
+        "stdout": ".........................................................s.............. [ 93%]\n.....                                                                    [100%]\n76 passed, 1 skipped, 2 deselected in 4.79s\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "3.12": {
+    "passed": true,
+    "wheel_sha256": "ce32c7573366aa9d706889b042224f2d974edf2197e17aed34dac8fcc79e1431",
+    "attempts": [
+      {
+        "command": [
+          "docker",
+          "build",
+          "-t",
+          "nsn-matrix:3.12",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_linux_matrix_pixds5uz"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "#0 building with \"desktop-linux\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 269B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load metadata for docker.io/library/python:3.12-slim\n#2 DONE 0.0s\n\n#3 [internal] load .dockerignore\n#3 transferring context: 2B done\n#3 DONE 0.0s\n\n#4 [internal] load build context\n#4 DONE 0.0s\n\n#5 [1/6] FROM docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea\n#5 resolve docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea 0.0s done\n#5 DONE 0.0s\n\n#4 [internal] load build context\n#4 transferring context: 770B done\n#4 DONE 0.0s\n\n#5 [1/6] FROM docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea\n#5 CACHED\n\n#6 [2/6] COPY nsn-0.3.0-py3-none-any.whl /tmp/\n#6 DONE 0.0s\n\n#7 [3/6] RUN pip install --no-cache-dir /tmp/nsn-0.3.0-py3-none-any.whl pytest pytest-asyncio psutil\n#7 1.777 Processing /tmp/nsn-0.3.0-py3-none-any.whl\n#7 1.863 Collecting pytest\n#7 1.908   Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)\n#7 1.931 Collecting pytest-asyncio\n#7 1.940   Downloading pytest_asyncio-1.4.0-py3-none-any.whl.metadata (4.1 kB)\n#7 2.005 Collecting psutil\n#7 2.014   Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)\n#7 2.050 Collecting pyyaml>=6.0 (from nsn==0.3.0)\n#7 2.060   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)\n#7 2.071 Collecting iniconfig>=1.0.1 (from pytest)\n#7 2.082   Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)\n#7 2.109 Collecting packaging>=22 (from pytest)\n#7 2.121   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)\n#7 2.145 Collecting pluggy<2,>=1.5 (from pytest)\n#7 2.154   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)\n#7 2.172 Collecting pygments>=2.7.2 (from pytest)\n#7 2.180   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)\n#7 2.209 Collecting typing-extensions>=4.12 (from pytest-asyncio)\n#7 2.217   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)\n#7 2.232 Downloading pytest-9.1.1-py3-none-any.whl (386 kB)\n#7 2.273 Downloading pytest_asyncio-1.4.0-py3-none-any.whl (16 kB)\n#7 2.283 Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)\n#7 2.299 Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)\n#7 2.313 Downloading packaging-26.3-py3-none-any.whl (129 kB)\n#7 2.333 Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)\n#7 2.346 Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)\n#7 2.620    \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 1.3/1.3 MB 4.4 MB/s eta 0:00:00\n#7 2.633 Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)\n#7 2.826    \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 807.9/807.9 kB 4.1 MB/s eta 0:00:00\n#7 2.835 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)\n#7 2.888 Installing collected packages: typing-extensions, pyyaml, pygments, psutil, pluggy, packaging, iniconfig, pytest, nsn, pytest-asyncio\n#7 4.171 Successfully installed iniconfig-2.3.0 nsn-0.3.0 packaging-26.3 pluggy-1.6.0 psutil-7.2.2 pygments-2.21.0 pytest-9.1.1 pytest-asyncio-1.4.0 pyyaml-6.0.3 typing-extensions-4.16.0\n#7 4.171 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n#7 4.263 \n#7 4.263 [notice] A new release of pip is available: 25.0.1 -> 26.2.1\n#7 4.263 [notice] To update, run: pip install --upgrade pip\n#7 DONE 4.4s\n\n#8 [4/6] COPY verify_install.py /checks/\n#8 DONE 0.1s\n\n#9 [5/6] COPY tests/ /checks/tests/\n#9 DONE 0.0s\n\n#10 [6/6] WORKDIR /tmp\n#10 DONE 0.0s\n\n#11 exporting to image\n#11 exporting layers\n#11 exporting layers 1.0s done\n#11 exporting manifest sha256:97d286371ddafd10e8e63a54575710e7a700cecf3510b249556fde50150b3710 0.0s done\n#11 exporting config sha256:89a9fe2fe9b852ff35e09577292cbc514d7e0e982d469f08c8ce1c667b0cb033 0.0s done\n#11 exporting attestation manifest sha256:4a11fd9a685835e5df2c20648448594de271b1d95624c6729510327025a932b0 0.0s done\n#11 exporting manifest list sha256:3beb3ef1e23950ea4bb019d91e44cc7f2db8644352fa75a788e28ed3f76d541a\n#11 exporting manifest list sha256:3beb3ef1e23950ea4bb019d91e44cc7f2db8644352fa75a788e28ed3f76d541a 0.0s done\n#11 naming to docker.io/library/nsn-matrix:3.12 done\n#11 unpacking to docker.io/library/nsn-matrix:3.12\n#11 unpacking to docker.io/library/nsn-matrix:3.12 0.4s done\n#11 DONE 1.7s\n\nView build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/6rru895qsxd6o7qsa8xbn851k\n"
+      },
+      {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--network",
+          "none",
+          "nsn-matrix:3.12",
+          "python",
+          "/checks/verify_install.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"minimal_wheel\": \"/usr/local/lib/python3.12/site-packages/nsn/__init__.py\", \"network_denied\": true, \"restart_recall\": true, \"namespace_isolation\": true, \"package_yaml\": true, \"import_threads_unchanged\": true}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--network",
+          "none",
+          "nsn-matrix:3.12",
+          "python",
+          "-m",
+          "pytest",
+          "/checks/tests",
+          "-k",
+          "not rest_authentication and not legacy_deprecation",
+          "-q",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "exit_code": 0,
+        "stdout": ".........................................................s.............. [ 93%]\n.....                                                                    [100%]\n76 passed, 1 skipped, 2 deselected in 6.14s\n",
+        "stderr": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "counter_identity": {
+    "hf_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "tokenizer_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+    "hf_vocab_tokens": 151643,
+    "gguf_tokens": 151936,
+    "merge_rules": 151387,
+    "all_vocab_ids_match_gguf": true,
+    "all_merge_rules_match_gguf": true,
+    "model": "qwen3:1.7b",
+    "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7"
+  },
+  "qualification": [
+    {
+      "messages": [
+        {
+          "role": "system",
+          "content": "Return a concise answer."
+        },
+        {
+          "role": "user",
+          "content": "What is 2+2?"
+        }
+      ],
+      "expected_tokens": 33,
+      "observed_prompt_eval_count": 33,
+      "response": {
+        "model": "qwen3:1.7b",
+        "created_at": "2026-10-04T06:55:24.2413282Z",
+        "message": {
+          "role": "assistant",
+          "content": "4"
+        },
+        "done": true,
+        "done_reason": "length",
+        "total_duration": 489415800,
+        "load_duration": 41583900,
+        "prompt_eval_count": 33,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 416515000,
+        "eval_count": 1,
+        "eval_duration": 1000
+      }
+    },
+    {
+      "messages": [
+        {
+          "role": "system",
+          "content": "You must respond with a JSON object."
+        },
+        {
+          "role": "user",
+          "content": "Production DB host is postgres.internal:5432.\nKeep dates 2023-05-08 and negation."
+        }
+      ],
+      "expected_tokens": 58,
+      "observed_prompt_eval_count": 58,
+      "response": {
+        "model": "qwen3:1.7b",
+        "created_at": "2026-10-04T06:55:24.8409164Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n"
+        },
+        "done": true,
+        "done_reason": "length",
+        "total_duration": 597109500,
+        "load_duration": 7136900,
+        "prompt_eval_count": 58,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 580112000,
+        "eval_count": 1,
+        "eval_duration": 1000
+      }
+    },
+    {
+      "messages": [
+        {
+          "role": "system",
+          "content": "System"
+        },
+        {
+          "role": "user",
+          "content": "Unicode: caf\u00e9 \u4e2d\u6587 \n  trailing  "
+        }
+      ],
+      "expected_tokens": 31,
+      "observed_prompt_eval_count": 31,
+      "response": {
+        "model": "qwen3:1.7b",
+        "created_at": "2026-10-04T06:55:25.1626262Z",
+        "message": {
+          "role": "assistant",
+          "content": "\u5728"
+        },
+        "done": true,
+        "done_reason": "length",
+        "total_duration": 318884000,
+        "load_duration": 4992500,
+        "prompt_eval_count": 31,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 303479000,
+        "eval_count": 1,
+        "eval_duration": 1000
+      }
+    }
+  ],
+  "passed": true
+}

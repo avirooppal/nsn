@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-04",
+  "wheel_sha256": "3fff5fcbcbfdd2afd1c8b1803de39d19ae780873a441a74f28d546f8611fd432",
+  "wheel_bytes": 101776,
+  "functional": "222 passed, 2 skipped, 1 hardware test deselected, 3 warnings",
+  "hardware_fixture": "1 passed, 14 deselected; synthetic FastHash only",
+  "local_matrix_passed": 5,
+  "local_matrix_total": 6,
+  "phase09": "partial",
+  "phase10": "partial",
+  "open_gates": [
+    "full real-model public coverage",
+    "independent reference judge and human review",
+    "actual competitor full matched/recommended comparisons",
+    "public feature ablations and meaningful paired intervals",
+    "Windows Python 3.12 consolidation budget failure",
+    "real semantic incremental RSS >400 MiB",
+    "minimal/semantic unique-query p95 misses",
+    "semantic inline foreground append unqualified",
+    "hosted CI execution",
+    "owner license selection"
+  ],
+  "artifact_sha256": {
+    "10-minimal-final-profile-20261004.json": "b50160ce0892252bc3e8d3db0b7f532f39c150c37f88ff46c6327abbae5f02fc",
+    "10-semantic-final-profile-20261004.json": "c493df0a4fc241d9535cff77296a7507e654e7dbe19a068703b1ae5034c1dd04",
+    "10-windows-final-matrix-20261004.json": "056001ae4fd16e78805ff49fbec413f2c7545bb097415f059714e80aae866224",
+    "10-linux-final-matrix-20261004.json": "b931823980c4c5217bcab5560af07d7853e96fdd0708eefdf4040d0f406aa53c",
+    "09-independent-8b-regenerated-20261004.json": "0c23504dfba78885dca4e1f6b63d2cd434bbdf5797b85e4861d6562c47ba68bf",
+    "09-invalid-self-judge-excluded-20261004.json": "9f42323b263f714d927b1e8b27a7b4dc3061b04e67747534c7fb5be39521b52f",
+    "benchmarks\\assets\\phase09\\longmemeval_data__longmemeval_s_cleaned.json": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+    "benchmarks\\assets\\phase09\\longmemeval_data__longmemeval_m_cleaned.json": "9d79e5524794a2e6900a3aa9cb7d9152c5a3e8319c9a87c25494ba1eacee495f",
+    "10-fresh-semantic-final-20261004.json": "893450156639a550a0c652e531503ad14c260119c227c73d9ebc1ca66cefdf42",
+    "10-final-functional-20261004.txt": "80a780c3135244b093e10437b6235821d3fae4cc3a483f64ae48743af9387c5a",
+    "10-final-hardware-20261004.txt": "d449bbced1d39fa929286bb170586cfa48fd78e3d8a6197c6439d2b96ccdfc9f",
+    "09-review-20261004.json": "8d44850f103b003c8bef97796d3f7c65c878bc5489cf1e1ec9ef93956ca9f140",
+    "handoffs/09.md": "5ef7761cb3e6fa423d27b1967974249c07c03f687aca10b36ef5c2144cbcb246",
+    "handoffs/10.md": "cde6d09e0ecb1e37a898faf2427af6efa57af7b24f2ef315fc0c5350268ef5a1"
+  },
+  "published": false,
+  "claims": {
+    "frontier_equivalence": false,
+    "competitor_superiority": false
+  }
+}

@@ -1,0 +1,401 @@
+{
+  "records": 10000,
+  "vectors": 10000,
+  "baseline_interpreter_rss_bytes": 28303360,
+  "content": "short generated English service/port records",
+  "raw_durable_append_p95_ms": 3.365299999131821,
+  "semantic_foreground_append_qualified": false,
+  "ingestion": "authoritative raw appends then real neural batch indexing (64); not Runtime.append_event inline semantic timing",
+  "index_ms": 158546.18610000762,
+  "first_retrieve_ms": 239.39429999154527,
+  "warm_retrieve_p95_ms": 61.857900000177324,
+  "additional_unique_query_p95_ms": 130.1651999965543,
+  "query_embedding_cache_size": 0,
+  "timings": [
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 31.802,
+      "lexical_search_ms": 75.941,
+      "dense_search_ms": 108.695,
+      "fusion_ms": 0.161,
+      "pack_ms": 4.308,
+      "total_retrieve_ms": 239.293
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 30.669,
+      "lexical_search_ms": 0.257,
+      "dense_search_ms": 6.424,
+      "fusion_ms": 0.136,
+      "pack_ms": 4.187,
+      "total_retrieve_ms": 59.023
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 29.397,
+      "lexical_search_ms": 0.231,
+      "dense_search_ms": 5.122,
+      "fusion_ms": 0.121,
+      "pack_ms": 3.564,
+      "total_retrieve_ms": 51.088
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 26.105,
+      "lexical_search_ms": 0.179,
+      "dense_search_ms": 6.305,
+      "fusion_ms": 0.114,
+      "pack_ms": 3.64,
+      "total_retrieve_ms": 53.006
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 28.47,
+      "lexical_search_ms": 0.184,
+      "dense_search_ms": 5.794,
+      "fusion_ms": 0.129,
+      "pack_ms": 5.386,
+      "total_retrieve_ms": 56.975
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 34.534,
+      "lexical_search_ms": 0.295,
+      "dense_search_ms": 5.16,
+      "fusion_ms": 0.164,
+      "pack_ms": 5.102,
+      "total_retrieve_ms": 61.743
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 33.654,
+      "lexical_search_ms": 0.269,
+      "dense_search_ms": 5.301,
+      "fusion_ms": 0.124,
+      "pack_ms": 3.899,
+      "total_retrieve_ms": 57.049
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 26.039,
+      "lexical_search_ms": 0.199,
+      "dense_search_ms": 4.689,
+      "fusion_ms": 0.104,
+      "pack_ms": 3.48,
+      "total_retrieve_ms": 46.41
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 24.842,
+      "lexical_search_ms": 0.181,
+      "dense_search_ms": 4.383,
+      "fusion_ms": 0.103,
+      "pack_ms": 3.479,
+      "total_retrieve_ms": 45.389
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 29.946,
+      "lexical_search_ms": 0.31,
+      "dense_search_ms": 6.464,
+      "fusion_ms": 0.111,
+      "pack_ms": 3.663,
+      "total_retrieve_ms": 52.833
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 27.971,
+      "lexical_search_ms": 0.176,
+      "dense_search_ms": 5.211,
+      "fusion_ms": 0.114,
+      "pack_ms": 3.5,
+      "total_retrieve_ms": 49.109
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 29.978,
+      "lexical_search_ms": 0.177,
+      "dense_search_ms": 4.941,
+      "fusion_ms": 0.112,
+      "pack_ms": 3.827,
+      "total_retrieve_ms": 52.323
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 30.552,
+      "lexical_search_ms": 0.199,
+      "dense_search_ms": 5.137,
+      "fusion_ms": 0.107,
+      "pack_ms": 3.566,
+      "total_retrieve_ms": 50.706
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 38.643,
+      "lexical_search_ms": 0.201,
+      "dense_search_ms": 7.589,
+      "fusion_ms": 0.128,
+      "pack_ms": 4.133,
+      "total_retrieve_ms": 64.91
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 32.802,
+      "lexical_search_ms": 0.204,
+      "dense_search_ms": 5.904,
+      "fusion_ms": 0.122,
+      "pack_ms": 3.853,
+      "total_retrieve_ms": 58.652
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 28.261,
+      "lexical_search_ms": 0.183,
+      "dense_search_ms": 5.278,
+      "fusion_ms": 0.117,
+      "pack_ms": 3.667,
+      "total_retrieve_ms": 50.618
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 27.519,
+      "lexical_search_ms": 0.174,
+      "dense_search_ms": 5.065,
+      "fusion_ms": 0.115,
+      "pack_ms": 3.648,
+      "total_retrieve_ms": 48.45
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 30.014,
+      "lexical_search_ms": 0.18,
+      "dense_search_ms": 5.224,
+      "fusion_ms": 0.103,
+      "pack_ms": 4.759,
+      "total_retrieve_ms": 53.988
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 27.597,
+      "lexical_search_ms": 0.119,
+      "dense_search_ms": 5.227,
+      "fusion_ms": 0.102,
+      "pack_ms": 3.703,
+      "total_retrieve_ms": 50.084
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 26.955,
+      "lexical_search_ms": 0.219,
+      "dense_search_ms": 7.155,
+      "fusion_ms": 0.132,
+      "pack_ms": 3.858,
+      "total_retrieve_ms": 53.432
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 35.237,
+      "lexical_search_ms": 0.215,
+      "dense_search_ms": 6.826,
+      "fusion_ms": 0.149,
+      "pack_ms": 4.973,
+      "total_retrieve_ms": 64.02
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 30.143,
+      "lexical_search_ms": 0.244,
+      "dense_search_ms": 5.813,
+      "fusion_ms": 0.111,
+      "pack_ms": 3.996,
+      "total_retrieve_ms": 53.145
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 28.13,
+      "lexical_search_ms": 0.207,
+      "dense_search_ms": 5.404,
+      "fusion_ms": 0.104,
+      "pack_ms": 3.464,
+      "total_retrieve_ms": 49.425
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 28.054,
+      "lexical_search_ms": 0.176,
+      "dense_search_ms": 6.141,
+      "fusion_ms": 0.1,
+      "pack_ms": 3.245,
+      "total_retrieve_ms": 49.385
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 26.171,
+      "lexical_search_ms": 0.158,
+      "dense_search_ms": 5.983,
+      "fusion_ms": 0.079,
+      "pack_ms": 2.464,
+      "total_retrieve_ms": 47.684
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 22.708,
+      "lexical_search_ms": 0.117,
+      "dense_search_ms": 5.882,
+      "fusion_ms": 0.125,
+      "pack_ms": 7.33,
+      "total_retrieve_ms": 57.044
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 32.187,
+      "lexical_search_ms": 0.243,
+      "dense_search_ms": 5.559,
+      "fusion_ms": 0.11,
+      "pack_ms": 3.925,
+      "total_retrieve_ms": 54.336
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 27.824,
+      "lexical_search_ms": 0.218,
+      "dense_search_ms": 5.205,
+      "fusion_ms": 0.132,
+      "pack_ms": 4.13,
+      "total_retrieve_ms": 49.886
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 32.959,
+      "lexical_search_ms": 0.212,
+      "dense_search_ms": 5.271,
+      "fusion_ms": 0.13,
+      "pack_ms": 3.968,
+      "total_retrieve_ms": 56.989
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 25.635,
+      "lexical_search_ms": 0.193,
+      "dense_search_ms": 5.269,
+      "fusion_ms": 0.126,
+      "pack_ms": 4.339,
+      "total_retrieve_ms": 49.05
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 29.636,
+      "lexical_search_ms": 0.213,
+      "dense_search_ms": 5.421,
+      "fusion_ms": 0.111,
+      "pack_ms": 3.587,
+      "total_retrieve_ms": 51.87
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 26.779,
+      "lexical_search_ms": 0.177,
+      "dense_search_ms": 5.348,
+      "fusion_ms": 0.103,
+      "pack_ms": 3.352,
+      "total_retrieve_ms": 49.141
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 25.948,
+      "lexical_search_ms": 0.168,
+      "dense_search_ms": 5.461,
+      "fusion_ms": 0.066,
+      "pack_ms": 3.284,
+      "total_retrieve_ms": 46.907
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 15.366,
+      "lexical_search_ms": 0.146,
+      "dense_search_ms": 5.127,
+      "fusion_ms": 0.121,
+      "pack_ms": 3.85,
+      "total_retrieve_ms": 38.333
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 25.512,
+      "lexical_search_ms": 0.184,
+      "dense_search_ms": 5.0,
+      "fusion_ms": 0.108,
+      "pack_ms": 3.528,
+      "total_retrieve_ms": 48.919
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 25.444,
+      "lexical_search_ms": 0.171,
+      "dense_search_ms": 5.113,
+      "fusion_ms": 0.114,
+      "pack_ms": 3.524,
+      "total_retrieve_ms": 47.145
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 25.527,
+      "lexical_search_ms": 0.176,
+      "dense_search_ms": 5.564,
+      "fusion_ms": 0.107,
+      "pack_ms": 3.545,
+      "total_retrieve_ms": 47.413
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 25.141,
+      "lexical_search_ms": 0.191,
+      "dense_search_ms": 5.046,
+      "fusion_ms": 0.11,
+      "pack_ms": 3.576,
+      "total_retrieve_ms": 46.817
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 24.942,
+      "lexical_search_ms": 0.178,
+      "dense_search_ms": 5.0,
+      "fusion_ms": 0.132,
+      "pack_ms": 3.438,
+      "total_retrieve_ms": 46.972
+    },
+    {
+      "graph_ms": 0.0,
+      "query_embed_ms": 25.827,
+      "lexical_search_ms": 0.176,
+      "dense_search_ms": 5.578,
+      "fusion_ms": 0.113,
+      "pack_ms": 3.558,
+      "total_retrieve_ms": 47.7
+    }
+  ],
+  "disk_bytes_including_wal": 32838984,
+  "encoder_assets_bytes": 91578415,
+  "encoder_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "module": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_fresh_semantic_20261004\\Lib\\site-packages\\nsn\\__init__.py",
+  "torch_threads": 1,
+  "network_denied": true,
+  "installed_distribution": {
+    "url": "file:///C:/Users/aviroop/Desktop/nsn/dist/nsn-0.3.0-py3-none-any.whl",
+    "archive_info": {}
+  },
+  "query_workload": "original same fixed query 40 times; unchanged database, neural query cache disabled; plus 40 separately reported unique queries",
+  "verified_wheel_sha256": "3fff5fcbcbfdd2afd1c8b1803de39d19ae780873a441a74f28d546f8611fd432",
+  "sampled_process_tree_rss_max_bytes": 587169792,
+  "windows_sum_of_individual_peak_working_sets_bytes": 600272896,
+  "sampling_interval_ms": 20,
+  "profile": "isolated semantic installed wheel; encoder included, no answering model",
+  "first_query_is_not_os_cache_cold": true,
+  "answering_model": "none",
+  "targets": {
+    "warm_retrieve_p95_ms": 100,
+    "incremental_runtime_rss_bytes": 419430400,
+    "encoder_assets_bytes": 104857600
+  },
+  "rss_gate_interpretation": "sampled simultaneous process-tree peak minus pre-encoder interpreter baseline; OS sum of peaks retained separately",
+  "sampled_incremental_runtime_rss_bytes": 558866432
+}

@@ -1,0 +1,116 @@
+{
+  "manifest_sha256": "d99f083d9e584e96b15fa13f890567b22ba5c8224dc0bf5472acbed0678d1a72",
+  "sampling": "fixed digest order per dataset/category, includes failures",
+  "reviews": [
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "stateless",
+      "row_sha256": "a97306ab50e34732ce01242839451abfa48de48a0b557695e0992df2f8436f37",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "pooled_dense",
+      "row_sha256": "8be1e8c0f370bd14e44c5ba48fdf287d2fc592829e8f10ed03aab94dd03cf6d7",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "hybrid",
+      "row_sha256": "764fd4e07962bf033e140dceec9fe3b0885a608171f7a4783348428ae48adf3d",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "yes",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "nsn_lexical",
+      "row_sha256": "d3519917f2d9ffb16beea07cc3fd40234fae30c1a4e5102e9f901e5d36e1125a",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "locomo:conv-42:0000",
+      "profile": "full_context",
+      "row_sha256": "349a8d759e924eac96402b98da70c55c2e8a0405afde7223d8ea668b71f0873a",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "reference_answer": "Yesteammates on hisvideo game team.",
+      "predicted_answer": "",
+      "failure": "ValueError('full_context_exceeds_configured_window')",
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:07741c44",
+      "profile": "oracle",
+      "row_sha256": "ed6a11ed3a878d5a93098fdab0f4c059765100f27ebe61be538868a2d156fd3a",
+      "question": "Where do I initially keep my old sneakers?",
+      "reference_answer": "under my bed",
+      "predicted_answer": "Under my bed.",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:031748ae_abs",
+      "profile": "nsn_semantic",
+      "row_sha256": "c67f9bce8e21e8a5ea1166f9a9bba8a02cce4a8ba4f1192e6e2dd7d2566381a7",
+      "question": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+      "reference_answer": "The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.",
+      "predicted_answer": "3",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:031748ae_abs",
+      "profile": "stateless",
+      "row_sha256": "329d1f7c6dffd4a6942ffe753a279f1b806b8a67eb57ac48afc381e79dc96414",
+      "question": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+      "reference_answer": "The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:07741c44",
+      "profile": "nsn_lexical",
+      "row_sha256": "795f215804ae489d90f5fa8e188acaef41c37d3f5f6cfd4244493cb0be90f11e",
+      "question": "Where do I initially keep my old sneakers?",
+      "reference_answer": "under my bed",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    },
+    {
+      "case_id": "longmemeval:07741c44",
+      "profile": "bm25",
+      "row_sha256": "433c99eaee4e519fc90a71740664c7d1049dd20c7bb5ece9fa194e7c09962865",
+      "question": "Where do I initially keep my old sneakers?",
+      "reference_answer": "under my bed",
+      "predicted_answer": "no information available",
+      "failure": null,
+      "label": null,
+      "rationale": null
+    }
+  ]
+}

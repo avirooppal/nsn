@@ -65,11 +65,12 @@ class LargeSyntheticDatasetGenerator:
         items = []
         services = ["PostgreSQL", "Redis", "Kafka", "Elasticsearch", "Nginx", "MongoDB", "RabbitMQ", "ClickHouse", "Cassandra", "Memcached"]
         
+        seed_offset = (self.seed - 42) * 17
         for i in range(num_questions):
             service = services[i % len(services)]
-            port_orig = 5000 + (i * 3) % 1000
-            port_mid = 6000 + (i * 3) % 1000
-            port_curr = 9000 + (i * 3) % 1000
+            port_orig = 5000 + (seed_offset + i * 3) % 1000
+            port_mid = 6000 + (seed_offset + i * 3) % 1000
+            port_curr = 9000 + (seed_offset + i * 3) % 1000
 
             mem_id_orig = f"mem_upd_{i}_day1"
             mem_id_mid = f"mem_upd_{i}_day10"
@@ -170,6 +171,7 @@ class LargeSyntheticDatasetGenerator:
                         category="multi_hop",
                         difficulty=f"hop_{h}"
                     ))
+            items.append({"observations": chain_obs, "queries": queries})
         return items
 
     def generate_knowledge_update_test(self, num_sequences: int = 1000):

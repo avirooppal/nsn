@@ -1,0 +1,19 @@
+.................................s...................................... [ 30%]
+........................................................................ [ 60%]
+........................................................................ [ 90%]
+......................                                                   [100%]
+============================== warnings summary ===============================
+tests/test_advanced_memory.py::test_rest_authentication_fixed_scope_and_limits
+  C:\Users\aviroop\AppData\Local\Programs\Python\Python310\lib\site-packages\starlette\formparsers.py:12: PendingDeprecationWarning: Please use `import python_multipart` instead.
+    import multipart
+
+tests/test_compact_semantic.py::test_real_prepared_local_encoder_evaluation
+  C:\Users\aviroop\AppData\Local\Programs\Python\Python310\lib\site-packages\opentelemetry\util\_importlib_metadata.py:32: DeprecationWarning: SelectableGroups dict interface is deprecated. Use select.
+    return EntryPoints(ep for group_eps in eps.values() for ep in group_eps)
+
+tests/test_sdk_facade.py::test_async_callable_and_exceptions
+  C:\Users\aviroop\AppData\Local\Programs\Python\Python310\lib\site-packages\pytest_asyncio\plugin.py:894: DeprecationWarning: There is no current event loop
+    _loop = asyncio.get_event_loop()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+237 passed, 2 skipped, 1 deselected, 3 warnings in 86.52s (0:01:26)

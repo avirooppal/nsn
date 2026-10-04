@@ -1,0 +1,51 @@
+============================= test session starts =============================
+platform win32 -- Python 3.10.0, pytest-8.2.0, pluggy-1.6.0 -- C:\Users\aviroop\AppData\Local\Programs\Python\Python310\python.exe
+rootdir: C:\Users\aviroop\Desktop\nsn
+configfile: pyproject.toml
+plugins: anyio-4.13.0, asyncio-0.23.6, cov-7.1.0, httpx-0.30.0, respx-0.23.1
+asyncio: mode=strict
+collecting ... collected 15 items / 14 deselected / 1 selected
+
+tests/test_compact_semantic.py::test_performance_benchmarks_varied_1k_and_10k_corpora 
+================================================================================
+PHASE 05 MEASURED BENCHMARKS: EXACT 1k vs 10k CORPORA IN RUNTIME
+NOTE: Timings use FastHashEncoder (synthetic n-gram hash). FastHash timings do NOT
+measure real-model embedding cost; neural encoder performance must be measured separately.
+================================================================================
+Corpus Size: 1000 items
+  - Authoritative Records in SQLite:     1000 events (asserted == 1000)
+  - Authoritative Vectors in Store:      1000 vectors (asserted == 1000)
+  - Ingestion (SQLite + Vectors):        864.07 ms (0.864 ms/item)
+  - Vector-Only Search (Cold):           12.93 ms
+  - Vector-Only Search (Warm):           p50 = 1.221 ms, p95 = 2.482 ms
+  - End-to-End retrieve_pack (Cold):     16.20 ms
+  - End-to-End retrieve_pack (Warm):     p50 = 5.356 ms, p95 = 7.685 ms
+      * FastHash Query Embedding (p50):  0.320 ms (synthetic test hash only)
+      * Retrieval & Fusion (Lex+Dense):  1.471 ms
+      * Context Packing & Budgets:       2.100 ms
+  - Peak Python Heap (tracemalloc):      22.13 MB
+  - Process RSS Samples (psutil):        [('start', 53.59), ('post_insert', 111.39), ('post_vec_search', 115.02), ('post_e2e_search', 120.16)]
+  - Maximum sampled RSS (psutil):           120.16 MB (start: 53.59 MB)
+  - Total Disk (inc. WAL and metadata):  3088.1 KB (3162 amortized bytes/item)
+  - Raw float32 vector payload:         1536 bytes/vector
+--------------------------------------------------------------------------------
+Corpus Size: 10000 items
+  - Authoritative Records in SQLite:     10000 events (asserted == 10000)
+  - Authoritative Vectors in Store:      10000 vectors (asserted == 10000)
+  - Ingestion (SQLite + Vectors):        19161.44 ms (1.916 ms/item)
+  - Vector-Only Search (Cold):           261.54 ms
+  - Vector-Only Search (Warm):           p50 = 4.948 ms, p95 = 8.499 ms
+  - End-to-End retrieve_pack (Cold):     222.89 ms
+  - End-to-End retrieve_pack (Warm):     p50 = 29.226 ms, p95 = 46.542 ms
+      * FastHash Query Embedding (p50):  1.235 ms (synthetic test hash only)
+      * Retrieval & Fusion (Lex+Dense):  6.366 ms
+      * Context Packing & Budgets:       8.563 ms
+  - Peak Python Heap (tracemalloc):      219.25 MB
+  - Process RSS Samples (psutil):        [('start', 74.26), ('post_insert', 600.59), ('post_vec_search', 651.13), ('post_e2e_search', 688.81)]
+  - Maximum sampled RSS (psutil):           688.81 MB (start: 74.26 MB)
+  - Total Disk (inc. WAL and metadata):  47644.5 KB (4879 amortized bytes/item)
+  - Raw float32 vector payload:         1536 bytes/vector
+--------------------------------------------------------------------------------
+PASSED
+
+====================== 1 passed, 14 deselected in 23.28s ======================

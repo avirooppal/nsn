@@ -1,0 +1,20 @@
+{
+  "build.txt": "94a44ce62a93798030fa5d2a5bd28761f7357d46afcec1cc9177635868bf0239",
+  "functional-final.txt": "8e86cf8a53b1ae244e1e7cba9421f2cb9f32acf05ea098160ccc5e79253863df",
+  "functional.txt": "9bf97aeafd6185c277363823e20ef26c927dbddcf88738234c875de18bcbbb14",
+  "linux-matrix.json": "b29602cd82620beb705b2e1af98652874979468cf3c9d99de4dc9a71db2ccb22",
+  "local-model-smoke.json": "eb0d161e9fa1938b26a1741a26f033489abe351376a682650c254fe13279f029",
+  "local-model-smoke.py": "c3a4c1f1a8995e96f28a7dc15b368dbe96f8ef3c7cf6eef303bada835d23ee7d",
+  "local-model-smoke.txt": "25da21c274a33ab0e6b5c1eec1132f2b3c26a863e689025c60b044be3fabbc28",
+  "minimal-dependencies.txt": "286db6e51d2b4ff008d3acdd19b16cf5093fea0e6063f22740d371961bc11312",
+  "minimal-installed.txt": "3bfef59d5322e1d7e2360d8d2bea12ebeb039f0b382e4e43e7da12b9aa12a5ab",
+  "onnx-dependencies.txt": "fe273206db6ad99b8be3a7104c9ba2de73a2ccc0d883e656bf5cbf459c80bc99",
+  "onnx-installed-tests.txt": "ea61e47e8402cefb99a5d9ed457f7c4993be47677afe2fcb1e2de1dd4dbbe596",
+  "onnx-offline.json": "9b0f7f732e71344be4aed22e10505475b74f076b8dd89b9ab526ea0c402813b6",
+  "regenerate.py": "1616487de236d904fb0068978cc902985ad18c4777c1c665db2aad7e5ce0404c",
+  "report.md": "680f7cfee6dcc3b5c5f71bfa0d2283b49cda3dca3cbba2cffb84656728b9946f",
+  "verification.json": "25e1f86bdff92de409fecb9d79e3aa0f49b6df6015d143fc50ae0564ecb485dd",
+  "windows-matrix-confirmation.json": "b92118d565c79eaa1dbaa95539c278c7125575f3ec372570de424c7b2e6c0875",
+  "windows-matrix.json": "127ec3db419ecb8abb5e6be055d35891d938b01a1fe6b99cebc4562b3f9d53fe",
+  "dist\\memory-verification-20261004\\nsn-0.3.0-py3-none-any.whl": "423370a5b09e7104627dbad911e39c6a8b3f8c0c974d2dc6799ed6e726af6f3b"
+}

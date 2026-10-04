@@ -1,0 +1,57 @@
+{
+  "selection": "Fixed digest order seed 42; two development LoCoMo clusters per category where available, one full-S LongMemEval question per category; no answer/score-based selection",
+  "case_ids": [
+    "locomo:conv-42:0005",
+    "locomo:conv-30:0009",
+    "locomo:conv-42:0009",
+    "locomo:conv-30:0006",
+    "locomo:conv-42:0085",
+    "locomo:conv-42:0185",
+    "locomo:conv-30:0080",
+    "locomo:conv-30:0086",
+    "locomo:conv-42:0213",
+    "longmemeval:d7c942c3",
+    "longmemeval:60159905",
+    "longmemeval:70b3e69b",
+    "longmemeval:32260d93",
+    "longmemeval:8550ddae",
+    "longmemeval:gpt4_1d80365e"
+  ],
+  "category_counts": {
+    "locomo:2": 2,
+    "locomo:4": 2,
+    "locomo:1": 2,
+    "locomo:5": 2,
+    "locomo:3": 1,
+    "longmemeval:single-session-user": 1,
+    "longmemeval:multi-session": 1,
+    "longmemeval:single-session-preference": 1,
+    "longmemeval:temporal-reasoning": 1,
+    "longmemeval:knowledge-update": 1,
+    "longmemeval:single-session-assistant": 1
+  },
+  "scope": "Bounded exploratory paired benchmark; not complete frozen evaluation or superiority evidence",
+  "profiles": [
+    "stateless",
+    "rolling",
+    "full_context",
+    "bm25",
+    "hybrid",
+    "nsn_lexical",
+    "nsn_semantic"
+  ],
+  "models": [
+    "qwen3:1.7b",
+    "qwen3:4b",
+    "qwen3:8b",
+    "gemma4:31b"
+  ],
+  "budgets": {
+    "context": 2048,
+    "output": 32,
+    "memory_utf8_bytes": 512
+  },
+  "seed": 42,
+  "existing_exposure": "Prior partial evaluation/artifacts exist and remain separate; no holdout tuning",
+  "source_manifest_sha256": "a31ea09e038636a37e8f320ade5e5cdf5ece0374abff9413d6e8d9c2c6aafb67"
+}

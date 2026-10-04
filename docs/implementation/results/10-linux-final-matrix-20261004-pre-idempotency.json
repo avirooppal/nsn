@@ -1,0 +1,167 @@
+{
+  "3.9": {
+    "passed": true,
+    "wheel_sha256": "b9a4c1f4a351f5bbc793c4d0ecc88813580c2a9a86f07e6241afb59d4f34728a",
+    "attempts": [
+      {
+        "command": [
+          "docker",
+          "build",
+          "-t",
+          "nsn-matrix:3.9",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_linux_matrix_xsru0870"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "#0 building with \"desktop-linux\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 DONE 0.0s\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 268B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load metadata for docker.io/library/python:3.9-slim\n#2 DONE 0.9s\n\n#3 [internal] load .dockerignore\n#3 transferring context: 2B done\n#3 DONE 0.0s\n\n#4 [1/6] FROM docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b\n#4 resolve docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b 0.0s done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 196.62kB 0.1s done\n#5 DONE 0.1s\n\n#6 [2/6] COPY nsn-0.3.0-py3-none-any.whl /tmp/\n#6 CACHED\n\n#7 [3/6] RUN pip install --no-cache-dir /tmp/nsn-0.3.0-py3-none-any.whl pytest pytest-asyncio psutil\n#7 CACHED\n\n#8 [4/6] COPY verify_install.py /checks/\n#8 CACHED\n\n#9 [5/6] COPY tests/ /checks/tests/\n#9 CACHED\n\n#10 [6/6] WORKDIR /tmp\n#10 CACHED\n\n#11 exporting to image\n#11 exporting layers done\n#11 exporting manifest sha256:64f81bcc6e787613d1b94ed0042779c2a4fb4ed4297987f048d609a4c96eaaf3 done\n#11 exporting config sha256:27c7a6850b155fa52220586a3a3a609351fc982c5e5437c3c81f7495a3486e95 done\n#11 exporting attestation manifest sha256:5d111ebaf65f23ae2276340803093bc8d9b9c9c37b356245b8a20ae6a826b818 0.0s done\n#11 exporting manifest list sha256:b7700bc2287b2b4e1be3005921cee06712038966ff6f47e1056e867bca2586f6 0.0s done\n#11 naming to docker.io/library/nsn-matrix:3.9 done\n#11 unpacking to docker.io/library/nsn-matrix:3.9 0.0s done\n#11 DONE 0.1s\n\nView build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/pwym22g6ekg3013myj74remno\n"
+      },
+      {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--network",
+          "none",
+          "nsn-matrix:3.9",
+          "python",
+          "/checks/verify_install.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"minimal_wheel\": \"/usr/local/lib/python3.9/site-packages/nsn/__init__.py\", \"network_denied\": true, \"restart_recall\": true, \"namespace_isolation\": true, \"package_yaml\": true, \"import_threads_unchanged\": true}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--network",
+          "none",
+          "nsn-matrix:3.9",
+          "python",
+          "-m",
+          "pytest",
+          "/checks/tests",
+          "-k",
+          "not rest_authentication and not legacy_deprecation",
+          "-q",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "exit_code": 0,
+        "stdout": ".................................................................        [100%]\n65 passed, 2 deselected in 4.04s\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "3.10": {
+    "passed": true,
+    "wheel_sha256": "b9a4c1f4a351f5bbc793c4d0ecc88813580c2a9a86f07e6241afb59d4f34728a",
+    "attempts": [
+      {
+        "command": [
+          "docker",
+          "build",
+          "-t",
+          "nsn-matrix:3.10",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_linux_matrix_xsru0870"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "#0 building with \"desktop-linux\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 DONE 0.0s\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 269B done\n#1 DONE 0.0s\n\n#2 [internal] load metadata for docker.io/library/python:3.10-slim\n#2 DONE 0.3s\n\n#3 [internal] load .dockerignore\n#3 transferring context: 2B done\n#3 DONE 0.0s\n\n#4 [1/6] FROM docker.io/library/python:3.10-slim@sha256:c1aaf3d03e14944a039a1647e0b3f6f34c6bee517bac6ff380215ee099c4e808\n#4 resolve docker.io/library/python:3.10-slim@sha256:c1aaf3d03e14944a039a1647e0b3f6f34c6bee517bac6ff380215ee099c4e808 0.0s done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 612B done\n#5 DONE 0.0s\n\n#6 [2/6] COPY nsn-0.3.0-py3-none-any.whl /tmp/\n#6 CACHED\n\n#7 [5/6] COPY tests/ /checks/tests/\n#7 CACHED\n\n#8 [3/6] RUN pip install --no-cache-dir /tmp/nsn-0.3.0-py3-none-any.whl pytest pytest-asyncio psutil\n#8 CACHED\n\n#9 [4/6] COPY verify_install.py /checks/\n#9 CACHED\n\n#10 [6/6] WORKDIR /tmp\n#10 CACHED\n\n#11 exporting to image\n#11 exporting layers done\n#11 exporting manifest sha256:3c29bd71231df63a60bfc3fddde475e8ee01bc65edc1da7f345c09c78d86c94b done\n#11 exporting config sha256:f51eea60f13757856740ba13eaed92e3a2ac2574fd202dee7073e76deb0e6575 done\n#11 exporting attestation manifest sha256:317510c1f2f1b0d9959b33d98bf5f7a78e825ec48ecd14e5685cd8d87f895a97 0.0s done\n#11 exporting manifest list sha256:276cd275ea11e822bf1e9bcf1face26ebc6a7bc58ef348a9fe2d986abcc873c6\n#11 exporting manifest list sha256:276cd275ea11e822bf1e9bcf1face26ebc6a7bc58ef348a9fe2d986abcc873c6 0.0s done\n#11 naming to docker.io/library/nsn-matrix:3.10 done\n#11 unpacking to docker.io/library/nsn-matrix:3.10 0.0s done\n#11 DONE 0.1s\n\nView build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/kb5qsn81zvqsc51al3wvquqf1\n"
+      },
+      {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--network",
+          "none",
+          "nsn-matrix:3.10",
+          "python",
+          "/checks/verify_install.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"minimal_wheel\": \"/usr/local/lib/python3.10/site-packages/nsn/__init__.py\", \"network_denied\": true, \"restart_recall\": true, \"namespace_isolation\": true, \"package_yaml\": true, \"import_threads_unchanged\": true}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--network",
+          "none",
+          "nsn-matrix:3.10",
+          "python",
+          "-m",
+          "pytest",
+          "/checks/tests",
+          "-k",
+          "not rest_authentication and not legacy_deprecation",
+          "-q",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "exit_code": 0,
+        "stdout": ".................................................................        [100%]\n65 passed, 2 deselected in 4.75s\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "3.12": {
+    "passed": true,
+    "wheel_sha256": "b9a4c1f4a351f5bbc793c4d0ecc88813580c2a9a86f07e6241afb59d4f34728a",
+    "attempts": [
+      {
+        "command": [
+          "docker",
+          "build",
+          "-t",
+          "nsn-matrix:3.12",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_linux_matrix_xsru0870"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "#0 building with \"desktop-linux\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 269B 0.0s done\n#1 DONE 0.0s\n\n#2 [internal] load metadata for docker.io/library/python:3.12-slim\n#2 DONE 0.0s\n\n#3 [internal] load .dockerignore\n#3 transferring context: 2B done\n#3 DONE 0.0s\n\n#4 [internal] load build context\n#4 DONE 0.0s\n\n#5 [1/6] FROM docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea\n#5 resolve docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea 0.0s done\n#5 DONE 0.0s\n\n#4 [internal] load build context\n#4 transferring context: 612B done\n#4 DONE 0.0s\n\n#6 [2/6] COPY nsn-0.3.0-py3-none-any.whl /tmp/\n#6 CACHED\n\n#7 [3/6] RUN pip install --no-cache-dir /tmp/nsn-0.3.0-py3-none-any.whl pytest pytest-asyncio psutil\n#7 CACHED\n\n#8 [4/6] COPY verify_install.py /checks/\n#8 CACHED\n\n#9 [5/6] COPY tests/ /checks/tests/\n#9 CACHED\n\n#10 [6/6] WORKDIR /tmp\n#10 CACHED\n\n#11 exporting to image\n#11 exporting layers done\n#11 exporting manifest sha256:33a8c056cdf9aab30c17069277905a85d9348aa260aca2ea291ca023ceedc27f done\n#11 exporting config sha256:fe8ad09b419df3abeb290f9c8ca7260226615b9c7b8c0a782fb4d3128b6050a4 done\n#11 exporting attestation manifest sha256:79c11c7790d4fad1b49406efe8c0b54ac75758845febc57a974f7de0acb9d02c 0.0s done\n#11 exporting manifest list sha256:96a28b087a9c5996a9b2e2280eaed20d7deadd03d7fb0cea65d6013d8fbcd22b\n#11 exporting manifest list sha256:96a28b087a9c5996a9b2e2280eaed20d7deadd03d7fb0cea65d6013d8fbcd22b 0.0s done\n#11 naming to docker.io/library/nsn-matrix:3.12 done\n#11 unpacking to docker.io/library/nsn-matrix:3.12 0.0s done\n#11 DONE 0.2s\n\nView build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/65za5rles9pb0dd0h1klcrixm\n"
+      },
+      {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--network",
+          "none",
+          "nsn-matrix:3.12",
+          "python",
+          "/checks/verify_install.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"minimal_wheel\": \"/usr/local/lib/python3.12/site-packages/nsn/__init__.py\", \"network_denied\": true, \"restart_recall\": true, \"namespace_isolation\": true, \"package_yaml\": true, \"import_threads_unchanged\": true}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--network",
+          "none",
+          "nsn-matrix:3.12",
+          "python",
+          "-m",
+          "pytest",
+          "/checks/tests",
+          "-k",
+          "not rest_authentication and not legacy_deprecation",
+          "-q",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "exit_code": 0,
+        "stdout": ".................................................................        [100%]\n65 passed, 2 deselected in 4.15s\n",
+        "stderr": ""
+      }
+    ]
+  }
+}

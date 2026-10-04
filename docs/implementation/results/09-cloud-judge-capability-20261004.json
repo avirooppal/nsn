@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "answer": "yes",
+  "response": {
+    "model": "gpt-oss:120b",
+    "created_at": "2026-10-04T06:01:30.875675036Z",
+    "message": {
+      "role": "assistant",
+      "content": "yes",
+      "thinking": "The user asks: \"Is 8080 equal to 8080? Reply only yes or no.\" The answer is yes. The instruction: \"You are an evaluator. Return only yes or no.\" So we must output \"yes\"."
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 324029448,
+    "prompt_eval_count": 97,
+    "prompt_eval_cached_count": 48,
+    "eval_count": 59
+  },
+  "model": {
+    "name": "gpt-oss:120b",
+    "model": "gpt-oss:120b",
+    "modified_at": "2025-08-05T00:00:00Z",
+    "size": 65290180781,
+    "digest": "d98fe6ba01e6",
+    "details": {
+      "parent_model": "",
+      "format": "",
+      "family": "",
+      "families": null,
+      "parameter_size": "",
+      "quantization_level": ""
+    }
+  },
+  "track": "independent judge capability; 512-token management output, not matched 32-token answering"
+}

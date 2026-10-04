@@ -1,0 +1,25 @@
+{
+  "status": "failed performance qualification; retained",
+  "run": "python -m pytest tests/ benchmarks/tests/ -q -p no:cacheprovider",
+  "observed_full_suite": "3 failed, 194 passed, 2 skipped in 294.01s",
+  "legacy_fixture_failures": "Two consistency tests reused an unrelated persistent vector index after changing the DB path; fixtures subsequently isolated",
+  "performance_failure": {
+    "threshold": "1k warm vector search p50 <10 ms",
+    "measured_ms": 13.081
+  },
+  "synthetic_fast_hash_metrics": {
+    "1000": {
+      "vector_warm_p50_ms": 13.081,
+      "vector_warm_p95_ms": 17.941,
+      "e2e_warm_p50_ms": 73.884,
+      "e2e_warm_p95_ms": 101.751
+    },
+    "10000": {
+      "vector_warm_p50_ms": 16.284,
+      "vector_warm_p95_ms": 56.348,
+      "e2e_warm_p50_ms": 180.789,
+      "e2e_warm_p95_ms": 225.333
+    }
+  },
+  "decision": "Retain threshold assertions; hardware qualification marked performance, separate from functional regressions. No semantic-resource target claimed."
+}

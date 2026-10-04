@@ -1,0 +1,21 @@
+{
+  "records": 10000,
+  "content": "short generated English service/port records",
+  "append_p95_ms": 3.876800008583814,
+  "first_retrieve_ms": 116.77469999995083,
+  "warm_retrieve_p95_ms": 96.31639999861363,
+  "disk_bytes_including_wal": 11333688,
+  "module": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_phase10_minimal\\lib\\site-packages\\nsn\\__init__.py",
+  "sampled_process_tree_rss_max_bytes": 30572544,
+  "windows_sum_of_individual_peak_working_sets_bytes": 30617600,
+  "sampling_interval_ms": 20,
+  "profile": "isolated minimal installed wheel; launcher and child interpreter process tree",
+  "first_query_is_not_os_cache_cold": true,
+  "answering_model": "none",
+  "targets": {
+    "warm_retrieve_p95_ms": 25,
+    "append_p95_ms": 10,
+    "incremental_runtime_rss_bytes": 104857600
+  },
+  "rss_gate_interpretation": "sum of OS individual peaks is a conservative bound, not simultaneous peak; no encoder/model loaded"
+}

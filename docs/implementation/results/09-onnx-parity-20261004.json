@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "items": 9,
+  "min_cosine": 0.9999998963439339,
+  "max_abs_error": 1.9371509552001953e-07,
+  "network_denied": true,
+  "heavy_imports": [],
+  "fingerprint": "onnx_minilm_mean_31481896cd1290221ddd3e67931fae5b0db7e09fd20a4f448883203af5aa05f9",
+  "onnx_sha256": "6fd5d72fe4589f189f8ebc006442dbb529bb7ce38f8082112682524616046452",
+  "scope": "nine development texts including identifier/negation/multilingual/empty/truncated long input; numerical parity, not full benchmark accuracy"
+}

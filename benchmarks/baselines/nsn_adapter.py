@@ -20,9 +20,18 @@ class NSNSystem(BaseSystem):
         self.memory = Memory(namespace=namespace, db_path=db_path)
 
     def _cleanup(self):
-        for p in [self.db_path, self.db_path.replace(".db", ".faiss"), self.db_path.replace(".db", ".faiss_ids")]:
+        base_faiss = self.db_path.replace(".db", "")
+        paths = [
+            self.db_path, self.db_path + "-wal", self.db_path + "-shm",
+            f"{base_faiss}.faiss", f"{base_faiss}_hnsw.faiss", f"{base_faiss}_ivfpq.faiss",
+            f"{base_faiss}.faiss_ids", f"{base_faiss}_ids.json"
+        ]
+        for p in paths:
             if os.path.exists(p):
-                os.remove(p)
+                try:
+                    os.remove(p)
+                except Exception:
+                    pass
 
     def observe(self, content: str, source: str = "agent", metadata: dict = None):
         res = self.memory.observe(content, source=source, metadata=metadata)

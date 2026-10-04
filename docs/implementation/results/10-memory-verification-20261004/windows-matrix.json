@@ -1,0 +1,221 @@
+{
+  "3.9": {
+    "passed": false,
+    "wheel_sha256": "423370a5b09e7104627dbad911e39c6a8b3f8c0c974d2dc6799ed6e726af6f3b",
+    "attempts": [
+      {
+        "command": [
+          "uv",
+          "venv",
+          "--python",
+          "3.9",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_pt1rxuhu\\venv"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using CPython 3.9.25\nCreating virtual environment at: venv\nActivate with: venv\\Scripts\\activate\n"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_pt1rxuhu\\venv\\Scripts\\python.exe",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\dist\\memory-verification-20261004\\nsn-0.3.0-py3-none-any.whl",
+          "pytest",
+          "pytest-asyncio",
+          "psutil"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using Python 3.9.25 environment at: venv\nResolved 14 packages in 6.22s\nPrepared 1 package in 247ms\nInstalled 14 packages in 947ms\n + backports-asyncio-runner==1.2.0\n + colorama==0.4.6\n + exceptiongroup==1.3.1\n + iniconfig==2.1.0\n + nsn==0.3.0 (from file:///C:/Users/aviroop/Desktop/nsn/dist/memory-verification-20261004/nsn-0.3.0-py3-none-any.whl)\n + packaging==26.3\n + pluggy==1.6.0\n + psutil==7.2.2\n + pygments==2.21.0\n + pytest==8.4.2\n + pytest-asyncio==1.2.0\n + pyyaml==6.0.3\n + tomli==2.4.1\n + typing-extensions==4.16.0\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_pt1rxuhu\\venv\\Scripts\\python.exe",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\scripts\\verify_install.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"minimal_wheel\": \"C:\\\\Users\\\\aviroop\\\\AppData\\\\Local\\\\Temp\\\\nsn_matrix_pt1rxuhu\\\\venv\\\\Lib\\\\site-packages\\\\nsn\\\\__init__.py\", \"network_denied\": true, \"restart_recall\": true, \"namespace_isolation\": true, \"package_yaml\": true, \"import_threads_unchanged\": true}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_pt1rxuhu\\venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_durable_storage.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_facts_history.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_retrieval_context.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_sdk_facade.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_audit_repairs.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_bounded_relationships.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_consolidation.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_advanced_memory.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_runtime_wal_lifecycle.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_event_retrieval_status.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_retrieval_cache_consistency.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_deferred_indexing.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_onnx_encoder.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_memory_hardening.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_memory_layer_contract.py",
+          "-k",
+          "not rest_authentication and not legacy_deprecation",
+          "-q",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "exit_code": 1,
+        "stdout": ".........................................F.............................. [ 70%]\n....s........................s                                           [100%]\n================================== FAILURES ===================================\n_____ test_optional_enrichment_unconfirmed_only_and_fabrication_rejected ______\n\ntmp_path = WindowsPath('C:/Users/aviroop/AppData/Local/Temp/pytest-of-aviroop/pytest-222/test_optional_enrichment_uncon0')\n\n    def test_optional_enrichment_unconfirmed_only_and_fabrication_rejected(tmp_path):\n        rt = Runtime(str(tmp_path))\n        eid = rt.append_event(content=\"Paris\")\n        backend = command(\"import sys,json; r=json.load(sys.stdin)['records'][0]; print(json.dumps({'proposals':[{'source_type':r['source_type'],'source_id':r['source_id'],'subject':'person','predicate':'city','value':r['text'],'span_start':0,'span_end':len(r['text'])}]}))\")\n        report = rt.sleep(enrichment_command=backend)\n        assert report[\"model_calls\"] == 1 and report[\"model_input_bytes\"] > 0 and report[\"model_output_bytes\"] > 0\n>       assert query(rt, \"SELECT value,status FROM enrichment_proposals\") == [(\"Paris\", \"unconfirmed\")]\nE       AssertionError: assert [] == [('Paris', 'unconfirmed')]\nE         \nE         Right contains one more item: ('Paris', 'unconfirmed')\nE         Use -v to get more diff\n\n..\\..\\..\\..\\Desktop\\nsn\\tests\\test_consolidation.py:135: AssertionError\n=========================== short test summary info ===========================\nFAILED ..\\..\\..\\..\\Desktop\\nsn\\tests\\test_consolidation.py::test_optional_enrichment_unconfirmed_only_and_fabrication_rejected\n1 failed, 99 passed, 2 skipped, 2 deselected in 43.95s\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "3.10": {
+    "passed": true,
+    "wheel_sha256": "423370a5b09e7104627dbad911e39c6a8b3f8c0c974d2dc6799ed6e726af6f3b",
+    "attempts": [
+      {
+        "command": [
+          "uv",
+          "venv",
+          "--python",
+          "3.10",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_eq3fr4qc\\venv"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using CPython 3.10.0 interpreter at: C:\\Users\\aviroop\\AppData\\Local\\Programs\\Python\\Python310\\python.exe\nCreating virtual environment at: venv\nActivate with: venv\\Scripts\\activate\n"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_eq3fr4qc\\venv\\Scripts\\python.exe",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\dist\\memory-verification-20261004\\nsn-0.3.0-py3-none-any.whl",
+          "pytest",
+          "pytest-asyncio",
+          "psutil"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using Python 3.10.0 environment at: venv\nResolved 14 packages in 79ms\nInstalled 14 packages in 735ms\n + backports-asyncio-runner==1.2.0\n + colorama==0.4.6\n + exceptiongroup==1.3.1\n + iniconfig==2.3.0\n + nsn==0.3.0 (from file:///C:/Users/aviroop/Desktop/nsn/dist/memory-verification-20261004/nsn-0.3.0-py3-none-any.whl)\n + packaging==26.3\n + pluggy==1.6.0\n + psutil==7.2.2\n + pygments==2.21.0\n + pytest==9.1.1\n + pytest-asyncio==1.4.0\n + pyyaml==6.0.3\n + tomli==2.4.1\n + typing-extensions==4.16.0\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_eq3fr4qc\\venv\\Scripts\\python.exe",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\scripts\\verify_install.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"minimal_wheel\": \"C:\\\\Users\\\\aviroop\\\\AppData\\\\Local\\\\Temp\\\\nsn_matrix_eq3fr4qc\\\\venv\\\\Lib\\\\site-packages\\\\nsn\\\\__init__.py\", \"network_denied\": true, \"restart_recall\": true, \"namespace_isolation\": true, \"package_yaml\": true, \"import_threads_unchanged\": true}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_eq3fr4qc\\venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_durable_storage.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_facts_history.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_retrieval_context.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_sdk_facade.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_audit_repairs.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_bounded_relationships.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_consolidation.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_advanced_memory.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_runtime_wal_lifecycle.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_event_retrieval_status.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_retrieval_cache_consistency.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_deferred_indexing.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_onnx_encoder.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_memory_hardening.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_memory_layer_contract.py",
+          "-k",
+          "not rest_authentication and not legacy_deprecation",
+          "-q",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "exit_code": 0,
+        "stdout": "........................................................................ [ 70%]\n....s........................s                                           [100%]\n100 passed, 2 skipped, 2 deselected in 40.14s\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "3.12": {
+    "passed": true,
+    "wheel_sha256": "423370a5b09e7104627dbad911e39c6a8b3f8c0c974d2dc6799ed6e726af6f3b",
+    "attempts": [
+      {
+        "command": [
+          "uv",
+          "venv",
+          "--python",
+          "3.12",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_yekzerd9\\venv"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using CPython 3.12.13\nCreating virtual environment at: venv\nActivate with: venv\\Scripts\\activate\n"
+      },
+      {
+        "command": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_yekzerd9\\venv\\Scripts\\python.exe",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\dist\\memory-verification-20261004\\nsn-0.3.0-py3-none-any.whl",
+          "pytest",
+          "pytest-asyncio",
+          "psutil"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "Using Python 3.12.13 environment at: venv\nResolved 11 packages in 78ms\nInstalled 11 packages in 842ms\n + colorama==0.4.6\n + iniconfig==2.3.0\n + nsn==0.3.0 (from file:///C:/Users/aviroop/Desktop/nsn/dist/memory-verification-20261004/nsn-0.3.0-py3-none-any.whl)\n + packaging==26.3\n + pluggy==1.6.0\n + psutil==7.2.2\n + pygments==2.21.0\n + pytest==9.1.1\n + pytest-asyncio==1.4.0\n + pyyaml==6.0.3\n + typing-extensions==4.16.0\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_yekzerd9\\venv\\Scripts\\python.exe",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\scripts\\verify_install.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"minimal_wheel\": \"C:\\\\Users\\\\aviroop\\\\AppData\\\\Local\\\\Temp\\\\nsn_matrix_yekzerd9\\\\venv\\\\Lib\\\\site-packages\\\\nsn\\\\__init__.py\", \"network_denied\": true, \"restart_recall\": true, \"namespace_isolation\": true, \"package_yaml\": true, \"import_threads_unchanged\": true}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_matrix_yekzerd9\\venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_durable_storage.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_facts_history.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_retrieval_context.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_sdk_facade.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_audit_repairs.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_bounded_relationships.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_consolidation.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_advanced_memory.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_runtime_wal_lifecycle.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_event_retrieval_status.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_retrieval_cache_consistency.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_deferred_indexing.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_onnx_encoder.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_memory_hardening.py",
+          "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\test_memory_layer_contract.py",
+          "-k",
+          "not rest_authentication and not legacy_deprecation",
+          "-q",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "exit_code": 0,
+        "stdout": "........................................................................ [ 70%]\n....s........................s                                           [100%]\n100 passed, 2 skipped, 2 deselected in 35.70s\n",
+        "stderr": ""
+      }
+    ]
+  }
+}

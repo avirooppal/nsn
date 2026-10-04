@@ -1,0 +1,32 @@
+{
+  "observed_utc": "2026-10-04T07:51:25.673818+00:00",
+  "runs": [
+    {
+      "run": "docs\\implementation\\results\\09-completion-qwen2b-full-s-v2-20261004",
+      "manifest_sha256": "86d493b40f5ee49b136e1739b031cc490297a47ea41afbfe2642e1035f298290",
+      "rows_sha256_at_checkpoint": "d9cba14a0345e7e0d1fbf57e0db406e9408a98687a9cd1870824a263514061a3",
+      "expected_rows": 4500,
+      "observed_rows": 144,
+      "missing_rows": 4356,
+      "completed_cases": 16,
+      "answer_failures": 16,
+      "missing_scores": 128,
+      "complete_coverage": false,
+      "publishable_superiority": false
+    },
+    {
+      "run": "docs\\implementation\\results\\09-cloud-resumable-judge-20261004",
+      "manifest_sha256": "a96bc86a36a1188a2d6ac0e38bc6c9ec3dea3d50fbd9f2c7c997775aeed630ac",
+      "rows_sha256_at_checkpoint": "970f006f472155db1f3594bab47df559ee20b5bc4bf34ad91c94c51df909cdeb",
+      "expected_rows": 27,
+      "observed_rows": 27,
+      "missing_rows": 0,
+      "completed_cases": 3,
+      "answer_failures": 3,
+      "missing_scores": 0,
+      "complete_coverage": true,
+      "publishable_superiority": false
+    }
+  ],
+  "qualification": "Coverage checkpoint only; does not close quality, human review, competitor or release gates."
+}

@@ -1,0 +1,11 @@
+{
+  "run": "docs\\implementation\\results\\09-completion-qwen2b-full-s-v2-20261004",
+  "byte_line_rows": 261,
+  "text_splitlines_count": 277,
+  "embedded_unicode_line_separators": {
+    "0x2028": 16
+  },
+  "unique_pairs": 261,
+  "complete_cases": 29,
+  "diagnosis": "Valid embedded Unicode separators are incorrectly interpreted as JSONL record boundaries by str.splitlines; no file mutation performed."
+}

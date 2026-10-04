@@ -1,0 +1,12 @@
+{
+  "hf_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "tokenizer_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+  "hf_vocab_tokens": 151643,
+  "gguf_tokens": 151936,
+  "merge_rules": 151387,
+  "all_vocab_ids_match_gguf": true,
+  "all_merge_rules_match_gguf": true,
+  "model": "qwen3:1.7b",
+  "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7"
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "model": "qwen3:1.7b",
+    "response": {
+      "status": "success"
+    },
+    "elapsed_seconds": 27967.663378899997
+  },
+  {
+    "model": "qwen3:4b",
+    "failure": "TimeoutError('timed out')",
+    "elapsed_seconds": 3474.4441668
+  }
+]

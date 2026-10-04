@@ -1,0 +1,42 @@
+[
+  {
+    "requested_model": "gpt-oss:20b",
+    "raw": {
+      "model": "gpt-oss:20b",
+      "created_at": "2026-10-04T05:52:53.500144702Z",
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "thinking": "The user says: \"Reply with the single word ready.\" So they want the assistant to reply with the single word \"ready\". So the answer"
+      },
+      "done": true,
+      "done_reason": "length",
+      "total_duration": 453665829,
+      "prompt_eval_count": 69,
+      "prompt_eval_cached_count": 59,
+      "eval_count": 32
+    }
+  },
+  {
+    "requested_model": "gpt-oss:120b",
+    "raw": {
+      "model": "gpt-oss:120b",
+      "created_at": "2026-10-04T05:52:54.740963586Z",
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "thinking": "The user says: \"Reply with the single word ready.\" So they want a single word \"ready\". Probably just respond with \"ready\". Ensure"
+      },
+      "done": true,
+      "done_reason": "length",
+      "total_duration": 244408743,
+      "prompt_eval_count": 69,
+      "prompt_eval_cached_count": 32,
+      "eval_count": 32
+    }
+  },
+  {
+    "requested_model": "deepseek-v4.1-flash",
+    "failure": "Ollama Cloud HTTP 402"
+  }
+]

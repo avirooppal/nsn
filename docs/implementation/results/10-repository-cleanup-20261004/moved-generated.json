@@ -1,0 +1,164 @@
+[
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\.pytest_cache",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\.pytest_cache",
+    "files": 4,
+    "bytes": 542.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\benchmarks\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\benchmarks\\__pycache__",
+    "files": 4,
+    "bytes": 22609.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\benchmarks\\baselines\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\benchmarks\\baselines\\__pycache__",
+    "files": 2,
+    "bytes": 4096.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\benchmarks\\competitor_eval\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\benchmarks\\competitor_eval\\__pycache__",
+    "files": 4,
+    "bytes": 7064.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\benchmarks\\datasets\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\benchmarks\\datasets\\__pycache__",
+    "files": 2,
+    "bytes": 8999.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\benchmarks\\metrics\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\benchmarks\\metrics\\__pycache__",
+    "files": 3,
+    "bytes": 7240.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\benchmarks\\public_eval\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\benchmarks\\public_eval\\__pycache__",
+    "files": 30,
+    "bytes": 220868.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\benchmarks\\runners\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\benchmarks\\runners\\__pycache__",
+    "files": 2,
+    "bytes": 13404.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\benchmarks\\tests\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\benchmarks\\tests\\__pycache__",
+    "files": 24,
+    "bytes": 169119.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\examples\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\examples\\__pycache__",
+    "files": 4,
+    "bytes": 5438.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\neurosleepnet\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\neurosleepnet\\__pycache__",
+    "files": 2,
+    "bytes": 2868.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\neurosleepnet\\compression\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\neurosleepnet\\compression\\__pycache__",
+    "files": 2,
+    "bytes": 4721.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\neurosleepnet\\config\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\neurosleepnet\\config\\__pycache__",
+    "files": 2,
+    "bytes": 1790.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\neurosleepnet\\embeddings\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\neurosleepnet\\embeddings\\__pycache__",
+    "files": 10,
+    "bytes": 50258.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\neurosleepnet\\graph\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\neurosleepnet\\graph\\__pycache__",
+    "files": 4,
+    "bytes": 19970.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\neurosleepnet\\integrations\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\neurosleepnet\\integrations\\__pycache__",
+    "files": 5,
+    "bytes": 15507.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\neurosleepnet\\memory\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\neurosleepnet\\memory\\__pycache__",
+    "files": 6,
+    "bytes": 45227.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\neurosleepnet\\perception\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\neurosleepnet\\perception\\__pycache__",
+    "files": 4,
+    "bytes": 7572.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\neurosleepnet\\retrieval\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\neurosleepnet\\retrieval\\__pycache__",
+    "files": 6,
+    "bytes": 57290.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\neurosleepnet\\sdk\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\neurosleepnet\\sdk\\__pycache__",
+    "files": 4,
+    "bytes": 32123.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\neurosleepnet\\sleep\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\neurosleepnet\\sleep\\__pycache__",
+    "files": 3,
+    "bytes": 25737.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\neurosleepnet\\storage\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\neurosleepnet\\storage\\__pycache__",
+    "files": 12,
+    "bytes": 163290.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\neurosleepnet\\trust\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\neurosleepnet\\trust\\__pycache__",
+    "files": 5,
+    "bytes": 6307.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\nsn\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\nsn\\__pycache__",
+    "files": 9,
+    "bytes": 98753.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\scripts\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\scripts\\__pycache__",
+    "files": 6,
+    "bytes": 15257.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\tests\\__pycache__",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\tests\\__pycache__",
+    "files": 86,
+    "bytes": 1402603.0
+  },
+  {
+    "source": "C:\\Users\\aviroop\\Desktop\\nsn\\build",
+    "destination": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-generated-cleanup-20261004\\build",
+    "files": 54,
+    "bytes": 363535.0
+  }
+]

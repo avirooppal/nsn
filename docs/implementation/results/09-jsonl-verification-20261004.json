@@ -1,0 +1,13 @@
+{
+  "scope": "evaluation JSONL readers only",
+  "tests": "138 passed in 5.08s",
+  "cloud_regenerated_report_matches_previous": true,
+  "frozen_snapshot_hashes_match": {
+    "answer": true,
+    "judge": true
+  },
+  "sdk_source_matches_existing_wheel": true,
+  "wheel_sha256": "ce32c7573366aa9d706889b042224f2d974edf2197e17aed34dac8fcc79e1431",
+  "parser_sha256": "dcb2b8f5b7512f56bc5c3593d2cc609303e055349affc04e9dc67694ff6df5ba",
+  "remaining": "Legacy frozen snapshots retain old readers; do not modify snapshots or bypass resume source validation. Truncated records fail visibly; no automatic repair."
+}

@@ -1,33 +1,21 @@
 import unittest
 import os
+import tempfile
 from neurosleepnet import Memory
 from neurosleepnet.trust.consistency import ConsistencyScorer
 
 class TestConsistencyScorer(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        if os.path.exists('test_consistency.db'):
-            try:
-                os.remove('test_consistency.db')
-            except Exception:
-                pass
-                
-        cls.memory = Memory()
-        # Overwrite to use test db so we don't pollute
-        cls.memory.storage.db_path = 'test_consistency.db'
-        cls.memory.storage._initialize_db()
-        
-        # Store a baseline memory
+        cls.directory = tempfile.TemporaryDirectory(prefix="nsn_trust_test_")
+        cls.memory = Memory(db_path=os.path.join(cls.directory.name, 'memory.db'))
+
         cls.memory.store("User likes apples.")
         cls.scorer = ConsistencyScorer(cls.memory)
 
     @classmethod
     def tearDownClass(cls):
-        if os.path.exists('test_consistency.db'):
-            try:
-                os.remove('test_consistency.db')
-            except Exception:
-                pass
+        cls.directory.cleanup()
 
     def test_score_novel(self):
         # Completely different topic

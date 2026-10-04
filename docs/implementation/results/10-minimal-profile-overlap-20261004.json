@@ -1,0 +1,28 @@
+{
+  "records": 10000,
+  "content": "short generated English service/port records",
+  "append_p95_ms": 2.9966000001877546,
+  "first_retrieve_ms": 70.92929999635089,
+  "warm_retrieve_p95_ms": 1.6668999887770042,
+  "additional_unique_query_p95_ms": 112.46910000045318,
+  "disk_bytes_including_wal": 11362504,
+  "module": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_phase10_minimal\\lib\\site-packages\\nsn\\__init__.py",
+  "installed_distribution": {
+    "url": "file:///C:/Users/aviroop/Desktop/nsn/dist/nsn-0.3.0-py3-none-any.whl",
+    "archive_info": {}
+  },
+  "query_workload": "original same fixed query 40 times; unchanged database; plus 40 separately reported unique queries",
+  "verified_wheel_sha256": "3fff5fcbcbfdd2afd1c8b1803de39d19ae780873a441a74f28d546f8611fd432",
+  "sampled_process_tree_rss_max_bytes": 32460800,
+  "windows_sum_of_individual_peak_working_sets_bytes": 32468992,
+  "sampling_interval_ms": 20,
+  "profile": "isolated minimal installed wheel; launcher and child interpreter process tree",
+  "first_query_is_not_os_cache_cold": true,
+  "answering_model": "none",
+  "targets": {
+    "warm_retrieve_p95_ms": 25,
+    "append_p95_ms": 10,
+    "incremental_runtime_rss_bytes": 104857600
+  },
+  "rss_gate_interpretation": "sum of OS individual peaks is a conservative bound, not simultaneous peak; no encoder/model loaded"
+}

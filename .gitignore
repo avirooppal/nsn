@@ -34,7 +34,6 @@ htmlcov/
 *.faiss_ids
 
 # ── Project Planning & Scratch ──────────────────────────────────────────────────
-plan.md
 test_classifier.py
 architecture.md
 
@@ -65,4 +64,9 @@ run.log
 *.jsonl
 benchmarks/results/raw/
 tasks.md
+
+# Downloaded public research assets are reproducible from checksum pins.
+benchmarks/assets/phase09/
+# Preserve the small development-run raw evidence with its manifests.
+!docs/implementation/results/09-*/rows.jsonl
 

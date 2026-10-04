@@ -1,11 +1,19 @@
 import os
 import json
-import numpy as np
-import faiss
 from typing import List, Dict, Any
 from .vector import VectorStore
 from .base import StorageAdapter
 import logging
+
+try:
+    import numpy as np
+except ImportError:
+    np = None
+
+try:
+    import faiss
+except ImportError:
+    faiss = None
 
 logger = logging.getLogger("neurosleepnet.vector")
 
@@ -27,10 +35,15 @@ class TieredVectorStore(VectorStore):
         self._id_map = {} # int -> str (memory_id)
         
         self.buffer_limit = 5000
-        
+
+        if faiss is None:
+            raise ImportError("faiss is required for TieredVectorStore. Install via: pip install 'nsn[semantic]'")
+        if np is None:
+            raise ImportError("numpy is required for TieredVectorStore. Install via: pip install 'nsn[semantic]'")
+
         self.hnsw_index = faiss.IndexIDMap(faiss.IndexHNSWFlat(self.dimension, 32, faiss.METRIC_INNER_PRODUCT))
         self.ivfpq_index = None
-        
+
         self._load()
 
     def _load(self):

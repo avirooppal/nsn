@@ -1,0 +1,7 @@
+{
+  "installed_module": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn_phase10_semantic\\lib\\site-packages\\nsn\\__init__.py",
+  "real_prepared_encoder": true,
+  "network_denied": true,
+  "recall": true,
+  "environment": "wheel installed in venv reusing host ML libraries; not a fresh semantic dependency resolver test"
+}

@@ -14,9 +14,16 @@ class BM25System(BaseSystem):
     def __init__(self, db_path: str = "bench_bm25.db", name: str = "bm25"):
         super().__init__(name)
         self.db_path = db_path
-        if os.path.exists(db_path):
-            os.remove(db_path)
+        self._cleanup()
         self.storage = SQLiteAdapter(db_path=db_path)
+
+    def _cleanup(self):
+        for p in [self.db_path, self.db_path + "-wal", self.db_path + "-shm"]:
+            if os.path.exists(p):
+                try:
+                    os.remove(p)
+                except Exception:
+                    pass
 
     def observe(self, content: str, source: str = "agent", metadata: dict = None):
         import uuid, datetime
@@ -52,6 +59,5 @@ class BM25System(BaseSystem):
         }
 
     def reset(self):
-        if os.path.exists(self.db_path):
-            os.remove(self.db_path)
+        self._cleanup()
         self.storage = SQLiteAdapter(db_path=self.db_path)

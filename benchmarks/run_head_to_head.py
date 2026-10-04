@@ -137,7 +137,10 @@ def print_metric_table(results: dict, benchmark: str):
         r5 = res.get("recall_5", float("nan"))
         rows.append((sys_name, res, r5))
 
-    rows.sort(key=lambda x: (x[0] == "nsn", x[2] if not math.isnan(x[2]) else -1))
+    valid_scores = [r5 for _, _, r5 in rows if not math.isnan(r5)]
+    best_score = max(valid_scores) if valid_scores else -1.0
+
+    rows.sort(key=lambda x: (x[2] if not math.isnan(x[2]) else -1.0, x[1].get("exact_match", 0.0)), reverse=True)
 
     for sys_name, res, r5 in rows:
         label = SYSTEM_LABELS.get(sys_name, sys_name)
@@ -147,7 +150,7 @@ def print_metric_table(results: dict, benchmark: str):
         em_str = _fmt(res.get("exact_match"), pct=True)
         p95_str = f"{res.get('p95_latency', 0):.1f}" if res.get('p95_latency') else "N/A"
         bar = _bar(r5 if not (isinstance(r5, float) and math.isnan(r5)) else 0)
-        marker = " << BEST" if sys_name == "nsn" else ""
+        marker = " << BEST" if best_score > 0 and not math.isnan(r5) and abs(r5 - best_score) < 1e-6 else ""
         print(f"{label:<30} {r5_str:>9} {mrr_str:>7} {ndcg_str:>8} {em_str:>7} {p95_str:>7}  [{bar}]{marker}")
 
     print()

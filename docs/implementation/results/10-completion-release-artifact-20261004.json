@@ -1,0 +1,14 @@
+{
+  "wheel": "nsn-0.3.0-py3-none-any.whl",
+  "sha256": "ce32c7573366aa9d706889b042224f2d974edf2197e17aed34dac8fcc79e1431",
+  "bytes": 104013,
+  "package_source_matches": true,
+  "excluded_datasets_models_credentials": true,
+  "license": "owner decision unresolved",
+  "published": false,
+  "semantic_backends": [
+    "sentence-transformers (default)",
+    "explicit ONNX CPU"
+  ],
+  "default_api": "import nsn; nsn.init(path); nsn.wrap(model)"
+}

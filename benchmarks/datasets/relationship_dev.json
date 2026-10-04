@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "description": "Frozen development-only structured relationship evidence queries; not public model QA evaluation.",
+  "cases": [
+    {"id":"two_hop_employer","query":"Which city hosts Alice's employer?","terminal":"paris","relations":[["Alice","works_for","Acme"],["Acme","located_in","Paris"]]},
+    {"id":"two_hop_project","query":"Which city hosts Dana's project?","terminal":"oslo","relations":[["Dana","maintains","Atlas"],["Atlas","hosted_in","Oslo"]]},
+    {"id":"three_hop","query":"Which country hosts Erin's employer?","terminal":"norway","relations":[["Erin","works_for","Polar"],["Polar","located_in","Oslo"],["Oslo","in_country","Norway"]]},
+    {"id":"historical","query":"Which city hosts Bob's employer?","as_of_time":"2025-06-01T00:00:00Z","terminal":"lyon","relations":[["Bob","works_for","Delta"],["Delta","located_in","Lyon"]],"correction":["Delta","located_in","Rome"]},
+    {"id":"current","query":"Which city hosts Bob's employer?","terminal":"rome","relations":[["Bob","works_for","Delta"],["Delta","located_in","Lyon"]],"correction":["Delta","located_in","Rome"]},
+    {"id":"deleted_support","query":"Which city hosts Clara's employer?","terminal":null,"relations":[["Clara","works_for","Echo"],["Echo","located_in","Berlin"]],"delete_last":true},
+    {"id":"association","query":"Which city hosts Felix's employer?","terminal":null,"relations":[["Felix","RELATED_TO","Foxtrot"],["Foxtrot","located_in","Milan"]]},
+    {"id":"identifier_regression","query":"deployment-id-42","terminal":null,"relations":[],"direct":"Service token deployment-id-42 is active."}
+  ]
+}

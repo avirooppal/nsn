@@ -1,0 +1,52 @@
+{
+  "native_model": "qwen3:4b",
+  "native_digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "native_template_sha256": "2d54db2b9bb29ce7db54fea63a891f5859603813c555b1f88b5e0994652897f9",
+  "corrected_identity": {
+    "name": "nsn-benchmark-qwen3-4b-nothink:latest",
+    "model": "nsn-benchmark-qwen3-4b-nothink:latest",
+    "modified_at": "2026-10-04T14:44:35.6390163+05:30",
+    "size": 2497293776,
+    "digest": "7d0843915d13c62ca275fd76ef9bdf1f01bfbd272537d5de7980a5813aebc565",
+    "details": {
+      "parent_model": "qwen3:4b",
+      "format": "gguf",
+      "family": "qwen3",
+      "families": [
+        "qwen3"
+      ],
+      "parameter_size": "4.0B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 262144,
+      "embedding_length": 2560
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "thinking"
+    ]
+  },
+  "corrected_template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+  "template_source": "installed qwen3:8b Qwen3 template; same Qwen3 message serialization with no-thinking suffix",
+  "model_info_unchanged": true,
+  "original_model_unchanged": true,
+  "create_result": {
+    "status": "success"
+  },
+  "scope": "Explicit separate serving configuration; native-run results retained, no downloads or replacement of original model",
+  "behavioral_no_thinking_qualification": false,
+  "observed_limitation": "Template changed but sampled outputs still emit reasoning and hit the 32-token cap; do not claim this fixed the answering-mode contract.",
+  "general_model_metadata": {
+    "general.architecture": "qwen3",
+    "general.basename": "Qwen3",
+    "general.file_type": 15,
+    "general.finetune": "Thinking",
+    "general.license": "apache-2.0",
+    "general.license.link": "https://huggingface.co/Qwen/Qwen3-4B-Thinking-2507/blob/main/LICENSE",
+    "general.parameter_count": 4022468096,
+    "general.quantization_version": 2,
+    "general.size_label": "4B",
+    "general.type": "model",
+    "general.version": "2507"
+  }
+}

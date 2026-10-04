@@ -1,0 +1,74 @@
+{
+  "original_full": {
+    "p50_ms": 20.18444999703206,
+    "p95_ms": 22.16170000610873,
+    "plan": [
+      [
+        8,
+        0,
+        0,
+        "SCAN TABLE events_fts AS fts VIRTUAL TABLE INDEX 0:M3"
+      ],
+      [
+        15,
+        0,
+        0,
+        "SEARCH TABLE events AS e USING INDEX sqlite_autoindex_events_1 (id=?)"
+      ],
+      [
+        54,
+        0,
+        0,
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    ]
+  },
+  "rank_then_load": {
+    "p50_ms": 21.816600004967768,
+    "p95_ms": 23.81319999403786,
+    "plan": [
+      [
+        3,
+        0,
+        0,
+        "MATERIALIZE 1"
+      ],
+      [
+        12,
+        3,
+        0,
+        "SCAN TABLE events_fts AS fts VIRTUAL TABLE INDEX 0:M3"
+      ],
+      [
+        19,
+        3,
+        0,
+        "SEARCH TABLE events AS e USING INDEX sqlite_autoindex_events_1 (id=?)"
+      ],
+      [
+        53,
+        3,
+        0,
+        "USE TEMP B-TREE FOR ORDER BY"
+      ],
+      [
+        63,
+        0,
+        0,
+        "SCAN SUBQUERY 1 AS r"
+      ],
+      [
+        65,
+        0,
+        0,
+        "SEARCH TABLE events AS e USING INDEX sqlite_autoindex_events_1 (id=?)"
+      ],
+      [
+        87,
+        0,
+        0,
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    ]
+  }
+}

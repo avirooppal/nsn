@@ -1,11 +1,18 @@
 import re
 
 _SPACY_NLP = None
-try:
-    import spacy
-    _SPACY_NLP = spacy.load("en_core_web_sm")
-except (ImportError, OSError):
-    pass
+_SPACY_TRIED = False
+
+def _get_spacy_nlp():
+    global _SPACY_NLP, _SPACY_TRIED
+    if not _SPACY_TRIED:
+        _SPACY_TRIED = True
+        try:
+            import spacy
+            _SPACY_NLP = spacy.load("en_core_web_sm")
+        except (ImportError, OSError):
+            _SPACY_NLP = None
+    return _SPACY_NLP
 
 SPACY_LABEL_MAP = {
     "PERSON": "Person", "ORG": "Organization", "GPE": "Location",
@@ -18,8 +25,9 @@ class EntityExtractor:
     Extracts entities from text using spaCy NER with a fallback to local heuristics.
     """
     def extract(self, text: str) -> list[dict]:
-        if _SPACY_NLP is not None:
-            doc = _SPACY_NLP(text)
+        nlp = _get_spacy_nlp()
+        if nlp is not None:
+            doc = nlp(text)
             entities = []
             seen = set()
             for ent in doc.ents:

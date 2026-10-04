@@ -1,0 +1,9 @@
+{
+  "status": "incomplete_infrastructure_failure",
+  "expected_rows": 4500,
+  "completed_rows": 18,
+  "failure": "Windows SQLite handle leak in baseline/cache connection cleanup; retained original source snapshot",
+  "continued": false,
+  "replacement": "new v2 run; original rows never mixed",
+  "publishable_superiority": false
+}

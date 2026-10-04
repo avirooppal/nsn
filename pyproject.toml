@@ -3,23 +3,32 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "neurosleepnet"
+name = "nsn"
 version = "0.3.0"
-description = "Cognitive Memory Operating System for SLMs & AI Agents"
+description = "Lightweight self-hosted memory and context for SLMs and AI agents"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
     "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+semantic-onnx = ["onnxruntime>=1.16", "tokenizers>=0.15", "numpy>=1.24.0"]
+enrichment = ["psutil>=5.9"]
+semantic = [
+    "sentence-transformers>=2.2.0",
+    "numpy>=1.24.0",
+]
+legacy = [
     "sentence-transformers>=2.2.0",
     "faiss-cpu>=1.7.4",
     "numpy>=1.24.0",
     "spacy>=3.7.0",
 ]
-
-[project.optional-dependencies]
 dev = [
     "pytest",
     "pytest-asyncio",
+    "psutil>=5.9",
 ]
 api = [
     "fastapi>=0.100.0",
@@ -30,12 +39,26 @@ langchain = [
     "langchain-core>=0.1.0",
 ]
 all = [
+    "sentence-transformers>=2.2.0",
+    "faiss-cpu>=1.7.4",
+    "numpy>=1.24.0",
+    "spacy>=3.7.0",
     "fastapi>=0.100.0",
     "uvicorn>=0.20.0",
     "pydantic>=2.0.0",
     "langchain-core>=0.1.0",
 ]
 
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["neurosleepnet*", "nsn*"]
+
+[tool.setuptools.package-data]
+"neurosleepnet.config" = ["*.yaml"]
+
 [project.urls]
 Homepage = "https://github.com/avirooppal/nsn"
 Repository = "https://github.com/avirooppal/nsn"
+
+[tool.pytest.ini_options]
+markers = ["performance: measured hardware/resource qualification; run explicitly and retain missed targets"]

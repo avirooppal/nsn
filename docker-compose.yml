@@ -1,15 +1,11 @@
-version: '3.8'
-
 services:
   nsn:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: neurosleepnet
-    # Optional: Mount a local volume if you want your SQLite/FAISS DBs to persist 
-    # outside the container. (You'd need to configure NSN to save them in /app/data)
-    # volumes:
-    #   - ./data:/app/data
+    build: .
+    network_mode: none
     environment:
-      - NSN_NAMESPACE=docker_agent
-      - NSN_EMBEDDING_MODEL=all-MiniLM-L6-v2
+      NSN_DATA_DIR: /data
+      NSN_NAMESPACE: docker_agent
+    volumes:
+      - nsn_memory:/data
+volumes:
+  nsn_memory:

@@ -74,6 +74,19 @@ def _translate_gold_ids(gold_ids: list, id_map: dict) -> list:
 # ---------------------------------------------------------------------------
 # Main evaluator
 # ---------------------------------------------------------------------------
+import hashlib
+import json
+import time
+
+def _compute_dataset_hash(data) -> str:
+    def _default(obj):
+        if hasattr(obj, "to_dict"):
+            return obj.to_dict()
+        if hasattr(obj, "__dict__"):
+            return obj.__dict__
+        return str(obj)
+    raw = json.dumps(data, sort_keys=True, default=_default).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()[:16]
 
 class BenchmarkEvaluator:
     def __init__(self, logger=None):
@@ -90,45 +103,72 @@ class BenchmarkEvaluator:
         """
         Core evaluation loop. Translates gold IDs, queries the system,
         and accumulates all retrieval + answer metrics.
+        Preserves question coverage: missing/rejected gold evidence counts as
+        retrieval failure rather than skipping the query.
         """
         exact_matches, token_f1s, rouge_ls = [], [], []
         recalls_5, hits_5, mrrs, ndcgs_5 = [], [], [], []
         mean_ranks_list, latencies_ms, prompt_tokens_list = [], [], []
+        retrieval_latencies_ms, generation_latencies_ms = [], []
 
         tp_count = fn_count = rf_count = lg_count = dup_skip = 0
+        failed_questions = 0
 
         for q in queries:
-            translated_gold = _translate_gold_ids(q.gold_memory_ids, id_map)
+            gold_ids = getattr(q, "gold_memory_ids", []) or []
+            total_gold = len(gold_ids)
+            translated_gold = _translate_gold_ids(gold_ids, id_map) if total_gold > 0 else []
 
-            # If every gold memory was rejected as a duplicate, skip this query.
-            # NOTE: full_context observe() always returns None (by design), so
-            # translated_gold is always [] for full_context. Only skip for
-            # retrieval-based systems.
-            if not is_full_context and q.gold_memory_ids and not translated_gold:
+            # Track duplicate-rejected evidence count without dropping the question from evaluation
+            if not is_full_context and total_gold > 0 and not translated_gold:
                 dup_skip += 1
-                continue
 
-            res = system.query(q.question)
-            pred = res.get("answer", "")
+            t0 = time.perf_counter()
+            gen_failed = False
+            error_msg = None
+            try:
+                res = system.query(q.question)
+                pred = res.get("answer", "")
+                retrieved_ids = res.get("retrieved_ids", [])
+                latency_ms = res.get("latency_ms", (time.perf_counter() - t0) * 1000.0)
+                prompt_tokens = res.get("prompt_tokens", 0)
+                retrieval_latency = res.get("retrieval_latency_ms", latency_ms)
+                generation_latency = res.get("generation_latency_ms", 0.0)
+                if res.get("generation_failed", False):
+                    gen_failed = True
+                    error_msg = res.get("error", "Generation failed")
+            except Exception as e:
+                gen_failed = True
+                error_msg = str(e)
+                pred = ""
+                retrieved_ids = []
+                latency_ms = (time.perf_counter() - t0) * 1000.0
+                prompt_tokens = 0
+                retrieval_latency = 0.0
+                generation_latency = latency_ms
+
+            if gen_failed:
+                failed_questions += 1
+                pred = ""  # Never substitute a fallback answer on crash
+
             gt = q.ground_truth_answer
-            retrieved_ids = res.get("retrieved_ids", [])
-            latency_ms = res.get("latency_ms", 0.0)
-            prompt_tokens = res.get("prompt_tokens", 0)
 
             # Answer-level metrics
-            em = compute_exact_match(pred, gt)
-            tf1 = compute_token_f1(pred, gt)
-            rl = compute_rouge_l(pred, gt)
+            em = compute_exact_match(pred, gt) if not gen_failed else 0.0
+            tf1 = compute_token_f1(pred, gt) if not gen_failed else 0.0
+            rl = compute_rouge_l(pred, gt) if not gen_failed else 0.0
             exact_matches.append(em)
             token_f1s.append(tf1)
             rouge_ls.append(rl)
             latencies_ms.append(latency_ms)
+            retrieval_latencies_ms.append(retrieval_latency)
+            generation_latencies_ms.append(generation_latency)
             prompt_tokens_list.append(prompt_tokens)
 
             # Retrieval metrics (N/A for full-context baselines)
             cat = "N/A"
-            if not is_full_context and translated_gold:
-                r5 = compute_recall_at_k(retrieved_ids, translated_gold, k=5)
+            if not is_full_context and total_gold > 0:
+                r5 = compute_recall_at_k(retrieved_ids, translated_gold, k=5, total_gold_count=total_gold)
                 h5 = compute_hit_at_k(retrieved_ids, translated_gold, k=5)
                 mrr = compute_mrr(retrieved_ids, translated_gold)
                 ndcg = compute_ndcg_at_k(retrieved_ids, translated_gold, k=5)
@@ -147,12 +187,15 @@ class BenchmarkEvaluator:
                     prediction=pred,
                     ground_truth=gt,
                     is_full_context=False,
+                    total_gold_count=total_gold,
                 )
                 cat = ev["category_2x2"]
                 if cat == "TRUE_POSITIVE":       tp_count += 1
                 elif cat == "REASONING_FAILURE": fn_count += 1
                 elif cat == "RETRIEVAL_FAILURE": rf_count += 1
                 elif cat == "LUCKY_GUESS":       lg_count += 1
+            elif is_full_context:
+                cat = "FULL_CONTEXT_MEASURED"
 
             if self.logger:
                 self.logger.log_query(
@@ -171,15 +214,22 @@ class BenchmarkEvaluator:
                         "category": q.category,
                         "difficulty": q.difficulty,
                         "category_2x2": cat,
+                        "generation_failed": gen_failed,
+                        "error": error_msg,
                     },
                 )
 
         n = len(exact_matches)
         p50 = float(np.percentile(latencies_ms, 50)) if latencies_ms else 0.0
         p95 = float(np.percentile(latencies_ms, 95)) if latencies_ms else 0.0
+        p50_retrieval = float(np.percentile(retrieval_latencies_ms, 50)) if retrieval_latencies_ms else 0.0
+        p95_retrieval = float(np.percentile(retrieval_latencies_ms, 95)) if retrieval_latencies_ms else 0.0
+        p50_generation = float(np.percentile(generation_latencies_ms, 50)) if generation_latencies_ms else 0.0
+        p95_generation = float(np.percentile(generation_latencies_ms, 95)) if generation_latencies_ms else 0.0
 
         return {
             "samples": n,
+            "failed_questions": failed_questions,
             "exact_match": float(np.mean(exact_matches)) if exact_matches else 0.0,
             "token_f1": float(np.mean(token_f1s)) if token_f1s else 0.0,
             "rouge_l": float(np.mean(rouge_ls)) if rouge_ls else 0.0,
@@ -191,6 +241,10 @@ class BenchmarkEvaluator:
             "mean_tokens": float(np.mean(prompt_tokens_list)) if prompt_tokens_list else 0.0,
             "p50_latency": p50,
             "p95_latency": p95,
+            "p50_retrieval_latency": p50_retrieval,
+            "p95_retrieval_latency": p95_retrieval,
+            "p50_generation_latency": p50_generation,
+            "p95_generation_latency": p95_generation,
             "2x2_matrix": {
                 "true_positives": tp_count,
                 "reasoning_failures": fn_count,
@@ -200,12 +254,15 @@ class BenchmarkEvaluator:
             },
         }
 
-    def evaluate_update_benchmark(self, system, num_samples: int = 100) -> dict:
+    def evaluate_update_benchmark(self, system, num_samples: int = 100, seed: int = 42) -> dict:
         """Knowledge-update benchmark: can the system track the LATEST state?"""
-        gen = LargeSyntheticDatasetGenerator(seed=42)
+        gen = LargeSyntheticDatasetGenerator(seed=seed)
+        if hasattr(system, "set_seed"):
+            system.set_seed(seed)
         system.reset()
 
         data = gen.generate_gold_update_dataset(num_questions=num_samples)
+        dataset_hash = _compute_dataset_hash(data)
         is_fc = system.name == "full_context"
         id_map = {}
         all_queries = []
@@ -217,16 +274,24 @@ class BenchmarkEvaluator:
         result = self._evaluate_query_set(
             system, all_queries, id_map, "knowledge_update", is_fc
         )
-        result.update({"system": system.name, "benchmark": "knowledge_update"})
+        result.update({
+            "system": system.name,
+            "benchmark": "knowledge_update",
+            "seed": seed,
+            "dataset_hash": dataset_hash,
+        })
         system.reset()
         return result
 
-    def evaluate_contradiction_benchmark(self, system, num_samples: int = 100) -> dict:
+    def evaluate_contradiction_benchmark(self, system, num_samples: int = 100, seed: int = 42) -> dict:
         """Contradiction benchmark: does trust/source determine the winning fact?"""
-        gen = LargeSyntheticDatasetGenerator(seed=42)
+        gen = LargeSyntheticDatasetGenerator(seed=seed)
+        if hasattr(system, "set_seed"):
+            system.set_seed(seed)
         system.reset()
 
         data = gen.generate_gold_contradiction_dataset(num_questions=num_samples)
+        dataset_hash = _compute_dataset_hash(data)
         is_fc = system.name == "full_context"
         id_map = {}
         all_queries = []
@@ -238,16 +303,24 @@ class BenchmarkEvaluator:
         result = self._evaluate_query_set(
             system, all_queries, id_map, "contradiction", is_fc
         )
-        result.update({"system": system.name, "benchmark": "contradiction"})
+        result.update({
+            "system": system.name,
+            "benchmark": "contradiction",
+            "seed": seed,
+            "dataset_hash": dataset_hash,
+        })
         system.reset()
         return result
 
-    def evaluate_multihop_benchmark(self, system, num_chains: int = 50) -> dict:
+    def evaluate_multihop_benchmark(self, system, num_chains: int = 50, seed: int = 42) -> dict:
         """Multi-hop benchmark: does the system follow relational chains?"""
-        gen = LargeSyntheticDatasetGenerator(seed=42)
+        gen = LargeSyntheticDatasetGenerator(seed=seed)
+        if hasattr(system, "set_seed"):
+            system.set_seed(seed)
         system.reset()
 
         data = gen.generate_gold_graph_multihop_dataset(num_chains=num_chains)
+        dataset_hash = _compute_dataset_hash(data)
         is_fc = system.name == "full_context"
         id_map = {}
         all_queries = []
@@ -259,7 +332,12 @@ class BenchmarkEvaluator:
         result = self._evaluate_query_set(
             system, all_queries, id_map, "multi_hop", is_fc
         )
-        result.update({"system": system.name, "benchmark": "multi_hop"})
+        result.update({
+            "system": system.name,
+            "benchmark": "multi_hop",
+            "seed": seed,
+            "dataset_hash": dataset_hash,
+        })
         system.reset()
         return result
 

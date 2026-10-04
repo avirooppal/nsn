@@ -1,0 +1,31 @@
+{
+  "fixture": "json-count-v1",
+  "model_calls": 0,
+  "tasks": [
+    {
+      "task": "array",
+      "retrieved": true,
+      "success": true,
+      "result": 3,
+      "expected": 3
+    },
+    {
+      "task": "empty",
+      "retrieved": true,
+      "success": true,
+      "result": 0,
+      "expected": 0
+    },
+    {
+      "task": "invalid",
+      "retrieved": true,
+      "success": false,
+      "result": null,
+      "expected": null
+    }
+  ],
+  "successes": 2,
+  "total": 3,
+  "failure_warning_preserved": true,
+  "claim": "Driver integration evidence only; no baseline or LLM improvement measurement"
+}
