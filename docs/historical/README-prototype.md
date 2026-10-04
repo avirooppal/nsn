@@ -2,6 +2,8 @@
 
 Retained for audit only. Charts and claims below are not current release evidence. Relative paths describe the original README location.
 
+The former standalone dashboards, cloud demo server, root experiments and paper assets were retired during repository cleanup. Commands below referencing them are historical and are not supported setup instructions. Use the [current README](../../README.md) and [current user guide](../user-guide.md).
+
 # NeuroSleepNet
 
 **Lightweight, self-hosted memory for SLMs and AI agents**

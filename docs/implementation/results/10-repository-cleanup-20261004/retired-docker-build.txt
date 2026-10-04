@@ -1,0 +1,78 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 451B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim
+#2 DONE 2.7s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 167B 0.0s done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/python:3.10-slim@sha256:c1aaf3d03e14944a039a1647e0b3f6f34c6bee517bac6ff380215ee099c4e808
+#5 resolve docker.io/library/python:3.10-slim@sha256:c1aaf3d03e14944a039a1647e0b3f6f34c6bee517bac6ff380215ee099c4e808 0.1s done
+#5 DONE 0.1s
+
+#4 [internal] load build context
+#4 transferring context: 165.48kB 0.1s done
+#4 DONE 0.1s
+
+#6 [2/7] WORKDIR /app
+#6 CACHED
+
+#7 [3/7] COPY pyproject.toml README.md NOTICE.md ./
+#7 DONE 0.1s
+
+#8 [4/7] COPY nsn/ ./nsn/
+#8 DONE 0.1s
+
+#9 [5/7] COPY neurosleepnet/ ./neurosleepnet/
+#9 DONE 0.1s
+
+#10 [6/7] COPY examples/restart_demo.py ./restart_demo.py
+#10 DONE 0.1s
+
+#11 [7/7] RUN pip install --no-cache-dir .
+#11 4.906 Processing /app
+#11 4.913   Installing build dependencies: started
+#11 8.193   Installing build dependencies: finished with status 'done'
+#11 8.196   Getting requirements to build wheel: started
+#11 9.112   Getting requirements to build wheel: finished with status 'done'
+#11 9.116   Preparing metadata (pyproject.toml): started
+#11 9.887   Preparing metadata (pyproject.toml): finished with status 'done'
+#11 10.13 Collecting pyyaml>=6.0
+#11 10.20   Downloading pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (770 kB)
+#11 10.34      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 770.3/770.3 kB 6.1 MB/s eta 0:00:00
+#11 10.36 Building wheels for collected packages: nsn
+#11 10.38   Building wheel for nsn (pyproject.toml): started
+#11 13.91   Building wheel for nsn (pyproject.toml): finished with status 'done'
+#11 13.91   Created wheel for nsn: filename=nsn-0.3.0-py3-none-any.whl size=106186 sha256=c988cdee7c012d69c62a7d5d07269503ef734524eb3089df17da32df86ead3ab
+#11 13.91   Stored in directory: /tmp/pip-ephem-wheel-cache-mj41qh_f/wheels/9b/2c/d1/15e20a2b97f37ccf65a87ba1049c73a9076d0bf0fbaf814e83
+#11 13.92 Successfully built nsn
+#11 14.04 Installing collected packages: pyyaml, nsn
+#11 14.29 Successfully installed nsn-0.3.0 pyyaml-6.0.3
+#11 14.29 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#11 14.45 
+#11 14.45 [notice] A new release of pip is available: 23.0.1 -> 26.2.1
+#11 14.45 [notice] To update, run: pip install --upgrade pip
+#11 DONE 14.8s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 0.5s done
+#12 exporting manifest sha256:95d23b7642eb3ebc7d880e7abe2ca7e7b5b51189682493591c3f2f4db9052190 0.0s done
+#12 exporting config sha256:bd97cea321036b50bc2b47a746438b9f3d6af7900b5622585e2be467cc8e10f6 0.0s done
+#12 exporting attestation manifest sha256:43a759ab8534083991e9615432bf1df9b5cd93b5fb91f7c727af192e2190a842 0.1s done
+#12 exporting manifest list sha256:d1b4348f4429ecd67d771e98abd22e0635a659b554896fa483d2620bf987c23c
+#12 exporting manifest list sha256:d1b4348f4429ecd67d771e98abd22e0635a659b554896fa483d2620bf987c23c 0.0s done
+#12 naming to docker.io/library/nsn-cleanup-check:20261004 done
+#12 unpacking to docker.io/library/nsn-cleanup-check:20261004
+#12 unpacking to docker.io/library/nsn-cleanup-check:20261004 0.4s done
+#12 DONE 1.2s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/mf9n063usm29pr09t5qm5m9gy

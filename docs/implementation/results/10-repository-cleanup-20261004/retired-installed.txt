@@ -1,0 +1,1 @@
+{"minimal_wheel": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-build-check-20261004\\venv\\Lib\\site-packages\\nsn\\__init__.py", "network_denied": true, "restart_recall": true, "namespace_isolation": true, "package_yaml": true, "import_threads_unchanged": true}

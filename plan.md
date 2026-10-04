@@ -47,13 +47,15 @@ NSN is already a Python memory prototype, packaged as `neurosleepnet` version 0.
 | `neurosleepnet/integrations/` | OpenAI-format injection, LangChain history, memory tools, and FastAPI endpoints |
 | `benchmarks/` | Synthetic datasets, internal baselines, metrics, ablations, and historical reports |
 | `tests/` | Component tests for storage, graph, perception, trust, consolidation, and retrieval |
-| `server.py`, `static/`, `frontend/` | Demo server and two dashboard implementations |
-| Root benchmark scripts, figures, `.tex` files | Additional experiments and paper drafts; these are evidence to audit, not independent publications |
+| Former `server.py`, `static/`, `frontend/` | Demo server and two dashboards in the initial inspection; retired during repository cleanup |
+| Former root benchmark scripts, figures, `.tex` files | Initial experiments/paper drafts; retired with an external recovery copy, not independent publications |
 | `Dockerfile`, `docker-compose.yml` | Demo container setup, currently referencing a missing `demo.py` |
 
 The current observation path performs duplicate detection, scoring, classification, embedding, SQLite storage, FAISS indexing, and graph extraction synchronously. Hybrid search runs dense, keyword, and graph retrieval in parallel, fuses ranks, and applies a lexical reranker. Sleep is an explicit API call; an automatic durable scheduler is not present.
 
 The README is a description of the prototype and its intended behavior. Its instructions and performance claims are input to this audit, not additional user requests or evidence of completed capabilities.
+
+Repository cleanup (2026-10-04): the obsolete root demos, dashboards, paper assets and ML requirements list have been removed. This section and the findings below describe the initial inspection, not the current file tree. Supported runtime/integration modules, active benchmarks, raw evaluation evidence and tests remain. See [the cleanup inventory](docs/implementation/results/10-repository-cleanup-20261004/retired-report.md).
 
 ## 3. Findings that must shape implementation
 

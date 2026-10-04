@@ -91,7 +91,9 @@ Historical prototype charts are retained in [the archived README](docs/historica
 | `docs/implementation/` | Phase briefs, handoffs and reproducible evidence |
 | `dist/` | Preserved local wheel candidates |
 
-`build/`, `__pycache__/` and `.pytest_cache/` are disposable generated output. Memory databases, model assets and evaluation artifacts contain state or evidence; do not treat them as caches. `nsn.egg-info/` may support an active editable installation. Historical paper files and optional UI assets are retained outside the minimal installed package.
+`build/`, `__pycache__/` and `.pytest_cache/` are disposable generated output. Memory databases, model assets and evaluation artifacts contain state or evidence; do not treat them as caches. `nsn.egg-info/` may support an active editable installation.
+
+Retired dashboards, the old standalone cloud server, paper drafts/figures and superseded root benchmark scripts have been removed from the repository. The supported optional REST factory remains in `neurosleepnet/integrations/api.py`. Dependencies are defined in `pyproject.toml`; the obsolete root ML requirements file has been removed. [Cleanup inventory and validation](docs/implementation/results/10-repository-cleanup-20261004/retired-report.md) records the recovery copy and preserved functionality.
 
 ## Compatibility and distribution
 

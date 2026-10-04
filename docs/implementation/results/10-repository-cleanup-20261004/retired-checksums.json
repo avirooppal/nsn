@@ -1,0 +1,13 @@
+{
+  "retired-build-audit.json": "fe0685a451fec354b7c62bf5fffac81362c05dfd9cfc8c418b9209bb6e8a77e5",
+  "retired-build.txt": "db1c6cc6496aa78568dbf7541e3f33575dc2020531e78dd07af6bb70917c9a9d",
+  "retired-docker-build.txt": "e858798eac00dc065f364d50f8ef24e0476f9ee9638cdad7d42360679f94ef41",
+  "retired-docker-smoke.txt": "e7f204bf5e732a9521d4d827d9c25f354eedf8b80d1e8483a4c1be2b775d61c7",
+  "retired-files.json": "16bb0854133da55822d15713b3cd16bd9c0249a42432287531289a020d3733a8",
+  "retired-functional.txt": "9fa50bc39e5f199d9c4e6289d9be02164c35eb636542debda0539928fe274c6c",
+  "retired-installed.txt": "51b71681a1c9fd26f2c07866196f3a6dd1a6f4d1d1b3e9d6145f2b51ba2365ab",
+  "retired-report.md": "c94b0b2bbc0a5b99f785622d03b0e844b874b99777f33a2bab12afa979e65d02",
+  "README.md": "86be202793604883a652aa4cce33388b33be16aeb6ff5e9951d7166a46e50d03",
+  "plan.md": "5315ba5cf2dcac81c4ead40db590c9aca7dc7bc29be0e7c8c96a2fab547d1af1",
+  "docs/historical/README-prototype.md": "eb232277099686dede89877c3088baa6a74fc4260a6d6b3c01a8fd838cf2df78"
+}

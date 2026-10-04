@@ -1,0 +1,1 @@
+Offline persistence fixture passed: gateway port 8080

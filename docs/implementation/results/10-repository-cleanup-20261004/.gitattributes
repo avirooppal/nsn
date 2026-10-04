@@ -1,0 +1,2 @@
+# Keep captured cleanup evidence byte-for-byte across platforms.
+retired-* -text

@@ -1,0 +1,230 @@
+[
+  {
+    "path": "frontend/index.html",
+    "bytes": 6792,
+    "sha256": "4eaf53f19ba73229fd6973f2aa89b3de59711842540c5fd4019aff974e69cb50",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\frontend\\index.html"
+  },
+  {
+    "path": "frontend/main.js",
+    "bytes": 9057,
+    "sha256": "a6ca3d7148b94a580fb6e8bab9e8dd9ebf60b3c94033d82adf004803b98c4635",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\frontend\\main.js"
+  },
+  {
+    "path": "frontend/styles.css",
+    "bytes": 17420,
+    "sha256": "08c295f2285d47630eac68b4b4a756628126058c3ae9a4b92f3fbc5a394d31b5",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\frontend\\styles.css"
+  },
+  {
+    "path": "frontend/assets/logo.webp",
+    "bytes": 14506,
+    "sha256": "c42fab8213978250a3500e74e0abae57b6fe014e7ed5229bc997f891963f7be9",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\frontend\\assets\\logo.webp"
+  },
+  {
+    "path": "frontend/fonts/GeistPixel-Circle.woff2",
+    "bytes": 28044,
+    "sha256": "eb52582a433e572688338d51b894852bef0bd9f18a296616d779051a225f904d",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\frontend\\fonts\\GeistPixel-Circle.woff2"
+  },
+  {
+    "path": "static/index.html",
+    "bytes": 8045,
+    "sha256": "aa7cc2c76af75ff05c992ebefbc1b5c03b92936e15f8314616bae17e221deadd",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\static\\index.html"
+  },
+  {
+    "path": "static/script.js",
+    "bytes": 12723,
+    "sha256": "957071bf9c2181baf0e9c7d6bdb9a4dd94ae509849cd495724522ed9e62ba1d5",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\static\\script.js"
+  },
+  {
+    "path": "static/style.css",
+    "bytes": 14201,
+    "sha256": "e1b368b6a55de8f6512f4c95f8d4dae205485747d70c0fa58fb19d722083e4b8",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\static\\style.css"
+  },
+  {
+    "path": "paper_figures/fig1_recall_grouped.pdf",
+    "bytes": 33821,
+    "sha256": "66f1d5561da2c9ff8be7699f68d93aa6a3c11122130e70cdbab72dd28fa21376",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig1_recall_grouped.pdf"
+  },
+  {
+    "path": "paper_figures/fig1_recall_grouped.png",
+    "bytes": 114059,
+    "sha256": "964ade97afe7ca53f6eb6b6cda90c9bfb3ed687f48360686a58699a2e1392828",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig1_recall_grouped.png"
+  },
+  {
+    "path": "paper_figures/fig2_mrr_grouped.pdf",
+    "bytes": 32451,
+    "sha256": "470a3d2109623043cc96d009b31c70bc0d12ead84259e23fcb91846e46c1a755",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig2_mrr_grouped.pdf"
+  },
+  {
+    "path": "paper_figures/fig2_mrr_grouped.png",
+    "bytes": 120493,
+    "sha256": "5559931b7fb465d80d2fb146d4821c4edd2e6f0767dbeb1bf46f7fb1a0d54595",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig2_mrr_grouped.png"
+  },
+  {
+    "path": "paper_figures/fig3_latency.pdf",
+    "bytes": 28194,
+    "sha256": "7fe7a217c2251b8cfc74eafed19cd7b21a3c7f3ad966c6b14fd7af7e2d601175",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig3_latency.pdf"
+  },
+  {
+    "path": "paper_figures/fig3_latency.png",
+    "bytes": 126194,
+    "sha256": "586826b9e8bc0b5620ca46132e72fbe299b991843f3130d9519625ea4166163f",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig3_latency.png"
+  },
+  {
+    "path": "paper_figures/fig4_primary_benchmark.pdf",
+    "bytes": 30442,
+    "sha256": "19f9f6a4b653f0285bca85fe185f9d2c6276e238ec2b2fc9d06da29ddf1fdcd0",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig4_primary_benchmark.pdf"
+  },
+  {
+    "path": "paper_figures/fig4_primary_benchmark.png",
+    "bytes": 131232,
+    "sha256": "93834893739c382eab757aebc63b985d63b209dd3d04c78e89251db249775f91",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig4_primary_benchmark.png"
+  },
+  {
+    "path": "paper_figures/fig5_ablation.pdf",
+    "bytes": 30958,
+    "sha256": "eafebec4233b2d03fc7a9c7a8e47b56cc29ed7d8ca2e6f8523b1511cd28d7da9",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig5_ablation.pdf"
+  },
+  {
+    "path": "paper_figures/fig5_ablation.png",
+    "bytes": 132207,
+    "sha256": "32c4033895820625be0c424598005771c03390a96bed9ea583cde8e83dfc25dd",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig5_ablation.png"
+  },
+  {
+    "path": "paper_figures/fig6_failure_matrix.pdf",
+    "bytes": 27595,
+    "sha256": "fdc20d1f69ed06ea3c6a6c2905586309b726cbb2be28e25a9f503d156716f514",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig6_failure_matrix.pdf"
+  },
+  {
+    "path": "paper_figures/fig6_failure_matrix.png",
+    "bytes": 90861,
+    "sha256": "33d8b5639d5118a58d6e07ac40354ed3e6da718b500e031a65b187e969888131",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig6_failure_matrix.png"
+  },
+  {
+    "path": "paper_figures/fig7_radar.pdf",
+    "bytes": 26750,
+    "sha256": "11bd26838c8cf8d64e90b2346489b17b9b67cb95363289b08437f58e7c5f331a",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig7_radar.pdf"
+  },
+  {
+    "path": "paper_figures/fig7_radar.png",
+    "bytes": 195139,
+    "sha256": "6e2e80c6762528bcf8b3ec6ff7e05a9bc5335cd0e1cfb21a2fc7e080673bc4d1",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig7_radar.png"
+  },
+  {
+    "path": "paper_figures/fig8_decay_curve.pdf",
+    "bytes": 31880,
+    "sha256": "84cdad1f5418a05ca95320d034aeb28f12745d94fc774b803fe59a2790c6db9b",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig8_decay_curve.pdf"
+  },
+  {
+    "path": "paper_figures/fig8_decay_curve.png",
+    "bytes": 168619,
+    "sha256": "bf88cb6b0253e31db0698f8792f905df650dafaa0bce19d565a36ec3182f35f2",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig8_decay_curve.png"
+  },
+  {
+    "path": "paper_figures/fig9_ndcg.pdf",
+    "bytes": 34371,
+    "sha256": "3d0eb435a3be3b8005c80839b584f5b00e046619453c6493c1ff6a9945473eb0",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig9_ndcg.pdf"
+  },
+  {
+    "path": "paper_figures/fig9_ndcg.png",
+    "bytes": 118500,
+    "sha256": "103c914967525c795984a3ca8b9040b82194679065b04484ff4fb7f686250d15",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_figures\\fig9_ndcg.png"
+  },
+  {
+    "path": "generate_paper_figures.py",
+    "bytes": 25427,
+    "sha256": "68690e84276d776b197c9bf63b0a4dacb16c95d210e7269dde76f8fb9bb665d9",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\generate_paper_figures.py"
+  },
+  {
+    "path": "hardcore_benchmark.py",
+    "bytes": 39521,
+    "sha256": "ab46eef4ad40c1ffd4e27fd471e032b5b35d4e82580aef8a343db0d7e3a08f84",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\hardcore_benchmark.py"
+  },
+  {
+    "path": "ollama_poc_benchmark.py",
+    "bytes": 5026,
+    "sha256": "484d08a3363dc546d3e4804d09d22541cf79a8d97ab92313b3515cfecb9bb93c",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\ollama_poc_benchmark.py"
+  },
+  {
+    "path": "ollama_vanilla_nsn_demo.py",
+    "bytes": 4623,
+    "sha256": "c5e71392630ab82cede9c269462ce5cd80d4de215395d271d98405fb175b385a",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\ollama_vanilla_nsn_demo.py"
+  },
+  {
+    "path": "server.py",
+    "bytes": 5711,
+    "sha256": "ed917df1f60e4e57ab060393655876a1d1e65ca962a3d80296e6da6349257e31",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\server.py"
+  },
+  {
+    "path": "neurosleepnet_ieee_paper.tex",
+    "bytes": 50425,
+    "sha256": "78ab886bd3e40e58a5246d9588f9ef49d6930b34d282b12e12dbd7aa0949bfd3",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\neurosleepnet_ieee_paper.tex"
+  },
+  {
+    "path": "paper_overleaf.tex",
+    "bytes": 54850,
+    "sha256": "c56428848753259b3d812d3915f06657cf30f2475c3878062ca7d8f5d21c37e5",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\paper_overleaf.tex"
+  },
+  {
+    "path": "nsn_overleaf_upload.zip",
+    "bytes": 1299097,
+    "sha256": "a0ff7c4f189463816a64eb02438f9219b2138c51dcf937b00ccca9398f81dfec",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\nsn_overleaf_upload.zip"
+  },
+  {
+    "path": "nsn_v2_optimized_benchmark.png",
+    "bytes": 235381,
+    "sha256": "76a92706f993d3e6046fc049201331fec2a9a0d725164ccd62b843bc77e07f37",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\nsn_v2_optimized_benchmark.png"
+  },
+  {
+    "path": "nsn_vs_buffermemory_hardcore_benchmark.png",
+    "bytes": 174656,
+    "sha256": "a3c4202ded87a4e24b555df30ec5747555d75d32e405d38068437ef63ce7602e",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\nsn_vs_buffermemory_hardcore_benchmark.png"
+  },
+  {
+    "path": "nsn_vs_vanilla_hardcore_benchmark.png",
+    "bytes": 148127,
+    "sha256": "3fff03127e9f5035a892ca3e1a82dd2b043bcc687e4d593176f05f75cefe3078",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\nsn_vs_vanilla_hardcore_benchmark.png"
+  },
+  {
+    "path": "requirements.txt",
+    "bytes": 90,
+    "sha256": "c79044a5fd8a296c516e9ae988bf7b73d2892b8bec976217e4196f3f556851d4",
+    "archive": "C:\\Users\\aviroop\\AppData\\Local\\Temp\\nsn-retired-artifacts-20261004\\requirements.txt"
+  }
+]
